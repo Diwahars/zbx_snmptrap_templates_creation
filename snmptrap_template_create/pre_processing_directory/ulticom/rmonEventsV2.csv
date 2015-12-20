@@ -1,0 +1,10 @@
+"Name","Full Name","OID","Type","Access","Indexes","MIB Module","Description"
+"rmonEventsV2",".iso.org.dod.internet.mgmt.mib-2.rmon.rmonEventsV2",".1.3.6.1.2.1.16.0",,,"","RMON-MIB","Definition point for RMON notifications."
+"risingAlarm",".iso.org.dod.internet.mgmt.mib-2.rmon.rmonEventsV2.risingAlarm",".1.3.6.1.2.1.16.0.1",,,"","RMON-MIB","The SNMP trap that is generated when an alarm
+entry crosses its rising threshold and generates
+an event that is configured for sending SNMP
+traps."
+"fallingAlarm",".iso.org.dod.internet.mgmt.mib-2.rmon.rmonEventsV2.fallingAlarm",".1.3.6.1.2.1.16.0.2",,,"","RMON-MIB","The SNMP trap that is generated when an alarm
+entry crosses its falling threshold and generates
+an event that is configured for sending SNMP
+traps."

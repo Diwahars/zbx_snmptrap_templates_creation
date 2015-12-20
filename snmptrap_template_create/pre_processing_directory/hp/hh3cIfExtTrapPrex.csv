@@ -1,0 +1,10 @@
+"Name","Full Name","OID","Type","Access","Indexes","MIB Module","Description"
+"hh3cIfExtTrapPrex",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIfExt.hh3cIfExtTrap.hh3cIfExtTrapPrex",".1.3.6.1.4.1.25506.2.40.3.0",,,"","HH3C-IF-EXT-MIB",
+"hh3cIfBandwidthUsageHigh",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIfExt.hh3cIfExtTrap.hh3cIfExtTrapPrex.hh3cIfBandwidthUsageHigh",".1.3.6.1.4.1.25506.2.40.3.0.1",,,"","HH3C-IF-EXT-MIB","The notification is generated when the rate of the bandwidth for the
+interface exceeds the upper limit."
+"hh3cIfDiscardPktRateHigh",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIfExt.hh3cIfExtTrap.hh3cIfExtTrapPrex.hh3cIfDiscardPktRateHigh",".1.3.6.1.4.1.25506.2.40.3.0.2",,,"","HH3C-IF-EXT-MIB","The notification is generated when the rate of the discarded packets
+for the interface exceeds the upper limit."
+"hh3cIfDampeningSuppressed",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIfExt.hh3cIfExtTrap.hh3cIfExtTrapPrex.hh3cIfDampeningSuppressed",".1.3.6.1.4.1.25506.2.40.3.0.3",,,"","HH3C-IF-EXT-MIB","The notification is generated when the interface is suppressed
+via dampening."
+"hh3cIfDampeningNotSuppressed",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIfExt.hh3cIfExtTrap.hh3cIfExtTrapPrex.hh3cIfDampeningNotSuppressed",".1.3.6.1.4.1.25506.2.40.3.0.4",,,"","HH3C-IF-EXT-MIB","The notification is generated when the interface is resumed to
+not suppressed via dampening."

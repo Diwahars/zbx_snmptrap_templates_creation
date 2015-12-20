@@ -1,0 +1,5 @@
+"Name","Full Name","OID","Type","Access","Indexes","MIB Module","Description"
+"hh3cARPRatelimitTraps",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cARPRatelimit.hh3cARPRatelimitObjects.hh3cARPRatelimitTrap.hh3cARPRatelimitTraps",".1.3.6.1.4.1.25506.2.110.1.1.0",,,"","HH3C-ARP-RATELIMIT-MIB",
+"hh3cARPRatelimitOverspeedTrap",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cARPRatelimit.hh3cARPRatelimitObjects.hh3cARPRatelimitTrap.hh3cARPRatelimitTraps.hh3cARPRatelimitOverspeedTrap",".1.3.6.1.4.1.25506.2.110.1.1.0.1",,,"","HH3C-ARP-RATELIMIT-MIB","If the rate of ARP packets delivered to the CPU on a device
+exceeds the threshold, a trap message is generated and sent
+to the remote monitoring device."

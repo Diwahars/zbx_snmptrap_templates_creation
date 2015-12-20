@@ -1,0 +1,17 @@
+"Name","Full Name","OID","Type","Access","Indexes","MIB Module","Description"
+"cmnMIBNotifications",".iso.org.dod.internet.private.enterprises.cisco.ciscoMgmt.ciscoMacNotificationMIB.cmnMIBNotificationPrefix.cmnMIBNotifications",".1.3.6.1.4.1.9.9.215.2.0",,,"","CISCO-MAC-NOTIFICATION-MIB",
+"cmnMacChangedNotification",".iso.org.dod.internet.private.enterprises.cisco.ciscoMgmt.ciscoMacNotificationMIB.cmnMIBNotificationPrefix.cmnMIBNotifications.cmnMacChangedNotification",".1.3.6.1.4.1.9.9.215.2.0.1",,,"","CISCO-MAC-NOTIFICATION-MIB","This notification is generated when there is enough MAC
+address information to fully occupy a maximum size SNMP trap
+message. This notification is also generated when there
+is at least one MAC address changed or removed and the amount
+of time elapsed from the previous notification is greater
+than the maximum wait time denoted by
+cmnNotificationInterval object.
+If there are more MAC addresses information than can fit into
+one cmmHistTrapContent object, then multiple notifications
+will be generated."
+"cmnMacMoveNotification",".iso.org.dod.internet.private.enterprises.cisco.ciscoMgmt.ciscoMacNotificationMIB.cmnMIBNotificationPrefix.cmnMIBNotifications.cmnMacMoveNotification",".1.3.6.1.4.1.9.9.215.2.0.2",,,"","CISCO-MAC-NOTIFICATION-MIB","cmnMacMoveNotification is generated when a MAC address is
+moved between two interfaces."
+"cmnMacThresholdExceedNotif",".iso.org.dod.internet.private.enterprises.cisco.ciscoMgmt.ciscoMacNotificationMIB.cmnMIBNotificationPrefix.cmnMIBNotifications.cmnMacThresholdExceedNotif",".1.3.6.1.4.1.9.9.215.2.0.3",,,"","CISCO-MAC-NOTIFICATION-MIB","cmnMacThresholdExceedNotif is sent when
+cmnUtilizationUtilization exceeds or equals to the
+cmnMACThresholdLimit for a given entPhysicalIndex."

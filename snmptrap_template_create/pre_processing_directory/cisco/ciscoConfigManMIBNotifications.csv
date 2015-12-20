@@ -1,0 +1,4 @@
+"Name","Full Name","OID","Type","Access","Indexes","MIB Module","Description"
+"ciscoConfigManMIBNotifications",".iso.org.dod.internet.private.enterprises.cisco.ciscoMgmt.ciscoConfigManMIB.ciscoConfigManMIBNotificationPrefix.ciscoConfigManMIBNotifications",".1.3.6.1.4.1.9.9.43.2.0",,,"","CISCO-CONFIG-MAN-MIB",
+"ciscoConfigManEvent",".iso.org.dod.internet.private.enterprises.cisco.ciscoMgmt.ciscoConfigManMIB.ciscoConfigManMIBNotificationPrefix.ciscoConfigManMIBNotifications.ciscoConfigManEvent",".1.3.6.1.4.1.9.9.43.2.0.1",,,"","CISCO-CONFIG-MAN-MIB","Notification of a configuration management event as
+recorded in ccmHistoryEventTable."

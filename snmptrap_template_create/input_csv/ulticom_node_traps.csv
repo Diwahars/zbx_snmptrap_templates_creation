@@ -1,0 +1,48 @@
+MIB-MODULE,MibFile,OID,Name,action,comments,Description,Trigger Description Name,dependency,clear time in days
+ALARM-MIB,ALARM-MIB,.1.3.6.1.2.1.118.0.2,alarmActiveState,Information,,"An instance of the alarm indicated by
+alarmActiveModelPointer has been raised
+against the entity indicated by
+alarmActiveResourceId.
+The agent must throttle the generation of
+consecutive alarmActiveState traps so that there is at
+least a two-second gap between traps of this
+type against the same alarmActiveModelPointer and
+alarmActiveResourceId.  When traps are throttled,
+they are dropped, not queued for sending at a future time.
+A management application should periodically check
+the value of alarmActiveLastChanged to detect any
+missed alarmActiveState notification-events, e.g.,
+due to throttling or transmission loss.",,.1.3.6.1.2.1.118.0.3,3d
+ALARM-MIB,ALARM-MIB,.1.3.6.1.2.1.118.0.3,alarmClearState,Clear,,"An instance of the alarm indicated by
+alarmActiveModelPointer has been cleared against
+the entity indicated by alarmActiveResourceId.
+The agent must throttle the generation of
+consecutive alarmActiveClear traps so that there is at
+least a two-second gap between traps of this
+type against the same alarmActiveModelPointer and
+alarmActiveResourceId.  When traps are throttled,
+they are dropped, not queued for sending at a future time.
+A management application should periodically check
+the value of alarmActiveLastChanged to detect any
+missed alarmClearState notification-events, e.g.,
+due to throttling or transmission loss.",,NONE,3d
+RMON-MIB,RMON-MIB,.1.3.6.1.2.1.16.0.1,risingAlarm,Major,,"The SNMP trap that is generated when an alarm
+entry crosses its rising threshold and generates
+an event that is configured for sending SNMP
+traps.",,NONE,3d
+RMON-MIB,RMON-MIB,.1.3.6.1.2.1.16.0.2,fallingAlarm,Information,,"The SNMP trap that is generated when an alarm
+entry crosses its falling threshold and generates
+an event that is configured for sending SNMP
+traps.",,NONE,3d
+ULTICOM-SWNR-MIB,ULTICOM-SWNR-MIB,.1.3.6.1.4.1.6629.10.1.0.1,ulcmNsStandardEvent,Information,,"StandardEvent Notification:Raised when an event with no
+associated resource is detected into the swnr platform",,NONE,3d
+ULTICOM-SWNR-MIB,ULTICOM-SWNR-MIB,.1.3.6.1.4.1.6629.10.1.0.2,ulcmNsResourceEvent,Information,,"ResourceEvent Notification:Raised when an event with an
+associated resource is detected into the swnr platform",,NONE,3d
+ULTICOM-SWNR-MIB,ULTICOM-SWNR-MIB,.1.3.6.1.4.1.6629.10.1.0.3,ulcmNsShutdown,Major,,"Shutdown Notification:Raised when an swnr platform shutdown
+is detected",,NONE,3d
+ULTICOM-SWNR-MIB,ULTICOM-SWNR-MIB,.1.3.6.1.4.1.6629.10.1.0.4,ulcmNsActiveAgentChange,Information,,"ActiveAgentChange Notification:Raised when the SNMP agent is
+designed as 'active' by TAP",,NONE,3d
+ULTICOM-SWNR-MIB,ULTICOM-SWNR-MIB,.1.3.6.1.4.1.6629.10.1.0.5,ulcmNsAlarmActive,Major,,"AlarmActive Notification:Raised when a new alarm is created into
+the AlarmActiveTable",,.1.3.6.1.4.1.6629.10.1.0.6,3d
+ULTICOM-SWNR-MIB,ULTICOM-SWNR-MIB,.1.3.6.1.4.1.6629.10.1.0.6,ulcmNsAlarmClear,Clear,,"AlarmActive Notification:Raised when a previously created alarm
+is deleted from AlarmActiveTable",,NONE,3d

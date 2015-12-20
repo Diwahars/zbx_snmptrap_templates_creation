@@ -1,0 +1,34 @@
+"Name","Full Name","OID","Type","Access","Indexes","MIB Module","Description"
+"cefcMIBNotifications",".iso.org.dod.internet.private.enterprises.cisco.ciscoMgmt.ciscoEntityFRUControlMIB.cefcFRUMIBNotificationPrefix.cefcMIBNotifications",".1.3.6.1.4.1.9.9.117.2.0",,,"","CISCO-ENTITY-FRU-CONTROL-MIB",
+"cefcModuleStatusChange",".iso.org.dod.internet.private.enterprises.cisco.ciscoMgmt.ciscoEntityFRUControlMIB.cefcFRUMIBNotificationPrefix.cefcMIBNotifications.cefcModuleStatusChange",".1.3.6.1.4.1.9.9.117.2.0.1",,,"","CISCO-ENTITY-FRU-CONTROL-MIB","This notification is generated when the value of
+cefcModuleOperStatus changes. It can be utilized by
+an NMS to update the status of the module it is
+managing.
+"
+"cefcPowerStatusChange",".iso.org.dod.internet.private.enterprises.cisco.ciscoMgmt.ciscoEntityFRUControlMIB.cefcFRUMIBNotificationPrefix.cefcMIBNotifications.cefcPowerStatusChange",".1.3.6.1.4.1.9.9.117.2.0.2",,,"","CISCO-ENTITY-FRU-CONTROL-MIB","The cefcFRUPowerStatusChange notification indicates that
+the power status of a FRU has changed. The varbind for this
+notification indicates the entPhysicalIndex of the FRU,
+and the new operational-status of the FRU."
+"cefcFRUInserted",".iso.org.dod.internet.private.enterprises.cisco.ciscoMgmt.ciscoEntityFRUControlMIB.cefcFRUMIBNotificationPrefix.cefcMIBNotifications.cefcFRUInserted",".1.3.6.1.4.1.9.9.117.2.0.3",,,"","CISCO-ENTITY-FRU-CONTROL-MIB","The cecfFRUInserted notification indicates that a FRU was
+inserted. The varbind for this notification indicates the
+entPhysicalIndex of the inserted FRU, and the entPhysicalIndex
+of the FRU's container."
+"cefcFRURemoved",".iso.org.dod.internet.private.enterprises.cisco.ciscoMgmt.ciscoEntityFRUControlMIB.cefcFRUMIBNotificationPrefix.cefcMIBNotifications.cefcFRURemoved",".1.3.6.1.4.1.9.9.117.2.0.4",,,"","CISCO-ENTITY-FRU-CONTROL-MIB","The cefcFRURemoved notification indicates that a FRU was
+removed. The varbind for this notification indicates the
+entPhysicalIndex of the removed FRU, and the entPhysicalIndex
+of the FRU's container."
+"cefcUnrecognizedFRU",".iso.org.dod.internet.private.enterprises.cisco.ciscoMgmt.ciscoEntityFRUControlMIB.cefcFRUMIBNotificationPrefix.cefcMIBNotifications.cefcUnrecognizedFRU",".1.3.6.1.4.1.9.9.117.2.0.5",,,"","CISCO-ENTITY-FRU-CONTROL-MIB","The cefcUnrecognizedFRU notification indicates that a FRU was
+inserted whose product ID is not supported. The varbind for
+this notification indicates the entPhysicalIndex of the
+inserted FRU, the entPhysicalClass this FRU belongs to, the
+entPhysicalVendorType of this FRU, the entPhysicalName
+of the FRU, the entPhysicalModelName of the inserted FRU, and
+the cefcPhysicalStatus telling the reason code for sending this
+notification. "
+"cefcFanTrayStatusChange",".iso.org.dod.internet.private.enterprises.cisco.ciscoMgmt.ciscoEntityFRUControlMIB.cefcFRUMIBNotificationPrefix.cefcMIBNotifications.cefcFanTrayStatusChange",".1.3.6.1.4.1.9.9.117.2.0.6",,,"","CISCO-ENTITY-FRU-CONTROL-MIB","This notification is generated when the value of
+cefcFanTrayOperStatus changes. "
+"cefcPowerSupplyOutputChange",".iso.org.dod.internet.private.enterprises.cisco.ciscoMgmt.ciscoEntityFRUControlMIB.cefcFRUMIBNotificationPrefix.cefcMIBNotifications.cefcPowerSupplyOutputChange",".1.3.6.1.4.1.9.9.117.2.0.7",,,"","CISCO-ENTITY-FRU-CONTROL-MIB","The notification indicates that the power
+supply's output capacity has changed.
+This notification is triggered whenever one instance
+of the power supply's cefcPSOutputModeInOperation
+has transitioned from 'false' to 'true'."

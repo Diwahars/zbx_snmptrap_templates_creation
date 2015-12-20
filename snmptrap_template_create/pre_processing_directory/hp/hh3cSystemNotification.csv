@@ -1,0 +1,10 @@
+"Name","Full Name","OID","Type","Access","Indexes","MIB Module","Description"
+"hh3cSystemNotification",".iso.org.dod.internet.private.enterprises.hh3c.hh3cSystem.hh3cSystemNotification",".1.3.6.1.4.1.25506.6.8",,,"","HH3C-COMMON-SYSTEM-MIB",
+"hh3cWriteSuccessTrap",".iso.org.dod.internet.private.enterprises.hh3c.hh3cSystem.hh3cSystemNotification.hh3cWriteSuccessTrap",".1.3.6.1.4.1.25506.6.8.1",,,"","HH3C-COMMON-SYSTEM-MIB","Send a trap about write success."
+"hh3cWriteFailureTrap",".iso.org.dod.internet.private.enterprises.hh3c.hh3cSystem.hh3cSystemNotification.hh3cWriteFailureTrap",".1.3.6.1.4.1.25506.6.8.2",,,"","HH3C-COMMON-SYSTEM-MIB","Send a trap about write failure."
+"hh3cRebootSendTrap",".iso.org.dod.internet.private.enterprises.hh3c.hh3cSystem.hh3cSystemNotification.hh3cRebootSendTrap",".1.3.6.1.4.1.25506.6.8.3",,,"","HH3C-COMMON-SYSTEM-MIB","If a user restarts the device with command
+'reboot', this trap will be sent two seconds
+before the device reboots."
+"hh3cSysColdStartTrap",".iso.org.dod.internet.private.enterprises.hh3c.hh3cSystem.hh3cSystemNotification.hh3cSysColdStartTrap",".1.3.6.1.4.1.25506.6.8.4",,,"","HH3C-COMMON-SYSTEM-MIB","System cold start trap."
+"hh3cSysWarmStartTrap",".iso.org.dod.internet.private.enterprises.hh3c.hh3cSystem.hh3cSystemNotification.hh3cSysWarmStartTrap",".1.3.6.1.4.1.25506.6.8.5",,,"","HH3C-COMMON-SYSTEM-MIB","System warm start trap."
+"hh3cSysLoghostUnreachableTrap",".iso.org.dod.internet.private.enterprises.hh3c.hh3cSystem.hh3cSystemNotification.hh3cSysLoghostUnreachableTrap",".1.3.6.1.4.1.25506.6.8.6",,,"","HH3C-COMMON-SYSTEM-MIB","This notification will be sent when a loghost becomes unreachable."

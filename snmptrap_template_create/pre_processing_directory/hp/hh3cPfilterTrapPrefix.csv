@@ -1,0 +1,24 @@
+"Name","Full Name","OID","Type","Access","Indexes","MIB Module","Description"
+"hh3cPfilterTrapPrefix",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cAcl.hh3cAclPacketfilterTrap.hh3cPfilterTrapPrefix",".1.3.6.1.4.1.25506.2.8.5.0",,,"","HH3C-ACL-MIB",
+"hh3cMACfilterTrap",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cAcl.hh3cAclPacketfilterTrap.hh3cPfilterTrapPrefix.hh3cMACfilterTrap",".1.3.6.1.4.1.25506.2.8.5.0.1",,,"","HH3C-ACL-MIB","This notification is generated when a packet was processed
+by MAC address filter, but not every packet will generate one
+notification, the same notification only generate once in 30
+seconds.
+"
+"hh3cAclRuleMatchCount",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cAcl.hh3cAclPacketfilterTrap.hh3cPfilterTrapPrefix.hh3cAclRuleMatchCount",".1.3.6.1.4.1.25506.2.8.5.0.2",,,"","HH3C-ACL-MIB","This notification is generated periodically due to a timer.
+The interval of the timer is configured in hh3cAclIntervalTable.
+The notification details the entries about the packet-filter
+object, the matched ACL rule and the number of matching packets.
+"
+"hh3cAclFirstIPv4PktCaptured",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cAcl.hh3cAclPacketfilterTrap.hh3cPfilterTrapPrefix.hh3cAclFirstIPv4PktCaptured",".1.3.6.1.4.1.25506.2.8.5.0.3",,,"","HH3C-ACL-MIB","This notification is generated immediately when the first
+packet of the matched IPv4 flow is captured.  Other packets
+of the matched flow won't be captured.
+"
+"hh3cAclFirstIPv6PktCaptured",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cAcl.hh3cAclPacketfilterTrap.hh3cPfilterTrapPrefix.hh3cAclFirstIPv6PktCaptured",".1.3.6.1.4.1.25506.2.8.5.0.4",,,"","HH3C-ACL-MIB","This notification is generated immediately when the first
+packet of the matched IPv6 flow is captured.  Other packets
+of the matched flow won't be captured.
+"
+"hh3cAclFirstEthernetPktCaptured",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cAcl.hh3cAclPacketfilterTrap.hh3cPfilterTrapPrefix.hh3cAclFirstEthernetPktCaptured",".1.3.6.1.4.1.25506.2.8.5.0.5",,,"","HH3C-ACL-MIB","This notification is generated immediately when the first
+packet of the matched Ethernet flow is captured.  Other packets
+of the matched flow won't be captured.
+"

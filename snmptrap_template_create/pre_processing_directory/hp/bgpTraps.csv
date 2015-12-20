@@ -1,0 +1,7 @@
+"Name","Full Name","OID","Type","Access","Indexes","MIB Module","Description"
+"bgpTraps",".iso.org.dod.internet.mgmt.mib-2.bgp.bgpTraps",".1.3.6.1.2.1.15.7",,,"","BGP4-MIB",
+"bgpEstablished",".iso.org.dod.internet.mgmt.mib-2.bgp.bgpTraps.bgpEstablished",".1.3.6.1.2.1.15.7.1",,,"","BGP4-MIB","The BGP Established event is generated when
+the BGP FSM enters the ESTABLISHED state."
+"bgpBackwardTransition",".iso.org.dod.internet.mgmt.mib-2.bgp.bgpTraps.bgpBackwardTransition",".1.3.6.1.2.1.15.7.2",,,"","BGP4-MIB","The BGPBackwardTransition Event is generated
+when the BGP FSM moves from a higher numbered
+state to a lower numbered state."

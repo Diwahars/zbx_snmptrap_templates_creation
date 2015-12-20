@@ -1,0 +1,919 @@
+<?xml version="1.0" ?>
+<zabbix_export>
+	<version>2.0</version>
+	<date>2015-12-19T21:16:27Z</date>
+	<groups>
+		<group>
+			<name>Custom Template Globe Touch</name>
+		</group>
+	</groups>
+	<templates>
+		<template>
+			<template>Template SNMP Traps AFFIRMED Nodes</template>
+			<name>Template SNMP Traps AFFIRMED Nodes</name>
+			<groups>
+				<group>
+					<name>Custom Template Globe Touch</name>
+				</group>
+			</groups>
+			<applications>
+				<application>
+					<name>Alarms</name>
+				</application>
+			</applications>
+			<items>
+				<item>
+					<name>Alarm Notification For : networkElementNotReachable</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.37963.6.3.1.3.1$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>Management Server will send this notification to its NB Clients (NMS / OSS) whenever
+a managed network element turns unreachable (ICMP).</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : networkElementNotManageable</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.37963.6.3.1.3.2$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>Management Server will send this notification to its NB Clients (NMS / OSS) whenever
+a managed network element is reachable via ICMP but not reachable via the Management protocol (SNMP / TL1 )</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : networkElementManageable</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.37963.6.3.1.3.3$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>Management Server will send this notification to its NB Clients (NMS / OSS) to clear the
+unreachable / not manageable events raised previously.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : unSupportedNetworkElementVersion</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.37963.6.3.1.3.4$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>Management Server will send this notification to its NB Clients (NMS / OSS) whenever it
+encounters / discovers a Network element running an Unsupported software version.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : cliLoginFailed</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.37963.6.3.1.3.5$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>Management Server will send this notification to its NB Clients (NMS / OSS) whenever it
+could not login to the CLI (or TL1) session of the Network Element using the supplied
+Credentials</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : alarmEmailNotificationFailure</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.37963.6.3.1.3.6$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>Management Server will send this notification to its NB Clients (NMS / OSS) upon its
+Failure to send the E-Mail Notification to NB Clients registered for E-Mail Notification</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : dataCollectionFailure</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.37963.6.3.1.3.7$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>Indicates a Failure during Data Collection.
+NB managers can either ignore it (or) log-it.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : temsServerPerfMetricCriticalTCA</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.37963.6.3.1.3.8$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>Management Server will send this notification to its NB Clients (NMS / OSS) to report
+a Critical Threshold Crossing Alert, whenever the Critical Threshold limit is
+crossed for the current Performance Metric</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : temsServerPerfMetricMajorTCA</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.37963.6.3.1.3.9$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>Management Server will send this notification to its NB Clients (NMS / OSS) to report
+a Major Threshold Crossing Alert, whenever the Major Threshold limit is
+crossed for the current Performance Metric</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : temsServerPerfMetricMinorTCA</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.37963.6.3.1.3.10$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>Management Server will send this notification to its NB Clients (NMS / OSS) to report
+a Minor Threshold Crossing Alert, whenever the Minor Threshold limit is
+crossed for the current Performance Metric</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : temsServerPerfMetricClearTCA</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.37963.6.3.1.3.11$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>Management Server will send this notification to its NB Clients (NMS / OSS) to Clear
+the previously raised Critical / Major / Minor TCA for this Performance Metric.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : alarmFromNetworkElement</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.37963.6.3.1.3.12$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>Management Server will send this notification to its NB Clients (NMS / OSS) to report
+an Alarm Raised due to the occurence of a trap from the Network Element.
+Severity List includes Cleared. the Clear Alarm should clear the previous raise Alarm.
+The combination of networkElementIPAddress, sourceComponent (if any), alarmCategory (if available)
+and alarmSeverity shall be used to uniquely identify a specific root cause</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : hotStandbyTakesOver</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.37963.6.3.1.3.13$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>Indicates a Switchover of the Management server from primary to Standby Server.
+Note:This alarm will be triggered only when the Management Server is deployed in a Primary - HotStandBy mode.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : primaryServerisRestored</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.37963.6.3.1.3.14$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>Indicates that the Primary Management Server has been restored back in Service.
+Note:This alarm will be triggered only when the Management Server is deployed in a Primary - HotStandBy mode.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : alarmfromElementManagementSystem</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.37963.6.3.1.3.15$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>Management Server will send this notification to its NB Clients (NMS / OSS) to report
+an Alarm Raised due to the occurence of a trap from the Network Management System.
+Severity List includes Cleared. the Clear Alarm should clear the previous raise Alarm.
+The combination of networkElementIPAddress, sourceComponent (if any), alarmCategory (if available)
+and alarmSeverity shall be used to uniquely identify a specific root cause</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : georedundancyGroupMismatch</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.37963.6.3.1.3.16$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>Management server will send this notification to its NB clients (NMS / OSS) when it detects
+mismatch information from EMS, active and standby network element</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+			</items>
+			<discovery_rules/>
+			<macros/>
+			<templates/>
+			<screens/>
+		</template>
+	</templates>
+	<triggers>
+		<trigger>
+			<expression>{Template SNMP Traps AFFIRMED Nodes:snmptrap[&quot;(\benterprises.37963.6.3.1.3.1$\b)&quot;].str(&quot;enterprises.37963.6.3.1.3.1&quot;)}=1 &amp; {Template SNMP Traps AFFIRMED Nodes:snmptrap[&quot;(\benterprises.37963.6.3.1.3.1$\b)&quot;].nodata(3d)}=0</expression>
+			<name>Managed network element turns unreachable (ICMP).</name>
+			<url/>
+			<status>0</status>
+			<priority>3</priority>
+			<description>Management Server will send this notification to its NB Clients (NMS / OSS) whenever
+a managed network element turns unreachable (ICMP).</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps AFFIRMED Nodes:snmptrap[&quot;(\benterprises.37963.6.3.1.3.2$\b)&quot;].str(&quot;enterprises.37963.6.3.1.3.2&quot;)}=1 &amp; {Template SNMP Traps AFFIRMED Nodes:snmptrap[&quot;(\benterprises.37963.6.3.1.3.2$\b)&quot;].nodata(3d)}=0 &amp; {Template SNMP Traps AFFIRMED Nodes:snmptrap[&quot;(\benterprises.37963.6.3.1.3.3$\b)&quot;].str(&quot;enterprises.37963.6.3.1.3.3&quot;)}=0</expression>
+			<name>Managed network element is reachable via ICMP but not reachable via the Management protocol (SNMP / TL1 )</name>
+			<url/>
+			<status>0</status>
+			<priority>3</priority>
+			<description>Management Server will send this notification to its NB Clients (NMS / OSS) whenever
+a managed network element is reachable via ICMP but not reachable via the Management protocol (SNMP / TL1 )</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps AFFIRMED Nodes:snmptrap[&quot;(\benterprises.37963.6.3.1.3.3$\b)&quot;].str(&quot;enterprises.37963.6.3.1.3.3&quot;)}=1 &amp; {Template SNMP Traps AFFIRMED Nodes:snmptrap[&quot;(\benterprises.37963.6.3.1.3.3$\b)&quot;].nodata(1d)}=0</expression>
+			<name>NB Clients (NMS / OSS) to clear the unreachable / not manageable events raised previously.</name>
+			<url/>
+			<status>0</status>
+			<priority>1</priority>
+			<description>Management Server will send this notification to its NB Clients (NMS / OSS) to clear the
+unreachable / not manageable events raised previously.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps AFFIRMED Nodes:snmptrap[&quot;(\benterprises.37963.6.3.1.3.4$\b)&quot;].str(&quot;enterprises.37963.6.3.1.3.4&quot;)}=1 &amp; {Template SNMP Traps AFFIRMED Nodes:snmptrap[&quot;(\benterprises.37963.6.3.1.3.4$\b)&quot;].nodata(3d)}=0</expression>
+			<name>Encounters / discovers a Network element running an Unsupported software version.</name>
+			<url/>
+			<status>0</status>
+			<priority>3</priority>
+			<description>Management Server will send this notification to its NB Clients (NMS / OSS) whenever it
+encounters / discovers a Network element running an Unsupported software version.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps AFFIRMED Nodes:snmptrap[&quot;(\benterprises.37963.6.3.1.3.5$\b)&quot;].str(&quot;enterprises.37963.6.3.1.3.5&quot;)}=1 &amp; {Template SNMP Traps AFFIRMED Nodes:snmptrap[&quot;(\benterprises.37963.6.3.1.3.5$\b)&quot;].nodata(3d)}=0</expression>
+			<name>Could not login to the CLI (or TL1) session of the Network Element using the supplied Credentials</name>
+			<url/>
+			<status>0</status>
+			<priority>3</priority>
+			<description>Management Server will send this notification to its NB Clients (NMS / OSS) whenever it
+could not login to the CLI (or TL1) session of the Network Element using the supplied
+Credentials</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps AFFIRMED Nodes:snmptrap[&quot;(\benterprises.37963.6.3.1.3.6$\b)&quot;].str(&quot;enterprises.37963.6.3.1.3.6&quot;)}=1 &amp; {Template SNMP Traps AFFIRMED Nodes:snmptrap[&quot;(\benterprises.37963.6.3.1.3.6$\b)&quot;].nodata(3d)}=0</expression>
+			<name>Failure to send the E-Mail Notification to NB Clients registered for E-Mail Notification</name>
+			<url/>
+			<status>0</status>
+			<priority>3</priority>
+			<description>Management Server will send this notification to its NB Clients (NMS / OSS) upon its
+Failure to send the E-Mail Notification to NB Clients registered for E-Mail Notification</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps AFFIRMED Nodes:snmptrap[&quot;(\benterprises.37963.6.3.1.3.7$\b)&quot;].str(&quot;enterprises.37963.6.3.1.3.7&quot;)}=1 &amp; {Template SNMP Traps AFFIRMED Nodes:snmptrap[&quot;(\benterprises.37963.6.3.1.3.7$\b)&quot;].nodata(3d)}=0</expression>
+			<name>Failure during Data Collection. NB managers can either ignore it (or) log-it.</name>
+			<url/>
+			<status>0</status>
+			<priority>3</priority>
+			<description>Indicates a Failure during Data Collection.
+NB managers can either ignore it (or) log-it.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps AFFIRMED Nodes:snmptrap[&quot;(\benterprises.37963.6.3.1.3.8$\b)&quot;].str(&quot;enterprises.37963.6.3.1.3.8&quot;)}=1 &amp; {Template SNMP Traps AFFIRMED Nodes:snmptrap[&quot;(\benterprises.37963.6.3.1.3.8$\b)&quot;].nodata(3d)}=0 &amp; {Template SNMP Traps AFFIRMED Nodes:snmptrap[&quot;(\benterprises.37963.6.3.1.3.11$\b)&quot;].str(&quot;enterprises.37963.6.3.1.3.11&quot;)}=0</expression>
+			<name>Critical Threshold Crossing Alert.</name>
+			<url/>
+			<status>0</status>
+			<priority>5</priority>
+			<description>Management Server will send this notification to its NB Clients (NMS / OSS) to report
+a Critical Threshold Crossing Alert, whenever the Critical Threshold limit is
+crossed for the current Performance Metric</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps AFFIRMED Nodes:snmptrap[&quot;(\benterprises.37963.6.3.1.3.9$\b)&quot;].str(&quot;enterprises.37963.6.3.1.3.9&quot;)}=1 &amp; {Template SNMP Traps AFFIRMED Nodes:snmptrap[&quot;(\benterprises.37963.6.3.1.3.9$\b)&quot;].nodata(3d)}=0 &amp; {Template SNMP Traps AFFIRMED Nodes:snmptrap[&quot;(\benterprises.37963.6.3.1.3.11$\b)&quot;].str(&quot;enterprises.37963.6.3.1.3.11&quot;)}=0</expression>
+			<name>Major Threshold Crossing Alert</name>
+			<url/>
+			<status>0</status>
+			<priority>4</priority>
+			<description>Management Server will send this notification to its NB Clients (NMS / OSS) to report
+a Major Threshold Crossing Alert, whenever the Major Threshold limit is
+crossed for the current Performance Metric</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps AFFIRMED Nodes:snmptrap[&quot;(\benterprises.37963.6.3.1.3.10$\b)&quot;].str(&quot;enterprises.37963.6.3.1.3.10&quot;)}=1 &amp; {Template SNMP Traps AFFIRMED Nodes:snmptrap[&quot;(\benterprises.37963.6.3.1.3.10$\b)&quot;].nodata(3d)}=0 &amp; {Template SNMP Traps AFFIRMED Nodes:snmptrap[&quot;(\benterprises.37963.6.3.1.3.11$\b)&quot;].str(&quot;enterprises.37963.6.3.1.3.11&quot;)}=0</expression>
+			<name>Minor Threshold Crossing Alert</name>
+			<url/>
+			<status>0</status>
+			<priority>2</priority>
+			<description>Management Server will send this notification to its NB Clients (NMS / OSS) to report
+a Minor Threshold Crossing Alert, whenever the Minor Threshold limit is
+crossed for the current Performance Metric</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps AFFIRMED Nodes:snmptrap[&quot;(\benterprises.37963.6.3.1.3.11$\b)&quot;].str(&quot;enterprises.37963.6.3.1.3.11&quot;)}=1 &amp; {Template SNMP Traps AFFIRMED Nodes:snmptrap[&quot;(\benterprises.37963.6.3.1.3.11$\b)&quot;].nodata(1d)}=0</expression>
+			<name>Clear previously raised Critical / Major / Minor TCA for this Performance Metric.</name>
+			<url/>
+			<status>0</status>
+			<priority>1</priority>
+			<description>Management Server will send this notification to its NB Clients (NMS / OSS) to Clear
+the previously raised Critical / Major / Minor TCA for this Performance Metric.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps AFFIRMED Nodes:snmptrap[&quot;(\benterprises.37963.6.3.1.3.12$\b)&quot;].str(&quot;enterprises.37963.6.3.1.3.12&quot;)}=1 &amp; {Template SNMP Traps AFFIRMED Nodes:snmptrap[&quot;(\benterprises.37963.6.3.1.3.12$\b)&quot;].nodata(3d)}=0</expression>
+			<name>Alarm Raised due to the occurence of a trap from the Network Element.</name>
+			<url/>
+			<status>0</status>
+			<priority>3</priority>
+			<description>Management Server will send this notification to its NB Clients (NMS / OSS) to report
+an Alarm Raised due to the occurence of a trap from the Network Element.
+Severity List includes Cleared. the Clear Alarm should clear the previous raise Alarm.
+The combination of networkElementIPAddress, sourceComponent (if any), alarmCategory (if available)
+and alarmSeverity shall be used to uniquely identify a specific root cause</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps AFFIRMED Nodes:snmptrap[&quot;(\benterprises.37963.6.3.1.3.13$\b)&quot;].str(&quot;enterprises.37963.6.3.1.3.13&quot;)}=1 &amp; {Template SNMP Traps AFFIRMED Nodes:snmptrap[&quot;(\benterprises.37963.6.3.1.3.13$\b)&quot;].nodata(3d)}=0 &amp; {Template SNMP Traps AFFIRMED Nodes:snmptrap[&quot;(\benterprises.37963.6.3.1.3.14$\b)&quot;].str(&quot;enterprises.37963.6.3.1.3.14&quot;)}=0</expression>
+			<name>Indicates a Switchover of the Management server from primary to Standby Server.</name>
+			<url/>
+			<status>0</status>
+			<priority>3</priority>
+			<description>Indicates a Switchover of the Management server from primary to Standby Server.
+Note:This alarm will be triggered only when the Management Server is deployed in a Primary - HotStandBy mode.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps AFFIRMED Nodes:snmptrap[&quot;(\benterprises.37963.6.3.1.3.14$\b)&quot;].str(&quot;enterprises.37963.6.3.1.3.14&quot;)}=1 &amp; {Template SNMP Traps AFFIRMED Nodes:snmptrap[&quot;(\benterprises.37963.6.3.1.3.14$\b)&quot;].nodata(1d)}=0</expression>
+			<name>Indicates that the Primary Management Server has been restored back in Service.</name>
+			<url/>
+			<status>0</status>
+			<priority>1</priority>
+			<description>Indicates that the Primary Management Server has been restored back in Service.
+Note:This alarm will be triggered only when the Management Server is deployed in a Primary - HotStandBy mode.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps AFFIRMED Nodes:snmptrap[&quot;(\benterprises.37963.6.3.1.3.15$\b)&quot;].str(&quot;enterprises.37963.6.3.1.3.15&quot;)}=1 &amp; {Template SNMP Traps AFFIRMED Nodes:snmptrap[&quot;(\benterprises.37963.6.3.1.3.15$\b)&quot;].nodata(3d)}=0</expression>
+			<name>Alarm Raised due to the occurence of a trap from the Network Management System.</name>
+			<url/>
+			<status>0</status>
+			<priority>3</priority>
+			<description>Management Server will send this notification to its NB Clients (NMS / OSS) to report
+an Alarm Raised due to the occurence of a trap from the Network Management System.
+Severity List includes Cleared. the Clear Alarm should clear the previous raise Alarm.
+The combination of networkElementIPAddress, sourceComponent (if any), alarmCategory (if available)
+and alarmSeverity shall be used to uniquely identify a specific root cause</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps AFFIRMED Nodes:snmptrap[&quot;(\benterprises.37963.6.3.1.3.16$\b)&quot;].str(&quot;enterprises.37963.6.3.1.3.16&quot;)}=1 &amp; {Template SNMP Traps AFFIRMED Nodes:snmptrap[&quot;(\benterprises.37963.6.3.1.3.16$\b)&quot;].nodata(3d)}=0</expression>
+			<name>Mismatch information from EMS, active and standby network element</name>
+			<url/>
+			<status>0</status>
+			<priority>3</priority>
+			<description>Management server will send this notification to its NB clients (NMS / OSS) when it detects
+mismatch information from EMS, active and standby network element</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+	</triggers>
+	<graphs/>
+</zabbix_export>

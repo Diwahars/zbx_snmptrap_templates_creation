@@ -52,19 +52,19 @@ We can import the file and create small snippet. This will help in automating cr
     
     file_processing_list = [{'file_path': 'input_csv/checkpoint_node_traps.csv',
                                         'template_name': 'Template SNMP Traps CHECKPOINT Nodes',
-                                        'template_group': 'Custom Template GT'},
+                                        'template_group': 'Custom Template Globe Touch'},
                             {'file_path': 'input_csv/cisco_node_traps.csv',
                                         'template_name': 'Template SNMP Traps CISCO Nodes',
-                                        'template_group': 'Custom Template GT'},
+                                        'template_group': 'Custom Template Globe Touch'},
                             {'file_path': 'input_csv/hp_hh3c_node_traps.csv',
                                         'template_name': 'Template SNMP Traps HP HH3C Nodes',
-                                        'template_group': 'Custom Template GT'},
+                                        'template_group': 'Custom Template Globe Touch'},
                             {'file_path': 'input_csv/p4_poland_node_traps.csv',
                                         'template_name': 'Template SNMP Traps P4 Nodes',
-                                        'template_group': 'Custom Template GT'},
+                                        'template_group': 'Custom Template Globe Touch'},
                             {'file_path': 'input_csv/affirmed_node_traps.csv',
                                         'template_name': 'Template SNMP Traps AFFIRMED Nodes',
-                                        'template_group': 'Custom Template GT'}]
+                                        'template_group': 'Custom Template Globe Touch'}]
     
     for file_to_process in file_processing_list:
         print file_to_process
@@ -82,7 +82,7 @@ We can import the file and create small snippet. This will help in automating cr
 Below is an example command to execute the script from command.
 
     [ahmed@zabbix-server-master ~]$ python zabbix_snmptrap_template_import_from_csv.py \
-    -e input_csv/hp_hh3c_node_traps.csv -n "Template SNMP Traps HP Nodes" -g "Custom Template GT" -d
+    -e input_csv/hp_hh3c_node_traps.csv -n "Template SNMP Traps HP Nodes" -g "Custom Template Globe Touch" -d
 
 Here are more options using `-h`.
 

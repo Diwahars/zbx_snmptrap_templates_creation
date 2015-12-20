@@ -1,0 +1,34 @@
+"Name","Full Name","OID","Type","Access","Indexes","MIB Module","Description"
+"ciscoFlashMIBTraps",".iso.org.dod.internet.private.enterprises.cisco.ciscoMgmt.ciscoFlashMIB.ciscoFlashMIBObjects.ciscoFlashMIBTrapPrefix.ciscoFlashMIBTraps",".1.3.6.1.4.1.9.9.10.1.3.0",,,"","CISCO-FLASH-MIB",
+"ciscoFlashCopyCompletionTrap",".iso.org.dod.internet.private.enterprises.cisco.ciscoMgmt.ciscoFlashMIB.ciscoFlashMIBObjects.ciscoFlashMIBTrapPrefix.ciscoFlashMIBTraps.ciscoFlashCopyCompletionTrap",".1.3.6.1.4.1.9.9.10.1.3.0.1",,,"","CISCO-FLASH-MIB","A ciscoFlashCopyCompletionTrap is sent at the
+completion of a flash copy operation if such a trap
+was requested when the operation was initiated.
+"
+"ciscoFlashPartitioningCompletionTrap",".iso.org.dod.internet.private.enterprises.cisco.ciscoMgmt.ciscoFlashMIB.ciscoFlashMIBObjects.ciscoFlashMIBTrapPrefix.ciscoFlashMIBTraps.ciscoFlashPartitioningCompletionTrap",".1.3.6.1.4.1.9.9.10.1.3.0.2",,,"","CISCO-FLASH-MIB","A ciscoFlashPartitioningCompletionTrap is sent at the
+completion of a partitioning operation if such a trap
+was requested when the operation was initiated.
+"
+"ciscoFlashMiscOpCompletionTrap",".iso.org.dod.internet.private.enterprises.cisco.ciscoMgmt.ciscoFlashMIB.ciscoFlashMIBObjects.ciscoFlashMIBTrapPrefix.ciscoFlashMIBTraps.ciscoFlashMiscOpCompletionTrap",".1.3.6.1.4.1.9.9.10.1.3.0.3",,,"","CISCO-FLASH-MIB","A ciscoFlashMiscOpCompletionTrap is sent at the
+completion of a miscellaneous flash operation
+(enumerated in ciscoFlashMiscOpCommand) if such a trap
+was requested when the operation was initiated.
+"
+"ciscoFlashDeviceChangeTrap",".iso.org.dod.internet.private.enterprises.cisco.ciscoMgmt.ciscoFlashMIB.ciscoFlashMIBObjects.ciscoFlashMIBTrapPrefix.ciscoFlashMIBTraps.ciscoFlashDeviceChangeTrap",".1.3.6.1.4.1.9.9.10.1.3.0.4",,,"","CISCO-FLASH-MIB","A ciscoFlashDeviceChangeTrap is sent whenever a
+removable Flash device is inserted or removed.
+"
+"ciscoFlashDeviceInsertedNotif",".iso.org.dod.internet.private.enterprises.cisco.ciscoMgmt.ciscoFlashMIB.ciscoFlashMIBObjects.ciscoFlashMIBTrapPrefix.ciscoFlashMIBTraps.ciscoFlashDeviceInsertedNotif",".1.3.6.1.4.1.9.9.10.1.3.0.5",,,"","CISCO-FLASH-MIB","A ciscoFlashDeviceInsertedNotif notification is sent
+whenever a removable Flash device is inserted."
+"ciscoFlashDeviceRemovedNotif",".iso.org.dod.internet.private.enterprises.cisco.ciscoMgmt.ciscoFlashMIB.ciscoFlashMIBObjects.ciscoFlashMIBTrapPrefix.ciscoFlashMIBTraps.ciscoFlashDeviceRemovedNotif",".1.3.6.1.4.1.9.9.10.1.3.0.6",,,"","CISCO-FLASH-MIB","A ciscoFlashDeviceRemovedNotif notification is sent
+whenever a removable Flash device is removed."
+"ciscoFlashDeviceInsertedNotifRev1",".iso.org.dod.internet.private.enterprises.cisco.ciscoMgmt.ciscoFlashMIB.ciscoFlashMIBObjects.ciscoFlashMIBTrapPrefix.ciscoFlashMIBTraps.ciscoFlashDeviceInsertedNotifRev1",".1.3.6.1.4.1.9.9.10.1.3.0.7",,,"","CISCO-FLASH-MIB","A ciscoFlashDeviceInsertedNotif notification is sent
+whenever a removable Flash device is inserted
+ciscoFlashDeviceInsertedNotifRev1 depcrecates
+ciscoFlashDeviceInsertedNotif since it uses
+ciscoFlashDeviceName as a varbind which is
+deprecated"
+"ciscoFlashDeviceRemovedNotifRev1",".iso.org.dod.internet.private.enterprises.cisco.ciscoMgmt.ciscoFlashMIB.ciscoFlashMIBObjects.ciscoFlashMIBTrapPrefix.ciscoFlashMIBTraps.ciscoFlashDeviceRemovedNotifRev1",".1.3.6.1.4.1.9.9.10.1.3.0.8",,,"","CISCO-FLASH-MIB","A ciscoFlashDeviceRemovedNotif notification is sent
+whenever a removable Flash device is removed.
+ciscoFlashDeviceRemovedNotifRev1 depcrecates
+ciscoFlashDeviceRemovedNotif since it uses
+ciscoFlashDeviceName as a varbind which is
+deprecated"

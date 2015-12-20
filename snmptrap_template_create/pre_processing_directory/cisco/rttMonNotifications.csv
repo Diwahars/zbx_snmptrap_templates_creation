@@ -1,0 +1,78 @@
+"Name","Full Name","OID","Type","Access","Indexes","MIB Module","Description"
+"rttMonNotifications",".iso.org.dod.internet.private.enterprises.cisco.ciscoMgmt.ciscoRttMonMIB.rttMonNotificationsPrefix.rttMonNotifications",".1.3.6.1.4.1.9.9.42.2.0",,,"","CISCO-RTTMON-MIB",
+"rttMonConnectionChangeNotification",".iso.org.dod.internet.private.enterprises.cisco.ciscoMgmt.ciscoRttMonMIB.rttMonNotificationsPrefix.rttMonNotifications.rttMonConnectionChangeNotification",".1.3.6.1.4.1.9.9.42.2.0.1",,,"","CISCO-RTTMON-MIB","This notification is only valid when the RttMonRttType
+is 'echo' or 'pathEcho'.
+A rttMonConnectionChangeNotification indicates that a
+connection to a target (not to a hop along the path
+to a target) has either failed on establishment or
+been lost and when reestablished.  Precisely, this
+has resulted in rttMonCtrlOperConnectionLostOccurred
+changing value.
+If History is not being collected, the instance values
+for the rttMonHistoryCollectionAddress object will not
+be valid.  When RttMonRttType is not 'echo' or 'pathEcho'
+the rttMonHistoryCollectionAddress object will be null."
+"rttMonTimeoutNotification",".iso.org.dod.internet.private.enterprises.cisco.ciscoMgmt.ciscoRttMonMIB.rttMonNotificationsPrefix.rttMonNotifications.rttMonTimeoutNotification",".1.3.6.1.4.1.9.9.42.2.0.2",,,"","CISCO-RTTMON-MIB","A rttMonTimeoutNotification indicates the occurrence of
+a timeout for a RTT operation, and it indicates the
+clearing of such a condition by a subsequent RTT
+operation. Precisely, this has resulted in
+rttMonCtrlOperTimeoutOccurred changing value.
+When the RttMonRttType is 'pathEcho', this
+notification will only be sent when the timeout
+occurs during an operation to the target and not to
+a hop along the path to the target.  This also
+applies to the clearing of the timeout.
+If History is not being collected, the instance values
+for the rttMonHistoryCollectionAddress object will not
+be valid.  When RttMonRttType is not 'echo' or 'pathEcho'
+the rttMonHistoryCollectionAddress object will be null."
+"rttMonThresholdNotification",".iso.org.dod.internet.private.enterprises.cisco.ciscoMgmt.ciscoRttMonMIB.rttMonNotificationsPrefix.rttMonNotifications.rttMonThresholdNotification",".1.3.6.1.4.1.9.9.42.2.0.3",,,"","CISCO-RTTMON-MIB","A rttMonThresholdNotification indicates the
+occurrence of a threshold violation for a RTT operation,
+and it indicates the previous violation has subsided for
+a subsequent RTT operation.  Precisely, this has resulted
+in rttMonCtrlOperOverThresholdOccurred changing value.
+When the RttMonRttType is 'pathEcho', this
+notification will only be sent when the threshold
+violation occurs during an operation to the target and
+not to a hop along the path to the target.  This also
+applies to the subsiding of a threshold condition.
+If History is not being collected, the instance values
+for the rttMonHistoryCollectionAddress object will not
+be valid.  When RttMonRttType is not 'echo' or 'pathEcho'
+the rttMonHistoryCollectionAddress object will be null."
+"rttMonVerifyErrorNotification",".iso.org.dod.internet.private.enterprises.cisco.ciscoMgmt.ciscoRttMonMIB.rttMonNotificationsPrefix.rttMonNotifications.rttMonVerifyErrorNotification",".1.3.6.1.4.1.9.9.42.2.0.4",,,"","CISCO-RTTMON-MIB","A rttMonVerifyErrorNotification indicates the
+occurrence of a data corruption in an RTT operation."
+"rttMonNotification",".iso.org.dod.internet.private.enterprises.cisco.ciscoMgmt.ciscoRttMonMIB.rttMonNotificationsPrefix.rttMonNotifications.rttMonNotification",".1.3.6.1.4.1.9.9.42.2.0.5",,,"","CISCO-RTTMON-MIB","A rttMonNotification indicates the occurrence of a
+threshold violation, and it indicates the previous
+violation has subsided for a subsequent operation.
+When the RttMonRttType is 'pathEcho', this
+notification will only be sent when the threshold
+violation occurs during an operation to the target and
+not to a hop along the path to the target. This also
+applies to the subsiding of a threshold condition.
+If History is not being collected, the instance values
+for the rttMonHistoryCollectionAddress object will not
+be valid. When RttMonRttType is not 'echo' or 'pathEcho'
+the rttMonHistoryCollectionAddress object will be null.
+rttMonReactVar defines the type of reaction that is
+configured for the probe ( e.g jitterAvg, rtt etc ).
+In the rttMonReactTable there are trap definitions
+for the probes and each probe may have more than
+one trap definitions for various types ( e.g rtt,
+jitterAvg, packetLoossSD etc ). So the object rttMonReactVar
+indicates the type ( e.g. rtt, packetLossSD, timeout etc )
+for which threshold violation traps has been generated.
+The object rttMonEchoAdminLSPSelector will be valid only
+for the probes based on 'mplsLspPingAppl' RttMonProtocol. For
+all other probes it will be null."
+"rttMonLpdDiscoveryNotification",".iso.org.dod.internet.private.enterprises.cisco.ciscoMgmt.ciscoRttMonMIB.rttMonNotificationsPrefix.rttMonNotifications.rttMonLpdDiscoveryNotification",".1.3.6.1.4.1.9.9.42.2.0.6",,,"","CISCO-RTTMON-MIB","A rttMonLpdDiscoveryNotification indicates that the LSP Path
+Discovery to the target PE has failed, and it also indicates
+the clearing of such condition. Precisely this has resulted in
+rttMonLpdGrpStatsLPDFailOccurred changing value.
+When the rttMonLpdGrpStatsLPDFailOccurred is 'false', the
+instance value for rttMonLpdGrpStatsLPDFailCause is not valid."
+"rttMonLpdGrpStatusNotification",".iso.org.dod.internet.private.enterprises.cisco.ciscoMgmt.ciscoRttMonMIB.rttMonNotificationsPrefix.rttMonNotifications.rttMonLpdGrpStatusNotification",".1.3.6.1.4.1.9.9.42.2.0.7",,,"","CISCO-RTTMON-MIB","A rttMonLpdGrpStatusNotification indicates that the LPD
+Group status rttMonLpdGrpStatsGroupStatus has changed indicating
+some connectivity change to the target PE.
+This has resulted in rttMonLpdGrpStatsGroupStatus changing
+value."

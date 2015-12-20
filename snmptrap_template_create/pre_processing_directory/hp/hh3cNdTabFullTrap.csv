@@ -1,0 +1,5 @@
+"Name","Full Name","OID","Type","Access","Indexes","MIB Module","Description"
+"hh3cNdTabTrap",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cTrap.hh3cTableGroup.hh3cNdTabStatGroup.hh3cNdTabTrap",".1.3.6.1.4.1.25506.2.38.1.5.4",,,"","HH3C-TRAP-MIB",
+"hh3cNdTabFullTrap",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cTrap.hh3cTableGroup.hh3cNdTabStatGroup.hh3cNdTabTrap.hh3cNdTabFullTrap",".1.3.6.1.4.1.25506.2.38.1.5.4.1",,,"","HH3C-TRAP-MIB","Send this trap when the ND table is filled.  The
+interval between two traps generated should be longer
+than hh3cNdTabTrapInterval."

@@ -1,0 +1,424 @@
+MIB-MODULE,MIB file,OID,Name,Recommended Action,Comments,Description,Trigger Description,Dependency,cleartime In Days
+CISCO-CONFIG-COPY-MIB,CISCO-CONFIG-COPY-MIB,enterprises.9.9.96.2.1.1,ccCopyCompletion,Information,,"A ccCopyCompletion trap is sent at the completion
+of a config-copy request. The ccCopyFailCause is not
+instantiated, and hence not included in a trap, when
+the ccCopyState is success.",A ccCopyCompletion trap is sent at the completionof a config-copy request.,NONE,3d
+CISCO-ENTITY-FRU-CONTROL-MIB,CISCO-ENTITY-FRU-CONTROL-MIB,enterprises.9.9.117.2.0.1,cefcModuleStatusChange,Information,,"This notification is generated when the value of
+cefcModuleOperStatus changes. It can be utilized by
+an NMS to update the status of the module it is
+managing.
+",This notification is generated when the value ofcefcModuleOperStatus changes.,NONE,3d
+CISCO-ENTITY-FRU-CONTROL-MIB,CISCO-ENTITY-FRU-CONTROL-MIB,enterprises.9.9.117.2.0.2,cefcPowerStatusChange,Minor,,"The cefcFRUPowerStatusChange notification indicates that
+the power status of a FRU has changed. The varbind for this
+notification indicates the entPhysicalIndex of the FRU,
+and the new operational-status of the FRU.",The cefcFRUPowerStatusChange notification indicates thatthe power status of a FRU has changed.,NONE,3d
+CISCO-ENTITY-FRU-CONTROL-MIB,CISCO-ENTITY-FRU-CONTROL-MIB,enterprises.9.9.117.2.0.3,cefcFRUInserted,Information,,"The cecfFRUInserted notification indicates that a FRU was
+inserted. The varbind for this notification indicates the
+entPhysicalIndex of the inserted FRU, and the entPhysicalIndex
+of the FRU's container.",The cecfFRUInserted notification indicates that a FRU was inserted.,NONE,3d
+CISCO-ENTITY-FRU-CONTROL-MIB,CISCO-ENTITY-FRU-CONTROL-MIB,enterprises.9.9.117.2.0.4,cefcFRURemoved,Information,,"The cefcFRURemoved notification indicates that a FRU was
+removed. The varbind for this notification indicates the
+entPhysicalIndex of the removed FRU, and the entPhysicalIndex
+of the FRU's container.","The cefcFRURemoved notification indicates that a FRU wasremoved. The varbind for this notification indicates theentPhysicalIndex of the removed FRU, and the entPhysicalIndexof the FRU's container.",NONE,3d
+CISCO-ENTITY-FRU-CONTROL-MIB,CISCO-ENTITY-FRU-CONTROL-MIB,enterprises.9.9.117.2.0.5,cefcUnrecognizedFRU,Minor,,"The cefcUnrecognizedFRU notification indicates that a FRU was
+inserted whose product ID is not supported. The varbind for
+this notification indicates the entPhysicalIndex of the
+inserted FRU, the entPhysicalClass this FRU belongs to, the
+entPhysicalVendorType of this FRU, the entPhysicalName
+of the FRU, the entPhysicalModelName of the inserted FRU, and
+the cefcPhysicalStatus telling the reason code for sending this
+notification. ",FRU was inserted whose product ID is not supported. ,NONE,3d
+CISCO-ENTITY-FRU-CONTROL-MIB,CISCO-ENTITY-FRU-CONTROL-MIB,enterprises.9.9.117.2.0.6,cefcFanTrayStatusChange,Information,,"This notification is generated when the value of
+cefcFanTrayOperStatus changes. ",This notification is generated when the value ofcefcFanTrayOperStatus changes. ,NONE,3d
+CISCO-ENTITY-FRU-CONTROL-MIB,CISCO-ENTITY-FRU-CONTROL-MIB,enterprises.9.9.117.2.0.7,cefcPowerSupplyOutputChange,Minor,,"The notification indicates that the power
+supply's output capacity has changed.
+This notification is triggered whenever one instance
+of the power supply's cefcPSOutputModeInOperation
+has transitioned from 'false' to 'true'.",The notification indicates that the powersupply's output capacity has changed.,NONE,3d
+CISCO-CLUSTER-MIB,CISCO-CLUSTER-MIB,enterprises.9.9.134.2.0.1,ccStatusMemberStatusChange,Information,,"A cluster member status change notification
+is generated whenever the value of any instance
+of ccClusterMemberOperStatus changes after the
+member is completely added to the cluster.",ccClusterMemberOperStatus changes after the member is completely added to the cluster.,NONE,3d
+CISCO-CONFIG-MAN-MIB,CISCO-CONFIG-MAN-MIB,enterprises.9.9.43.2.0.1,ciscoConfigManEvent,Information,,"Notification of a configuration management event as
+recorded in ccmHistoryEventTable.",Notification of a configuration management event as recorded in ccmHistoryEventTable.,NONE,3d
+CISCO-ENVMON-MIB,CISCO-ENVMON-MIB,enterprises.9.9.13.3.0.1,ciscoEnvMonShutdownNotification,Major,,"A ciscoEnvMonShutdownNotification is sent if the environmental
+monitor detects a testpoint reaching a critical state
+and is about to initiate a shutdown.  This notification
+contains no objects so that it may be encoded and sent in the
+shortest amount of time possible.  Even so, management
+applications should not rely on receiving such a notification
+as it may not be sent before the shutdown completes.",Monitor detects a testpoint reaching a critical state and is about to initiate a shutdown.  ,NONE,3d
+CISCO-ENVMON-MIB,CISCO-ENVMON-MIB,enterprises.9.9.13.3.0.2,ciscoEnvMonVoltageNotification,Minor,,"A ciscoEnvMonVoltageNotification is sent if the voltage
+measured at a given testpoint is outside the normal range
+for the testpoint (i.e. is at the warning, critical, or
+shutdown stage).  Since such a notification is usually
+generated before the shutdown state is reached, it can
+convey more data and has a better chance of being sent
+than does the ciscoEnvMonShutdownNotification.
+This notification is deprecated in favour of
+ciscoEnvMonVoltStatusChangeNotif.", voltage measured at a given testpoint is outside the normal range for the testpoint.,NONE,3d
+CISCO-ENVMON-MIB,CISCO-ENVMON-MIB,enterprises.9.9.13.3.0.3,ciscoEnvMonTemperatureNotification,Minor,,"A ciscoEnvMonTemperatureNotification is sent if the
+temperature measured at a given testpoint is outside
+the normal range for the testpoint (i.e. is at the warning,
+critical, or shutdown stage).  Since such a Notification
+is usually generated before the shutdown state is reached,
+it can convey more data and has a better chance of being
+sent than does the ciscoEnvMonShutdownNotification.
+This notification is deprecated in favour of
+ciscoEnvMonTempStatusChangeNotif.",given testpoint is outsidethe normal range for the testpoint.,NONE,3d
+CISCO-ENVMON-MIB,CISCO-ENVMON-MIB,enterprises.9.9.13.3.0.4,ciscoEnvMonFanNotification,Major,,"A ciscoEnvMonFanNotification is sent if any one of
+the fans in the fan array (where extant) fails.
+Since such a notification is usually generated before
+the shutdown state is reached, it can convey more
+data and has a better chance of being sent
+than does the ciscoEnvMonShutdownNotification.
+This notification is deprecated in favour of
+ciscoEnvMonFanStatusChangeNotif.", fans in the fan array (where extant) failed.,NONE,3d
+CISCO-ENVMON-MIB,CISCO-ENVMON-MIB,enterprises.9.9.13.3.0.5,ciscoEnvMonRedundantSupplyNotification,Critical,,"A ciscoEnvMonRedundantSupplyNotification is sent if
+the redundant power supply (where extant) fails.
+Since such a notification is usually generated before
+the shutdown state is reached, it can convey more
+data and has a better chance of being sent
+than does the ciscoEnvMonShutdownNotification.
+This notification is deprecated in favour of
+ciscoEnvMonSuppStatusChangeNotif.", redundant power supply (where extant) fails.,NONE,3d
+CISCO-ENVMON-MIB,CISCO-ENVMON-MIB,enterprises.9.9.13.3.0.6,ciscoEnvMonVoltStatusChangeNotif,Information,,"A ciscoEnvMonVoltStatusChangeNotif is sent if there is
+change in the state of a device being monitored
+by ciscoEnvMonVoltageState.",change in the state of a device being monitored by ciscoEnvMonVoltageState.,NONE,3d
+CISCO-ENVMON-MIB,CISCO-ENVMON-MIB,enterprises.9.9.13.3.0.7,ciscoEnvMonTempStatusChangeNotif,Information,,"A ciscoEnvMonTempStatusChangeNotif is sent if there
+is change in the state of a device being monitored
+by ciscoEnvMonTemperatureState.",change in the state of a device being monitored by ciscoEnvMonTemperatureState.,NONE,3d
+CISCO-ENVMON-MIB,CISCO-ENVMON-MIB,enterprises.9.9.13.3.0.8,ciscoEnvMonFanStatusChangeNotif,Information,,"A ciscoEnvMonFanStatusChangeNotif is sent if there
+is change in the state of a device being monitored
+by ciscoEnvMonFanState.",change in the state of a device being monitored by ciscoEnvMonFanState.,NONE,3d
+CISCO-ENVMON-MIB,CISCO-ENVMON-MIB,enterprises.9.9.13.3.0.9,ciscoEnvMonSuppStatusChangeNotif,Information,,"A ciscoEnvMonSupplyStatChangeNotif is sent if there
+is change in the state of a device being monitored
+by ciscoEnvMonSupplyState.",change in the state of a device being monitored by ciscoEnvMonSupplyState.,NONE,3d
+CISCO-FLASH-MIB,CISCO-FLASH-MIB,enterprises.9.9.10.1.3.0.1,ciscoFlashCopyCompletionTrap,Information,,"A ciscoFlashCopyCompletionTrap is sent at the
+completion of a flash copy operation if such a trap
+was requested when the operation was initiated.
+",flash copy operation Completed,NONE,3d
+CISCO-FLASH-MIB,CISCO-FLASH-MIB,enterprises.9.9.10.1.3.0.2,ciscoFlashPartitioningCompletionTrap,Information,,"A ciscoFlashPartitioningCompletionTrap is sent at the
+completion of a partitioning operation if such a trap
+was requested when the operation was initiated.
+",partitioning operation Complete.,NONE,3d
+CISCO-FLASH-MIB,CISCO-FLASH-MIB,enterprises.9.9.10.1.3.0.3,ciscoFlashMiscOpCompletionTrap,Information,,"A ciscoFlashMiscOpCompletionTrap is sent at the
+completion of a miscellaneous flash operation
+(enumerated in ciscoFlashMiscOpCommand) if such a trap
+was requested when the operation was initiated.
+",miscellaneous flash operation Completed.,NONE,3d
+CISCO-FLASH-MIB,CISCO-FLASH-MIB,enterprises.9.9.10.1.3.0.4,ciscoFlashDeviceChangeTrap,Information,,"A ciscoFlashDeviceChangeTrap is sent whenever a
+removable Flash device is inserted or removed.
+",removable Flash device is inserted or removed.,NONE,3d
+CISCO-FLASH-MIB,CISCO-FLASH-MIB,enterprises.9.9.10.1.3.0.5,ciscoFlashDeviceInsertedNotif,Information,,"A ciscoFlashDeviceInsertedNotif notification is sent
+whenever a removable Flash device is inserted.",removable Flash device is inserted.,NONE,3d
+CISCO-FLASH-MIB,CISCO-FLASH-MIB,enterprises.9.9.10.1.3.0.6,ciscoFlashDeviceRemovedNotif,Information,,"A ciscoFlashDeviceRemovedNotif notification is sent
+whenever a removable Flash device is removed.",removable Flash device is removed.,NONE,3d
+CISCO-FLASH-MIB,CISCO-FLASH-MIB,enterprises.9.9.10.1.3.0.7,ciscoFlashDeviceInsertedNotifRev1,Information,,"A ciscoFlashDeviceInsertedNotif notification is sent
+whenever a removable Flash device is inserted
+ciscoFlashDeviceInsertedNotifRev1 depcrecates
+ciscoFlashDeviceInsertedNotif since it uses
+ciscoFlashDeviceName as a varbind which is
+deprecated",removable Flash device is inserted.,NONE,3d
+CISCO-FLASH-MIB,CISCO-FLASH-MIB,enterprises.9.9.10.1.3.0.8,ciscoFlashDeviceRemovedNotifRev1,Information,,"A ciscoFlashDeviceRemovedNotif notification is sent
+whenever a removable Flash device is removed.
+ciscoFlashDeviceRemovedNotifRev1 depcrecates
+ciscoFlashDeviceRemovedNotif since it uses
+ciscoFlashDeviceName as a varbind which is
+deprecated",removable Flash device is removed.,NONE,3d
+CISCO-PROCESS-MIB,CISCO-PROCESS-MIB,enterprises.9.9.109.2.0.1,cpmCPURisingThreshold,Major,,"A cpmCPURisingThreshold notification is sent
+when configured rising CPU utilization threshold
+(cpmCPURisingThresholdValue) is reached and
+CPU utilization remained above the threshold
+for configured interval(cpmCPURisingThresholdPeriod)
+and such a notification is requested.
+The cpmProcExtUtil5SecRev and cpmProcessTimeCreated
+objects can be repeated multiple times
+in a notification indicating the top users of CPU.",CPU Utilization Threshold Reached.,enterprises.9.9.109.2.0.2,3d
+CISCO-PROCESS-MIB,CISCO-PROCESS-MIB,enterprises.9.9.109.2.0.2,cpmCPUFallingThreshold,Clear,,"A cpmCPUFallingThresholdTrap is sent when the
+configured falling threshold
+(cpmCPURisingThresholdValue)
+is reached and CPU utilization remained under
+threshold for configured
+interval (cpmCPUFallingThresholdPeriod)
+and such a notification is requested.",CPU Utilization falling below Threshold.,NONE,3d
+CISCO-STACK-MIB,CISCO-STACK-MIB,enterprises.9.5.0.1,lerAlarmOn,Clear,,"A lerAlarmOn trap signifies that the agent entity
+has detected that the fddimibPORTLerFlag object in
+the FDDI-SMT73-MIB (RFC 1512) has transitioned to
+the true(1) state for one of its ports.
+The generation of this trap can be controlled by
+the fddimibPORTLerAlarm object in the
+FDDI-SMT73-MIB for each port.",Ler Alarm ON.,NONE,3d
+CISCO-STACK-MIB,CISCO-STACK-MIB,enterprises.9.5.0.2,lerAlarmOff,Major,,"A lerAlarmOff trap signifies that the agent
+entity has detected that the fddimibPORTLerFlag
+object in the FDDI-SMT73-MIB (RFC 1512) has
+transitioned to the false(2) state for one of
+its ports. The generation of this trap can be
+controlled by the fddimibPORTLerAlarm object in
+the FDDI-SMT73-MIB for each port.",Ler Alarm OFF.,enterprises.9.5.0.1,3d
+CISCO-STACK-MIB,CISCO-STACK-MIB,enterprises.9.5.0.3,moduleUp,Clear,,"A moduleUp trap signifies that the agent entity
+has detected that the moduleStatus object in this
+MIB has transitioned to the ok(2) state for one of
+its modules.
+The generation of this trap can be controlled by
+the sysEnableModuleTraps object in this MIB.",Module UP.,NONE,3d
+CISCO-STACK-MIB,CISCO-STACK-MIB,enterprises.9.5.0.4,moduleDown,Major,,"A moduleDown trap signifies that the agent entity
+has detected that the moduleStatus object in this
+MIB has transitioned out of the ok(2) state for
+one of its modules.
+The generation of this trap can be controlled by
+the sysEnableModuleTraps object in this MIB.",Module DOWN.,enterprises.9.5.0.3,3d
+CISCO-STACK-MIB,CISCO-STACK-MIB,enterprises.9.5.0.5,chassisAlarmOn,Clear,,"A chassisAlarmOn trap signifies that the agent
+entity has detected the chassisTempAlarm,
+chassisMinorAlarm, or chassisMajorAlarm object in
+this MIB has transitioned to the on(2) state.
+The generation of this trap can be controlled by
+the sysEnableChassisTraps object in this MIB.",Chassis Alarm ON.,NONE,3d
+CISCO-STACK-MIB,CISCO-STACK-MIB,enterprises.9.5.0.6,chassisAlarmOff,Major,,"A chassisAlarmOff trap signifies that the agent
+entity has detected the chassisTempAlarm,
+chassisMinorAlarm, or chassisMajorAlarm object in
+this MIB has transitioned to the off(1) state.
+The generation of this trap can be controlled by
+the sysEnableChassisTraps object in this MIB.",Chassis Alarm OFF.,enterprises.9.5.0.5,3d
+CISCO-STACK-MIB,CISCO-STACK-MIB,enterprises.9.5.0.7,ipPermitDeniedTrap,Information,,"ipPermitDeniedTrap indicates that IP permit
+denied access happens. The generation of this
+trap can be controlled by the
+sysEnableIpPermitTraps object in this MIB.",IP Permit Denied Access.,NONE,3d
+CISCO-STACK-MIB,CISCO-STACK-MIB,enterprises.9.5.0.9,sysConfigChangeTrap,Information,,"A sysConfigChange trap signifies that the system
+configuration in NVRAM is changed. The generation
+of this trap can be controlled by the
+sysEnableConfigTraps object in this MIB.",system configuration in NVRAM is changed.,NONE,3d
+CISCO-STACK-MIB,CISCO-STACK-MIB,enterprises.9.5.0.10,tokenRingSoftErrExceededTrap,Major,,"This trap is generated when a station local to a
+token ring port exceeds its Soft Error Threshold
+within the configured interval.",token ring port exceeds its Soft Error Threshold within the configured interval.,NONE,3d
+CISCO-SYSLOG-MIB,CISCO-SYSLOG-MIB,enterprises.9.9.41.2.0.1,clogMessageGenerated,Information,,"When a syslog message is generated by the device a
+clogMessageGenerated notification is sent.  The
+sending of these notifications can be enabled/disabled
+via the clogNotificationsEnabled object.",Clog Message Generated.,NONE,3d
+CISCO-MAC-NOTIFICATION-MIB,CISCO-MAC-NOTIFICATION-MIB,enterprises.9.9.215.2.0.1,cmnMacChangedNotification,Information,,"This notification is generated when there is enough MAC
+address information to fully occupy a maximum size SNMP trap
+message. This notification is also generated when there
+is at least one MAC address changed or removed and the amount
+of time elapsed from the previous notification is greater
+than the maximum wait time denoted by
+cmnNotificationInterval object.
+If there are more MAC addresses information than can fit into
+one cmmHistTrapContent object, then multiple notifications
+will be generated.",MAC address changed or removed.,NONE,3d
+CISCO-MAC-NOTIFICATION-MIB,CISCO-MAC-NOTIFICATION-MIB,enterprises.9.9.215.2.0.2,cmnMacMoveNotification,Information,,"cmnMacMoveNotification is generated when a MAC address is
+moved between two interfaces.",MAC address move between Interfaces.,NONE,3d
+CISCO-MAC-NOTIFICATION-MIB,CISCO-MAC-NOTIFICATION-MIB,enterprises.9.9.215.2.0.3,cmnMacThresholdExceedNotif,Major,,"cmnMacThresholdExceedNotif is sent when
+cmnUtilizationUtilization exceeds or equals to the
+cmnMACThresholdLimit for a given entPhysicalIndex.",cmnUtilizationUtilization exceeds or equals to the cmnMACThresholdLimit for a given entPhysicalIndex.,NONE,3d
+CISCO-PAE-MIB,CISCO-PAE-MIB,enterprises.9.9.220.0.1,cpaeNoGuestVlanNotif,Information,,"A cpaeNoGuestVlanNotif is sent if a non-802.1x
+supplicant is detected on a PAE port for which the
+value of corresponding instance of
+dot1xAuthAuthControlledPortControl is 'auto' and the
+value of corresponding instance of cpaeGuestVlanNumber
+is zero.",No Guest in VLAN,NONE,3d
+CISCO-PAE-MIB,CISCO-PAE-MIB,enterprises.9.9.220.0.2,cpaeNoAuthFailVlanNotif,Information,,"A cpaeNoAuthFailVlanNotif is sent if a 802.1x
+supplicant fails to authenticate on a PAE port for
+which the value of corresponding instance of
+dot1xAuthAuthControlledPortControl is 'auto' and the
+value of corresponding instance of cpaePortAuthFailVlan
+is zero.",cpae No Auth Fail Vlan Notification,NONE,3d
+CISCO-PORT-SECURITY-MIB,CISCO-PORT-SECURITY-MIB,enterprises.9.9.315.0.0.1,cpsSecureMacAddrViolation,Critical,,"The address violation notification is generated
+when port security address violation is detected
+on a secure non-trunk, access interface (that carries
+a single vlan) and the cpsIfViolationAction is set to
+'dropNotify'.","port security address violation is detectedon a secure non-trunk, access interface.",NONE,3d
+CISCO-PORT-SECURITY-MIB,CISCO-PORT-SECURITY-MIB,enterprises.9.9.315.0.0.2,cpsTrunkSecureMacAddrViolation,Critical,,"The address violation notification is generated when port
+security address violation is detected on a secure trunk
+or a multi-vlan interface and the cpsIfViolationAction is
+set to 'dropNotify'.","port security address violation is detectedon a secure trunk, access interface.",NONE,3d
+CISCO-RTTMON-MIB,CISCO-RTTMON-MIB,enterprises.9.9.42.2.0.1,rttMonConnectionChangeNotification,Information,,"This notification is only valid when the RttMonRttType
+is 'echo' or 'pathEcho'.
+A rttMonConnectionChangeNotification indicates that a
+connection to a target (not to a hop along the path
+to a target) has either failed on establishment or
+been lost and when reestablished.  Precisely, this
+has resulted in rttMonCtrlOperConnectionLostOccurred
+changing value.
+If History is not being collected, the instance values
+for the rttMonHistoryCollectionAddress object will not
+be valid.  When RttMonRttType is not 'echo' or 'pathEcho'
+the rttMonHistoryCollectionAddress object will be null.",rtt Monitoring Connection Change Notification.,NONE,3d
+CISCO-RTTMON-MIB,CISCO-RTTMON-MIB,enterprises.9.9.42.2.0.2,rttMonTimeoutNotification,Minor,,"A rttMonTimeoutNotification indicates the occurrence of
+a timeout for a RTT operation, and it indicates the
+clearing of such a condition by a subsequent RTT
+operation. Precisely, this has resulted in
+rttMonCtrlOperTimeoutOccurred changing value.
+When the RttMonRttType is 'pathEcho', this
+notification will only be sent when the timeout
+occurs during an operation to the target and not to
+a hop along the path to the target.  This also
+applies to the clearing of the timeout.
+If History is not being collected, the instance values
+for the rttMonHistoryCollectionAddress object will not
+be valid.  When RttMonRttType is not 'echo' or 'pathEcho'
+the rttMonHistoryCollectionAddress object will be null.",rtt Monitoring Connection Timeout Notification.,NONE,3d
+CISCO-RTTMON-MIB,CISCO-RTTMON-MIB,enterprises.9.9.42.2.0.3,rttMonThresholdNotification,Minor,,"A rttMonThresholdNotification indicates the
+occurrence of a threshold violation for a RTT operation,
+and it indicates the previous violation has subsided for
+a subsequent RTT operation.  Precisely, this has resulted
+in rttMonCtrlOperOverThresholdOccurred changing value.
+When the RttMonRttType is 'pathEcho', this
+notification will only be sent when the threshold
+violation occurs during an operation to the target and
+not to a hop along the path to the target.  This also
+applies to the subsiding of a threshold condition.
+If History is not being collected, the instance values
+for the rttMonHistoryCollectionAddress object will not
+be valid.  When RttMonRttType is not 'echo' or 'pathEcho'
+the rttMonHistoryCollectionAddress object will be null.",threshold violation for a RTT operation,NONE,3d
+CISCO-RTTMON-MIB,CISCO-RTTMON-MIB,enterprises.9.9.42.2.0.4,rttMonVerifyErrorNotification,Minor,,"A rttMonVerifyErrorNotification indicates the
+occurrence of a data corruption in an RTT operation.",data corruption in an RTT operation.,NONE,3d
+CISCO-RTTMON-MIB,CISCO-RTTMON-MIB,enterprises.9.9.42.2.0.5,rttMonNotification,Minor,,"A rttMonNotification indicates the occurrence of a
+threshold violation, and it indicates the previous
+violation has subsided for a subsequent operation.
+When the RttMonRttType is 'pathEcho', this
+notification will only be sent when the threshold
+violation occurs during an operation to the target and
+not to a hop along the path to the target. This also
+applies to the subsiding of a threshold condition.
+If History is not being collected, the instance values
+for the rttMonHistoryCollectionAddress object will not
+be valid. When RttMonRttType is not 'echo' or 'pathEcho'
+the rttMonHistoryCollectionAddress object will be null.
+rttMonReactVar defines the type of reaction that is
+configured for the probe ( e.g jitterAvg, rtt etc ).
+In the rttMonReactTable there are trap definitions
+for the probes and each probe may have more than
+one trap definitions for various types ( e.g rtt,
+jitterAvg, packetLoossSD etc ). So the object rttMonReactVar
+indicates the type ( e.g. rtt, packetLossSD, timeout etc )
+for which threshold violation traps has been generated.
+The object rttMonEchoAdminLSPSelector will be valid only
+for the probes based on 'mplsLspPingAppl' RttMonProtocol. For
+all other probes it will be null.",threshold violation and previous violation has subsided for a subsequent operation,NONE,3d
+CISCO-RTTMON-MIB,CISCO-RTTMON-MIB,enterprises.9.9.42.2.0.6,rttMonLpdDiscoveryNotification,Minor,,"A rttMonLpdDiscoveryNotification indicates that the LSP Path
+Discovery to the target PE has failed, and it also indicates
+the clearing of such condition. Precisely this has resulted in
+rttMonLpdGrpStatsLPDFailOccurred changing value.
+When the rttMonLpdGrpStatsLPDFailOccurred is 'false', the
+instance value for rttMonLpdGrpStatsLPDFailCause is not valid.",LSP PathDiscovery to the target PE has failed.,NONE,3d
+CISCO-RTTMON-MIB,CISCO-RTTMON-MIB,enterprises.9.9.42.2.0.7,rttMonLpdGrpStatusNotification,Information,,"A rttMonLpdGrpStatusNotification indicates that the LPD
+Group status rttMonLpdGrpStatsGroupStatus has changed indicating
+some connectivity change to the target PE.
+This has resulted in rttMonLpdGrpStatsGroupStatus changing
+value.",LPDGroup status rttMonLpdGrpStatsGroupStatus has changed.,NONE,3d
+CISCO-STP-EXTENSIONS-MIB,CISCO-STP-EXTENSIONS-MIB,enterprises.9.9.82.2.0.1,stpxInconsistencyUpdate,Information,,"A stpxPortInconsistencyUpdate notification is sent by a
+bridge when an instance of stpxInconsistentState is
+created or destroyed.  That is, when an inconsistency is
+discovered in the VLAN's Spanning Tree for a particular
+port, or when such an inconsistency disappears.  Note
+that the trap is not sent if the port transitions between
+different types of inconsistency.
+The stpxInconsistentState value indicates the type of
+inconsistency which now exists/no longer exists for the
+relevant VLAN on the relevant port.", A bridge when an instance of stpxInconsistentState is created or destroyed.,NONE,3d
+CISCO-STP-EXTENSIONS-MIB,CISCO-STP-EXTENSIONS-MIB,enterprises.9.9.82.2.0.2,stpxRootInconsistencyUpdate,Information,,"A stpxRootInconsistencyUpdate notification is sent by a
+bridge when an instance of stpxRootInconsistencyState
+is created or destroyed. That is, when an
+root-inconsistency is discovered in the VLAN's or
+instance's Spanning Tree for a particular port, or when
+such an root-inconsistency disappears. For creation, the
+value of stpxRootInconsistencyState in the notification is
+true(1);for deletion, the value is false(2).
+The object value of stpxSpanningTreeType indicates
+which Spanning Tree protocol is running when an instance
+of stpxRootInconsistencyState is created or destroyed.  ",A bridge when an instance of stpxRootInconsistencyStateis created or destroyed.,NONE,3d
+CISCO-STP-EXTENSIONS-MIB,CISCO-STP-EXTENSIONS-MIB,enterprises.9.9.82.2.0.3,stpxLoopInconsistencyUpdate,Information,,"A stpxLoopInconsistencyUpdate notification is sent by a
+bridge when an instance of stpxLoopInconsistencyState
+is created or destroyed. That is, when an
+loop-inconsistency is discovered in the VLAN's or
+instance's Spanning Tree for a particular port, or when
+such an loop-inconsistency disappears. For creation,
+the value of stpxLoopInconsistencyState in the
+notification is true(1);for deletion, the value is
+false(2).
+The object value of stpxSpanningTreeType indicates
+which Spanning Tree protocol is running when an instance
+of stpxLoopInconsistencyState is created or
+destroyed.",A bridge when an instance of stpxLoopInconsistencyStateis created or destroyed.,NONE,3d
+CISCO-VLAN-MEMBERSHIP-MIB,CISCO-VLAN-MEMBERSHIP-MIB,enterprises.9.9.68.2.0.1,vmVmpsChange,Information,,"A VMPS change notification is generated whenever
+vmVmpsChanges is incremented. The IP address
+of the new VMPS is sent.",vmVmpsChanges is incremented. The IP addressof the new VMPS is sent.,NONE,3d
+CISCO-VTP-MIB,CISCO-VTP-MIB,enterprises.9.9.46.2.0.1,vtpConfigRevNumberError,Minor,,"A configuration revision number error notification
+signifies that a device has incremented its
+vtpConfigRevNumberErrors counter.
+Generation of this notification is suppressed if the
+vtpNotificationsEnabled has the value 'false'.
+The device must throttle the generation of consecutive
+vtpConfigRevNumberError notifications so that there is at
+least a five-second gap between notification of this type.
+When notification are throttled, they are dropped, not
+queued for sending at a future time.  (Note that
+'generating' a notification means sending to all configured
+recipients.)",device has incremented its vtpConfigRevNumberErrors counter.,NONE,3d
+CISCO-VTP-MIB,CISCO-VTP-MIB,enterprises.9.9.46.2.0.2,vtpConfigDigestError,Minor,,"A configuration digest error notification signifies that a
+device has incremented its vtpConfigDigestErrors counter.
+Generation of this notification is suppressed if the
+vtpNotificationsEnabled has the value 'false'.
+The device must throttle the generation of consecutive
+vtpConfigDigestError notifications so that there is at least
+a five-second gap between notification of this type.  When
+notification are throttled, they are dropped, not queued for
+sending at a future time.  (Note that 'generating' a
+notification means sending to all configured recipients.)",Device has incremented its vtpConfigDigestErrors counter.,NONE,3d
+CISCO-VTP-MIB,CISCO-VTP-MIB,enterprises.9.9.46.2.0.3,vtpServerDisabled,Critical,,"A VTP Server disabled notification is generated when the
+local system is no longer able to function as a VTP Server
+because the number of defined VLANs is greater than
+vtpMaxVlanStorage.
+Generation of this notification is suppressed if the
+vtpNotificationsEnabled has the value 'false'.",Local system is no longer able to function as a VTP Server because the number of defined VLANs is greater than vtpMaxVlanStorage.,NONE,3d
+CISCO-VTP-MIB,CISCO-VTP-MIB,enterprises.9.9.46.2.0.4,vtpMtuTooBig,Major,,"A VTP MTU tooBig notification is generated when a VLAN's
+MTU size is larger than can be supported either:
+-by one or more of its trunk ports:
+the included vtpVlanState has the value
+'mtuTooBigForTrunk' and the included
+vlanTrunkPortManagementDomain is for the first (or only)
+trunk port,
+or
+-by the device itself:
+vtpVlanState has the value 'mtuTooBigForDevice' and any
+instance of vlanTrunkPortManagementDomain is included.
+Devices which have no trunk ports do not send vtpMtuTooBig
+notifications.
+Generation of this notification is suppressed if the
+vtpNotificationsEnabled has the value 'false'.", VLAN's MTU size is larger than can be supported.,NONE,3d
+CISCO-VTP-MIB,CISCO-VTP-MIB,enterprises.9.9.46.2.0.6,vtpVersionOneDeviceDetected,Information,,"A VTP version one device detected notification is
+generated by a device when:
+a) a management domain has been put into version 2 mode
+(as accessed by managementDomainVersionInUse).
+b) 15 minutes has passed since a).
+c) a version 1 PDU is detected on a trunk on the device
+that is in that management domain which has a lower
+revision number than the current configuration.",vtp Version One Device has been Detected.,NONE,3d
+CISCO-VTP-MIB,CISCO-VTP-MIB,enterprises.9.9.46.2.0.7,vlanTrunkPortDynamicStatusChange,Information,,"A vlanTrunkPortDynamicStatusChange notification is
+generated by a device when the value of
+vlanTrunkPortDynamicStatus object has been changed.",value of vlanTrunkPortDynamicStatus object has been changed.,NONE,3d
+CISCO-VTP-MIB,CISCO-VTP-MIB,enterprises.9.9.46.2.0.8,vtpLocalModeChanged,Information,,"A vtpLocalModeChanged notification is generated 
+by a device when the value of the object 
+managementDomainLocalMode is changed.",vtp Local Mode has been Changed.,NONE,3d
+CISCO-VTP-MIB,CISCO-VTP-MIB,enterprises.9.9.46.2.0.9,vtpVersionInUseChanged,Information,,"A vtpVersionInUseChanged notification is  
+generated by a device when the value of the  
+object managementDomainVersionInUse is 
+changed.",vtp Version In Use Changed.,NONE,3d
+CISCO-VTP-MIB,CISCO-VTP-MIB,enterprises.9.9.46.2.0.10,vtpVlanCreated,Information,,"A vtpVlanCreated notification is generated by a 
+device when a VLAN is created. ",vtp Vlan Created.,NONE,3d
+CISCO-VTP-MIB,CISCO-VTP-MIB,enterprises.9.9.46.2.0.11,vtpVlanDeleted,Information,,"A vtpVlanDeleted notification is generated by a
+device when a VLAN is deleted. ",vtp Vlan Deleted.,NONE,3d
+CISCO-VTP-MIB,CISCO-VTP-MIB,enterprises.9.9.46.2.0.12,vtpVlanRingNumberConflict,Minor,,"A VTP ring number configuration conflict notification is
+generated if, and only at the time when, a device learns of
+a conflict between:
+a) the ring number (vtpVlanPortLocalSegment) being used on a
+token ring segment attached to the port identified by
+ifIndex, and
+b) the VTP-obtained ring number (vtpVlanRingNumber) for the
+VLAN identified by vtpVlanIndex.
+When such a conflict occurs, the bridge port is put into an
+administrative down position until the conflict is resolved
+through local/network management intervention.
+This notification is only applicable to VLANs of type
+'tokenRing'.",vtp Vlan Ring Number has a Conflict.,NONE,3d

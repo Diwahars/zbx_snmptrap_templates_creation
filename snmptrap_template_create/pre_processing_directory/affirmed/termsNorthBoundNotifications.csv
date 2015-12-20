@@ -1,0 +1,44 @@
+"Name","Full Name","OID","Type","Access","Indexes","MIB Module","Description"
+"temsNorthBoundNotifications",".iso.org.dod.internet.private.enterprises.affirmedSnmp.affirmedTemsSnmp.affirmedSnmpNotifications.affirmedTemsNotifications.temsNorthBoundNotifications",".1.3.6.1.4.1.37963.6.3.1.3",,,"","AFFIRMED-TEMS-NOTIFICATION-MIB",
+"networkElementNotReachable",".iso.org.dod.internet.private.enterprises.affirmedSnmp.affirmedTemsSnmp.affirmedSnmpNotifications.affirmedTemsNotifications.temsNorthBoundNotifications.networkElementNotReachable",".1.3.6.1.4.1.37963.6.3.1.3.1",,,"","AFFIRMED-TEMS-NOTIFICATION-MIB","Management Server will send this notification to its NB Clients (NMS / OSS) whenever
+a managed network element turns unreachable (ICMP)."
+"networkElementNotManageable",".iso.org.dod.internet.private.enterprises.affirmedSnmp.affirmedTemsSnmp.affirmedSnmpNotifications.affirmedTemsNotifications.temsNorthBoundNotifications.networkElementNotManageable",".1.3.6.1.4.1.37963.6.3.1.3.2",,,"","AFFIRMED-TEMS-NOTIFICATION-MIB","Management Server will send this notification to its NB Clients (NMS / OSS) whenever
+a managed network element is reachable via ICMP but not reachable via the Management protocol (SNMP / TL1 )"
+"networkElementManageable",".iso.org.dod.internet.private.enterprises.affirmedSnmp.affirmedTemsSnmp.affirmedSnmpNotifications.affirmedTemsNotifications.temsNorthBoundNotifications.networkElementManageable",".1.3.6.1.4.1.37963.6.3.1.3.3",,,"","AFFIRMED-TEMS-NOTIFICATION-MIB","Management Server will send this notification to its NB Clients (NMS / OSS) to clear the
+unreachable / not manageable events raised previously."
+"unSupportedNetworkElementVersion",".iso.org.dod.internet.private.enterprises.affirmedSnmp.affirmedTemsSnmp.affirmedSnmpNotifications.affirmedTemsNotifications.temsNorthBoundNotifications.unSupportedNetworkElementVersion",".1.3.6.1.4.1.37963.6.3.1.3.4",,,"","AFFIRMED-TEMS-NOTIFICATION-MIB","Management Server will send this notification to its NB Clients (NMS / OSS) whenever it
+encounters / discovers a Network element running an Unsupported software version."
+"cliLoginFailed",".iso.org.dod.internet.private.enterprises.affirmedSnmp.affirmedTemsSnmp.affirmedSnmpNotifications.affirmedTemsNotifications.temsNorthBoundNotifications.cliLoginFailed",".1.3.6.1.4.1.37963.6.3.1.3.5",,,"","AFFIRMED-TEMS-NOTIFICATION-MIB","Management Server will send this notification to its NB Clients (NMS / OSS) whenever it
+could not login to the CLI (or TL1) session of the Network Element using the supplied
+Credentials"
+"alarmEmailNotificationFailure",".iso.org.dod.internet.private.enterprises.affirmedSnmp.affirmedTemsSnmp.affirmedSnmpNotifications.affirmedTemsNotifications.temsNorthBoundNotifications.alarmEmailNotificationFailure",".1.3.6.1.4.1.37963.6.3.1.3.6",,,"","AFFIRMED-TEMS-NOTIFICATION-MIB","Management Server will send this notification to its NB Clients (NMS / OSS) upon its
+Failure to send the E-Mail Notification to NB Clients registered for E-Mail Notification"
+"dataCollectionFailure",".iso.org.dod.internet.private.enterprises.affirmedSnmp.affirmedTemsSnmp.affirmedSnmpNotifications.affirmedTemsNotifications.temsNorthBoundNotifications.dataCollectionFailure",".1.3.6.1.4.1.37963.6.3.1.3.7",,,"","AFFIRMED-TEMS-NOTIFICATION-MIB","Indicates a Failure during Data Collection.
+NB managers can either ignore it (or) log-it."
+"temsServerPerfMetricCriticalTCA",".iso.org.dod.internet.private.enterprises.affirmedSnmp.affirmedTemsSnmp.affirmedSnmpNotifications.affirmedTemsNotifications.temsNorthBoundNotifications.temsServerPerfMetricCriticalTCA",".1.3.6.1.4.1.37963.6.3.1.3.8",,,"","AFFIRMED-TEMS-NOTIFICATION-MIB","Management Server will send this notification to its NB Clients (NMS / OSS) to report
+a Critical Threshold Crossing Alert, whenever the Critical Threshold limit is
+crossed for the current Performance Metric"
+"temsServerPerfMetricMajorTCA",".iso.org.dod.internet.private.enterprises.affirmedSnmp.affirmedTemsSnmp.affirmedSnmpNotifications.affirmedTemsNotifications.temsNorthBoundNotifications.temsServerPerfMetricMajorTCA",".1.3.6.1.4.1.37963.6.3.1.3.9",,,"","AFFIRMED-TEMS-NOTIFICATION-MIB","Management Server will send this notification to its NB Clients (NMS / OSS) to report
+a Major Threshold Crossing Alert, whenever the Major Threshold limit is
+crossed for the current Performance Metric"
+"temsServerPerfMetricMinorTCA",".iso.org.dod.internet.private.enterprises.affirmedSnmp.affirmedTemsSnmp.affirmedSnmpNotifications.affirmedTemsNotifications.temsNorthBoundNotifications.temsServerPerfMetricMinorTCA",".1.3.6.1.4.1.37963.6.3.1.3.10",,,"","AFFIRMED-TEMS-NOTIFICATION-MIB","Management Server will send this notification to its NB Clients (NMS / OSS) to report
+a Minor Threshold Crossing Alert, whenever the Minor Threshold limit is
+crossed for the current Performance Metric"
+"temsServerPerfMetricClearTCA",".iso.org.dod.internet.private.enterprises.affirmedSnmp.affirmedTemsSnmp.affirmedSnmpNotifications.affirmedTemsNotifications.temsNorthBoundNotifications.temsServerPerfMetricClearTCA",".1.3.6.1.4.1.37963.6.3.1.3.11",,,"","AFFIRMED-TEMS-NOTIFICATION-MIB","Management Server will send this notification to its NB Clients (NMS / OSS) to Clear
+the previously raised Critical / Major / Minor TCA for this Performance Metric."
+"alarmFromNetworkElement",".iso.org.dod.internet.private.enterprises.affirmedSnmp.affirmedTemsSnmp.affirmedSnmpNotifications.affirmedTemsNotifications.temsNorthBoundNotifications.alarmFromNetworkElement",".1.3.6.1.4.1.37963.6.3.1.3.12",,,"","AFFIRMED-TEMS-NOTIFICATION-MIB","Management Server will send this notification to its NB Clients (NMS / OSS) to report
+an Alarm Raised due to the occurence of a trap from the Network Element.
+Severity List includes Cleared. the Clear Alarm should clear the previous raise Alarm.
+The combination of networkElementIPAddress, sourceComponent (if any), alarmCategory (if available)
+and alarmSeverity shall be used to uniquely identify a specific root cause"
+"hotStandbyTakesOver",".iso.org.dod.internet.private.enterprises.affirmedSnmp.affirmedTemsSnmp.affirmedSnmpNotifications.affirmedTemsNotifications.temsNorthBoundNotifications.hotStandbyTakesOver",".1.3.6.1.4.1.37963.6.3.1.3.13",,,"","AFFIRMED-TEMS-NOTIFICATION-MIB","Indicates a Switchover of the Management server from primary to Standby Server.
+Note:This alarm will be triggered only when the Management Server is deployed in a Primary - HotStandBy mode."
+"primaryServerisRestored",".iso.org.dod.internet.private.enterprises.affirmedSnmp.affirmedTemsSnmp.affirmedSnmpNotifications.affirmedTemsNotifications.temsNorthBoundNotifications.primaryServerisRestored",".1.3.6.1.4.1.37963.6.3.1.3.14",,,"","AFFIRMED-TEMS-NOTIFICATION-MIB","Indicates that the Primary Management Server has been restored back in Service.
+Note:This alarm will be triggered only when the Management Server is deployed in a Primary - HotStandBy mode."
+"alarmfromElementManagementSystem",".iso.org.dod.internet.private.enterprises.affirmedSnmp.affirmedTemsSnmp.affirmedSnmpNotifications.affirmedTemsNotifications.temsNorthBoundNotifications.alarmfromElementManagementSystem",".1.3.6.1.4.1.37963.6.3.1.3.15",,,"","AFFIRMED-TEMS-NOTIFICATION-MIB","Management Server will send this notification to its NB Clients (NMS / OSS) to report
+an Alarm Raised due to the occurence of a trap from the Network Management System.
+Severity List includes Cleared. the Clear Alarm should clear the previous raise Alarm.
+The combination of networkElementIPAddress, sourceComponent (if any), alarmCategory (if available)
+and alarmSeverity shall be used to uniquely identify a specific root cause"
+"georedundancyGroupMismatch",".iso.org.dod.internet.private.enterprises.affirmedSnmp.affirmedTemsSnmp.affirmedSnmpNotifications.affirmedTemsNotifications.temsNorthBoundNotifications.georedundancyGroupMismatch",".1.3.6.1.4.1.37963.6.3.1.3.16",,,"","AFFIRMED-TEMS-NOTIFICATION-MIB","Management server will send this notification to its NB clients (NMS / OSS) when it detects
+mismatch information from EMS, active and standby network element"

@@ -1,0 +1,47 @@
+"alarmActiveState",".iso.org.dod.internet.mgmt.mib-2.alarmMIB.alarmNotifications.alarmActiveState",".1.3.6.1.2.1.118.0.2",,,"","ALARM-MIB","An instance of the alarm indicated by
+alarmActiveModelPointer has been raised
+against the entity indicated by
+alarmActiveResourceId.
+The agent must throttle the generation of
+consecutive alarmActiveState traps so that there is at
+least a two-second gap between traps of this
+type against the same alarmActiveModelPointer and
+alarmActiveResourceId.  When traps are throttled,
+they are dropped, not queued for sending at a future time.
+A management application should periodically check
+the value of alarmActiveLastChanged to detect any
+missed alarmActiveState notification-events, e.g.,
+due to throttling or transmission loss."
+"alarmClearState",".iso.org.dod.internet.mgmt.mib-2.alarmMIB.alarmNotifications.alarmClearState",".1.3.6.1.2.1.118.0.3",,,"","ALARM-MIB","An instance of the alarm indicated by
+alarmActiveModelPointer has been cleared against
+the entity indicated by alarmActiveResourceId.
+The agent must throttle the generation of
+consecutive alarmActiveClear traps so that there is at
+least a two-second gap between traps of this
+type against the same alarmActiveModelPointer and
+alarmActiveResourceId.  When traps are throttled,
+they are dropped, not queued for sending at a future time.
+A management application should periodically check
+the value of alarmActiveLastChanged to detect any
+missed alarmClearState notification-events, e.g.,
+due to throttling or transmission loss."
+"risingAlarm",".iso.org.dod.internet.mgmt.mib-2.rmon.rmonEventsV2.risingAlarm",".1.3.6.1.2.1.16.0.1",,,"","RMON-MIB","The SNMP trap that is generated when an alarm
+entry crosses its rising threshold and generates
+an event that is configured for sending SNMP
+traps."
+"fallingAlarm",".iso.org.dod.internet.mgmt.mib-2.rmon.rmonEventsV2.fallingAlarm",".1.3.6.1.2.1.16.0.2",,,"","RMON-MIB","The SNMP trap that is generated when an alarm
+entry crosses its falling threshold and generates
+an event that is configured for sending SNMP
+traps."
+"ulcmNsStandardEvent",".iso.org.dod.internet.private.enterprises.ulticom.swnr.swnrMIB.swnrNotifications.ulcmNsStandardEvent",".1.3.6.1.4.1.6629.10.1.0.1",,,"","ULTICOM-SWNR-MIB","StandardEvent Notification:Raised when an event with no
+associated resource is detected into the swnr platform"
+"ulcmNsResourceEvent",".iso.org.dod.internet.private.enterprises.ulticom.swnr.swnrMIB.swnrNotifications.ulcmNsResourceEvent",".1.3.6.1.4.1.6629.10.1.0.2",,,"","ULTICOM-SWNR-MIB","ResourceEvent Notification:Raised when an event with an
+associated resource is detected into the swnr platform"
+"ulcmNsShutdown",".iso.org.dod.internet.private.enterprises.ulticom.swnr.swnrMIB.swnrNotifications.ulcmNsShutdown",".1.3.6.1.4.1.6629.10.1.0.3",,,"","ULTICOM-SWNR-MIB","Shutdown Notification:Raised when an swnr platform shutdown
+is detected"
+"ulcmNsActiveAgentChange",".iso.org.dod.internet.private.enterprises.ulticom.swnr.swnrMIB.swnrNotifications.ulcmNsActiveAgentChange",".1.3.6.1.4.1.6629.10.1.0.4",,,"","ULTICOM-SWNR-MIB","ActiveAgentChange Notification:Raised when the SNMP agent is
+designed as 'active' by TAP"
+"ulcmNsAlarmActive",".iso.org.dod.internet.private.enterprises.ulticom.swnr.swnrMIB.swnrNotifications.ulcmNsAlarmActive",".1.3.6.1.4.1.6629.10.1.0.5",,,"","ULTICOM-SWNR-MIB","AlarmActive Notification:Raised when a new alarm is created into
+the AlarmActiveTable"
+"ulcmNsAlarmClear",".iso.org.dod.internet.private.enterprises.ulticom.swnr.swnrMIB.swnrNotifications.ulcmNsAlarmClear",".1.3.6.1.4.1.6629.10.1.0.6",,,"","ULTICOM-SWNR-MIB","AlarmActive Notification:Raised when a previously created alarm
+is deleted from AlarmActiveTable"

@@ -1,0 +1,5 @@
+"Name","Full Name","OID","Type","Access","Indexes","MIB Module","Description"
+"hh3cMulticastTabTrap",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cTrap.hh3cTableGroup.hh3cMulticastTabStatGroup.hh3cMulticastTabTrap",".1.3.6.1.4.1.25506.2.38.1.4.4",,,"","HH3C-TRAP-MIB",
+"hh3cMulticastTabFullTrap",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cTrap.hh3cTableGroup.hh3cMulticastTabStatGroup.hh3cMulticastTabTrap.hh3cMulticastTabFullTrap",".1.3.6.1.4.1.25506.2.38.1.4.4.1",,,"","HH3C-TRAP-MIB","Send this trap when the multicast table is filled.  The
+interval between two traps generated should be longer
+than hh3cMulticastTabTrapInterval."

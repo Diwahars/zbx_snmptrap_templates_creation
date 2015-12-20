@@ -1,0 +1,4281 @@
+<?xml version="1.0" ?>
+<zabbix_export>
+	<version>2.0</version>
+	<date>2015-12-19T21:16:26Z</date>
+	<groups>
+		<group>
+			<name>Custom Template Globe Touch</name>
+		</group>
+	</groups>
+	<templates>
+		<template>
+			<template>Template SNMP Traps CISCO Nodes</template>
+			<name>Template SNMP Traps CISCO Nodes</name>
+			<groups>
+				<group>
+					<name>Custom Template Globe Touch</name>
+				</group>
+			</groups>
+			<applications>
+				<application>
+					<name>Alarms</name>
+				</application>
+			</applications>
+			<items>
+				<item>
+					<name>Alarm Notification For : ccCopyCompletion</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.9.96.2.1.1$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>A ccCopyCompletion trap is sent at the completion
+of a config-copy request. The ccCopyFailCause is not
+instantiated, and hence not included in a trap, when
+the ccCopyState is success.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : cefcModuleStatusChange</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.9.117.2.0.1$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>This notification is generated when the value of
+cefcModuleOperStatus changes. It can be utilized by
+an NMS to update the status of the module it is
+managing.
+</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : cefcPowerStatusChange</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.9.117.2.0.2$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>The cefcFRUPowerStatusChange notification indicates that
+the power status of a FRU has changed. The varbind for this
+notification indicates the entPhysicalIndex of the FRU,
+and the new operational-status of the FRU.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : cefcFRUInserted</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.9.117.2.0.3$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>The cecfFRUInserted notification indicates that a FRU was
+inserted. The varbind for this notification indicates the
+entPhysicalIndex of the inserted FRU, and the entPhysicalIndex
+of the FRU's container.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : cefcFRURemoved</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.9.117.2.0.4$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>The cefcFRURemoved notification indicates that a FRU was
+removed. The varbind for this notification indicates the
+entPhysicalIndex of the removed FRU, and the entPhysicalIndex
+of the FRU's container.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : cefcUnrecognizedFRU</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.9.117.2.0.5$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>The cefcUnrecognizedFRU notification indicates that a FRU was
+inserted whose product ID is not supported. The varbind for
+this notification indicates the entPhysicalIndex of the
+inserted FRU, the entPhysicalClass this FRU belongs to, the
+entPhysicalVendorType of this FRU, the entPhysicalName
+of the FRU, the entPhysicalModelName of the inserted FRU, and
+the cefcPhysicalStatus telling the reason code for sending this
+notification. </description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : cefcFanTrayStatusChange</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.9.117.2.0.6$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>This notification is generated when the value of
+cefcFanTrayOperStatus changes. </description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : cefcPowerSupplyOutputChange</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.9.117.2.0.7$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>The notification indicates that the power
+supply's output capacity has changed.
+This notification is triggered whenever one instance
+of the power supply's cefcPSOutputModeInOperation
+has transitioned from 'false' to 'true'.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : ccStatusMemberStatusChange</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.9.134.2.0.1$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>A cluster member status change notification
+is generated whenever the value of any instance
+of ccClusterMemberOperStatus changes after the
+member is completely added to the cluster.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : ciscoConfigManEvent</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.9.43.2.0.1$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>Notification of a configuration management event as
+recorded in ccmHistoryEventTable.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : ciscoEnvMonShutdownNotification</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.9.13.3.0.1$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>A ciscoEnvMonShutdownNotification is sent if the environmental
+monitor detects a testpoint reaching a critical state
+and is about to initiate a shutdown.  This notification
+contains no objects so that it may be encoded and sent in the
+shortest amount of time possible.  Even so, management
+applications should not rely on receiving such a notification
+as it may not be sent before the shutdown completes.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : ciscoEnvMonVoltageNotification</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.9.13.3.0.2$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>A ciscoEnvMonVoltageNotification is sent if the voltage
+measured at a given testpoint is outside the normal range
+for the testpoint (i.e. is at the warning, critical, or
+shutdown stage).  Since such a notification is usually
+generated before the shutdown state is reached, it can
+convey more data and has a better chance of being sent
+than does the ciscoEnvMonShutdownNotification.
+This notification is deprecated in favour of
+ciscoEnvMonVoltStatusChangeNotif.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : ciscoEnvMonTemperatureNotification</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.9.13.3.0.3$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>A ciscoEnvMonTemperatureNotification is sent if the
+temperature measured at a given testpoint is outside
+the normal range for the testpoint (i.e. is at the warning,
+critical, or shutdown stage).  Since such a Notification
+is usually generated before the shutdown state is reached,
+it can convey more data and has a better chance of being
+sent than does the ciscoEnvMonShutdownNotification.
+This notification is deprecated in favour of
+ciscoEnvMonTempStatusChangeNotif.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : ciscoEnvMonFanNotification</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.9.13.3.0.4$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>A ciscoEnvMonFanNotification is sent if any one of
+the fans in the fan array (where extant) fails.
+Since such a notification is usually generated before
+the shutdown state is reached, it can convey more
+data and has a better chance of being sent
+than does the ciscoEnvMonShutdownNotification.
+This notification is deprecated in favour of
+ciscoEnvMonFanStatusChangeNotif.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : ciscoEnvMonRedundantSupplyNotification</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.9.13.3.0.5$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>A ciscoEnvMonRedundantSupplyNotification is sent if
+the redundant power supply (where extant) fails.
+Since such a notification is usually generated before
+the shutdown state is reached, it can convey more
+data and has a better chance of being sent
+than does the ciscoEnvMonShutdownNotification.
+This notification is deprecated in favour of
+ciscoEnvMonSuppStatusChangeNotif.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : ciscoEnvMonVoltStatusChangeNotif</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.9.13.3.0.6$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>A ciscoEnvMonVoltStatusChangeNotif is sent if there is
+change in the state of a device being monitored
+by ciscoEnvMonVoltageState.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : ciscoEnvMonTempStatusChangeNotif</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.9.13.3.0.7$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>A ciscoEnvMonTempStatusChangeNotif is sent if there
+is change in the state of a device being monitored
+by ciscoEnvMonTemperatureState.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : ciscoEnvMonFanStatusChangeNotif</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.9.13.3.0.8$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>A ciscoEnvMonFanStatusChangeNotif is sent if there
+is change in the state of a device being monitored
+by ciscoEnvMonFanState.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : ciscoEnvMonSuppStatusChangeNotif</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.9.13.3.0.9$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>A ciscoEnvMonSupplyStatChangeNotif is sent if there
+is change in the state of a device being monitored
+by ciscoEnvMonSupplyState.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : ciscoFlashCopyCompletionTrap</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.9.10.1.3.0.1$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>A ciscoFlashCopyCompletionTrap is sent at the
+completion of a flash copy operation if such a trap
+was requested when the operation was initiated.
+</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : ciscoFlashPartitioningCompletionTrap</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.9.10.1.3.0.2$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>A ciscoFlashPartitioningCompletionTrap is sent at the
+completion of a partitioning operation if such a trap
+was requested when the operation was initiated.
+</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : ciscoFlashMiscOpCompletionTrap</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.9.10.1.3.0.3$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>A ciscoFlashMiscOpCompletionTrap is sent at the
+completion of a miscellaneous flash operation
+(enumerated in ciscoFlashMiscOpCommand) if such a trap
+was requested when the operation was initiated.
+</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : ciscoFlashDeviceChangeTrap</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.9.10.1.3.0.4$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>A ciscoFlashDeviceChangeTrap is sent whenever a
+removable Flash device is inserted or removed.
+</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : ciscoFlashDeviceInsertedNotif</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.9.10.1.3.0.5$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>A ciscoFlashDeviceInsertedNotif notification is sent
+whenever a removable Flash device is inserted.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : ciscoFlashDeviceRemovedNotif</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.9.10.1.3.0.6$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>A ciscoFlashDeviceRemovedNotif notification is sent
+whenever a removable Flash device is removed.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : ciscoFlashDeviceInsertedNotifRev1</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.9.10.1.3.0.7$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>A ciscoFlashDeviceInsertedNotif notification is sent
+whenever a removable Flash device is inserted
+ciscoFlashDeviceInsertedNotifRev1 depcrecates
+ciscoFlashDeviceInsertedNotif since it uses
+ciscoFlashDeviceName as a varbind which is
+deprecated</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : ciscoFlashDeviceRemovedNotifRev1</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.9.10.1.3.0.8$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>A ciscoFlashDeviceRemovedNotif notification is sent
+whenever a removable Flash device is removed.
+ciscoFlashDeviceRemovedNotifRev1 depcrecates
+ciscoFlashDeviceRemovedNotif since it uses
+ciscoFlashDeviceName as a varbind which is
+deprecated</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : cpmCPURisingThreshold</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.9.109.2.0.1$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>A cpmCPURisingThreshold notification is sent
+when configured rising CPU utilization threshold
+(cpmCPURisingThresholdValue) is reached and
+CPU utilization remained above the threshold
+for configured interval(cpmCPURisingThresholdPeriod)
+and such a notification is requested.
+The cpmProcExtUtil5SecRev and cpmProcessTimeCreated
+objects can be repeated multiple times
+in a notification indicating the top users of CPU.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : cpmCPUFallingThreshold</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.9.109.2.0.2$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>A cpmCPUFallingThresholdTrap is sent when the
+configured falling threshold
+(cpmCPURisingThresholdValue)
+is reached and CPU utilization remained under
+threshold for configured
+interval (cpmCPUFallingThresholdPeriod)
+and such a notification is requested.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : lerAlarmOn</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.5.0.1$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>A lerAlarmOn trap signifies that the agent entity
+has detected that the fddimibPORTLerFlag object in
+the FDDI-SMT73-MIB (RFC 1512) has transitioned to
+the true(1) state for one of its ports.
+The generation of this trap can be controlled by
+the fddimibPORTLerAlarm object in the
+FDDI-SMT73-MIB for each port.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : lerAlarmOff</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.5.0.2$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>A lerAlarmOff trap signifies that the agent
+entity has detected that the fddimibPORTLerFlag
+object in the FDDI-SMT73-MIB (RFC 1512) has
+transitioned to the false(2) state for one of
+its ports. The generation of this trap can be
+controlled by the fddimibPORTLerAlarm object in
+the FDDI-SMT73-MIB for each port.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : moduleUp</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.5.0.3$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>A moduleUp trap signifies that the agent entity
+has detected that the moduleStatus object in this
+MIB has transitioned to the ok(2) state for one of
+its modules.
+The generation of this trap can be controlled by
+the sysEnableModuleTraps object in this MIB.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : moduleDown</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.5.0.4$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>A moduleDown trap signifies that the agent entity
+has detected that the moduleStatus object in this
+MIB has transitioned out of the ok(2) state for
+one of its modules.
+The generation of this trap can be controlled by
+the sysEnableModuleTraps object in this MIB.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : chassisAlarmOn</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.5.0.5$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>A chassisAlarmOn trap signifies that the agent
+entity has detected the chassisTempAlarm,
+chassisMinorAlarm, or chassisMajorAlarm object in
+this MIB has transitioned to the on(2) state.
+The generation of this trap can be controlled by
+the sysEnableChassisTraps object in this MIB.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : chassisAlarmOff</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.5.0.6$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>A chassisAlarmOff trap signifies that the agent
+entity has detected the chassisTempAlarm,
+chassisMinorAlarm, or chassisMajorAlarm object in
+this MIB has transitioned to the off(1) state.
+The generation of this trap can be controlled by
+the sysEnableChassisTraps object in this MIB.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : ipPermitDeniedTrap</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.5.0.7$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>ipPermitDeniedTrap indicates that IP permit
+denied access happens. The generation of this
+trap can be controlled by the
+sysEnableIpPermitTraps object in this MIB.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : sysConfigChangeTrap</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.5.0.9$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>A sysConfigChange trap signifies that the system
+configuration in NVRAM is changed. The generation
+of this trap can be controlled by the
+sysEnableConfigTraps object in this MIB.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : tokenRingSoftErrExceededTrap</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.5.0.10$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>This trap is generated when a station local to a
+token ring port exceeds its Soft Error Threshold
+within the configured interval.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : clogMessageGenerated</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.9.41.2.0.1$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>When a syslog message is generated by the device a
+clogMessageGenerated notification is sent.  The
+sending of these notifications can be enabled/disabled
+via the clogNotificationsEnabled object.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : cmnMacChangedNotification</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.9.215.2.0.1$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>This notification is generated when there is enough MAC
+address information to fully occupy a maximum size SNMP trap
+message. This notification is also generated when there
+is at least one MAC address changed or removed and the amount
+of time elapsed from the previous notification is greater
+than the maximum wait time denoted by
+cmnNotificationInterval object.
+If there are more MAC addresses information than can fit into
+one cmmHistTrapContent object, then multiple notifications
+will be generated.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : cmnMacMoveNotification</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.9.215.2.0.2$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>cmnMacMoveNotification is generated when a MAC address is
+moved between two interfaces.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : cmnMacThresholdExceedNotif</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.9.215.2.0.3$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>cmnMacThresholdExceedNotif is sent when
+cmnUtilizationUtilization exceeds or equals to the
+cmnMACThresholdLimit for a given entPhysicalIndex.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : cpaeNoGuestVlanNotif</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.9.220.0.1$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>A cpaeNoGuestVlanNotif is sent if a non-802.1x
+supplicant is detected on a PAE port for which the
+value of corresponding instance of
+dot1xAuthAuthControlledPortControl is 'auto' and the
+value of corresponding instance of cpaeGuestVlanNumber
+is zero.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : cpaeNoAuthFailVlanNotif</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.9.220.0.2$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>A cpaeNoAuthFailVlanNotif is sent if a 802.1x
+supplicant fails to authenticate on a PAE port for
+which the value of corresponding instance of
+dot1xAuthAuthControlledPortControl is 'auto' and the
+value of corresponding instance of cpaePortAuthFailVlan
+is zero.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : cpsSecureMacAddrViolation</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.9.315.0.0.1$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>The address violation notification is generated
+when port security address violation is detected
+on a secure non-trunk, access interface (that carries
+a single vlan) and the cpsIfViolationAction is set to
+'dropNotify'.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : cpsTrunkSecureMacAddrViolation</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.9.315.0.0.2$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>The address violation notification is generated when port
+security address violation is detected on a secure trunk
+or a multi-vlan interface and the cpsIfViolationAction is
+set to 'dropNotify'.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : rttMonConnectionChangeNotification</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.9.42.2.0.1$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>This notification is only valid when the RttMonRttType
+is 'echo' or 'pathEcho'.
+A rttMonConnectionChangeNotification indicates that a
+connection to a target (not to a hop along the path
+to a target) has either failed on establishment or
+been lost and when reestablished.  Precisely, this
+has resulted in rttMonCtrlOperConnectionLostOccurred
+changing value.
+If History is not being collected, the instance values
+for the rttMonHistoryCollectionAddress object will not
+be valid.  When RttMonRttType is not 'echo' or 'pathEcho'
+the rttMonHistoryCollectionAddress object will be null.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : rttMonTimeoutNotification</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.9.42.2.0.2$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>A rttMonTimeoutNotification indicates the occurrence of
+a timeout for a RTT operation, and it indicates the
+clearing of such a condition by a subsequent RTT
+operation. Precisely, this has resulted in
+rttMonCtrlOperTimeoutOccurred changing value.
+When the RttMonRttType is 'pathEcho', this
+notification will only be sent when the timeout
+occurs during an operation to the target and not to
+a hop along the path to the target.  This also
+applies to the clearing of the timeout.
+If History is not being collected, the instance values
+for the rttMonHistoryCollectionAddress object will not
+be valid.  When RttMonRttType is not 'echo' or 'pathEcho'
+the rttMonHistoryCollectionAddress object will be null.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : rttMonThresholdNotification</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.9.42.2.0.3$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>A rttMonThresholdNotification indicates the
+occurrence of a threshold violation for a RTT operation,
+and it indicates the previous violation has subsided for
+a subsequent RTT operation.  Precisely, this has resulted
+in rttMonCtrlOperOverThresholdOccurred changing value.
+When the RttMonRttType is 'pathEcho', this
+notification will only be sent when the threshold
+violation occurs during an operation to the target and
+not to a hop along the path to the target.  This also
+applies to the subsiding of a threshold condition.
+If History is not being collected, the instance values
+for the rttMonHistoryCollectionAddress object will not
+be valid.  When RttMonRttType is not 'echo' or 'pathEcho'
+the rttMonHistoryCollectionAddress object will be null.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : rttMonVerifyErrorNotification</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.9.42.2.0.4$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>A rttMonVerifyErrorNotification indicates the
+occurrence of a data corruption in an RTT operation.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : rttMonNotification</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.9.42.2.0.5$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>A rttMonNotification indicates the occurrence of a
+threshold violation, and it indicates the previous
+violation has subsided for a subsequent operation.
+When the RttMonRttType is 'pathEcho', this
+notification will only be sent when the threshold
+violation occurs during an operation to the target and
+not to a hop along the path to the target. This also
+applies to the subsiding of a threshold condition.
+If History is not being collected, the instance values
+for the rttMonHistoryCollectionAddress object will not
+be valid. When RttMonRttType is not 'echo' or 'pathEcho'
+the rttMonHistoryCollectionAddress object will be null.
+rttMonReactVar defines the type of reaction that is
+configured for the probe ( e.g jitterAvg, rtt etc ).
+In the rttMonReactTable there are trap definitions
+for the probes and each probe may have more than
+one trap definitions for various types ( e.g rtt,
+jitterAvg, packetLoossSD etc ). So the object rttMonReactVar
+indicates the type ( e.g. rtt, packetLossSD, timeout etc )
+for which threshold violation traps has been generated.
+The object rttMonEchoAdminLSPSelector will be valid only
+for the probes based on 'mplsLspPingAppl' RttMonProtocol. For
+all other probes it will be null.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : rttMonLpdDiscoveryNotification</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.9.42.2.0.6$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>A rttMonLpdDiscoveryNotification indicates that the LSP Path
+Discovery to the target PE has failed, and it also indicates
+the clearing of such condition. Precisely this has resulted in
+rttMonLpdGrpStatsLPDFailOccurred changing value.
+When the rttMonLpdGrpStatsLPDFailOccurred is 'false', the
+instance value for rttMonLpdGrpStatsLPDFailCause is not valid.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : rttMonLpdGrpStatusNotification</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.9.42.2.0.7$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>A rttMonLpdGrpStatusNotification indicates that the LPD
+Group status rttMonLpdGrpStatsGroupStatus has changed indicating
+some connectivity change to the target PE.
+This has resulted in rttMonLpdGrpStatsGroupStatus changing
+value.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : stpxInconsistencyUpdate</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.9.82.2.0.1$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>A stpxPortInconsistencyUpdate notification is sent by a
+bridge when an instance of stpxInconsistentState is
+created or destroyed.  That is, when an inconsistency is
+discovered in the VLAN's Spanning Tree for a particular
+port, or when such an inconsistency disappears.  Note
+that the trap is not sent if the port transitions between
+different types of inconsistency.
+The stpxInconsistentState value indicates the type of
+inconsistency which now exists/no longer exists for the
+relevant VLAN on the relevant port.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : stpxRootInconsistencyUpdate</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.9.82.2.0.2$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>A stpxRootInconsistencyUpdate notification is sent by a
+bridge when an instance of stpxRootInconsistencyState
+is created or destroyed. That is, when an
+root-inconsistency is discovered in the VLAN's or
+instance's Spanning Tree for a particular port, or when
+such an root-inconsistency disappears. For creation, the
+value of stpxRootInconsistencyState in the notification is
+true(1);for deletion, the value is false(2).
+The object value of stpxSpanningTreeType indicates
+which Spanning Tree protocol is running when an instance
+of stpxRootInconsistencyState is created or destroyed.  </description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : stpxLoopInconsistencyUpdate</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.9.82.2.0.3$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>A stpxLoopInconsistencyUpdate notification is sent by a
+bridge when an instance of stpxLoopInconsistencyState
+is created or destroyed. That is, when an
+loop-inconsistency is discovered in the VLAN's or
+instance's Spanning Tree for a particular port, or when
+such an loop-inconsistency disappears. For creation,
+the value of stpxLoopInconsistencyState in the
+notification is true(1);for deletion, the value is
+false(2).
+The object value of stpxSpanningTreeType indicates
+which Spanning Tree protocol is running when an instance
+of stpxLoopInconsistencyState is created or
+destroyed.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : vmVmpsChange</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.9.68.2.0.1$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>A VMPS change notification is generated whenever
+vmVmpsChanges is incremented. The IP address
+of the new VMPS is sent.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : vtpConfigRevNumberError</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.9.46.2.0.1$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>A configuration revision number error notification
+signifies that a device has incremented its
+vtpConfigRevNumberErrors counter.
+Generation of this notification is suppressed if the
+vtpNotificationsEnabled has the value 'false'.
+The device must throttle the generation of consecutive
+vtpConfigRevNumberError notifications so that there is at
+least a five-second gap between notification of this type.
+When notification are throttled, they are dropped, not
+queued for sending at a future time.  (Note that
+'generating' a notification means sending to all configured
+recipients.)</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : vtpConfigDigestError</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.9.46.2.0.2$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>A configuration digest error notification signifies that a
+device has incremented its vtpConfigDigestErrors counter.
+Generation of this notification is suppressed if the
+vtpNotificationsEnabled has the value 'false'.
+The device must throttle the generation of consecutive
+vtpConfigDigestError notifications so that there is at least
+a five-second gap between notification of this type.  When
+notification are throttled, they are dropped, not queued for
+sending at a future time.  (Note that 'generating' a
+notification means sending to all configured recipients.)</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : vtpServerDisabled</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.9.46.2.0.3$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>A VTP Server disabled notification is generated when the
+local system is no longer able to function as a VTP Server
+because the number of defined VLANs is greater than
+vtpMaxVlanStorage.
+Generation of this notification is suppressed if the
+vtpNotificationsEnabled has the value 'false'.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : vtpMtuTooBig</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.9.46.2.0.4$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>A VTP MTU tooBig notification is generated when a VLAN's
+MTU size is larger than can be supported either:
+-by one or more of its trunk ports:
+the included vtpVlanState has the value
+'mtuTooBigForTrunk' and the included
+vlanTrunkPortManagementDomain is for the first (or only)
+trunk port,
+or
+-by the device itself:
+vtpVlanState has the value 'mtuTooBigForDevice' and any
+instance of vlanTrunkPortManagementDomain is included.
+Devices which have no trunk ports do not send vtpMtuTooBig
+notifications.
+Generation of this notification is suppressed if the
+vtpNotificationsEnabled has the value 'false'.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : vtpVersionOneDeviceDetected</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.9.46.2.0.6$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>A VTP version one device detected notification is
+generated by a device when:
+a) a management domain has been put into version 2 mode
+(as accessed by managementDomainVersionInUse).
+b) 15 minutes has passed since a).
+c) a version 1 PDU is detected on a trunk on the device
+that is in that management domain which has a lower
+revision number than the current configuration.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : vlanTrunkPortDynamicStatusChange</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.9.46.2.0.7$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>A vlanTrunkPortDynamicStatusChange notification is
+generated by a device when the value of
+vlanTrunkPortDynamicStatus object has been changed.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : vtpLocalModeChanged</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.9.46.2.0.8$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>A vtpLocalModeChanged notification is generated 
+by a device when the value of the object 
+managementDomainLocalMode is changed.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : vtpVersionInUseChanged</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.9.46.2.0.9$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>A vtpVersionInUseChanged notification is  
+generated by a device when the value of the  
+object managementDomainVersionInUse is 
+changed.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : vtpVlanCreated</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.9.46.2.0.10$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>A vtpVlanCreated notification is generated by a 
+device when a VLAN is created. </description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : vtpVlanDeleted</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.9.46.2.0.11$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>A vtpVlanDeleted notification is generated by a
+device when a VLAN is deleted. </description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : vtpVlanRingNumberConflict</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.9.9.46.2.0.12$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>A VTP ring number configuration conflict notification is
+generated if, and only at the time when, a device learns of
+a conflict between:
+a) the ring number (vtpVlanPortLocalSegment) being used on a
+token ring segment attached to the port identified by
+ifIndex, and
+b) the VTP-obtained ring number (vtpVlanRingNumber) for the
+VLAN identified by vtpVlanIndex.
+When such a conflict occurs, the bridge port is put into an
+administrative down position until the conflict is resolved
+through local/network management intervention.
+This notification is only applicable to VLANs of type
+'tokenRing'.</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+			</items>
+			<discovery_rules/>
+			<macros/>
+			<templates/>
+			<screens/>
+		</template>
+	</templates>
+	<triggers>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.96.2.1.1$\b)&quot;].str(&quot;enterprises.9.9.96.2.1.1&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.96.2.1.1$\b)&quot;].nodata(3d)}=0</expression>
+			<name>A ccCopyCompletion trap is sent at the completionof a config-copy request.</name>
+			<url/>
+			<status>0</status>
+			<priority>1</priority>
+			<description>A ccCopyCompletion trap is sent at the completion
+of a config-copy request. The ccCopyFailCause is not
+instantiated, and hence not included in a trap, when
+the ccCopyState is success.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.117.2.0.1$\b)&quot;].str(&quot;enterprises.9.9.117.2.0.1&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.117.2.0.1$\b)&quot;].nodata(3d)}=0</expression>
+			<name>This notification is generated when the value ofcefcModuleOperStatus changes.</name>
+			<url/>
+			<status>0</status>
+			<priority>1</priority>
+			<description>This notification is generated when the value of
+cefcModuleOperStatus changes. It can be utilized by
+an NMS to update the status of the module it is
+managing.
+</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.117.2.0.2$\b)&quot;].str(&quot;enterprises.9.9.117.2.0.2&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.117.2.0.2$\b)&quot;].nodata(3d)}=0</expression>
+			<name>The cefcFRUPowerStatusChange notification indicates thatthe power status of a FRU has changed.</name>
+			<url/>
+			<status>0</status>
+			<priority>2</priority>
+			<description>The cefcFRUPowerStatusChange notification indicates that
+the power status of a FRU has changed. The varbind for this
+notification indicates the entPhysicalIndex of the FRU,
+and the new operational-status of the FRU.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.117.2.0.3$\b)&quot;].str(&quot;enterprises.9.9.117.2.0.3&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.117.2.0.3$\b)&quot;].nodata(3d)}=0</expression>
+			<name>The cecfFRUInserted notification indicates that a FRU was inserted.</name>
+			<url/>
+			<status>0</status>
+			<priority>1</priority>
+			<description>The cecfFRUInserted notification indicates that a FRU was
+inserted. The varbind for this notification indicates the
+entPhysicalIndex of the inserted FRU, and the entPhysicalIndex
+of the FRU's container.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.117.2.0.4$\b)&quot;].str(&quot;enterprises.9.9.117.2.0.4&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.117.2.0.4$\b)&quot;].nodata(3d)}=0</expression>
+			<name>The cefcFRURemoved notification indicates that a FRU wasremoved. The varbind for this notification indicates theentPhysicalIndex of the removed FRU, and the entPhysicalIndexof the FRU's container.</name>
+			<url/>
+			<status>0</status>
+			<priority>1</priority>
+			<description>The cefcFRURemoved notification indicates that a FRU was
+removed. The varbind for this notification indicates the
+entPhysicalIndex of the removed FRU, and the entPhysicalIndex
+of the FRU's container.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.117.2.0.5$\b)&quot;].str(&quot;enterprises.9.9.117.2.0.5&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.117.2.0.5$\b)&quot;].nodata(3d)}=0</expression>
+			<name>FRU was inserted whose product ID is not supported.</name>
+			<url/>
+			<status>0</status>
+			<priority>2</priority>
+			<description>The cefcUnrecognizedFRU notification indicates that a FRU was
+inserted whose product ID is not supported. The varbind for
+this notification indicates the entPhysicalIndex of the
+inserted FRU, the entPhysicalClass this FRU belongs to, the
+entPhysicalVendorType of this FRU, the entPhysicalName
+of the FRU, the entPhysicalModelName of the inserted FRU, and
+the cefcPhysicalStatus telling the reason code for sending this
+notification. </description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.117.2.0.6$\b)&quot;].str(&quot;enterprises.9.9.117.2.0.6&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.117.2.0.6$\b)&quot;].nodata(3d)}=0</expression>
+			<name>This notification is generated when the value ofcefcFanTrayOperStatus changes.</name>
+			<url/>
+			<status>0</status>
+			<priority>1</priority>
+			<description>This notification is generated when the value of
+cefcFanTrayOperStatus changes. </description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.117.2.0.7$\b)&quot;].str(&quot;enterprises.9.9.117.2.0.7&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.117.2.0.7$\b)&quot;].nodata(3d)}=0</expression>
+			<name>The notification indicates that the powersupply's output capacity has changed.</name>
+			<url/>
+			<status>0</status>
+			<priority>2</priority>
+			<description>The notification indicates that the power
+supply's output capacity has changed.
+This notification is triggered whenever one instance
+of the power supply's cefcPSOutputModeInOperation
+has transitioned from 'false' to 'true'.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.134.2.0.1$\b)&quot;].str(&quot;enterprises.9.9.134.2.0.1&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.134.2.0.1$\b)&quot;].nodata(3d)}=0</expression>
+			<name>ccClusterMemberOperStatus changes after the member is completely added to the cluster.</name>
+			<url/>
+			<status>0</status>
+			<priority>1</priority>
+			<description>A cluster member status change notification
+is generated whenever the value of any instance
+of ccClusterMemberOperStatus changes after the
+member is completely added to the cluster.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.43.2.0.1$\b)&quot;].str(&quot;enterprises.9.9.43.2.0.1&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.43.2.0.1$\b)&quot;].nodata(3d)}=0</expression>
+			<name>Notification of a configuration management event as recorded in ccmHistoryEventTable.</name>
+			<url/>
+			<status>0</status>
+			<priority>1</priority>
+			<description>Notification of a configuration management event as
+recorded in ccmHistoryEventTable.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.13.3.0.1$\b)&quot;].str(&quot;enterprises.9.9.13.3.0.1&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.13.3.0.1$\b)&quot;].nodata(3d)}=0</expression>
+			<name>Monitor detects a testpoint reaching a critical state and is about to initiate a shutdown.</name>
+			<url/>
+			<status>0</status>
+			<priority>4</priority>
+			<description>A ciscoEnvMonShutdownNotification is sent if the environmental
+monitor detects a testpoint reaching a critical state
+and is about to initiate a shutdown.  This notification
+contains no objects so that it may be encoded and sent in the
+shortest amount of time possible.  Even so, management
+applications should not rely on receiving such a notification
+as it may not be sent before the shutdown completes.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.13.3.0.2$\b)&quot;].str(&quot;enterprises.9.9.13.3.0.2&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.13.3.0.2$\b)&quot;].nodata(3d)}=0</expression>
+			<name>voltage measured at a given testpoint is outside the normal range for the testpoint.</name>
+			<url/>
+			<status>0</status>
+			<priority>2</priority>
+			<description>A ciscoEnvMonVoltageNotification is sent if the voltage
+measured at a given testpoint is outside the normal range
+for the testpoint (i.e. is at the warning, critical, or
+shutdown stage).  Since such a notification is usually
+generated before the shutdown state is reached, it can
+convey more data and has a better chance of being sent
+than does the ciscoEnvMonShutdownNotification.
+This notification is deprecated in favour of
+ciscoEnvMonVoltStatusChangeNotif.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.13.3.0.3$\b)&quot;].str(&quot;enterprises.9.9.13.3.0.3&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.13.3.0.3$\b)&quot;].nodata(3d)}=0</expression>
+			<name>given testpoint is outsidethe normal range for the testpoint.</name>
+			<url/>
+			<status>0</status>
+			<priority>2</priority>
+			<description>A ciscoEnvMonTemperatureNotification is sent if the
+temperature measured at a given testpoint is outside
+the normal range for the testpoint (i.e. is at the warning,
+critical, or shutdown stage).  Since such a Notification
+is usually generated before the shutdown state is reached,
+it can convey more data and has a better chance of being
+sent than does the ciscoEnvMonShutdownNotification.
+This notification is deprecated in favour of
+ciscoEnvMonTempStatusChangeNotif.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.13.3.0.4$\b)&quot;].str(&quot;enterprises.9.9.13.3.0.4&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.13.3.0.4$\b)&quot;].nodata(3d)}=0</expression>
+			<name>fans in the fan array (where extant) failed.</name>
+			<url/>
+			<status>0</status>
+			<priority>4</priority>
+			<description>A ciscoEnvMonFanNotification is sent if any one of
+the fans in the fan array (where extant) fails.
+Since such a notification is usually generated before
+the shutdown state is reached, it can convey more
+data and has a better chance of being sent
+than does the ciscoEnvMonShutdownNotification.
+This notification is deprecated in favour of
+ciscoEnvMonFanStatusChangeNotif.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.13.3.0.5$\b)&quot;].str(&quot;enterprises.9.9.13.3.0.5&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.13.3.0.5$\b)&quot;].nodata(3d)}=0</expression>
+			<name>redundant power supply (where extant) fails.</name>
+			<url/>
+			<status>0</status>
+			<priority>5</priority>
+			<description>A ciscoEnvMonRedundantSupplyNotification is sent if
+the redundant power supply (where extant) fails.
+Since such a notification is usually generated before
+the shutdown state is reached, it can convey more
+data and has a better chance of being sent
+than does the ciscoEnvMonShutdownNotification.
+This notification is deprecated in favour of
+ciscoEnvMonSuppStatusChangeNotif.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.13.3.0.6$\b)&quot;].str(&quot;enterprises.9.9.13.3.0.6&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.13.3.0.6$\b)&quot;].nodata(3d)}=0</expression>
+			<name>change in the state of a device being monitored by ciscoEnvMonVoltageState.</name>
+			<url/>
+			<status>0</status>
+			<priority>1</priority>
+			<description>A ciscoEnvMonVoltStatusChangeNotif is sent if there is
+change in the state of a device being monitored
+by ciscoEnvMonVoltageState.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.13.3.0.7$\b)&quot;].str(&quot;enterprises.9.9.13.3.0.7&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.13.3.0.7$\b)&quot;].nodata(3d)}=0</expression>
+			<name>change in the state of a device being monitored by ciscoEnvMonTemperatureState.</name>
+			<url/>
+			<status>0</status>
+			<priority>1</priority>
+			<description>A ciscoEnvMonTempStatusChangeNotif is sent if there
+is change in the state of a device being monitored
+by ciscoEnvMonTemperatureState.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.13.3.0.8$\b)&quot;].str(&quot;enterprises.9.9.13.3.0.8&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.13.3.0.8$\b)&quot;].nodata(3d)}=0</expression>
+			<name>change in the state of a device being monitored by ciscoEnvMonFanState.</name>
+			<url/>
+			<status>0</status>
+			<priority>1</priority>
+			<description>A ciscoEnvMonFanStatusChangeNotif is sent if there
+is change in the state of a device being monitored
+by ciscoEnvMonFanState.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.13.3.0.9$\b)&quot;].str(&quot;enterprises.9.9.13.3.0.9&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.13.3.0.9$\b)&quot;].nodata(3d)}=0</expression>
+			<name>change in the state of a device being monitored by ciscoEnvMonSupplyState.</name>
+			<url/>
+			<status>0</status>
+			<priority>1</priority>
+			<description>A ciscoEnvMonSupplyStatChangeNotif is sent if there
+is change in the state of a device being monitored
+by ciscoEnvMonSupplyState.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.10.1.3.0.1$\b)&quot;].str(&quot;enterprises.9.9.10.1.3.0.1&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.10.1.3.0.1$\b)&quot;].nodata(3d)}=0</expression>
+			<name>flash copy operation Completed</name>
+			<url/>
+			<status>0</status>
+			<priority>1</priority>
+			<description>A ciscoFlashCopyCompletionTrap is sent at the
+completion of a flash copy operation if such a trap
+was requested when the operation was initiated.
+</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.10.1.3.0.2$\b)&quot;].str(&quot;enterprises.9.9.10.1.3.0.2&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.10.1.3.0.2$\b)&quot;].nodata(3d)}=0</expression>
+			<name>partitioning operation Complete.</name>
+			<url/>
+			<status>0</status>
+			<priority>1</priority>
+			<description>A ciscoFlashPartitioningCompletionTrap is sent at the
+completion of a partitioning operation if such a trap
+was requested when the operation was initiated.
+</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.10.1.3.0.3$\b)&quot;].str(&quot;enterprises.9.9.10.1.3.0.3&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.10.1.3.0.3$\b)&quot;].nodata(3d)}=0</expression>
+			<name>miscellaneous flash operation Completed.</name>
+			<url/>
+			<status>0</status>
+			<priority>1</priority>
+			<description>A ciscoFlashMiscOpCompletionTrap is sent at the
+completion of a miscellaneous flash operation
+(enumerated in ciscoFlashMiscOpCommand) if such a trap
+was requested when the operation was initiated.
+</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.10.1.3.0.4$\b)&quot;].str(&quot;enterprises.9.9.10.1.3.0.4&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.10.1.3.0.4$\b)&quot;].nodata(3d)}=0</expression>
+			<name>removable Flash device is inserted or removed.</name>
+			<url/>
+			<status>0</status>
+			<priority>1</priority>
+			<description>A ciscoFlashDeviceChangeTrap is sent whenever a
+removable Flash device is inserted or removed.
+</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.10.1.3.0.5$\b)&quot;].str(&quot;enterprises.9.9.10.1.3.0.5&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.10.1.3.0.5$\b)&quot;].nodata(3d)}=0</expression>
+			<name>removable Flash device is inserted.</name>
+			<url/>
+			<status>0</status>
+			<priority>1</priority>
+			<description>A ciscoFlashDeviceInsertedNotif notification is sent
+whenever a removable Flash device is inserted.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.10.1.3.0.6$\b)&quot;].str(&quot;enterprises.9.9.10.1.3.0.6&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.10.1.3.0.6$\b)&quot;].nodata(3d)}=0</expression>
+			<name>removable Flash device is removed.</name>
+			<url/>
+			<status>0</status>
+			<priority>1</priority>
+			<description>A ciscoFlashDeviceRemovedNotif notification is sent
+whenever a removable Flash device is removed.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.10.1.3.0.7$\b)&quot;].str(&quot;enterprises.9.9.10.1.3.0.7&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.10.1.3.0.7$\b)&quot;].nodata(3d)}=0</expression>
+			<name>removable Flash device is inserted.</name>
+			<url/>
+			<status>0</status>
+			<priority>1</priority>
+			<description>A ciscoFlashDeviceInsertedNotif notification is sent
+whenever a removable Flash device is inserted
+ciscoFlashDeviceInsertedNotifRev1 depcrecates
+ciscoFlashDeviceInsertedNotif since it uses
+ciscoFlashDeviceName as a varbind which is
+deprecated</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.10.1.3.0.8$\b)&quot;].str(&quot;enterprises.9.9.10.1.3.0.8&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.10.1.3.0.8$\b)&quot;].nodata(3d)}=0</expression>
+			<name>removable Flash device is removed.</name>
+			<url/>
+			<status>0</status>
+			<priority>1</priority>
+			<description>A ciscoFlashDeviceRemovedNotif notification is sent
+whenever a removable Flash device is removed.
+ciscoFlashDeviceRemovedNotifRev1 depcrecates
+ciscoFlashDeviceRemovedNotif since it uses
+ciscoFlashDeviceName as a varbind which is
+deprecated</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.109.2.0.1$\b)&quot;].str(&quot;enterprises.9.9.109.2.0.1&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.109.2.0.1$\b)&quot;].nodata(3d)}=0 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.109.2.0.2$\b)&quot;].str(&quot;enterprises.9.9.109.2.0.2&quot;)}=0</expression>
+			<name>CPU Utilization Threshold Reached.</name>
+			<url/>
+			<status>0</status>
+			<priority>4</priority>
+			<description>A cpmCPURisingThreshold notification is sent
+when configured rising CPU utilization threshold
+(cpmCPURisingThresholdValue) is reached and
+CPU utilization remained above the threshold
+for configured interval(cpmCPURisingThresholdPeriod)
+and such a notification is requested.
+The cpmProcExtUtil5SecRev and cpmProcessTimeCreated
+objects can be repeated multiple times
+in a notification indicating the top users of CPU.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.109.2.0.2$\b)&quot;].str(&quot;enterprises.9.9.109.2.0.2&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.109.2.0.2$\b)&quot;].nodata(1d)}=0</expression>
+			<name>CPU Utilization falling below Threshold.</name>
+			<url/>
+			<status>0</status>
+			<priority>1</priority>
+			<description>A cpmCPUFallingThresholdTrap is sent when the
+configured falling threshold
+(cpmCPURisingThresholdValue)
+is reached and CPU utilization remained under
+threshold for configured
+interval (cpmCPUFallingThresholdPeriod)
+and such a notification is requested.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.5.0.1$\b)&quot;].str(&quot;enterprises.9.5.0.1&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.5.0.1$\b)&quot;].nodata(1d)}=0</expression>
+			<name>Ler Alarm ON.</name>
+			<url/>
+			<status>0</status>
+			<priority>1</priority>
+			<description>A lerAlarmOn trap signifies that the agent entity
+has detected that the fddimibPORTLerFlag object in
+the FDDI-SMT73-MIB (RFC 1512) has transitioned to
+the true(1) state for one of its ports.
+The generation of this trap can be controlled by
+the fddimibPORTLerAlarm object in the
+FDDI-SMT73-MIB for each port.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.5.0.2$\b)&quot;].str(&quot;enterprises.9.5.0.2&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.5.0.2$\b)&quot;].nodata(3d)}=0 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.5.0.1$\b)&quot;].str(&quot;enterprises.9.5.0.1&quot;)}=0</expression>
+			<name>Ler Alarm OFF.</name>
+			<url/>
+			<status>0</status>
+			<priority>4</priority>
+			<description>A lerAlarmOff trap signifies that the agent
+entity has detected that the fddimibPORTLerFlag
+object in the FDDI-SMT73-MIB (RFC 1512) has
+transitioned to the false(2) state for one of
+its ports. The generation of this trap can be
+controlled by the fddimibPORTLerAlarm object in
+the FDDI-SMT73-MIB for each port.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.5.0.3$\b)&quot;].str(&quot;enterprises.9.5.0.3&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.5.0.3$\b)&quot;].nodata(1d)}=0</expression>
+			<name>Module UP.</name>
+			<url/>
+			<status>0</status>
+			<priority>1</priority>
+			<description>A moduleUp trap signifies that the agent entity
+has detected that the moduleStatus object in this
+MIB has transitioned to the ok(2) state for one of
+its modules.
+The generation of this trap can be controlled by
+the sysEnableModuleTraps object in this MIB.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.5.0.4$\b)&quot;].str(&quot;enterprises.9.5.0.4&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.5.0.4$\b)&quot;].nodata(3d)}=0 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.5.0.3$\b)&quot;].str(&quot;enterprises.9.5.0.3&quot;)}=0</expression>
+			<name>Module DOWN.</name>
+			<url/>
+			<status>0</status>
+			<priority>4</priority>
+			<description>A moduleDown trap signifies that the agent entity
+has detected that the moduleStatus object in this
+MIB has transitioned out of the ok(2) state for
+one of its modules.
+The generation of this trap can be controlled by
+the sysEnableModuleTraps object in this MIB.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.5.0.5$\b)&quot;].str(&quot;enterprises.9.5.0.5&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.5.0.5$\b)&quot;].nodata(1d)}=0</expression>
+			<name>Chassis Alarm ON.</name>
+			<url/>
+			<status>0</status>
+			<priority>1</priority>
+			<description>A chassisAlarmOn trap signifies that the agent
+entity has detected the chassisTempAlarm,
+chassisMinorAlarm, or chassisMajorAlarm object in
+this MIB has transitioned to the on(2) state.
+The generation of this trap can be controlled by
+the sysEnableChassisTraps object in this MIB.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.5.0.6$\b)&quot;].str(&quot;enterprises.9.5.0.6&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.5.0.6$\b)&quot;].nodata(3d)}=0 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.5.0.5$\b)&quot;].str(&quot;enterprises.9.5.0.5&quot;)}=0</expression>
+			<name>Chassis Alarm OFF.</name>
+			<url/>
+			<status>0</status>
+			<priority>4</priority>
+			<description>A chassisAlarmOff trap signifies that the agent
+entity has detected the chassisTempAlarm,
+chassisMinorAlarm, or chassisMajorAlarm object in
+this MIB has transitioned to the off(1) state.
+The generation of this trap can be controlled by
+the sysEnableChassisTraps object in this MIB.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.5.0.7$\b)&quot;].str(&quot;enterprises.9.5.0.7&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.5.0.7$\b)&quot;].nodata(3d)}=0</expression>
+			<name>IP Permit Denied Access.</name>
+			<url/>
+			<status>0</status>
+			<priority>1</priority>
+			<description>ipPermitDeniedTrap indicates that IP permit
+denied access happens. The generation of this
+trap can be controlled by the
+sysEnableIpPermitTraps object in this MIB.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.5.0.9$\b)&quot;].str(&quot;enterprises.9.5.0.9&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.5.0.9$\b)&quot;].nodata(3d)}=0</expression>
+			<name>system configuration in NVRAM is changed.</name>
+			<url/>
+			<status>0</status>
+			<priority>1</priority>
+			<description>A sysConfigChange trap signifies that the system
+configuration in NVRAM is changed. The generation
+of this trap can be controlled by the
+sysEnableConfigTraps object in this MIB.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.5.0.10$\b)&quot;].str(&quot;enterprises.9.5.0.10&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.5.0.10$\b)&quot;].nodata(3d)}=0</expression>
+			<name>token ring port exceeds its Soft Error Threshold within the configured interval.</name>
+			<url/>
+			<status>0</status>
+			<priority>4</priority>
+			<description>This trap is generated when a station local to a
+token ring port exceeds its Soft Error Threshold
+within the configured interval.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.41.2.0.1$\b)&quot;].str(&quot;enterprises.9.9.41.2.0.1&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.41.2.0.1$\b)&quot;].nodata(3d)}=0</expression>
+			<name>Clog Message Generated.</name>
+			<url/>
+			<status>0</status>
+			<priority>1</priority>
+			<description>When a syslog message is generated by the device a
+clogMessageGenerated notification is sent.  The
+sending of these notifications can be enabled/disabled
+via the clogNotificationsEnabled object.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.215.2.0.1$\b)&quot;].str(&quot;enterprises.9.9.215.2.0.1&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.215.2.0.1$\b)&quot;].nodata(3d)}=0</expression>
+			<name>MAC address changed or removed.</name>
+			<url/>
+			<status>0</status>
+			<priority>1</priority>
+			<description>This notification is generated when there is enough MAC
+address information to fully occupy a maximum size SNMP trap
+message. This notification is also generated when there
+is at least one MAC address changed or removed and the amount
+of time elapsed from the previous notification is greater
+than the maximum wait time denoted by
+cmnNotificationInterval object.
+If there are more MAC addresses information than can fit into
+one cmmHistTrapContent object, then multiple notifications
+will be generated.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.215.2.0.2$\b)&quot;].str(&quot;enterprises.9.9.215.2.0.2&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.215.2.0.2$\b)&quot;].nodata(3d)}=0</expression>
+			<name>MAC address move between Interfaces.</name>
+			<url/>
+			<status>0</status>
+			<priority>1</priority>
+			<description>cmnMacMoveNotification is generated when a MAC address is
+moved between two interfaces.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.215.2.0.3$\b)&quot;].str(&quot;enterprises.9.9.215.2.0.3&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.215.2.0.3$\b)&quot;].nodata(3d)}=0</expression>
+			<name>cmnUtilizationUtilization exceeds or equals to the cmnMACThresholdLimit for a given entPhysicalIndex.</name>
+			<url/>
+			<status>0</status>
+			<priority>4</priority>
+			<description>cmnMacThresholdExceedNotif is sent when
+cmnUtilizationUtilization exceeds or equals to the
+cmnMACThresholdLimit for a given entPhysicalIndex.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.220.0.1$\b)&quot;].str(&quot;enterprises.9.9.220.0.1&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.220.0.1$\b)&quot;].nodata(3d)}=0</expression>
+			<name>No Guest in VLAN</name>
+			<url/>
+			<status>0</status>
+			<priority>1</priority>
+			<description>A cpaeNoGuestVlanNotif is sent if a non-802.1x
+supplicant is detected on a PAE port for which the
+value of corresponding instance of
+dot1xAuthAuthControlledPortControl is 'auto' and the
+value of corresponding instance of cpaeGuestVlanNumber
+is zero.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.220.0.2$\b)&quot;].str(&quot;enterprises.9.9.220.0.2&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.220.0.2$\b)&quot;].nodata(3d)}=0</expression>
+			<name>cpae No Auth Fail Vlan Notification</name>
+			<url/>
+			<status>0</status>
+			<priority>1</priority>
+			<description>A cpaeNoAuthFailVlanNotif is sent if a 802.1x
+supplicant fails to authenticate on a PAE port for
+which the value of corresponding instance of
+dot1xAuthAuthControlledPortControl is 'auto' and the
+value of corresponding instance of cpaePortAuthFailVlan
+is zero.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.315.0.0.1$\b)&quot;].str(&quot;enterprises.9.9.315.0.0.1&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.315.0.0.1$\b)&quot;].nodata(3d)}=0</expression>
+			<name>port security address violation is detectedon a secure non-trunk, access interface.</name>
+			<url/>
+			<status>0</status>
+			<priority>5</priority>
+			<description>The address violation notification is generated
+when port security address violation is detected
+on a secure non-trunk, access interface (that carries
+a single vlan) and the cpsIfViolationAction is set to
+'dropNotify'.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.315.0.0.2$\b)&quot;].str(&quot;enterprises.9.9.315.0.0.2&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.315.0.0.2$\b)&quot;].nodata(3d)}=0</expression>
+			<name>port security address violation is detectedon a secure trunk, access interface.</name>
+			<url/>
+			<status>0</status>
+			<priority>5</priority>
+			<description>The address violation notification is generated when port
+security address violation is detected on a secure trunk
+or a multi-vlan interface and the cpsIfViolationAction is
+set to 'dropNotify'.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.42.2.0.1$\b)&quot;].str(&quot;enterprises.9.9.42.2.0.1&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.42.2.0.1$\b)&quot;].nodata(3d)}=0</expression>
+			<name>rtt Monitoring Connection Change Notification.</name>
+			<url/>
+			<status>0</status>
+			<priority>1</priority>
+			<description>This notification is only valid when the RttMonRttType
+is 'echo' or 'pathEcho'.
+A rttMonConnectionChangeNotification indicates that a
+connection to a target (not to a hop along the path
+to a target) has either failed on establishment or
+been lost and when reestablished.  Precisely, this
+has resulted in rttMonCtrlOperConnectionLostOccurred
+changing value.
+If History is not being collected, the instance values
+for the rttMonHistoryCollectionAddress object will not
+be valid.  When RttMonRttType is not 'echo' or 'pathEcho'
+the rttMonHistoryCollectionAddress object will be null.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.42.2.0.2$\b)&quot;].str(&quot;enterprises.9.9.42.2.0.2&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.42.2.0.2$\b)&quot;].nodata(3d)}=0</expression>
+			<name>rtt Monitoring Connection Timeout Notification.</name>
+			<url/>
+			<status>0</status>
+			<priority>2</priority>
+			<description>A rttMonTimeoutNotification indicates the occurrence of
+a timeout for a RTT operation, and it indicates the
+clearing of such a condition by a subsequent RTT
+operation. Precisely, this has resulted in
+rttMonCtrlOperTimeoutOccurred changing value.
+When the RttMonRttType is 'pathEcho', this
+notification will only be sent when the timeout
+occurs during an operation to the target and not to
+a hop along the path to the target.  This also
+applies to the clearing of the timeout.
+If History is not being collected, the instance values
+for the rttMonHistoryCollectionAddress object will not
+be valid.  When RttMonRttType is not 'echo' or 'pathEcho'
+the rttMonHistoryCollectionAddress object will be null.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.42.2.0.3$\b)&quot;].str(&quot;enterprises.9.9.42.2.0.3&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.42.2.0.3$\b)&quot;].nodata(3d)}=0</expression>
+			<name>threshold violation for a RTT operation</name>
+			<url/>
+			<status>0</status>
+			<priority>2</priority>
+			<description>A rttMonThresholdNotification indicates the
+occurrence of a threshold violation for a RTT operation,
+and it indicates the previous violation has subsided for
+a subsequent RTT operation.  Precisely, this has resulted
+in rttMonCtrlOperOverThresholdOccurred changing value.
+When the RttMonRttType is 'pathEcho', this
+notification will only be sent when the threshold
+violation occurs during an operation to the target and
+not to a hop along the path to the target.  This also
+applies to the subsiding of a threshold condition.
+If History is not being collected, the instance values
+for the rttMonHistoryCollectionAddress object will not
+be valid.  When RttMonRttType is not 'echo' or 'pathEcho'
+the rttMonHistoryCollectionAddress object will be null.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.42.2.0.4$\b)&quot;].str(&quot;enterprises.9.9.42.2.0.4&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.42.2.0.4$\b)&quot;].nodata(3d)}=0</expression>
+			<name>data corruption in an RTT operation.</name>
+			<url/>
+			<status>0</status>
+			<priority>2</priority>
+			<description>A rttMonVerifyErrorNotification indicates the
+occurrence of a data corruption in an RTT operation.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.42.2.0.5$\b)&quot;].str(&quot;enterprises.9.9.42.2.0.5&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.42.2.0.5$\b)&quot;].nodata(3d)}=0</expression>
+			<name>threshold violation and previous violation has subsided for a subsequent operation</name>
+			<url/>
+			<status>0</status>
+			<priority>2</priority>
+			<description>A rttMonNotification indicates the occurrence of a
+threshold violation, and it indicates the previous
+violation has subsided for a subsequent operation.
+When the RttMonRttType is 'pathEcho', this
+notification will only be sent when the threshold
+violation occurs during an operation to the target and
+not to a hop along the path to the target. This also
+applies to the subsiding of a threshold condition.
+If History is not being collected, the instance values
+for the rttMonHistoryCollectionAddress object will not
+be valid. When RttMonRttType is not 'echo' or 'pathEcho'
+the rttMonHistoryCollectionAddress object will be null.
+rttMonReactVar defines the type of reaction that is
+configured for the probe ( e.g jitterAvg, rtt etc ).
+In the rttMonReactTable there are trap definitions
+for the probes and each probe may have more than
+one trap definitions for various types ( e.g rtt,
+jitterAvg, packetLoossSD etc ). So the object rttMonReactVar
+indicates the type ( e.g. rtt, packetLossSD, timeout etc )
+for which threshold violation traps has been generated.
+The object rttMonEchoAdminLSPSelector will be valid only
+for the probes based on 'mplsLspPingAppl' RttMonProtocol. For
+all other probes it will be null.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.42.2.0.6$\b)&quot;].str(&quot;enterprises.9.9.42.2.0.6&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.42.2.0.6$\b)&quot;].nodata(3d)}=0</expression>
+			<name>LSP PathDiscovery to the target PE has failed.</name>
+			<url/>
+			<status>0</status>
+			<priority>2</priority>
+			<description>A rttMonLpdDiscoveryNotification indicates that the LSP Path
+Discovery to the target PE has failed, and it also indicates
+the clearing of such condition. Precisely this has resulted in
+rttMonLpdGrpStatsLPDFailOccurred changing value.
+When the rttMonLpdGrpStatsLPDFailOccurred is 'false', the
+instance value for rttMonLpdGrpStatsLPDFailCause is not valid.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.42.2.0.7$\b)&quot;].str(&quot;enterprises.9.9.42.2.0.7&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.42.2.0.7$\b)&quot;].nodata(3d)}=0</expression>
+			<name>LPDGroup status rttMonLpdGrpStatsGroupStatus has changed.</name>
+			<url/>
+			<status>0</status>
+			<priority>1</priority>
+			<description>A rttMonLpdGrpStatusNotification indicates that the LPD
+Group status rttMonLpdGrpStatsGroupStatus has changed indicating
+some connectivity change to the target PE.
+This has resulted in rttMonLpdGrpStatsGroupStatus changing
+value.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.82.2.0.1$\b)&quot;].str(&quot;enterprises.9.9.82.2.0.1&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.82.2.0.1$\b)&quot;].nodata(3d)}=0</expression>
+			<name>A bridge when an instance of stpxInconsistentState is created or destroyed.</name>
+			<url/>
+			<status>0</status>
+			<priority>1</priority>
+			<description>A stpxPortInconsistencyUpdate notification is sent by a
+bridge when an instance of stpxInconsistentState is
+created or destroyed.  That is, when an inconsistency is
+discovered in the VLAN's Spanning Tree for a particular
+port, or when such an inconsistency disappears.  Note
+that the trap is not sent if the port transitions between
+different types of inconsistency.
+The stpxInconsistentState value indicates the type of
+inconsistency which now exists/no longer exists for the
+relevant VLAN on the relevant port.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.82.2.0.2$\b)&quot;].str(&quot;enterprises.9.9.82.2.0.2&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.82.2.0.2$\b)&quot;].nodata(3d)}=0</expression>
+			<name>A bridge when an instance of stpxRootInconsistencyStateis created or destroyed.</name>
+			<url/>
+			<status>0</status>
+			<priority>1</priority>
+			<description>A stpxRootInconsistencyUpdate notification is sent by a
+bridge when an instance of stpxRootInconsistencyState
+is created or destroyed. That is, when an
+root-inconsistency is discovered in the VLAN's or
+instance's Spanning Tree for a particular port, or when
+such an root-inconsistency disappears. For creation, the
+value of stpxRootInconsistencyState in the notification is
+true(1);for deletion, the value is false(2).
+The object value of stpxSpanningTreeType indicates
+which Spanning Tree protocol is running when an instance
+of stpxRootInconsistencyState is created or destroyed.  </description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.82.2.0.3$\b)&quot;].str(&quot;enterprises.9.9.82.2.0.3&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.82.2.0.3$\b)&quot;].nodata(3d)}=0</expression>
+			<name>A bridge when an instance of stpxLoopInconsistencyStateis created or destroyed.</name>
+			<url/>
+			<status>0</status>
+			<priority>1</priority>
+			<description>A stpxLoopInconsistencyUpdate notification is sent by a
+bridge when an instance of stpxLoopInconsistencyState
+is created or destroyed. That is, when an
+loop-inconsistency is discovered in the VLAN's or
+instance's Spanning Tree for a particular port, or when
+such an loop-inconsistency disappears. For creation,
+the value of stpxLoopInconsistencyState in the
+notification is true(1);for deletion, the value is
+false(2).
+The object value of stpxSpanningTreeType indicates
+which Spanning Tree protocol is running when an instance
+of stpxLoopInconsistencyState is created or
+destroyed.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.68.2.0.1$\b)&quot;].str(&quot;enterprises.9.9.68.2.0.1&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.68.2.0.1$\b)&quot;].nodata(3d)}=0</expression>
+			<name>vmVmpsChanges is incremented. The IP addressof the new VMPS is sent.</name>
+			<url/>
+			<status>0</status>
+			<priority>1</priority>
+			<description>A VMPS change notification is generated whenever
+vmVmpsChanges is incremented. The IP address
+of the new VMPS is sent.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.46.2.0.1$\b)&quot;].str(&quot;enterprises.9.9.46.2.0.1&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.46.2.0.1$\b)&quot;].nodata(3d)}=0</expression>
+			<name>device has incremented its vtpConfigRevNumberErrors counter.</name>
+			<url/>
+			<status>0</status>
+			<priority>2</priority>
+			<description>A configuration revision number error notification
+signifies that a device has incremented its
+vtpConfigRevNumberErrors counter.
+Generation of this notification is suppressed if the
+vtpNotificationsEnabled has the value 'false'.
+The device must throttle the generation of consecutive
+vtpConfigRevNumberError notifications so that there is at
+least a five-second gap between notification of this type.
+When notification are throttled, they are dropped, not
+queued for sending at a future time.  (Note that
+'generating' a notification means sending to all configured
+recipients.)</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.46.2.0.2$\b)&quot;].str(&quot;enterprises.9.9.46.2.0.2&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.46.2.0.2$\b)&quot;].nodata(3d)}=0</expression>
+			<name>Device has incremented its vtpConfigDigestErrors counter.</name>
+			<url/>
+			<status>0</status>
+			<priority>2</priority>
+			<description>A configuration digest error notification signifies that a
+device has incremented its vtpConfigDigestErrors counter.
+Generation of this notification is suppressed if the
+vtpNotificationsEnabled has the value 'false'.
+The device must throttle the generation of consecutive
+vtpConfigDigestError notifications so that there is at least
+a five-second gap between notification of this type.  When
+notification are throttled, they are dropped, not queued for
+sending at a future time.  (Note that 'generating' a
+notification means sending to all configured recipients.)</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.46.2.0.3$\b)&quot;].str(&quot;enterprises.9.9.46.2.0.3&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.46.2.0.3$\b)&quot;].nodata(3d)}=0</expression>
+			<name>Local system is no longer able to function as a VTP Server because the number of defined VLANs is greater than vtpMaxVlanStorage.</name>
+			<url/>
+			<status>0</status>
+			<priority>5</priority>
+			<description>A VTP Server disabled notification is generated when the
+local system is no longer able to function as a VTP Server
+because the number of defined VLANs is greater than
+vtpMaxVlanStorage.
+Generation of this notification is suppressed if the
+vtpNotificationsEnabled has the value 'false'.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.46.2.0.4$\b)&quot;].str(&quot;enterprises.9.9.46.2.0.4&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.46.2.0.4$\b)&quot;].nodata(3d)}=0</expression>
+			<name>VLAN's MTU size is larger than can be supported.</name>
+			<url/>
+			<status>0</status>
+			<priority>4</priority>
+			<description>A VTP MTU tooBig notification is generated when a VLAN's
+MTU size is larger than can be supported either:
+-by one or more of its trunk ports:
+the included vtpVlanState has the value
+'mtuTooBigForTrunk' and the included
+vlanTrunkPortManagementDomain is for the first (or only)
+trunk port,
+or
+-by the device itself:
+vtpVlanState has the value 'mtuTooBigForDevice' and any
+instance of vlanTrunkPortManagementDomain is included.
+Devices which have no trunk ports do not send vtpMtuTooBig
+notifications.
+Generation of this notification is suppressed if the
+vtpNotificationsEnabled has the value 'false'.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.46.2.0.6$\b)&quot;].str(&quot;enterprises.9.9.46.2.0.6&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.46.2.0.6$\b)&quot;].nodata(3d)}=0</expression>
+			<name>vtp Version One Device has been Detected.</name>
+			<url/>
+			<status>0</status>
+			<priority>1</priority>
+			<description>A VTP version one device detected notification is
+generated by a device when:
+a) a management domain has been put into version 2 mode
+(as accessed by managementDomainVersionInUse).
+b) 15 minutes has passed since a).
+c) a version 1 PDU is detected on a trunk on the device
+that is in that management domain which has a lower
+revision number than the current configuration.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.46.2.0.7$\b)&quot;].str(&quot;enterprises.9.9.46.2.0.7&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.46.2.0.7$\b)&quot;].nodata(3d)}=0</expression>
+			<name>value of vlanTrunkPortDynamicStatus object has been changed.</name>
+			<url/>
+			<status>0</status>
+			<priority>1</priority>
+			<description>A vlanTrunkPortDynamicStatusChange notification is
+generated by a device when the value of
+vlanTrunkPortDynamicStatus object has been changed.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.46.2.0.8$\b)&quot;].str(&quot;enterprises.9.9.46.2.0.8&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.46.2.0.8$\b)&quot;].nodata(3d)}=0</expression>
+			<name>vtp Local Mode has been Changed.</name>
+			<url/>
+			<status>0</status>
+			<priority>1</priority>
+			<description>A vtpLocalModeChanged notification is generated 
+by a device when the value of the object 
+managementDomainLocalMode is changed.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.46.2.0.9$\b)&quot;].str(&quot;enterprises.9.9.46.2.0.9&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.46.2.0.9$\b)&quot;].nodata(3d)}=0</expression>
+			<name>vtp Version In Use Changed.</name>
+			<url/>
+			<status>0</status>
+			<priority>1</priority>
+			<description>A vtpVersionInUseChanged notification is  
+generated by a device when the value of the  
+object managementDomainVersionInUse is 
+changed.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.46.2.0.10$\b)&quot;].str(&quot;enterprises.9.9.46.2.0.10&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.46.2.0.10$\b)&quot;].nodata(3d)}=0</expression>
+			<name>vtp Vlan Created.</name>
+			<url/>
+			<status>0</status>
+			<priority>1</priority>
+			<description>A vtpVlanCreated notification is generated by a 
+device when a VLAN is created. </description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.46.2.0.11$\b)&quot;].str(&quot;enterprises.9.9.46.2.0.11&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.46.2.0.11$\b)&quot;].nodata(3d)}=0</expression>
+			<name>vtp Vlan Deleted.</name>
+			<url/>
+			<status>0</status>
+			<priority>1</priority>
+			<description>A vtpVlanDeleted notification is generated by a
+device when a VLAN is deleted. </description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.46.2.0.12$\b)&quot;].str(&quot;enterprises.9.9.46.2.0.12&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.46.2.0.12$\b)&quot;].nodata(3d)}=0</expression>
+			<name>vtp Vlan Ring Number has a Conflict.</name>
+			<url/>
+			<status>0</status>
+			<priority>2</priority>
+			<description>A VTP ring number configuration conflict notification is
+generated if, and only at the time when, a device learns of
+a conflict between:
+a) the ring number (vtpVlanPortLocalSegment) being used on a
+token ring segment attached to the port identified by
+ifIndex, and
+b) the VTP-obtained ring number (vtpVlanRingNumber) for the
+VLAN identified by vtpVlanIndex.
+When such a conflict occurs, the bridge port is put into an
+administrative down position until the conflict is resolved
+through local/network management intervention.
+This notification is only applicable to VLANs of type
+'tokenRing'.</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+	</triggers>
+	<graphs/>
+</zabbix_export>

@@ -1,0 +1,9 @@
+"Name","Full Name","OID","Type","Access","Indexes","MIB Module","Description"
+"hh3cConfigManNotifications",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cConfig.hh3cConfigManNotifications",".1.3.6.1.4.1.25506.2.4.2",,,"","HH3C-CONFIG-MAN-MIB",
+"hh3cCfgManEventlog",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cConfig.hh3cConfigManNotifications.hh3cCfgManEventlog",".1.3.6.1.4.1.25506.2.4.2.1",,,"","HH3C-CONFIG-MAN-MIB","The object calculates the checksum on the current config per 10 minutes and
+even if it is different from the saved config but if a trap has been sent
+with the same checksum then don't send again until the checksum is different."
+"hh3cCfgOperateCompletion",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cConfig.hh3cConfigManNotifications.hh3cCfgOperateCompletion",".1.3.6.1.4.1.25506.2.4.2.2",,,"","HH3C-CONFIG-MAN-MIB","When create hh3cCfgOperateTable successfully, a
+notification may be generated."
+"hh3cCfgInvalidConfigFile",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cConfig.hh3cConfigManNotifications.hh3cCfgInvalidConfigFile",".1.3.6.1.4.1.25506.2.4.2.3",,,"","HH3C-CONFIG-MAN-MIB","When the configuration file is invalid, this
+notification will be generated."

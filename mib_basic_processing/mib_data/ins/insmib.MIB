@@ -1,0 +1,3540 @@
+
+CPQ-INS-MIB DEFINITIONS ::= BEGIN
+--
+-- ===========================================================================
+--  Compaq Telecom Vendor MIB for HP Opencall Intelligent Network Server (INS)
+--  SNMP V1 implementation
+--
+--  Updated: Feb 12, 2002 11:35 CST
+-- ===========================================================================
+--
+--  This Compaq Computer Corporation SNMP Management Information Base
+--  Specification embodies Compaq Computer Corporation's confidential and
+--  proprietary intellectual property.  Compaq Computer Corporation retains
+--  all title and ownership in the Specification, including any revisions.
+--
+--  It is Compaq Computer Corporation's intent to encourage the widespread
+--  use of this Specification in connection with the management of Compaq
+--  Computer Corporation products.
+--
+--  Compaq Computer Corporation grants vendors, end-users, and other
+--  interested parties a non-exclusive license to use this Specification in
+--  connection with the management of Compaq Computer Corporation products.
+--
+--  Compaq Computer Corporation reserves the right to make changes in this
+--  specification and other information contained in this document without
+--  prior notice.
+--
+--  Compaq Computer Corporation makes no warranty, either expressed or
+--  implied, as to the use, operation, condition, or performance of the
+--  Specification.  In no event shall Compaq Computer Corporation be liable
+--  for any incidental, indirect, special, or consequential damages
+--  whatsoever (including but not limited to loss of profits) arising out
+--  of or related to this document or the information contained in it.
+--
+--
+
+    IMPORTS
+        IpAddress, Counter, Gauge, TimeTicks
+            FROM RFC1155-SMI
+        OBJECT-TYPE
+            FROM RFC-1212
+        DisplayString
+            FROM RFC1213-MIB
+        TRAP-TYPE
+            FROM RFC-1215;
+
+private        OBJECT IDENTIFIER ::= { iso(1) org(3) dod(6) internet(1) 4 }
+enterprises    OBJECT IDENTIFIER ::= { private 1 }
+tandem         OBJECT IDENTIFIER ::= { enterprises 169 }
+nonstopsystems OBJECT IDENTIFIER ::= { tandem 3 }
+ems            OBJECT IDENTIFIER ::= { nonstopsystems 12 }
+-- Compaq (Tandem Heritage) Telecom division
+ntsp OBJECT IDENTIFIER ::= { tandem 10 }
+-- INS Product
+ins            OBJECT IDENTIFIER ::= { ntsp 1 } --* DEBUGGING
+--
+-- INS Functional Groups:
+--
+--   ERAD - Exception Reporting and Alarm Distribution
+insErad        OBJECT IDENTIFIER ::= { ins 1 }
+--   Statistics
+insStats       OBJECT IDENTIFIER ::= { ins 2 }
+--   SS7 network configuration
+insNwConfig    OBJECT IDENTIFIER ::= { ins 3 }
+
+
+insSystemName OBJECT-TYPE
+    SYNTAX DisplayString (SIZE (1..8))
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "System name of the HP Opencall INS being monitored.
+        "
+    ::= { ins 4 }
+
+insNodeTableSize OBJECT-TYPE
+    SYNTAX Gauge
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Number of entries in the insNodeTable object.
+        "
+    ::= { ins 5 }
+
+insNodeTable OBJECT-TYPE
+    SYNTAX SEQUENCE OF InsNodeEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "A table of INS nodes that can be managed. Nodes are indexed
+        by node ID, ranging from A to Z. The number of entries is given by the
+        insNodeTableSize object.  The set of manageable nodes (or
+        management candidates) is determined by a parameter to the INS
+        Subagent during startup.  The nodes that are actually managed can
+        be controlled by manipulating the insNodeManageStatus object.
+
+        Starting a management session does not affect the status (up, down)
+        of the INS node reflected by the insNodeStatus object.
+
+        To access the management resources for a particular INS node
+        under the insErad , insStats, or insNwConfig objects, the
+        community string must identify the intended INS node by including
+        the node ID as a suffix to the SNMP Agent password.  For example,
+        assuming the SNMP Agent password is 'XYZ' and you wish to access
+        a management resource for node 'E', the community string
+        would be set to 'XYZ::E'.  The node ID must be uppercase.
+        "
+    ::= { ins 6 }
+
+insNodeEntry OBJECT-TYPE
+    SYNTAX InsNodeEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "A single INS node that can be managed.
+        "
+    INDEX {insNodeId}
+    ::= {insNodeTable 1}
+
+InsNodeEntry ::= SEQUENCE
+    {
+        insNodeId INTEGER,
+        insNodeClliCode DisplayString,
+        insNodeManageStatus INTEGER,
+        insNodeStatus INTEGER,
+        insAsmStatus INTEGER
+    }
+
+insNodeId OBJECT-TYPE
+    SYNTAX INTEGER (65..90)
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "INS node identifier - an uppercase ASCII letter ranging from A to Z.
+        "
+    ::= { insNodeEntry 1 }
+
+insNodeClliCode OBJECT-TYPE
+    SYNTAX DisplayString (SIZE (11))
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The unique Common Language Location Identification (CLLI) code
+        associated with the INS node.
+        "
+    ::= { insNodeEntry 2 }
+
+insNodeManageStatus OBJECT-TYPE
+    SYNTAX INTEGER {
+               deactivated (1),
+               activated (2),
+               unmanageable (3)
+           }
+    ACCESS read-write
+    STATUS mandatory
+    DESCRIPTION
+        "READ: Indicates the current management status.
+
+         'deactivated' (1)  Indicates that no management session is running.
+
+           'activated' (2)  Indicates that a management session has been
+                            started for the INS node identified by the
+                            insNodeId object.
+
+        'unmanageable' (3)  Indicates incompatibility between the
+                            INS node version and the INS Subagent version.
+                            This probably means that the INS Subagent is
+                            expecting a later version of the INS node.  INS
+                            node releases prior to 02.05.00 cannot be
+                            managed.
+
+        An active management session does not necessarily imply that the
+        INS node is running.  The INS node status (up, down) is indicated
+        by the insNodeStatus object.
+
+        WRITE: Starts and stops a management session.  Setting this to a value
+        of:
+
+           'deactivated' (1) Shuts down a management session if one is
+                             currently running.
+
+             'activated' (2) Causes a management session to be started if
+                             one is not already running and the current
+                             status is not 'unmanageable' (3) for the
+                             indicated INS node.
+
+        Setting it to any other value results in 'badValue' response to
+        the SET command.
+        "
+    ::= { insNodeEntry 3}
+
+insNodeStatus OBJECT-TYPE
+    SYNTAX INTEGER {
+               down (1),
+               up (2)
+           }
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "READ: Indicates the status of the INS node-
+
+           'down' (1)  The INS node software is not running for the
+                       identified node.
+
+             'up' (2)  The INS node software is running for the
+                       identified node.
+        "
+    ::= { insNodeEntry 4}
+
+insAsmStatus OBJECT-TYPE
+    SYNTAX INTEGER {
+               down (1),
+               up (2)
+           }
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Indicates the status of the INS alarm subsystem (ASM)-
+
+           'down' (1)  The ASM is not running for the
+                       identified node.
+
+             'up' (2)  The ASM is running for the
+                       identified node.
+        "
+    ::= { insNodeEntry 5 }
+
+insTrapSeq OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Number associated with a trap issued by the INS Subagent.
+        This number is incremented each time a trap is generated.
+        Thus an NMS can detect message loss from a gap in the sequence.
+        "
+    ::= { ins 7 }
+
+insStartupMode OBJECT-TYPE
+    SYNTAX INTEGER {
+               cold (1), warm (2)
+           }
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "How the INS Subagent was started:
+        'cold' (1) Indicates initial startup.
+        'warm' (2) Indicates fault recovery restart.
+        "
+    ::= { ins 8 }
+
+insNodeIdT OBJECT-TYPE
+    SYNTAX INTEGER (65..90)
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "INS node ID - an uppercase ASCII letter ranging from A to Z.
+        "
+    ::= { ins 9 }
+
+
+
+----------------------------------------------------------------------
+-- Enterprise ins Traps
+----------------------------------------------------------------------
+
+insSubagentRestartTrap TRAP-TYPE
+    ENTERPRISE ins
+    VARIABLES {insTrapSeq, insStartupMode}
+    DESCRIPTION
+        "The INS Subagent has (re)started.  The PDU contains the INS
+        trap sequence count (which for this trap is always 1) and the
+        startup mode (cold, warm).
+        "
+    ::= 1
+
+insNodeMgmtActivated TRAP-TYPE
+    ENTERPRISE ins
+    VARIABLES {insTrapSeq, insNodeIdT}
+    DESCRIPTION
+        "SNMP management for a given INS node has been activated. The
+        PDU contains the INS trap sequence count and the INS node ID.
+        "
+    ::= 2
+
+insNodeMgmtDeactivated TRAP-TYPE
+    ENTERPRISE ins
+    VARIABLES {insTrapSeq, insNodeIdT }
+    DESCRIPTION
+        "SNMP management for a given INS node has been deactivated. The
+        PDU contains the INS trap sequence count and the INS node ID.
+        "
+    ::= 3
+
+
+--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-- ERAD (Exception Report and Alarm Distribution) GROUP
+--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+----------------------------------------------------------------------
+-- Erad Category Table
+----------------------------------------------------------------------
+
+insEradCatTableSize OBJECT-TYPE
+    SYNTAX Gauge
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Number of entries in the insEradCatTable object.
+        "
+    ::= { insErad 3 }
+
+insEradCatTable OBJECT-TYPE
+    SYNTAX SEQUENCE OF InsEradCatEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "Table of ERAD alarm categories, indexed by category ID.
+        The number of entries is given by the insEradCatTableSize object.
+        "
+    ::= {insErad 4}
+
+insEradCatEntry OBJECT-TYPE
+    SYNTAX InsEradCatEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "Contains objects defining attributes of an ERAD alarm category.
+        "
+    INDEX {insEradCatId}
+    ::= {insEradCatTable 1}
+
+InsEradCatEntry ::= SEQUENCE
+    {
+        insEradCatId INTEGER,
+        insEradCatName DisplayString,
+        insEradCatState INTEGER
+    }
+
+insEradCatId OBJECT-TYPE
+    SYNTAX INTEGER (1..256)
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "ERAD Alarm category id.
+        "
+    ::= { insEradCatEntry 1 }
+
+insEradCatName OBJECT-TYPE
+    SYNTAX DisplayString (SIZE (4))
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "ERAD Alarm category label.
+        "
+    ::= { insEradCatEntry 2 }
+
+insEradCatState OBJECT-TYPE
+    SYNTAX INTEGER {
+               off (1), minor (2), major (3), critical (4)
+           }
+    ACCESS read-write
+    STATUS mandatory
+    DESCRIPTION
+        "Composite alarm state for the given category (indicates the most
+        severe alarm of the category).  Setting the value to off(1) retires
+        all alarms for the category.  Setting to any other value results in a
+        'badValue' response to the SET command.  Allowed values are:
+
+             'off' (1)  For a GET command, no alarms exist for the category.
+                        For the SET command, this value turns off all alarms
+                        in the category.
+
+           'minor' (2)  The most severe alarm in the category has a minor state.
+
+           'major' (3)  The most severe alarm in the category has a major state.
+
+        'critical' (4)  The most severe alarm in the category has a critical
+                        state.
+        "
+    ::= { insEradCatEntry 3 }
+
+
+----------------------------------------------------------------------
+-- Alarm Table
+----------------------------------------------------------------------
+
+insAlarmTableSize OBJECT-TYPE
+    SYNTAX Gauge
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Number of entries in the insAlarmTable (active alarm count).
+        "
+    ::= { insErad 5 }
+
+insAlarmTableLastChange OBJECT-TYPE
+    SYNTAX TimeTicks
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Time at which the alarm table was last changed, expressed
+        as .01 second ticks since system coldload.
+        "
+    ::= { insErad 6 }
+
+insAlarmTable OBJECT-TYPE
+    SYNTAX SEQUENCE OF InsAlarmEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "Table of active alarms.  The number of entries is given by
+        the insAlarmTableSize object.  Entries in the alarm table reflect
+        alarmable conditions in the associated INS node.  An alarm is
+        automatically removed from the table when the state transitions
+        to 'off', as indicated by the insAlarmDeactivateTrap object.  This
+        can happen automatically through exception recovery procedures that
+        clear the underlying problem, or manually from a management station.
+        Alarms can be released manually on an individual basis or in
+        groups, according to the value assigned to the insAlarmStatus object.
+        "
+    ::= {insErad 7}
+
+insAlarmEntry OBJECT-TYPE
+    SYNTAX InsAlarmEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "A single alarm.
+        "
+    INDEX {insAlarmId }
+    ::= {insAlarmTable 1}
+
+InsAlarmEntry ::= SEQUENCE
+    {
+        insAlarmId OCTET STRING,
+        insAlarmStatus INTEGER,
+        insAlarmMisc DisplayString,
+        insAlarmText DisplayString,
+        insAlarmLoc DisplayString,
+        insAlarmEradNum INTEGER
+    }
+
+insAlarmId OBJECT-TYPE
+    SYNTAX OCTET STRING (SIZE (4))
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Identifies a particular alarm instance.
+        "
+    ::= { insAlarmEntry 1 }
+
+insAlarmStatus OBJECT-TYPE
+    SYNTAX INTEGER {
+               on (1), off-one (2), off-all (3), off-category(4),
+               off-group(5)
+           }
+    ACCESS read-write
+    STATUS mandatory
+    DESCRIPTION
+        "Reading this object always returns the value 'on' (1) if the
+        table entry exists.  When alarms are deactivated, they are removed
+        from the table.
+
+        Setting this object to one of the following values has the
+        indicated effect:
+
+          'off-one' (2)       Retires the particular alarm from the system.
+                              An error is not generated if the alarm does not
+                              currently exist in the alarm table.
+
+          'off-all' (3)       Retires all alarms.
+
+          'off-category' (4)  Retires all alarms with the same category
+                              as the indexed alarm.
+
+          'off-group' (5)     Retires all alarms with the same category and
+                              ER number as the indexed alarm.
+
+        Setting this object to any other value results in a 'badValue'
+        response to the SET command.
+
+        To retire alarms of a specific category without having to reference
+        an alarm table entry, see the insEradCatTable object.
+        "
+    ::= { insAlarmEntry 2 }
+
+insAlarmMisc OBJECT-TYPE
+    SYNTAX DisplayString (SIZE (76))
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Miscellaneous fields of the alarm record, encoded as ASCII string.
+Example:
+
+** MARKEE12345 2001-07-09 14:36:46 HOST0002 PROC 0002 $Y4TQ 002 48 10 00002
+
+        Format (using 1-based column numbering):
+
+        Columns        Entity
+        -------        ---------------------
+        1-2            Severity
+                       '* ' - minor
+                       '**' - major
+                       '*C' - critical
+        04-14          CLLI code
+        16-25          Date of event (YYYY-MM-DD)
+        27-34          Time of event (HH:MM:SS)
+        36-43          Processor type/number
+        45-48          ERAD category, e.g., 'PROC'
+        50-53          ER report number
+        55-60          Originating process name
+        62-64          ERAD category numeric ID
+        66-67          X.733 numeric code for probable cause
+        69-70          X.733 numeric code for event type
+        72-76          Repair text ID (decimal numeric value is used as index
+                       to insAlarmRepairTextTable).
+        "
+    ::= { insAlarmEntry 3 }
+
+insAlarmText OBJECT-TYPE
+    SYNTAX DisplayString (SIZE (150))
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Two lines of text of the alarm description. Each line consists
+        of 75 characters. Line separation is implicit after the 75th
+        character.
+        "
+    ::= { insAlarmEntry 4 }
+
+insAlarmLoc OBJECT-TYPE
+    SYNTAX DisplayString (SIZE (0..50))
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Alarm location'.  For some alarms, this value is used to pinpoint
+        the alarm-generating entity.  For example, it might indicate the
+        link ID for a 'LINK-OUT-OF-SERVICE' alarm.
+        "
+    ::= { insAlarmEntry 5 }
+
+
+insAlarmEradNum OBJECT-TYPE
+    SYNTAX INTEGER
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The event report (ER) number of the event that activated the alarm.
+        "
+    ::= { insAlarmEntry 7 }
+
+
+
+----------------------------------------------------------------------
+-- Alarm Repair Text Table
+----------------------------------------------------------------------
+
+insAlarmRepairTextTableSize OBJECT-TYPE
+    SYNTAX Gauge
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Number of entries in the insAlarmRepairTextTable object.
+        "
+    ::= { insErad 8 }
+
+insAlarmRepairTextTable OBJECT-TYPE
+    SYNTAX SEQUENCE OF InsAlarmRepairTextEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "This table contains instructions on how to alleviate
+        the conditions that produced an alarm.  The table is
+        initially empty and accumulates entries as GET requests for
+        specific rows are serviced.  The number of entries is indicated
+        in the insAlarmRepairTextTableSize object.
+        "
+    ::= {insErad 9}
+
+insAlarmRepairTextEntry OBJECT-TYPE
+    SYNTAX InsAlarmRepairTextEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "Alarm repair instructions.
+        "
+    INDEX {insAlarmRepairTextId, insAlarmRepairChunkNum}
+    ::= {insAlarmRepairTextTable 1}
+
+InsAlarmRepairTextEntry ::= SEQUENCE
+    {
+        insAlarmRepairTextId DisplayString,
+        insAlarmRepairChunkNum INTEGER,
+        insAlarmRepairChunk DisplayString
+    }
+
+insAlarmRepairTextId OBJECT-TYPE
+    SYNTAX DisplayString
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The alarm repair text ID.  This is a decimal number encoded as
+        an ASCII string.  This string can be extracted from string data
+        of the insAlarmMisc object for a given alarm.
+        "
+    ::= { insAlarmRepairTextEntry 1 }
+
+insAlarmRepairChunkNum OBJECT-TYPE
+    SYNTAX INTEGER (1..5)
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Index number of this text chunk for the associated Alarm Repair
+        Text ID.  The Alarm Repair Text is broken in to message-size
+        chunks.  This number keeps the chunks in order.
+        "
+    ::= { insAlarmRepairTextEntry 2 }
+
+insAlarmRepairChunk OBJECT-TYPE
+    SYNTAX DisplayString
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Chunk of repair text.  Alarm Repair Text is broken into
+        message-sized chunks on line boundaries.  Lines are separated
+        by a newline (\n or ASCII 0x0d) character.  A chunk can
+        contain more than one line of Alarm Repair Text.
+        "
+    ::= { insAlarmRepairTextEntry 3 }
+
+
+----------------------------------------------------------------------
+-- INFORMATIONAL ERAD CONTROL
+----------------------------------------------------------------------
+
+insEradInfo OBJECT IDENTIFIER ::= { insErad 10}
+
+insEradMasterControl OBJECT-TYPE
+    SYNTAX INTEGER {
+               filter (1), enable-all (2), inhibit-all (3)
+           }
+    ACCESS read-write
+    STATUS mandatory
+    DESCRIPTION
+        "Setting this variable to 'enable-all' (2) or 'inhibit-all' (3)
+        overrides filtering criteria contained in the insEradEnabledCatTable
+        and insEradInhibitedCatTable objects (without affecting those tables).
+        A value of 'enable-all' (2) causes all informational ERs to be
+        reported as insEradTrap objects.  A value of 'inhibit-all' (3) causes
+        all insEradTrap objects to be suppressed.  Setting this to 'filter' (1)
+        starts the filtering mode that applies the filtering criteria
+        contained in insEradEnabledCatTable and insEradInhibitedCatTable
+        objects.
+
+        Filtering mode rules are as follows: If both enabled and inhibited
+        sets are empty with the filtering mode in effect, all categories are
+        passed.  If the enabled set is not empty, then only the categories
+        in that set pass and the inhibited set becomes irrelevant.  If the
+        enabled set is empty and the inhibited set is not empty, then a
+        category passes if it is not in the inhibited set.
+
+        The default setting is 'filter' (1).
+        "
+    DEFVAL {enable-all}
+    ::= { insEradInfo 1 }
+
+
+----------------------------------------------------------------------
+-- Erad Enabled Category Table
+----------------------------------------------------------------------
+
+insEradEnabledCatTableSize OBJECT-TYPE
+    SYNTAX Gauge
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Number of entries in the insEradEnabledCatTable object.
+        "
+    ::= { insEradInfo 2 }
+
+insEradEnabledCatTable OBJECT-TYPE
+    SYNTAX SEQUENCE OF InsEradEnabledCatEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "Table of ERAD categories that are selectively enabled for
+        reporting to NMSs as insEradTrap objects.  The number of entries is
+        indicated by the insEradEnabledCatTableSize object.
+        "
+    ::= {insEradInfo 3}
+
+insEradEnabledCatEntry OBJECT-TYPE
+    SYNTAX InsEradEnabledCatEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "Each entry contains a category number which enables that category
+        for reporting via insEradTrap's.
+        "
+    INDEX {insEradEnabledCatId}
+    ::= {insEradEnabledCatTable 1}
+
+InsEradEnabledCatEntry ::= SEQUENCE
+    {
+        insEradEnabledCatId INTEGER
+    }
+
+insEradEnabledCatId OBJECT-TYPE
+    SYNTAX INTEGER
+    ACCESS read-write
+    STATUS mandatory
+    DESCRIPTION
+        "An index into a table that contains the ERAD categories to
+         be reported to NMSs as insEradTrap objects.
+
+        The OID for this object is 1.3.6.1.4.1.169.3.10.1.1.10.3.1.1.
+        To enable a category set the value of this object to the index
+        value of the table.  For example, to enable category 4, set
+        1.3.6.1.4.1.169.3.10.1.1.10.3.1.1.4 to the value of 4.
+
+        To disable a category, set the index of the category to be deleted
+        to 0.  To disable all categories, set the index of any category to -1.
+
+        Any other value results in a 'badValue' response to the SET command.
+        Enabling a category causes the insEradMasterControl object to switch
+        to 'filter' mode.
+        "
+    ::= { insEradEnabledCatEntry 1 }
+
+
+----------------------------------------------------------------------
+-- Erad Inhibited Category Table
+----------------------------------------------------------------------
+
+insEradInhibitedCatTableSize OBJECT-TYPE
+    SYNTAX Gauge
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Number of entries in the insEradInhibitedCatTable object.
+        "
+    ::= { insEradInfo 4 }
+
+
+insEradInhibitedCatTable OBJECT-TYPE
+    SYNTAX SEQUENCE OF InsEradInhibitedCatEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "Table of ERAD categories that are selectively inhibited from being
+        reported to NMSs as insEradTrap objects. The number of entries is given
+        by the insEradInhibitedCatTableSize object.
+        "
+    ::= {insEradInfo 5}
+
+insEradInhibitedCatEntry OBJECT-TYPE
+    SYNTAX InsEradInhibitedCatEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "Each entry contains a category number which inhibits that category
+        from being reported via insEradTrap objects.
+        "
+    INDEX {insEradInhibitedCatId}
+    ::= {insEradInhibitedCatTable 1}
+
+InsEradInhibitedCatEntry ::= SEQUENCE
+    {
+        insEradInhibitedCatId INTEGER
+    }
+
+insEradInhibitedCatId OBJECT-TYPE
+    SYNTAX INTEGER
+    ACCESS read-write
+    STATUS mandatory
+    DESCRIPTION
+        "An index into a table that contains the ERAD categories that
+        will not be reported to NMSs as insEradTrap objects.
+
+        The OID for this object is 1.3.6.1.4.1.169.3.10.1.1.10.5.1.1.
+        To enable a category set the value of this object to the index
+        value of the table.  For example, to inhibit category 4, set
+        1.3.6.1.4.1.169.3.10.1.1.10.5.1.1.4 to the value of 4.
+
+        To disable a category, set the index of the category to be disabled
+        to 0.  To disable all categories, set the index of any category to -1.
+
+        Any other value results in a 'badValue' response to the SET command.
+        Disabling a category causes the insEradMasterControl object to
+        switch to 'filter' mode.
+        "
+    ::= { insEradInhibitedCatEntry 1 }
+
+-- pop back to insErad level
+
+----------------------------------------------------------------------
+-- Erad Detailed Text Table
+----------------------------------------------------------------------
+
+insEradDetailTextTableSize OBJECT-TYPE
+    SYNTAX Gauge
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Number of entries in the insEradDetailTextTable object.
+        "
+    ::= { insErad 11 }
+
+insEradDetailTextTable OBJECT-TYPE
+    SYNTAX SEQUENCE OF InsEradDetailTextEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "Detailed description text associated with informational ERs.
+        The table is initially empty and accumulates entries as GET
+        requests for specific rows are processed.  The number of entries
+        is given by the insEradDetailTextTableSize object.
+        "
+    ::= {insErad 12 }
+
+insEradDetailTextEntry OBJECT-TYPE
+    SYNTAX InsEradDetailTextEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "Detailed ER description.
+        "
+    INDEX {insEradDetailEradCat, insEradDetailEradNum, insEradDetailChunkNum}
+    ::= {insEradDetailTextTable 1}
+
+InsEradDetailTextEntry ::= SEQUENCE
+    {
+        insEradDetailEradCat INTEGER,
+        insEradDetailEradNum INTEGER,
+        insEradDetailChunkNum INTEGER,
+        insEradDetailChunk DisplayString
+    }
+
+insEradDetailEradCat OBJECT-TYPE
+    SYNTAX INTEGER
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "ERAD category index for which detailed text is desired.
+        "
+    ::= { insEradDetailTextEntry 1 }
+
+insEradDetailEradNum OBJECT-TYPE
+    SYNTAX INTEGER
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "ERAD report number for which detailed text is desired.
+        "
+    ::= { insEradDetailTextEntry 2 }
+
+insEradDetailChunkNum OBJECT-TYPE
+    SYNTAX INTEGER
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Index number of this text chunk for the associated Detailed Text
+        number.  The Detailed Text is broken in to message-size chunks.
+        This number keeps the chunks in order.
+        "
+    ::= { insEradDetailTextEntry 3 }
+
+insEradDetailChunk OBJECT-TYPE
+    SYNTAX DisplayString
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Chunk of Detailed Text.  Detailed Text is broken into message-sized
+        chunks on line boundaries.  Lines are separated by a newline (\n or
+        ASCII 0x0d) character.  A chunk can contain more than one line
+        of Detail Text.
+        "
+    ::= { insEradDetailTextEntry 4 }
+
+
+
+----------------------------------------------------------------------
+-- ERAD trap elements...
+----------------------------------------------------------------------
+insEradText OBJECT-TYPE
+    SYNTAX DisplayString (SIZE (240))
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "This display string consists of three concatenated lines of text,
+        each 80 bytes long.  Lines are not separated by newlines.  The
+        following information can be extracted from line 1 in the indicated
+        columns where 01 is the first column:
+
+   MARKEE12345 2001-06-05 06:32:34 03850  HOST0001 SOFT 5967  01624   $CSRE
+
+        Columns        Entity
+        -------        ---------------------
+        04-14          CLLI code
+        16-25          Date of event
+        27-34          Time of event
+        36-40          Sequence number (logging database key)
+        42-49          Processor type/number
+        51-54          ERAD category
+        56-59          ER number (detail text key)
+        62-66          CPU sequence number
+        71-75          Originating process name
+        "
+    ::= { insEradInfo 6 }
+
+
+insFullTextEradText OBJECT-TYPE
+    SYNTAX DisplayString (SIZE (960))
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "This display string consists of all concatenated lines of text,
+        each 80 bytes long.  Lines are not separated by newlines.  The
+        following information can be extracted from line 1 in the indicated
+        columns where 01 is the first column:
+
+   MARKEE12345 2001-06-05 06:32:34 03850  HOST0001 SOFT 5967  01624   $CSRE
+
+        Columns        Entity
+        -------        ---------------------
+        04-14          CLLI code
+        16-25          Date of event
+        27-34          Time of event
+        36-40          Sequence number (logging database key)
+        42-49          Processor type/number
+        51-54          ERAD category
+        56-59          ER number (detail text key)
+        62-66          CPU sequence number
+        71-75          Originating process name
+        "
+    ::= { insEradInfo 7 }
+
+
+----------------------------------------------------------------------
+-- insErad TRAPS
+----------------------------------------------------------------------
+
+insAlarmActivateTrap TRAP-TYPE
+    ENTERPRISE insErad
+    VARIABLES {
+        insTrapSeq,
+        insNodeIdT,
+        insAlarmTableSize,
+        insAlarmTableLastChange,
+        insAlarmId,
+        insAlarmMisc,
+        insAlarmText,
+        insAlarmLoc
+        }
+
+    DESCRIPTION
+        "Issued when an alarm is activated.  The PDU contains
+         the global trap sequence number, INS node ID, alarm table
+         entry count, timestamp of table update, alarm ID,
+         miscellaneous attributes encoded as display string,
+         descriptive text, and alarm location.
+        "
+    ::= 1
+
+
+insAlarmDeactivateTrap TRAP-TYPE
+    ENTERPRISE insErad
+    VARIABLES {
+        insTrapSeq,
+        insNodeIdT,
+        insAlarmTableSize,
+        insAlarmTableLastChange,
+        insAlarmStatus,
+        insAlarmId,
+        insEradCatId,
+        insAlarmEradNum
+        }
+    DESCRIPTION
+        "One or more alarms have been deactivated by the INS Subagent.
+
+        The PDU contains the global trap sequence number, INS node ID,
+        active alarm count (after rendering this operation), timestamp of
+        alarm table update, deactivate mode (insAlarmStatus), and
+        deactivation cause.  Whether values for the remaining objects
+        (insAlarmId, insEradCatId, insAlarmEradNum) are meaningful depends
+        upon the deactivate mode as follows:
+
+        Mode                Consequence
+        ----                -----------
+        'off-one' (2)       Release the alarm associated with the
+                            alarm ID value given by the insAlarmId
+                            object.  Values for the insEradCatId and
+                            insAlarmEradNum objects are meaningless.
+
+        'off-all' (3)       Release all alarms.  Values for the
+                            insAlarmId, insEradCatId, and
+                            insAlarmEradNum objects are meaningless.
+
+        'off-category' (4)  Release alarms of the category identified
+                            by the insEradCatId object.  Values for
+                            the insAlarmId and insAlarmEradNum objects
+                            are meaningless.
+
+        'off-group' (5)     Release alarms with the ER report number
+                            given by the insAlarmEradNum object and
+                            category given by the insEradCatId object.
+                            The value of the insAlarmId object is
+                            meaningless.
+        "
+    ::= 2
+
+insEradTrap TRAP-TYPE
+    ENTERPRISE insErad
+    VARIABLES {
+        insTrapSeq,
+        insNodeIdT,
+        insEradText
+        }
+
+    DESCRIPTION
+        "This trap conveys informational ER (non-alarmable event)
+        information.  The PDU contains the INS trap sequence number,
+        INS node ID, and ER text (3 lines combined in one string).
+        "
+    ::= 3
+
+insEradAlarmSubsystemRestart TRAP-TYPE
+    ENTERPRISE insErad
+    VARIABLES {insTrapSeq, insNodeIdT }
+    DESCRIPTION
+        "This trap signals that the alarm subsystem has
+        reinitialized as a result of a configuration change
+        or fault recovery.  SNMP Manager Applications should
+        refresh any cache they maintain of alarm-associated
+        data.
+        "
+    ::= 4
+
+insFullTextEradTrap TRAP-TYPE
+    ENTERPRISE insErad
+    VARIABLES {
+        insTrapSeq,
+        insNodeIdT,
+        insFullTextEradText
+        }
+
+    DESCRIPTION
+        "This trap conveys informational ER (non-alarmable event)
+        information.  The PDU contains the INS trap sequence number,
+        INS node ID, and full ER text (all lines combined in one string).
+        "
+    ::= 5
+
+--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-- INS STATISTICS GROUP
+--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+insStatsResetTime OBJECT-TYPE
+    SYNTAX TimeTicks
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Time at which the Stats subsystem was (re)initialized, expressed
+        as .01 second ticks since system coldload.
+        "
+    ::= { insStats 1 }
+
+
+insStatsMasterControl OBJECT-TYPE
+    SYNTAX INTEGER {
+               enable-stats-collection (1), inhibit-stats-collection (2)
+           }
+    ACCESS read-write
+    STATUS mandatory
+    DESCRIPTION
+        "This object can be set to inhibit or to enable statistics
+        collection activity in the INS Subagent.  It does not
+        affect the contents of the enabled group set reflected the
+        insStatsEnabledGroupTable object or inhibited group set
+        reflected the insStatsInhibitedGroupTable object.  Allowed values
+        are:
+
+         'enable-stats-collection' (1)  Enable the collection of statistics.
+
+        'inhibit-stats-collection' (2)  Inhibit the collection of statistics.
+        "
+    DEFVAL {enable-stats-collection}
+    ::= { insStats 2 }
+
+
+----------------------------------------------------------------------
+-- Inhibited Statistics Group Table
+----------------------------------------------------------------------
+
+insStatsInhibitedGroupTableSize OBJECT-TYPE
+    SYNTAX Gauge
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Number of entries in insStatsInhibitedGroupTable.
+        "
+    ::= { insStats 3 }
+
+insStatsInhibitedGroupTable OBJECT-TYPE
+    SYNTAX SEQUENCE OF InsStatsInhibitedGroupEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "This table represents a set of statistics groups which are inhibited
+        from collecting statistics.  The number of entries is given by the
+        insStatsInhibitedGroupTableSize object.  This set is ignored if the
+        insStatsEnabledGroupTable object contains one or more entries.
+        "
+    ::= {insStats 4}
+
+insStatsInhibitedGroupEntry OBJECT-TYPE
+    SYNTAX InsStatsInhibitedGroupEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "Entry contains a statistics group number for a statistics group
+        which is inhibited from collecting statistics.
+        "
+    INDEX {insStatsInhibitedGroupId}
+    ::= {insStatsInhibitedGroupTable 1}
+
+InsStatsInhibitedGroupEntry ::= SEQUENCE
+    {
+        insStatsInhibitedGroupId INTEGER
+    }
+
+insStatsInhibitedGroupId OBJECT-TYPE
+    SYNTAX INTEGER
+    ACCESS read-write
+    STATUS mandatory
+    DESCRIPTION
+        "An index into a table that contains the statistics group that
+        will not collect statistics.
+
+        The OID for this object is 1.3.6.1.4.1.169.3.10.2.4.1.1.
+        To enable a category set the value of this object to the index
+        value of the table.  For example, to enable group 904, set
+        1.3.6.1.4.1.169.3.10.2.4.1.1.904 to the value of 904.
+
+        To disable a group, set the index of the group to be disabled
+        to 0.  To disable all groups, set the index of any group to -1.
+
+        Any other value results in a 'badValue' response to the SET command.
+        "
+    ::= { insStatsInhibitedGroupEntry 1 }
+
+
+----------------------------------------------------------------------
+-- Enabled Statistics Group Table
+----------------------------------------------------------------------
+
+insStatsEnabledGroupTableSize OBJECT-TYPE
+    SYNTAX Gauge
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Number of entries in the insStatsEnabledGroupTable object.
+        "
+    ::= { insStats 5 }
+
+insStatsEnabledGroupTable OBJECT-TYPE
+    SYNTAX SEQUENCE OF InsStatsEnabledGroupEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "This table represents a set of statistics groups that are selectively
+        enabled to collect statistics.  The number of entries is given by the
+        insStatsEnabledGroupTableSize object.  If this set contains one or more
+        entries, then the insStatsInhibitedGroupTable object is ignored.  In
+        other words, the enabled set supersedes the inhibited set.
+        "
+    ::= {insStats 6}
+
+insStatsEnabledGroupEntry OBJECT-TYPE
+    SYNTAX InsStatsEnabledGroupEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "An entry contains the statistics group number of a statistic
+        group that is selectively enabled to produce statistics summaries.
+        "
+    INDEX {insStatsEnabledGroupId}
+    ::= {insStatsEnabledGroupTable 1}
+
+InsStatsEnabledGroupEntry ::= SEQUENCE
+    {
+        insStatsEnabledGroupId INTEGER
+    }
+
+insStatsEnabledGroupId OBJECT-TYPE
+    SYNTAX INTEGER
+    ACCESS read-write
+    STATUS mandatory
+    DESCRIPTION
+        "An index into a table that contains the statistics group that
+        will collect statistics.
+
+        The OID for this object is 1.3.6.1.4.1.169.3.10.2.6.1.1.  To
+        enable a group set the value of this object to the index value
+        of the table.  For example, to enable group 904, set
+        1.3.6.1.4.1.169.3.10.2.6.1.1.904 to the value of 904.
+
+        To disable a group, set the index of the group to be disabled
+        to 0.  To disable all groups, set the index of any group to -1.
+
+        Any other value results in a 'badValue' response to the SET command.
+        "
+    ::= { insStatsEnabledGroupEntry 1 }
+
+----------------------------------------------------------------------
+-- Statistics Group Description Table
+----------------------------------------------------------------------
+
+insStatsGroupTableSize OBJECT-TYPE
+    SYNTAX Gauge
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Number of entries in the insStatsGroupTable object.
+        "
+    ::= { insStats 7 }
+
+insStatsGroupTable OBJECT-TYPE
+    SYNTAX SEQUENCE OF InsStatsGroupEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "This table contains information about statistics groups
+        configured through the INS node configuration user interface.
+        The number of entries is given in the insStatsGroupTableSize
+        object. The maximum number of statistics summaries kept in
+        memory for a given statistics group can be set by parameter
+        to the NMS (see the insStatsHistoryDepth object type for
+        more information).
+        "
+    ::= {insStats 8}
+
+insStatsGroupEntry OBJECT-TYPE
+    SYNTAX InsStatsGroupEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "Contains objects that define attributes of a single statistics
+        group.
+        "
+    INDEX {insStatsGroupId}
+    ::= {insStatsGroupTable 1}
+
+InsStatsGroupEntry ::= SEQUENCE
+    {
+        insStatsGroupId INTEGER
+       , insStatsGroupDescription DisplayString
+       , insStatsNodeSumInterval INTEGER
+       , insStatsNodeSumIntervalCount INTEGER
+       , insStatsLastSumTime TimeTicks
+       , insStatsHistoryMaxDepth INTEGER
+       , insStatsHistoryDepth INTEGER
+    }
+
+insStatsGroupId OBJECT-TYPE
+    SYNTAX INTEGER (1..999)
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The statistics group ID (number).  This number is assigned when
+        the group is configured through the INS node configuration user
+        interface.
+        "
+    ::= { insStatsGroupEntry 1 }
+
+insStatsGroupDescription OBJECT-TYPE
+    SYNTAX DisplayString (SIZE (0..60))
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Description of the stats group.
+        "
+    ::= { insStatsGroupEntry 2 }
+
+insStatsNodeSumInterval OBJECT-TYPE
+    SYNTAX INTEGER
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The statistics summary interval (minutes) used by the INS node.  This
+        is a function of the summary interval value configured for the
+        statistics group through the node configuration user interface (with
+        adjustments made to align with INS node statistics subsystem policy).
+        "
+    ::= { insStatsGroupEntry 3 }
+
+insStatsNodeSumIntervalCount OBJECT-TYPE
+    SYNTAX INTEGER
+    ACCESS read-write
+    STATUS mandatory
+    DESCRIPTION
+        "The number of node statistics summary intervals used to determine the
+        summary interval used by the INS Subagent.  The product of this
+        object and insStatsNodeSumInterval object is the statistics summary
+        interval used by the INS Subagent for the statistics group.  A limit of
+        24 hours is imposed on the INS Subagent summary interval.  The limit for
+        this value, then, is '(24*60) / insStatsNodeSumInterval'.  Attempting to
+        set this to a larger value results in a 'badValue' response to the SET
+        command.
+        "
+    ::= { insStatsGroupEntry 4 }
+
+insStatsLastSumTime OBJECT-TYPE
+    SYNTAX TimeTicks
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Time at which the last summary was run for the given group,
+        expressed as .01 second ticks since system coldload.  This value
+        will not advance if the master control is set to inhibit all
+        statistics collection activity (see insStatsMasterControl).
+        "
+    ::= { insStatsGroupEntry 5 }
+
+insStatsHistoryMaxDepth OBJECT-TYPE
+    SYNTAX INTEGER (1..500)
+    ACCESS read-write
+    STATUS mandatory
+    DESCRIPTION
+        "This is the limit on the number of in-memory statistics summaries
+        stored for the group.  After the history vector fills, adding
+        a new summary causes the oldest summary to drop out.
+
+        At INS Subagent startup, the history vector is computed from
+        statistics data stored on disk by the INS node.  The number of vector
+        entries thus computed may be smaller than the value of the
+        insStatsHistoryDepth object due to archive limitations defined
+        as parameters to the Node Measurement Process (NMP).  As time
+        progresses, the history vector will grow to the limit set by this
+        object.
+
+        The default value yields one hour of history.  This
+        is derived from the INS Subagent statistics summary interval
+        (product of the insStatsNodeSumIntervalCount and
+        insStatsNodeSumInterval objects).
+        "
+    ::= { insStatsGroupEntry 6 }
+
+insStatsHistoryDepth OBJECT-TYPE
+    SYNTAX INTEGER (1..500)
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "This is the current count of in-memory statistics summaries stored
+        for the group.  Normally this will be the same as the value for the
+        insStatsHistoryMaxDepth object.  A smaller value can result when the
+        archive limitations defined as parameters to the Node Measurement
+        Process (NMP) do not allow this many entries.
+        "
+    ::= { insStatsGroupEntry 7 }
+
+
+----------------------------------------------------------------------
+-- Register Set Name Mapping Table
+----------------------------------------------------------------------
+
+insStatsRegSetNameTableSize OBJECT-TYPE
+    SYNTAX Gauge
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Number of entries in insStatsRegSetNameTable.
+        "
+    ::= { insStats 9 }
+
+insStatsRegSetNameTable OBJECT-TYPE
+    SYNTAX SEQUENCE OF InsStatsRegSetNameEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "This table is used to map a statistics group number and register set
+        name string to a register set (numeric) ID.  Register set names are
+        pre-configured as a prefix with a possible wildcard; exact names
+        are not known until run-time when statistics are generated by node
+        processes.
+
+        This implies that the mapping between the indices (group number and
+        register set name) and register set ID may vary from one session to
+        the next.  Therefore when the Statistics subsystem is reinitialized
+        due to a process restart or change in the node statistics
+        configuration, NMSs should flush any cached values of this table.
+        The time of the last change to this table is stored in the
+        insStatsRegSetTableLastChange object.  The number of entries
+        is stored in the insStatsRegSetNameTableSize object.
+        "
+    ::= {insStats 10}
+
+insStatsRegSetNameEntry OBJECT-TYPE
+    SYNTAX InsStatsRegSetNameEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "Association between a statistics group number, register set name,
+        and a register set ID.
+        "
+    INDEX {insStatsRsGroupId, insStatsRsName}
+    ::= {insStatsRegSetNameTable 1}
+
+InsStatsRegSetNameEntry ::= SEQUENCE
+    {
+        insStatsRsGroupId INTEGER
+       , insStatsRsName DisplayString
+       , insStatsRsId INTEGER
+    }
+
+insStatsRsGroupId OBJECT-TYPE
+    SYNTAX INTEGER (1..999)
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The statistics group ID.
+        "
+    ::= { insStatsRegSetNameEntry 1 }
+
+insStatsRsName OBJECT-TYPE
+    SYNTAX DisplayString (SIZE (1..16))
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The register set name string.
+        "
+    ::= { insStatsRegSetNameEntry 2 }
+
+insStatsRsId OBJECT-TYPE
+    SYNTAX INTEGER
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Numeric register set ID.
+        "
+    ::= { insStatsRegSetNameEntry 3 }
+
+
+----------------------------------------------------------------------
+-- Register Set Id Mapping Table
+----------------------------------------------------------------------
+
+insStatsRegSetIdTableSize OBJECT-TYPE
+    SYNTAX Gauge
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Number of entries in the insStatsRegSetIdTable object.
+        "
+    ::= { insStats 11 }
+
+insStatsRegSetIdTable OBJECT-TYPE
+    SYNTAX SEQUENCE OF InsStatsRegSetIdEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "This table provides a mapping from a register set ID
+        to a statistics group ID and register set name.  The number of
+        entries is given by the insStatsRegSetIdTableSize object.
+        "
+    ::= {insStats 12}
+
+insStatsRegSetIdEntry OBJECT-TYPE
+    SYNTAX InsStatsRegSetIdEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "Association between the register set ID and the corresponding
+        statistics group number and register set name.
+        "
+    INDEX {insStatsRsId1}
+    ::= {insStatsRegSetIdTable 1}
+
+InsStatsRegSetIdEntry ::= SEQUENCE
+    {
+        insStatsRsId1 INTEGER
+       , insStatsRsGroupId1 INTEGER
+       , insStatsRsName1 DisplayString
+    }
+
+insStatsRsId1 OBJECT-TYPE
+    SYNTAX INTEGER
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The register set ID.
+        "
+    ::= { insStatsRegSetIdEntry 1 }
+
+insStatsRsGroupId1 OBJECT-TYPE
+    SYNTAX INTEGER (1..999)
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The statistics group ID in the insStatsRegiSetIdTable object.
+        "
+    ::= { insStatsRegSetIdEntry 2 }
+
+insStatsRsName1 OBJECT-TYPE
+    SYNTAX DisplayString (SIZE (1..16))
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The register set name in the insStatsRegiSetIdTable object.
+        "
+    ::= { insStatsRegSetIdEntry 3 }
+
+
+----------------------------------------------------------------------
+-- Statistics Register Description Table
+----------------------------------------------------------------------
+
+insStatsRegDescTableSize OBJECT-TYPE
+    SYNTAX Gauge
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Number of entries in the insStatsRegDescTable object.
+        "
+    ::= { insStats 13 }
+
+insStatsRegDescTable OBJECT-TYPE
+    SYNTAX SEQUENCE OF InsStatsRegDescEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "This table associates names and descriptive text with statistics
+        registers across all statistics groups.  The number of entries is
+        given by the insStatsRegDescTableSize object.
+        "
+    ::= {insStats 14}
+
+insStatsRegDescEntry OBJECT-TYPE
+    SYNTAX InsStatsRegDescEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "Contains a description of a register ID in a specific statistics
+        group.
+        "
+    INDEX {insStatsRdGroupId, insStatsRdRegId}
+    ::= {insStatsRegDescTable 1}
+
+InsStatsRegDescEntry ::= SEQUENCE
+    {
+        insStatsRdGroupId INTEGER
+       , insStatsRdRegId INTEGER
+       , insStatsRdRegDesc DisplayString
+    }
+
+insStatsRdGroupId OBJECT-TYPE
+    SYNTAX INTEGER (1..999)
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Statistics group ID.
+        "
+    ::= { insStatsRegDescEntry 1 }
+
+insStatsRdRegId OBJECT-TYPE
+    SYNTAX INTEGER
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The statistics register number.
+        "
+    ::= { insStatsRegDescEntry 2 }
+
+insStatsRdRegDesc OBJECT-TYPE
+    SYNTAX DisplayString (SIZE (0..255))
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The statistics register description.
+        "
+    ::= { insStatsRegDescEntry 3 }
+
+
+----------------------------------------------------------------------
+-- Statistics Register Table 1
+----------------------------------------------------------------------
+
+insStatsRegSrTableSize OBJECT-TYPE
+    SYNTAX Gauge
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Number of entries in the insStatsRegSrTable object.
+        "
+    ::= { insStats 16 }
+
+insStatsRegSrTable OBJECT-TYPE
+    SYNTAX SEQUENCE OF InsStatsRegSrEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "Table of statistics registers indexed by set ID.  This facilitates
+        retrieval of statistics by register set.  The number of entries
+        is given by the insStatsRegSrTableSize object.
+        "
+    ::= {insStats 17}
+
+insStatsRegSrEntry OBJECT-TYPE
+    SYNTAX InsStatsRegSrEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "This table contains only statistics values that acquired a non-zero
+        value over the course of the summary interval.  It is indexed
+        by statistics group number, summary interval index, set ID, and register
+        number, in that order.
+        "
+    INDEX {insStatsGroupId1, insStatsSumIndex, insStatsSetId, insStatsRegNum}
+    ::= {insStatsRegSrTable 1}
+
+InsStatsRegSrEntry ::= SEQUENCE
+    {
+       insStatsGroupId1 INTEGER
+       , insStatsSumIndex INTEGER
+       , insStatsSetId INTEGER
+       , insStatsRegNum INTEGER
+       , insStatsRegValue INTEGER
+    }
+
+insStatsGroupId1 OBJECT-TYPE
+    SYNTAX INTEGER (1..999)
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Statistics group number ID in the insStatsRegSrTable object.
+        "
+    ::= { insStatsRegSrEntry 1 }
+
+insStatsSumIndex OBJECT-TYPE
+    SYNTAX INTEGER (0..99)
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Index into history vector of the insStatusRegSrTable object
+        containing past statistics summaries. Zero selects the most
+        recent summary, 1 the preceding summary, and so on up to the
+        limit imposed by the insStatsHistoryDepth object.
+        "
+    ::= { insStatsRegSrEntry 2 }
+
+insStatsSetId OBJECT-TYPE
+    SYNTAX INTEGER
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The register set ID in the insStatsRegSrTable object.
+        "
+    ::= { insStatsRegSrEntry 3 }
+
+insStatsRegNum OBJECT-TYPE
+    SYNTAX INTEGER (1..999)
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The register number in the insStatsRegSrTable object.
+        "
+    ::= { insStatsRegSrEntry 4 }
+
+insStatsRegValue OBJECT-TYPE
+    SYNTAX INTEGER
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Register value.  The value is the summation of the underlying
+        HP Opencall INS statistics register over X node statistics summary
+        intervals where X is the value of 'insStatsNodeSumIntervalCount'
+        for the associated statistics group.
+
+        Unfortunately, the subagent cannot differentiate implicit register
+        types.  Implicit register types include 1) COUNTER and 2) GAUGE.
+        Most HP Opencall INS statistics registers are counters.  An example of
+        a counter register is one labeled 'TOTAL MESSAGES RECEIVED BY
+        MESSAGE FORWARDER'.  An example of a GAUGE type register is one
+        labeled 'XMM POOL %FREE'.
+
+        Since the subagent cannot distinguish implicit register types,
+        the value of gauge registers may be misleading if the value of
+        the associated 'insStatsNodeSumIntervalCount' is greater than
+        one because it is computed as a sum rather than an average.
+        Conversion of the value to an average by dividing the value by
+        'insStatsNodeSumIntervalCount' must be done by the manager or
+        end user.
+
+        The HP Opencall INS implementation deviates from normal SNMP practice in
+        that registers are logically set to zero at the beginning of each
+        summary interval.  Only registers with a non-zero value
+        appear in the insStatsRegSrEntry object.
+        "
+    ::= { insStatsRegSrEntry 5 }
+
+
+----------------------------------------------------------------------
+-- Statistics Register Table 2
+----------------------------------------------------------------------
+
+insStatsRegRsTableSize OBJECT-TYPE
+    SYNTAX Gauge
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Number of entries in the insStatsRegRsTable object.
+        "
+    ::= { insStats 18 }
+
+insStatsRegRsTable OBJECT-TYPE
+    SYNTAX SEQUENCE OF InsStatsRegRsEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "Table of statistics registers indexed by register number.  This
+        facilitates retrieval of statistics by register number (for
+        collecting all values for a register number across multiple
+        register sets).  The number of entries is given by the
+        insStatsRegRsTableSize object.
+        "
+    ::= {insStats 19}
+
+insStatsRegRsEntry OBJECT-TYPE
+    SYNTAX InsStatsRegRsEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "This table contains only statistics values that acquired a non-zero
+        value over the course of the summary interval.  It is indexed
+        by statistics group number, summary interval index, register number, and
+        set ID, in that order.
+        "
+    INDEX {insStatsGroupId2, insStatsSumIndexA, insStatsRegNumA, insStatsSetIdA}
+    ::= {insStatsRegRsTable 1}
+
+InsStatsRegRsEntry ::= SEQUENCE
+    {
+       insStatsGroupId2 INTEGER
+       , insStatsSumIndexA INTEGER
+       , insStatsRegNumA INTEGER
+       , insStatsSetIdA INTEGER
+       , insStatsRegValueA INTEGER
+    }
+
+insStatsGroupId2 OBJECT-TYPE
+    SYNTAX INTEGER (1..999)
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Statistics group number in the insStatsRegRsTable object.
+        "
+    ::= { insStatsRegRsEntry 1 }
+
+insStatsSumIndexA OBJECT-TYPE
+    SYNTAX INTEGER (0..99)
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Index into the history vector in the insStatsRegRsTable object
+        containing past statistics summaries.  Zero selects the most recent
+        summary, 1 the preceding summary, and so on.
+        "
+    ::= { insStatsRegRsEntry 2 }
+
+insStatsSetIdA OBJECT-TYPE
+    SYNTAX INTEGER
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The register set (numeric) ID in the insStatsRegRsTable object.
+        "
+    ::= { insStatsRegRsEntry 3 }
+
+insStatsRegNumA OBJECT-TYPE
+    SYNTAX INTEGER (1..999)
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The register number in the insStatsRegRsTable object.
+        "
+    ::= { insStatsRegRsEntry 4 }
+
+insStatsRegValueA OBJECT-TYPE
+    SYNTAX INTEGER
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Register value.  Depending on the register type, this value may
+        be a summation of counts or an average of readings. The register type
+        is indicated by the sign bit of this value.  A negative value
+        indicates an averaged type.  The absolute value of the register is the
+        average reading over the course of the INS Subagent summary interval.
+        A positive value indicates a counter type.  The average type is
+        limited to a few registers in statistics groups 900 and 902.
+
+        The HP Opencall INS implementation deviates from normal SNMP practice
+        in that registers are logically set to zero at the beginning of
+        each summary interval.  Only registers with a non-zero value
+        appear in the table.
+        "
+    ::= { insStatsRegRsEntry 5 }
+
+insStatsRegSetTableLastChange OBJECT-TYPE
+    SYNTAX TimeTicks
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Time at which the register set mapping tables
+        (insStatsRegSetIdTable and insStatsRegSetNameTable) were last
+        changed, expressed as .01 second ticks since system coldload.
+        "
+    ::= { insStats 20 }
+
+----------------------------------------------------------------------
+-- Enterprise insStats TRAPS
+----------------------------------------------------------------------
+
+insStatsRestart TRAP-TYPE
+    ENTERPRISE insStats
+    VARIABLES {
+        insTrapSeq,
+        insNodeIdT,
+        insStatsResetTime }
+    DESCRIPTION
+        "This trap indicates that the Statistics subsystem has been
+        (re)initialized for the indicated INS node.  This occurs at program
+        startup (or restart in case of a fatal failure) and when the INS node
+        statistics configuration is changed and cut over.  NSMs should
+        flush any cached statistics configuration data and retrieve a fresh
+        set from the SNMP Agent.
+        "
+    ::= 1
+
+insStatsRegSetTableChanged TRAP-TYPE
+    ENTERPRISE insStats
+    VARIABLES {
+        insTrapSeq,
+        insNodeIdT,
+        insStatsRegSetTableLastChange }
+    DESCRIPTION
+        "This trap indicates that new statistics register set mapping data has
+        been added to the insStatsRegSetIdTable and insStatsRegSetNameTable
+        objects for the indicated INS node.
+        "
+    REFERENCE
+        "insStatsRegSetIdTable and insStatsRegSetNameTable"
+    ::= 2
+
+insStatsGroupSumPosted TRAP-TYPE
+    ENTERPRISE insStats
+    VARIABLES {
+        insTrapSeq,
+        insNodeIdT,
+        insStatsGroupId,
+        insStatsLastSumTime }
+    DESCRIPTION
+        "This trap indicates that a new statistics summary has been posted
+        for a given statistics group on a given node.
+        "
+    ::= 3
+
+--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-- INS NETWORK CONFIGURATION GROUP
+--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+----------------------------------------------------------------------
+-- Local Node Table
+----------------------------------------------------------------------
+
+insLocalNodeTableSize OBJECT-TYPE
+    SYNTAX Gauge (0..15)
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Number of entries in the insLocalNodeTable object.
+        "
+    ::= { insNwConfig 1 }
+
+insLocalNodeTableLastChange OBJECT-TYPE
+    SYNTAX TimeTicks
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Time at which a change was last made to insLocalNodeTable,
+        expressed as .01 second ticks since system coldload.
+        "
+    ::= { insNwConfig 2 }
+
+insLocalNodeTable OBJECT-TYPE
+    SYNTAX SEQUENCE OF InsLocalNodeEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "
+        "
+    ::= { insNwConfig 3 }
+
+insLocalNodeEntry OBJECT-TYPE
+    SYNTAX InsLocalNodeEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "An entry in the Local Node Table that describes an appearance
+        of the local node as it appears in a network.  Because the INS
+        supports multiple protocols, the local node can appear in as
+        many as 15 networks
+        "
+    INDEX {insNetworkId}
+    ::= {insLocalNodeTable 1}
+
+InsLocalNodeEntry ::= SEQUENCE
+    {
+        insNetworkId INTEGER
+       , insLocalNodeName DisplayString
+       , insLocalNodeClli DisplayString
+       , insLocalNodeProtocolId INTEGER
+       , insLocalNodePointCode OCTET STRING
+       , insLocalNodeNetworkType INTEGER
+       , insNetworkName DisplayString
+    }
+
+insNetworkId OBJECT-TYPE
+    SYNTAX INTEGER (1..16)
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Index to the Local Node Table entry in the insLocalNodeTable object.
+        "
+    ::= { insLocalNodeEntry 1 }
+
+insLocalNodeName OBJECT-TYPE
+    SYNTAX DisplayString
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Local node name string.
+        "
+    ::= { insLocalNodeEntry 2 }
+
+insLocalNodeClli OBJECT-TYPE
+    SYNTAX DisplayString (SIZE (0..11))
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Local node unique Common Language Location Identification
+        (CLLI) code.
+        "
+    ::= { insLocalNodeEntry 3 }
+
+insLocalNodeProtocolId OBJECT-TYPE
+    SYNTAX INTEGER {
+               ansi (1),
+               itu (2),
+               japan (3),
+               china (4)
+           }
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Local node protocol.  Possible values are:
+        'ansi' (1), 'itu' (2), 'japan' (3), 'china' (4).
+        "
+    ::= { insLocalNodeEntry 4 }
+
+insLocalNodePointCode OBJECT-TYPE
+    SYNTAX OCTET STRING (SIZE (4))
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Local node point code as known to the network.
+        "
+    ::= { insLocalNodeEntry 5 }
+
+insLocalNodeNetworkType OBJECT-TYPE
+    SYNTAX INTEGER {
+              international (1),
+              international-spare (2),
+              national (3),
+              national-spare (4)
+          }
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Network type.
+        "
+    ::= { insLocalNodeEntry 6 }
+
+insNetworkName OBJECT-TYPE
+    SYNTAX DisplayString
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Network name.
+        "
+    ::= { insLocalNodeEntry 7 }
+
+
+----------------------------------------------------------------------
+-- Local Alias Point Code Table
+----------------------------------------------------------------------
+
+insLocalAliasPointCodeTableSize OBJECT-TYPE
+    SYNTAX Gauge
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Number of entries in the insLocalAliasPointCodeTable object.
+        "
+    ::= { insNwConfig 4 }
+
+insLocalAliasPointCodeTableLastChange OBJECT-TYPE
+    SYNTAX TimeTicks
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Time at which a change was last made to
+        insLocalAliasPointCodeTable, expressed as .01 second ticks since
+        system coldload.
+        "
+    ::= { insNwConfig 5 }
+
+insLocalAliasPointCodeTable OBJECT-TYPE
+    SYNTAX SEQUENCE OF InsLocalAliasPointCodeEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "Table of local alias point codes.
+        "
+    ::= { insNwConfig 6 }
+
+insLocalAliasPointCodeEntry OBJECT-TYPE
+    SYNTAX InsLocalAliasPointCodeEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "Association between network ID and alias point code.
+        "
+    INDEX {insNetworkIdA, insAliasPointCode}
+    ::= {insLocalAliasPointCodeTable 1}
+
+InsLocalAliasPointCodeEntry ::= SEQUENCE
+    {
+        insNetworkIdA INTEGER
+       , insAliasPointCode OCTET STRING
+    }
+
+insNetworkIdA OBJECT-TYPE
+    SYNTAX INTEGER (1..16)
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The network ID associated with the alias point code in the
+         insLocalAliasPointCodeTable object.
+        "
+    ::= { insLocalAliasPointCodeEntry 1 }
+
+insAliasPointCode OBJECT-TYPE
+    SYNTAX OCTET STRING (SIZE (4))
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Alias point code.
+        "
+    ::= { insLocalAliasPointCodeEntry 2 }
+
+----------------------------------------------------------------------
+-- Local SSN Table
+----------------------------------------------------------------------
+
+insLocalSsnTableSize OBJECT-TYPE
+    SYNTAX Gauge
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Number of entries in the insLocalSsnTable object.
+        "
+    ::= { insNwConfig 7 }
+
+insLocalSsnTableLastChange OBJECT-TYPE
+    SYNTAX TimeTicks
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Time at which a change was last made to insLocalSsnTable,
+        expressed as .01 second ticks since system coldload.
+        "
+    ::= { insNwConfig 8 }
+
+insLocalSsnTable OBJECT-TYPE
+    SYNTAX SEQUENCE OF InsLocalSsnEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "Table of Subsystem Numbers (SSNs) supported by the local node.
+        "
+    ::= { insNwConfig 9 }
+
+insLocalSsnEntry OBJECT-TYPE
+    SYNTAX InsLocalSsnEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "Information about a local Subsystem Number (SSN).
+        "
+    INDEX {insLocalSsnId}
+    ::= {insLocalSsnTable 1}
+
+InsLocalSsnEntry ::= SEQUENCE
+    {
+        insLocalSsnId INTEGER
+       , insLocalSsnType INTEGER
+       , insLocalSsnMateType INTEGER
+       , insConcernedPointCodeCount Gauge
+       , insLocalSsnStatus INTEGER
+    }
+
+insLocalSsnId OBJECT-TYPE
+    SYNTAX INTEGER (1..255)
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Local Subsystem Number (SSN) ID in the insLocalSsnTable object.
+        "
+    ::= { insLocalSsnEntry 1 }
+
+insLocalSsnType OBJECT-TYPE
+    SYNTAX INTEGER {
+               local (1),
+               gateway (2),
+               isup (3),
+               local-gtt (4),
+               alias-gtt (5)
+           }
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Local SSN type:
+            'local' (1)  Local subsystem.
+          'gateway' (2)  Gateway subsystem.
+             'isup' (3)  ISDN User Part subsystem.
+        'local-gtt' (4)  Global Title Translation.
+        'alias-gtt' (5)  Alias Global Title Translation.
+        "
+    ::= { insLocalSsnEntry 2 }
+
+insLocalSsnMateType OBJECT-TYPE
+    SYNTAX INTEGER {
+               no-mate (1), primary (2), secondary (3)
+           }
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Mate Type:
+
+          'no-mate' (1)  The local subsystem has no mated system for backup.
+
+          'primary' (2)  The local subsystem acts as the primary subsystem
+                         by handling traffic until it requests a remote
+                         subsystem to handle the traffic.
+
+        'secondary' (3)  The local subsystem acts as the secondary subsystem
+                         by handling traffic only if the remote subsystem
+                         requests it to do so.
+       "
+    ::= { insLocalSsnEntry 3 }
+
+insConcernedPointCodeCount OBJECT-TYPE
+    SYNTAX Gauge
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Count of concerned point codes.  A concerned point code is
+        a network destination that is notified of subsystem status
+        changes.
+        "
+    ::= { insLocalSsnEntry 4 }
+
+insLocalSsnStatus OBJECT-TYPE
+    SYNTAX INTEGER {
+               unknown (1), allowed (2), prohibited (3)
+           }
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Local Subsystem Number (SSN) status:
+            'unknown' (1)   No information available.
+
+            'allowed' (2)   The subsystem is in the in-service state and
+                            can process messages from the network.
+
+         'prohibited' (3)   The subsystem is in the out-of-service state
+                            and cannot process messages from the network.
+        "
+    ::= { insLocalSsnEntry 5 }
+
+
+----------------------------------------------------------------------
+-- Local SSN Mate Table
+----------------------------------------------------------------------
+
+insLocalSsnMateTableSize OBJECT-TYPE
+    SYNTAX Gauge
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Number of entries in the insLocalSsnMateTable object.
+        "
+    ::= { insNwConfig 10 }
+
+insLocalSsnMateTableLastChange OBJECT-TYPE
+    SYNTAX TimeTicks
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Time at which a change was last made to insLocalSsnMateTable,
+        expressed as .01 second ticks since system coldload.
+        "
+    ::= { insNwConfig 11 }
+
+insLocalSsnMateTable OBJECT-TYPE
+    SYNTAX SEQUENCE OF InsLocalSsnMateEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "Table of local Subsystem Numbers (SSNs) with remote mates.
+        "
+    ::= { insNwConfig 12 }
+
+insLocalSsnMateEntry OBJECT-TYPE
+    SYNTAX InsLocalSsnMateEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "Association of local Subsystem Numbers (SSNs), mate point code,
+        and mate subsystem.
+        "
+    INDEX {insLocalSsnIdA, insMateNetworkId, insMatePointCode}
+    ::= {insLocalSsnMateTable 1}
+
+InsLocalSsnMateEntry ::= SEQUENCE
+    {
+        insLocalSsnIdA INTEGER
+       , insMateNetworkId INTEGER
+       , insMatePointCode OCTET STRING
+       , insMateSsnId INTEGER
+    }
+
+insLocalSsnIdA OBJECT-TYPE
+    SYNTAX INTEGER (1..255)
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Local Subsystem Number (SSN) ID in the insLocalSsnMateTable
+         object.
+        "
+    ::= { insLocalSsnMateEntry 1 }
+
+insMateNetworkId OBJECT-TYPE
+    SYNTAX INTEGER (1..16)
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Mate network ID.
+        "
+    ::= { insLocalSsnMateEntry 2 }
+
+insMatePointCode OBJECT-TYPE
+    SYNTAX OCTET STRING (SIZE (4))
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Mate point code.
+        "
+    ::= { insLocalSsnMateEntry 3 }
+
+insMateSsnId OBJECT-TYPE
+    SYNTAX INTEGER (1..255)
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Mate Subsystem Number (SSN) ID.
+        "
+    ::= { insLocalSsnMateEntry 4 }
+
+
+----------------------------------------------------------------------
+-- Global Titel Translation (GTT) Point Code Table
+----------------------------------------------------------------------
+
+insGttPointCodeTableSize OBJECT-TYPE
+    SYNTAX Gauge
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Number of entries in the insGttPointCodeTable object.
+        "
+    ::= { insNwConfig 13 }
+
+insGttPointCodeTableLastChange OBJECT-TYPE
+    SYNTAX TimeTicks
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Time at which a change was last made to insGttPointCodeTable,
+        expressed as .01 second ticks since system coldload.
+        "
+    ::= { insNwConfig 14 }
+
+insGttPointCodeTable OBJECT-TYPE
+    SYNTAX SEQUENCE OF InsGttPointCodeEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "Table of Global Title Translation (GTT) point codes.
+        "
+    ::= { insNwConfig 15 }
+
+insGttPointCodeEntry OBJECT-TYPE
+    SYNTAX InsGttPointCodeEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "GTT point code table entry consists of network ID and
+        GTT point code.
+        "
+    INDEX {insNetworkIdB, insGttPointCode}
+    ::= {insGttPointCodeTable 1}
+
+InsGttPointCodeEntry ::= SEQUENCE
+    {
+        insNetworkIdB INTEGER
+       , insGttPointCode OCTET STRING
+    }
+
+insNetworkIdB OBJECT-TYPE
+    SYNTAX INTEGER (1..16)
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Network ID in the insGttPointCodeTable object.
+        "
+    ::= { insGttPointCodeEntry 1 }
+
+insGttPointCode OBJECT-TYPE
+    SYNTAX OCTET STRING (SIZE (4))
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Point code of destination to which outbound messages routed on
+        global title are sent.
+        "
+    ::= { insGttPointCodeEntry 2 }
+
+----------------------------------------------------------------------
+-- Link Table
+----------------------------------------------------------------------
+
+insLinkTableSize OBJECT-TYPE
+    SYNTAX Gauge
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Number of entries in the insLinkTable object.
+        "
+    ::= { insNwConfig 16 }
+
+insLinkTableLastChange OBJECT-TYPE
+    SYNTAX TimeTicks
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Time at which a change was last made to insLinkTable, expressed as
+        .01 second ticks since system coldload.
+        "
+    ::= { insNwConfig 17 }
+
+insLinkTable OBJECT-TYPE
+    SYNTAX SEQUENCE OF InsLinkEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "Table of signalling links.
+        "
+    ::= {insNwConfig 18}
+
+insLinkEntry OBJECT-TYPE
+    SYNTAX InsLinkEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "Association of various signalling link attributes.
+        "
+    INDEX {insLinkId}
+    ::= {insLinkTable 1}
+
+InsLinkEntry ::= SEQUENCE
+    {
+        insLinkId INTEGER
+       , insLinkType INTEGER
+       , insLinkName DisplayString
+       , insSlc Gauge
+       , insLinkSetId INTEGER
+       , insLinkDeviceName DisplayString
+       , insNetworkIdC INTEGER
+       , insLinkStatus INTEGER
+       , insLinkBlockState INTEGER
+       , insLinkInhibitedState INTEGER
+       , insLinkCongestLevel Gauge
+    }
+
+insLinkId OBJECT-TYPE
+    SYNTAX INTEGER (1..1024)
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Signalling link ID.
+        "
+    ::= { insLinkEntry 1 }
+
+insLinkType OBJECT-TYPE
+    SYNTAX INTEGER {
+               rs449 (1), v35 (2), ds0 (3), e1 (4), t1 (5), j1 (6), ip (7)
+           }
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Signalling link type:  'rs449' (1), 'v35' (2), 'ds0' (3), 'e1' (4),
+        't1' (5), 'j1' (6), 'ip' (7)
+        "
+    ::= { insLinkEntry 2 }
+
+insLinkName OBJECT-TYPE
+    SYNTAX DisplayString
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Signalling link name.
+        "
+    ::= { insLinkEntry 3 }
+
+insSlc OBJECT-TYPE
+    SYNTAX Gauge
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Signalling link code.
+        "
+    ::= { insLinkEntry 4 }
+
+insLinkSetId OBJECT-TYPE
+    SYNTAX INTEGER (1..256)
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Link set ID for the link set containing the signalling link
+        in the insLinkTable object.
+        "
+    ::= { insLinkEntry 5 }
+
+insLinkDeviceName OBJECT-TYPE
+    SYNTAX DisplayString
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Device name associated with a signalling link in the
+        insLinkTable object.
+        "
+    ::= { insLinkEntry 6 }
+
+insNetworkIdC OBJECT-TYPE
+    SYNTAX INTEGER (0..16)
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The network ID associated with the signalling link in the
+        insLinkEntryTable object.  A value of zero indicates the
+        link is not associated with any link set and therefore has
+        no network association.
+        "
+    ::= { insLinkEntry 7 }
+
+insLinkStatus OBJECT-TYPE
+    SYNTAX INTEGER {
+               unknown (1),
+               mgmt-deallocated (2),
+               auto-deallocated (3),
+               mgmt-out-of-service (4),
+               auto-out-of-service (5),
+               in-service (6)
+           }
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Signalling link status:
+
+                       'unknown' (1)   Signalling link status is unknown.
+
+              'mgmt-deallocated' (2)  Signalling link has been 'deallocated'
+                                      by an operator.
+
+              'auto-deallocated' (3)  Signalling link has been 'deallocated'
+                                      by an automated procedure.
+
+           'mgmt-out-of-service' (4)  Signalling link has been taken out of
+                                      service by an operator.
+
+           'auto-out-of-service' (5)  Signalling link has been taken out of
+                                      service by an automated procedure.
+
+                    'in-service' (6)  Signalling link is operating normally.
+        "
+    ::= { insLinkEntry 8 }
+
+insLinkBlockState OBJECT-TYPE
+    SYNTAX INTEGER {
+               unknown (1), none (2), local (3), remote (4), both (5)
+           }
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Indicates whether traffic on the signalling link is blocked and how
+        it is blocked.
+
+        'unknown' (1)  Blocked status is unknown.
+
+           'none' (2)  Signalling link is not blocked.
+
+          'local' (3)  Signalling link is blocked locally.
+
+         'remote' (4)  Signalling link is blocked remotely.
+
+           'both' (5)  Signalling link is blocked locally and remotely.
+        "
+    ::= { insLinkEntry 9 }
+
+insLinkInhibitedState OBJECT-TYPE
+    SYNTAX INTEGER {
+               unknown  (1), uninhibited (2), local (3), remote (4), both (5)
+           }
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Indicates whether traffic on a signalling link is inhibited and how
+        it is inhibited.
+
+            'unknown' (1)  Signalling state is unknown.
+
+        'uninhibited' (2)  Signalling link is not inhibited.
+
+              'local' (3)  Signalling link is inhibited locally.
+
+             'remote' (4)  Signalling link is inhibited remotely.
+
+               'both' (5)  Signalling link is inhibited locally and remotely.
+        "
+    ::= { insLinkEntry 10 }
+
+insLinkCongestLevel OBJECT-TYPE
+    SYNTAX Gauge (0..3)
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Signalling link congestion level.
+        "
+    ::= { insLinkEntry 11 }
+
+
+----------------------------------------------------------------------
+-- Link Device Table
+----------------------------------------------------------------------
+
+insLinkDeviceTableSize OBJECT-TYPE
+    SYNTAX Gauge
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Number of entries in the insLinkDeviceTable object.
+        "
+    ::= { insNwConfig 19 }
+
+insLinkDeviceTableLastChange OBJECT-TYPE
+    SYNTAX TimeTicks
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Time at which a change was last made to insLinkDeviceTable,
+        expressed as .01 second ticks since system coldload.
+        "
+    ::= { insNwConfig 20 }
+
+insLinkDeviceTable OBJECT-TYPE
+    SYNTAX SEQUENCE OF InsLinkDeviceEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "Table of signalling link devices.
+        "
+    ::= { insNwConfig 21 }
+
+insLinkDeviceEntry OBJECT-TYPE
+    SYNTAX InsLinkDeviceEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "Contains signalling link device name and device status.
+        "
+    INDEX {insLinkDeviceNameA}
+    ::= {insLinkDeviceTable 1}
+
+InsLinkDeviceEntry ::= SEQUENCE
+    {
+        insLinkDeviceNameA DisplayString
+       , insLinkDeviceStatus INTEGER
+    }
+
+insLinkDeviceNameA OBJECT-TYPE
+    SYNTAX DisplayString
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Signalling link device name in the insLinkDeviceTable object.
+        "
+    ::= { insLinkDeviceEntry 1 }
+
+insLinkDeviceStatus OBJECT-TYPE
+    SYNTAX INTEGER {
+               unknown (1), down (2), up (3)
+           }
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Status of the device:  'unknown' (1), 'down' (2) or 'up' (3).
+        "
+    ::= { insLinkDeviceEntry 2 }
+
+
+----------------------------------------------------------------------
+-- Link Set Table
+----------------------------------------------------------------------
+
+insLinkSetTableSize OBJECT-TYPE
+    SYNTAX Gauge
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Number of entries in the insLinkSetTable object.
+        "
+    ::= { insNwConfig 22 }
+
+insLinkSetTableLastChange OBJECT-TYPE
+    SYNTAX TimeTicks
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Time at which a change was last made to insLinkSetTable, expressed
+        as .01 second ticks since system coldload.
+        "
+    ::= { insNwConfig 23 }
+
+insLinkSetTable OBJECT-TYPE
+    SYNTAX SEQUENCE OF InsLinkSetEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "Table of signalling link sets.
+        "
+    ::= { insNwConfig 24 }
+
+insLinkSetEntry OBJECT-TYPE
+    SYNTAX InsLinkSetEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "Contains static and dynamic attributes of a signalling link set.
+        "
+    INDEX {insLinkSetIdA}
+    ::= {insLinkSetTable 1}
+
+InsLinkSetEntry ::= SEQUENCE
+    {
+        insLinkSetIdA INTEGER
+       , insLinkSetType INTEGER
+       , insLinkSetName DisplayString
+       , insCombLinkSetId INTEGER
+       , insRemoteNodePc OCTET STRING
+       , insNetworkIdD INTEGER
+       , insLinkSetStatus INTEGER
+       , insLinkSetCongestLevel Gauge
+    }
+
+insLinkSetIdA OBJECT-TYPE
+    SYNTAX INTEGER (1..256)
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Signalling link set ID in the insLinkSetTable object.
+        "
+    ::= { insLinkSetEntry 1 }
+
+insLinkSetType OBJECT-TYPE
+    SYNTAX INTEGER {
+               simplex (1), combined (2)
+           }
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Signalling link set type: 'simplex' (1) or 'combined' (2).
+        "
+    ::= { insLinkSetEntry 2 }
+
+insLinkSetName OBJECT-TYPE
+    SYNTAX DisplayString
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Signalling link set name.
+        "
+    ::= { insLinkSetEntry 3 }
+
+insCombLinkSetId OBJECT-TYPE
+    SYNTAX INTEGER (0..256)
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Combined link set ID.
+        A value of zero means the combined link set is not defined.
+        "
+    ::= { insLinkSetEntry 4 }
+
+insRemoteNodePc OBJECT-TYPE
+    SYNTAX OCTET STRING (SIZE (4))
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Point code of the remote node in the insLinkSetTable object.
+        "
+    ::= { insLinkSetEntry 5 }
+
+insNetworkIdD OBJECT-TYPE
+    SYNTAX INTEGER (0..16)
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The network ID in the insLinkSetTable object.  The value of
+        this object is meaningless if the corresponding insLinkSetType
+        object has a value of 'combined' (2).
+        "
+    ::= { insLinkSetEntry 6 }
+
+insLinkSetStatus OBJECT-TYPE
+    SYNTAX INTEGER {
+               unknown (1),
+               mgmt-out-of-service (2),
+               auto-out-of-service (3),
+               in-service (4)
+           }
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Signalling link set status:
+
+                       'unknown' (1) Status is unknown.
+
+           'mgmt-out-of-service' (2) Removed from service by operator.
+
+           'auto-out-of-service' (3) Removed from service automatically.
+
+                    'in-service' (4) Normal operation.
+        "
+    ::= { insLinkSetEntry 7 }
+
+insLinkSetCongestLevel OBJECT-TYPE
+    SYNTAX Gauge (0..3)
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Signalling link set congestion level.
+        "
+    ::= { insLinkSetEntry 8 }
+
+
+----------------------------------------------------------------------
+-- Link Set Assignment Table
+----------------------------------------------------------------------
+
+insLinkSetAssignTableSize OBJECT-TYPE
+    SYNTAX Gauge
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Number of entries in the insLinkSetAssignTable object.
+        "
+    ::= { insNwConfig 25 }
+
+insLinkSetAssignTableLastChange OBJECT-TYPE
+        SYNTAX TimeTicks
+        ACCESS read-only
+        STATUS mandatory
+        DESCRIPTION
+            "Time at which a change was last made to insLinkSetAssignTable,
+            expressed as .01 second ticks since system coldload.
+            "
+        ::= { insNwConfig 26 }
+
+insLinkSetAssignTable OBJECT-TYPE
+    SYNTAX SEQUENCE OF InsLinkSetAssignEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "Table of link set assignments.
+        "
+    ::= {insNwConfig 27}
+
+insLinkSetAssignEntry OBJECT-TYPE
+    SYNTAX InsLinkSetAssignEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "For a simplex link set, this is an association of a link with the
+        link set.  For a combined link set, this is an association of a
+        simplex link set with the combined link set.
+        "
+    INDEX {insLinkSetIdB, insLinkOrLinkSetId}
+    ::= {insLinkSetAssignTable 1}
+
+InsLinkSetAssignEntry ::= SEQUENCE
+    {
+        insLinkSetIdB INTEGER
+       , insLinkOrLinkSetId INTEGER
+    }
+
+insLinkSetIdB OBJECT-TYPE
+    SYNTAX INTEGER (1..256)
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Signalling link set ID in the insLinkSetAssignTable object.
+        "
+    ::= { insLinkSetAssignEntry 1 }
+
+insLinkOrLinkSetId OBJECT-TYPE
+    SYNTAX INTEGER (1..1024)
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "This is a link ID or link set ID depending on the type of
+        the link set identified by the insLinkSetIdB object.
+        "
+    ::= { insLinkSetAssignEntry 2 }
+
+
+----------------------------------------------------------------------
+-- Remote Node Table
+----------------------------------------------------------------------
+
+insRemoteNodeTableSize OBJECT-TYPE
+    SYNTAX Gauge
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Number of entries in the insRemoteNodeTable object.
+        "
+    ::= { insNwConfig 28 }
+
+insRemoteNodeTableLastChange OBJECT-TYPE
+        SYNTAX TimeTicks
+        ACCESS read-only
+        STATUS mandatory
+        DESCRIPTION
+            "Time at which a change was last made to insRemoteNodeTable,
+            expressed as .01 second ticks since system coldload.
+            "
+        ::= { insNwConfig 29 }
+
+insRemoteNodeTable OBJECT-TYPE
+    SYNTAX SEQUENCE OF InsRemoteNodeEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "Table of remote nodes.
+        "
+    ::= { insNwConfig 30 }
+
+insRemoteNodeEntry OBJECT-TYPE
+    SYNTAX InsRemoteNodeEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "Contains attributes of a remote node.
+        "
+    INDEX {insNetworkIdE, insRemoteNodePcA, insRemoteNodePcType }
+    ::= {insRemoteNodeTable 1}
+
+InsRemoteNodeEntry ::= SEQUENCE
+    {
+        insRemoteNodePcA OCTET STRING
+       , insNetworkIdE INTEGER
+       , insRemoteNodeName DisplayString
+       , insRemoteNodeClli DisplayString
+       , insRemoteNodeType INTEGER
+       , insRemoteNodeIsManaged INTEGER
+       , insRemoteNodePcType INTEGER
+       , insRemoteNodeIsAdjacent INTEGER
+       , insRemoteNodeRouteListId INTEGER
+       , insRemoteNodeGwSsnId INTEGER
+       , insRemoteNodeCongestLevel Gauge
+       , insRemoteNodeActiveRtIndex INTEGER
+       , insRemoteNodeStatus INTEGER
+    }
+
+insRemoteNodePcA OBJECT-TYPE
+    SYNTAX OCTET STRING (SIZE (4))
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Point code associated with remote node in the
+        insRemoteNodeTable object.
+        "
+    ::= { insRemoteNodeEntry 1 }
+
+insNetworkIdE OBJECT-TYPE
+    SYNTAX INTEGER (1..16)
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Network ID of the local node associated with this remote node
+        in the insRemoteNodeTable object.
+        "
+    ::= { insRemoteNodeEntry 2 }
+
+insRemoteNodeName OBJECT-TYPE
+    SYNTAX DisplayString
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Remote node's name.
+        "
+    ::= { insRemoteNodeEntry 3 }
+
+insRemoteNodeClli OBJECT-TYPE
+    SYNTAX DisplayString (SIZE (11))
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The unique Common Language Location Identification (CLLI) code for
+        the selected remote node.
+        "
+    ::= { insRemoteNodeEntry 4 }
+
+insRemoteNodeType OBJECT-TYPE
+    SYNTAX INTEGER {
+               n-a (1), scp (2), stp (3), ssp (4), gvpc (5), isup (6), gtt (7)
+           }
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Remote node type:
+
+         'n-a' (1)  Not applicable (point code is a cluster or network)
+
+         'scp' (2)  Service Control Point
+
+         'stp' (3)  Signalling Transfer Point
+
+         'ssp' (4)  Service Switching Point
+
+        'gvpc' (5)  Gateway Virtual Point Code
+
+        'isup' (6)  ISDN (Integrated Services Digital Network) User Part
+
+         'gtt' (7)  Global Title Translation
+        "
+    ::= { insRemoteNodeEntry 5 }
+
+insRemoteNodeIsManaged OBJECT-TYPE
+    SYNTAX INTEGER {
+               false (1), true (2)
+           }
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Indicates whether the remote node is managed.  The allowed values are
+        'false' (1) and 'true' (2).
+        "
+    ::= { insRemoteNodeEntry 6 }
+
+insRemoteNodePcType OBJECT-TYPE
+    SYNTAX INTEGER {
+               full-member (1), cluster (2), network (3), not-a-point-code (4)
+           }
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Type of point code of the selected remote node:
+
+             'full-member' (1)  Network, cluster, and member point code
+
+                 'cluster' (2)  Network and cluster point code
+
+                 'network' (3)  Network routing point code
+
+        'not-a-point-code' (4)  Not a point code
+        "
+    ::= { insRemoteNodeEntry 7 }
+
+insRemoteNodeIsAdjacent OBJECT-TYPE
+    SYNTAX INTEGER {
+               false (1), true (2)
+           }
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Indicates whether the remote node is adjacent to the local node.
+        The allowed values are 'false' (1) and 'true' (2).
+        "
+    ::= { insRemoteNodeEntry 8 }
+
+insRemoteNodeRouteListId OBJECT-TYPE
+    SYNTAX INTEGER (0..255)
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Identifier of associated route list.  See the insRouteListTable
+        object.  A value of zero indicates that no route is assigned.
+        "
+    ::= { insRemoteNodeEntry 9 }
+
+insRemoteNodeGwSsnId OBJECT-TYPE
+    SYNTAX INTEGER (0..255)
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The gateway Subsystem Number (SSN) responsible for routing
+        messages to this node.  The value of this object is meaningful only
+        if the value of the corresponding insRemoteNodeType object is 'gvpc' (5).
+        "
+    ::= { insRemoteNodeEntry 10 }
+
+insRemoteNodeCongestLevel OBJECT-TYPE
+    SYNTAX Gauge
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The congestion status of the remote node as set by the
+        transfer-controlled procedure.
+        "
+    ::= { insRemoteNodeEntry 11 }
+
+insRemoteNodeActiveRtIndex OBJECT-TYPE
+    SYNTAX INTEGER (1..255)
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Defines an index into the route list table (insRouteListTable)
+        which is to be used in determining primary and alternate routing
+        selections for the remote node.
+        "
+    ::= { insRemoteNodeEntry 12 }
+
+insRemoteNodeStatus OBJECT-TYPE
+    SYNTAX INTEGER {
+               unknown (1), unavailable (2), available (3), restricted (4)
+           }
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Defines the availability status of the remote
+         point code for network access. The following
+         remote node status values are valid:
+
+             'unknown' (1)  Status is unknown.
+
+         'unavailable' (2)  Remote node is unavailable.
+
+           'available' (3)  Remote node is available.
+
+          'restricted' (4)  Remote node is restricted.
+        "
+    ::= { insRemoteNodeEntry 13 }
+
+----------------------------------------------------------------------
+-- Route List Table
+----------------------------------------------------------------------
+
+insRouteListTableSize OBJECT-TYPE
+    SYNTAX Gauge
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Number of entries in the insRouteListTable object.
+        "
+    ::= { insNwConfig 31 }
+
+insRouteListTableLastChange OBJECT-TYPE
+    SYNTAX TimeTicks
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Time at which a change was last made to insRouteListTable,
+        expressed as .01 second ticks since system coldload.
+        "
+    ::= { insNwConfig 32 }
+
+insRouteListTable OBJECT-TYPE
+    SYNTAX SEQUENCE OF InsRouteListEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "Table of route lists.  A route list identifies primary and
+        alternate routes to a remote node.
+        "
+    ::= {insNwConfig 33}
+
+insRouteListEntry OBJECT-TYPE
+    SYNTAX InsRouteListEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "Route list table entry consists of a table index, local node ID,
+        a primary route, and up to five alternate routes to a remote node,
+        and the status of each route.  insRLLinkSetId1 is the link set
+        table index of the primary route.  The insRLLinkSetId[2-6] objects
+        are the link set table indices of the alternate routes in
+        priority order.
+
+        The insRLStatus[1-6] objects are the status values for the
+        corresponding insRLLinkSetId[1-6] link set objects.
+        "
+    INDEX {insRLId}
+    ::= {insRouteListTable 1}
+
+InsRouteListEntry ::= SEQUENCE
+    {
+        insRLId INTEGER
+       , insRLNetworkId INTEGER
+       , insRLLinkSetId1 INTEGER
+       , insRLLinkSetId2 INTEGER
+       , insRLLinkSetId3 INTEGER
+       , insRLLinkSetId4 INTEGER
+       , insRLLinkSetId5 INTEGER
+       , insRLLinkSetId6 INTEGER
+       , insRLStatus1 INTEGER
+       , insRLStatus2 INTEGER
+       , insRLStatus3 INTEGER
+       , insRLStatus4 INTEGER
+       , insRLStatus5 INTEGER
+       , insRLStatus6 INTEGER
+    }
+
+insRLId OBJECT-TYPE
+    SYNTAX INTEGER (1..255)
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Route list table index.
+        "
+    ::= { insRouteListEntry 1 }
+
+insRLNetworkId OBJECT-TYPE
+    SYNTAX INTEGER (1..16)
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Route list network ID.
+        "
+    ::= { insRouteListEntry 2 }
+
+insRLLinkSetId1 OBJECT-TYPE
+    SYNTAX INTEGER (0..256)
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Index of primary link set for the route list in the insLinkSetTable
+        object.  A value of zero means undefined.
+        "
+    ::= { insRouteListEntry 3 }
+
+insRLLinkSetId2 OBJECT-TYPE
+    SYNTAX INTEGER (0..256)
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Index of an alternate link set for the route list in the
+        insLinkSetTable object.  A value of zero means undefined.
+        "
+    ::= { insRouteListEntry 4 }
+
+insRLLinkSetId3 OBJECT-TYPE
+    SYNTAX INTEGER (0..256)
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Index of an alternate link set for the route list in the
+        insLinkSetTable object.  A value of zero means undefined.
+        "
+    ::= { insRouteListEntry 5 }
+
+insRLLinkSetId4 OBJECT-TYPE
+    SYNTAX INTEGER (0..256)
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Index of an alternate link set for the route list in the
+        insLinkSetTable object.  A value of zero means undefined.
+        "
+    ::= { insRouteListEntry 6 }
+
+insRLLinkSetId5 OBJECT-TYPE
+    SYNTAX INTEGER (0..256)
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Index of an alternate link set for the route list in the
+        insLinkSetTable object.  A value of zero means undefined.
+        "
+    ::= { insRouteListEntry 7 }
+
+insRLLinkSetId6 OBJECT-TYPE
+    SYNTAX INTEGER (0..256)
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Index of an alternate link set for the route list in the
+        insLinkSetTable object.  A value of zero means undefined.
+        "
+    ::= { insRouteListEntry 8 }
+
+insRLStatus1 OBJECT-TYPE
+    SYNTAX INTEGER {
+               unknown (1),
+               mgmt-deactivated (2),
+               allowed (3),
+               prohibited (4),
+               restricted (5)
+           }
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Status of the link set identified by the insRLLinkSetId1 object.
+         Allowable values are:
+
+                 'unknown' (1)   Status is unknown or not applicable.
+
+        'mgmt-deactivated' (2)   Management deactivated.
+
+                 'allowed' (3)   Transfer allowed.
+
+              'prohibited' (4)   Transfer prohibited.
+
+              'restricted' (5)   Transfer restricted.
+       "
+    ::= { insRouteListEntry 9 }
+
+insRLStatus2 OBJECT-TYPE
+    SYNTAX INTEGER {
+               unknown (1),
+               mgmt-deactivated (2),
+               allowed (3),
+               prohibited (4),
+               restricted (5)
+           }
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Status of the link set identified by the insRLLinkSetId2 object.
+        Allowable values are:
+
+                 'unknown' (1)   Status is unknown or not applicable.
+
+        'mgmt-deactivated' (2)   Management deactivated.
+
+                 'allowed' (3)   Transfer allowed.
+
+              'prohibited' (4)   Transfer prohibited.
+
+              'restricted' (5)   Transfer restricted.
+
+        "
+    ::= { insRouteListEntry 10 }
+
+insRLStatus3 OBJECT-TYPE
+    SYNTAX INTEGER {
+               unknown (1),
+               mgmt-deactivated (2),
+               allowed (3),
+               prohibited (4),
+               restricted (5)
+           }
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Status of the link set identified by the insRLLinkSetId3 object.
+        Allowable values are:
+
+                 'unknown' (1)   Status is unknown or not applicable.
+
+        'mgmt-deactivated' (2)   Management deactivated.
+
+                 'allowed' (3)   Transfer allowed.
+
+              'prohibited' (4)   Transfer prohibited.
+
+              'restricted' (5)   Transfer restricted.
+        "
+    ::= { insRouteListEntry 11 }
+
+insRLStatus4 OBJECT-TYPE
+    SYNTAX INTEGER {
+               unknown (1),
+               mgmt-deactivated (2),
+               allowed (3),
+               prohibited (4),
+               restricted (5)
+           }
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Status of the link set identified by the insRLLinkSetId4 object.
+        Allowable values are:
+
+                 'unknown' (1)   Status is unknown or not applicable.
+
+        'mgmt-deactivated' (2)   Management deactivated.
+
+                 'allowed' (3)   Transfer allowed.
+
+              'prohibited' (4)   Transfer prohibited.
+
+              'restricted' (5)   Transfer restricted.
+        "
+    ::= { insRouteListEntry 12 }
+
+insRLStatus5 OBJECT-TYPE
+    SYNTAX INTEGER {
+               unknown (1),
+               mgmt-deactivated (2),
+               allowed (3),
+               prohibited (4),
+               restricted (5)
+           }
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Status of the link set identified by the insRLLinkSetId5 object.
+        Allowable values are:
+
+                 'unknown' (1)   Status is unknown or not applicable.
+
+        'mgmt-deactivated' (2)   Management deactivated.
+
+                 'allowed' (3)   Transfer allowed.
+
+              'prohibited' (4)   Transfer prohibited.
+
+              'restricted' (5)   Transfer restricted.
+        "
+    ::= { insRouteListEntry 13 }
+
+insRLStatus6 OBJECT-TYPE
+    SYNTAX INTEGER {
+               unknown (1),
+               mgmt-deactivated (2),
+               allowed (3),
+               prohibited (4),
+               restricted (5)
+           }
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Status of the link set identified by the insRLLinkSetId6 object.
+        Allowable values are:
+
+                 'unknown' (1)    Status is unknown or not applicable.
+
+        'mgmt-deactivated' (2)   Management deactivated.
+
+                 'allowed' (3)   Transfer allowed.
+
+              'prohibited' (4)   Transfer prohibited.
+
+              'restricted' (5)    Transfer restricted.
+        "
+    ::= { insRouteListEntry 14 }
+
+
+----------------------------------------------------------------------
+-- Remote SSN Table
+----------------------------------------------------------------------
+
+insRemoteSsnTableSize OBJECT-TYPE
+    SYNTAX Gauge
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Number of entries in the insRemoteSsnTable object.
+        "
+    ::= { insNwConfig 34 }
+
+insRemoteSsnTableLastChange OBJECT-TYPE
+    SYNTAX TimeTicks
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Time at which a change was last made to insRemoteSsnTable,
+        expressed as .01 second ticks since system coldload.
+        "
+    ::= { insNwConfig 35 }
+
+insRemoteSsnTable OBJECT-TYPE
+    SYNTAX SEQUENCE OF InsRemoteSsnEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "Remote subsystem table.
+        "
+    ::= {insNwConfig 36}
+
+insRemoteSsnEntry OBJECT-TYPE
+    SYNTAX InsRemoteSsnEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "Remote subsystem table entry consists of the remote node point
+        code, the remote subsystem number, indication of whether it is
+        managed, and current status.
+        "
+    INDEX {insNetworkIdF, insRemoteNodePC, insRemoteSsnId}
+    ::= {insRemoteSsnTable 1}
+
+InsRemoteSsnEntry ::= SEQUENCE
+    {
+        insNetworkIdF INTEGER
+       , insRemoteNodePC OCTET STRING
+       , insRemoteSsnId INTEGER
+       , insRemoteSsnIsManaged INTEGER
+       , insRemoteSsnStatus INTEGER
+    }
+
+insNetworkIdF OBJECT-TYPE
+    SYNTAX INTEGER (1..16)
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Network identifier associated with the remote node in the
+        insRemoteSsnTable object.
+        "
+    ::= { insRemoteSsnEntry 1 }
+
+insRemoteNodePC OBJECT-TYPE
+    SYNTAX OCTET STRING (SIZE (4))
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Point code of the remote node.
+        "
+    ::= { insRemoteSsnEntry 2 }
+
+insRemoteSsnId OBJECT-TYPE
+    SYNTAX INTEGER (1..255)
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Remote Subsystem Number (SSN).
+        "
+    ::= { insRemoteSsnEntry 3 }
+
+insRemoteSsnIsManaged OBJECT-TYPE
+    SYNTAX INTEGER {
+               false (1), true (2)
+           }
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Indicates whether the remote subsystem is managed (that is, SCCP
+        management functions are performed).  The allowed values are
+        'false' (1) and 'true' (2).
+        "
+    ::= { insRemoteSsnEntry 4 }
+
+insRemoteSsnStatus OBJECT-TYPE
+    SYNTAX INTEGER {
+               unknown (1), allowed (2), prohibited (3)
+           }
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Status of the remote subsystem:
+
+           'unknown' (1)  Status is unknown.
+
+           'allowed' (2)  Subsystem is allowed.
+
+        'prohibited' (3)  Subsystem is prohibited.
+        "
+    ::= { insRemoteSsnEntry 5 }
+
+insNwCfgTableId OBJECT-TYPE
+    SYNTAX INTEGER {
+        local-node-table (1),
+        local-alias-point-code-table (2),
+        local-ssn-table (3),
+        local-ssn-mate-table (4),
+        gtt-point-code-table (5),
+        link-table (6),
+        link-device-table (7),
+        link-set-table (8),
+        link-set-assignment-table (9),
+        remote-node-table (10),
+        remote-ssn-table (11),
+        route-list-table (12)
+           }
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "This object identifies a network configuration table
+        that has changed.  This is used for trap notification
+        of table changes.  Named values correspond to like-named
+        tables.  For example, 'local-node-table' (1) corresponds
+        to the insLocalNodeTable object.
+        "
+    ::= { insNwConfig 37 }
+
+insNwCfgTableChange TRAP-TYPE
+    ENTERPRISE insNwConfig
+    VARIABLES {insTrapSeq, insNodeIdT, insNwCfgTableId }
+    DESCRIPTION
+        "Identifies a network configuration table that has been
+        initialized or has changed.
+        "
+    ::= 1
+
+
+END  -- CPQ-INS-MIB

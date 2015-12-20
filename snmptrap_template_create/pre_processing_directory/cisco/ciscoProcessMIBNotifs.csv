@@ -1,0 +1,18 @@
+"Name","Full Name","OID","Type","Access","Indexes","MIB Module","Description"
+"ciscoProcessMIBNotifs",".iso.org.dod.internet.private.enterprises.cisco.ciscoMgmt.ciscoProcessMIB.ciscoProcessMIBNotifPrefix.ciscoProcessMIBNotifs",".1.3.6.1.4.1.9.9.109.2.0",,,"","CISCO-PROCESS-MIB",
+"cpmCPURisingThreshold",".iso.org.dod.internet.private.enterprises.cisco.ciscoMgmt.ciscoProcessMIB.ciscoProcessMIBNotifPrefix.ciscoProcessMIBNotifs.cpmCPURisingThreshold",".1.3.6.1.4.1.9.9.109.2.0.1",,,"","CISCO-PROCESS-MIB","A cpmCPURisingThreshold notification is sent
+when configured rising CPU utilization threshold
+(cpmCPURisingThresholdValue) is reached and
+CPU utilization remained above the threshold
+for configured interval(cpmCPURisingThresholdPeriod)
+and such a notification is requested.
+The cpmProcExtUtil5SecRev and cpmProcessTimeCreated
+objects can be repeated multiple times
+in a notification indicating the top users of CPU."
+"cpmCPUFallingThreshold",".iso.org.dod.internet.private.enterprises.cisco.ciscoMgmt.ciscoProcessMIB.ciscoProcessMIBNotifPrefix.ciscoProcessMIBNotifs.cpmCPUFallingThreshold",".1.3.6.1.4.1.9.9.109.2.0.2",,,"","CISCO-PROCESS-MIB","A cpmCPUFallingThresholdTrap is sent when the
+configured falling threshold
+(cpmCPURisingThresholdValue)
+is reached and CPU utilization remained under
+threshold for configured
+interval (cpmCPUFallingThresholdPeriod)
+and such a notification is requested."

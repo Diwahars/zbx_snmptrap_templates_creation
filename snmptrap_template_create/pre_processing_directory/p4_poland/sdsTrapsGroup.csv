@@ -1,0 +1,4 @@
+"Name","Full Name","OID","Type","Access","Indexes","MIB Module","Description"
+"sdsTrapsGroup",".iso.org.dod.internet.private.enterprises.roamware.gen-mob.sdsTraps.sdsTrapsGroup",".1.3.6.1.4.1.11150.1.4.0",,,"","Roamware-SDS-V2-MIB",
+"sdsSysNoResp",".iso.org.dod.internet.private.enterprises.roamware.gen-mob.sdsTraps.sdsTrapsGroup.sdsSysNoResp",".1.3.6.1.4.1.11150.1.4.0.1",,,"","Roamware-SDS-V2-MIB","Indicates that a service is not responding to the system health monitor."
+"sdsSysHeartbeat",".iso.org.dod.internet.private.enterprises.roamware.gen-mob.sdsTraps.sdsTrapsGroup.sdsSysHeartbeat",".1.3.6.1.4.1.11150.1.4.0.2",,,"","Roamware-SDS-V2-MIB","Indicates a heartbeat to inform that the application is running normally."

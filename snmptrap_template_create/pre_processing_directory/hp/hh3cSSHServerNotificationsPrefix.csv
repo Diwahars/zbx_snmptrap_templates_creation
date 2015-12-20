@@ -1,0 +1,7 @@
+"Name","Full Name","OID","Type","Access","Indexes","MIB Module","Description"
+"hh3cSSHServerNotificationsPrefix",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cSSH.hh3cSSHServerMIB.hh3cSSHServerNotifications.hh3cSSHServerNotificationsPrefix",".1.3.6.1.4.1.25506.2.22.1.3.0",,,"","HH3C-SSH-MIB",
+"hh3cSSHUserAuthFailure",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cSSH.hh3cSSHServerMIB.hh3cSSHServerNotifications.hh3cSSHServerNotificationsPrefix.hh3cSSHUserAuthFailure",".1.3.6.1.4.1.25506.2.22.1.3.0.1",,,"","HH3C-SSH-MIB","The trap is generated when a user fails to authentication."
+"hh3cSSHVersionNegotiationFailure",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cSSH.hh3cSSHServerMIB.hh3cSSHServerNotifications.hh3cSSHServerNotificationsPrefix.hh3cSSHVersionNegotiationFailure",".1.3.6.1.4.1.25506.2.22.1.3.0.2",,,"","HH3C-SSH-MIB","The trap is generated when a user fails to negotiate SSH
+protocol version."
+"hh3cSSHUserLogin",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cSSH.hh3cSSHServerMIB.hh3cSSHServerNotifications.hh3cSSHServerNotificationsPrefix.hh3cSSHUserLogin",".1.3.6.1.4.1.25506.2.22.1.3.0.3",,,"","HH3C-SSH-MIB","The trap is generated when a user logs in successfully."
+"hh3cSSHUserLogoff",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cSSH.hh3cSSHServerMIB.hh3cSSHServerNotifications.hh3cSSHServerNotificationsPrefix.hh3cSSHUserLogoff",".1.3.6.1.4.1.25506.2.22.1.3.0.4",,,"","HH3C-SSH-MIB","The trap is generated when a user logs off."

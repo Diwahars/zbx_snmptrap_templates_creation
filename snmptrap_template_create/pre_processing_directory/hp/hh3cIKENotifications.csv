@@ -1,0 +1,36 @@
+"Name","Full Name","OID","Type","Access","Indexes","MIB Module","Description"
+"hh3cIKENotifications",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIKEMonitor.hh3cIKEObjects.hh3cIKETrap.hh3cIKENotifications",".1.3.6.1.4.1.25506.2.30.1.6.1",,,"","HH3C-IKE-MONITOR-MIB",
+"hh3cIKETunnelStart",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIKEMonitor.hh3cIKEObjects.hh3cIKETrap.hh3cIKENotifications.hh3cIKETunnelStart",".1.3.6.1.4.1.25506.2.30.1.6.1.1",,,"","HH3C-IKE-MONITOR-MIB","This notification is generated when an IPsec Phase-1
+IKE Tunnel is created."
+"hh3cIKETunnelStop",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIKEMonitor.hh3cIKEObjects.hh3cIKETrap.hh3cIKENotifications.hh3cIKETunnelStop",".1.3.6.1.4.1.25506.2.30.1.6.1.2",,,"","HH3C-IKE-MONITOR-MIB","This notification is generated when an IPsec Phase-1
+IKE Tunnel is deleted."
+"hh3cIKENoSaFailure",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIKEMonitor.hh3cIKEObjects.hh3cIKETrap.hh3cIKENotifications.hh3cIKENoSaFailure",".1.3.6.1.4.1.25506.2.30.1.6.1.3",,,"","HH3C-IKE-MONITOR-MIB","This notification is generated when the IKE tunnel
+has a non-existent SA error."
+"hh3cIKEEncryFailFailure",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIKEMonitor.hh3cIKEObjects.hh3cIKETrap.hh3cIKENotifications.hh3cIKEEncryFailFailure",".1.3.6.1.4.1.25506.2.30.1.6.1.4",,,"","HH3C-IKE-MONITOR-MIB","This notification is generated when the IKE tunnel
+has an encrypting failure."
+"hh3cIKEDecryFailFailure",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIKEMonitor.hh3cIKEObjects.hh3cIKETrap.hh3cIKENotifications.hh3cIKEDecryFailFailure",".1.3.6.1.4.1.25506.2.30.1.6.1.5",,,"","HH3C-IKE-MONITOR-MIB","This notification is generated when the IKE tunnel
+has a decrypting failure."
+"hh3cIKEInvalidProposalFailure",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIKEMonitor.hh3cIKEObjects.hh3cIKETrap.hh3cIKENotifications.hh3cIKEInvalidProposalFailure",".1.3.6.1.4.1.25506.2.30.1.6.1.6",,,"","HH3C-IKE-MONITOR-MIB","This notification is generated when the IPsec phase-1
+invalid proposal occurs."
+"hh3cIKEAuthFailFailure",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIKEMonitor.hh3cIKEObjects.hh3cIKETrap.hh3cIKENotifications.hh3cIKEAuthFailFailure",".1.3.6.1.4.1.25506.2.30.1.6.1.7",,,"","HH3C-IKE-MONITOR-MIB","This notification is generated when the IPsec phase-1
+authentication failure occurs."
+"hh3cIKEInvalidCookieFailure",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIKEMonitor.hh3cIKEObjects.hh3cIKETrap.hh3cIKENotifications.hh3cIKEInvalidCookieFailure",".1.3.6.1.4.1.25506.2.30.1.6.1.8",,,"","HH3C-IKE-MONITOR-MIB","This notification is generated when the IPsec phase-1
+invalid cookie failure occurs."
+"hh3cIKEAttrNotSuppFailure",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIKEMonitor.hh3cIKEObjects.hh3cIKETrap.hh3cIKENotifications.hh3cIKEAttrNotSuppFailure",".1.3.6.1.4.1.25506.2.30.1.6.1.9",,,"","HH3C-IKE-MONITOR-MIB","This notification is generated when the IPsec phase-1 unsupported
+attribute failure occurs."
+"hh3cIKEUnsportExchTypeFailure",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIKEMonitor.hh3cIKEObjects.hh3cIKETrap.hh3cIKENotifications.hh3cIKEUnsportExchTypeFailure",".1.3.6.1.4.1.25506.2.30.1.6.1.10",,,"","HH3C-IKE-MONITOR-MIB","This notification is generated when the IPsec phase-1
+unsupported exchange type failure occurs."
+"hh3cIKEInvalidIdFailure",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIKEMonitor.hh3cIKEObjects.hh3cIKETrap.hh3cIKENotifications.hh3cIKEInvalidIdFailure",".1.3.6.1.4.1.25506.2.30.1.6.1.11",,,"","HH3C-IKE-MONITOR-MIB","This notification is generated when the IPsec phase-1
+invalid id failure occurs."
+"hh3cIKEInvalidProtocolFailure",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIKEMonitor.hh3cIKEObjects.hh3cIKETrap.hh3cIKENotifications.hh3cIKEInvalidProtocolFailure",".1.3.6.1.4.1.25506.2.30.1.6.1.12",,,"","HH3C-IKE-MONITOR-MIB","This notification is generated when the processing for
+an IPsec Phase-1 IKE Tunnel has a protocol related errors."
+"hh3cIKECertTypeUnsuppFailure",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIKEMonitor.hh3cIKEObjects.hh3cIKETrap.hh3cIKENotifications.hh3cIKECertTypeUnsuppFailure",".1.3.6.1.4.1.25506.2.30.1.6.1.13",,,"","HH3C-IKE-MONITOR-MIB","This notification is generated when the IPsec phase-1
+unsupported certificate type failure occurs."
+"hh3cIKEInvalidCertAuthFailure",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIKEMonitor.hh3cIKEObjects.hh3cIKETrap.hh3cIKENotifications.hh3cIKEInvalidCertAuthFailure",".1.3.6.1.4.1.25506.2.30.1.6.1.14",,,"","HH3C-IKE-MONITOR-MIB","This notification is generated when the IPsec phase-1
+invalid certificate authorization failure occurs."
+"hh3cIKElInvalidSignFailure",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIKEMonitor.hh3cIKEObjects.hh3cIKETrap.hh3cIKENotifications.hh3cIKElInvalidSignFailure",".1.3.6.1.4.1.25506.2.30.1.6.1.15",,,"","HH3C-IKE-MONITOR-MIB","This notification is generated when the IPsec phase-1
+invalid signature failure occurs."
+"hh3cIKECertUnavailableFailure",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIKEMonitor.hh3cIKEObjects.hh3cIKETrap.hh3cIKENotifications.hh3cIKECertUnavailableFailure",".1.3.6.1.4.1.25506.2.30.1.6.1.16",,,"","HH3C-IKE-MONITOR-MIB","This notification is generated when the IPsec phase-1
+certificate unavailable failure occurs."
+"hh3cIKEProposalAdd",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIKEMonitor.hh3cIKEObjects.hh3cIKETrap.hh3cIKENotifications.hh3cIKEProposalAdd",".1.3.6.1.4.1.25506.2.30.1.6.1.17",,,"","HH3C-IKE-MONITOR-MIB","This notification is generated when an IKE proposal is added."
+"hh3cIKEProposalDel",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIKEMonitor.hh3cIKEObjects.hh3cIKETrap.hh3cIKENotifications.hh3cIKEProposalDel",".1.3.6.1.4.1.25506.2.30.1.6.1.18",,,"","HH3C-IKE-MONITOR-MIB","This notification is generated when an IKE proposal is deleted."

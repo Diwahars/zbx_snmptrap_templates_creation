@@ -1,0 +1,6 @@
+"Name","Full Name","OID","Type","Access","Indexes","MIB Module","Description"
+"indexerTrapsGroup",".iso.org.dod.internet.private.enterprises.roamware.indexer-mob.indexerTrapsModule.indexerTrapsGroup",".1.3.6.1.4.1.11150.105.5.0",,,"","Roamware-RDB-V2-MIB",
+"indexerSysUp",".iso.org.dod.internet.private.enterprises.roamware.indexer-mob.indexerTrapsModule.indexerTrapsGroup.indexerSysUp",".1.3.6.1.4.1.11150.105.5.0.1",,,"","Roamware-RDB-V2-MIB","Indicates that the Indexer system is up and active."
+"indexerSysDown",".iso.org.dod.internet.private.enterprises.roamware.indexer-mob.indexerTrapsModule.indexerTrapsGroup.indexerSysDown",".1.3.6.1.4.1.11150.105.5.0.2",,,"","Roamware-RDB-V2-MIB","Indicates that the Indexer system is shutting down."
+"indexerTrapsResync",".iso.org.dod.internet.private.enterprises.roamware.indexer-mob.indexerTrapsModule.indexerTrapsGroup.indexerTrapsResync",".1.3.6.1.4.1.11150.105.5.0.3",,,"","Roamware-RDB-V2-MIB","Indicates the start and end of a trap resync operation."
+"indexerHeartbeat",".iso.org.dod.internet.private.enterprises.roamware.indexer-mob.indexerTrapsModule.indexerTrapsGroup.indexerHeartbeat",".1.3.6.1.4.1.11150.105.5.0.4",,,"","Roamware-RDB-V2-MIB","Indicates that the application is up and running."

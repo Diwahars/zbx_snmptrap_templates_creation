@@ -1,0 +1,11 @@
+"Name","Full Name","OID","Type","Access","Indexes","MIB Module","Description"
+"cpsInterfaceNotifs",".iso.org.dod.internet.private.enterprises.cisco.ciscoMgmt.ciscoPortSecurityMIB.ciscoPortSecurityMIBNotifs.cpsInterfaceNotifs",".1.3.6.1.4.1.9.9.315.0.0",,,"","CISCO-PORT-SECURITY-MIB",
+"cpsSecureMacAddrViolation",".iso.org.dod.internet.private.enterprises.cisco.ciscoMgmt.ciscoPortSecurityMIB.ciscoPortSecurityMIBNotifs.cpsInterfaceNotifs.cpsSecureMacAddrViolation",".1.3.6.1.4.1.9.9.315.0.0.1",,,"","CISCO-PORT-SECURITY-MIB","The address violation notification is generated
+when port security address violation is detected
+on a secure non-trunk, access interface (that carries
+a single vlan) and the cpsIfViolationAction is set to
+'dropNotify'."
+"cpsTrunkSecureMacAddrViolation",".iso.org.dod.internet.private.enterprises.cisco.ciscoMgmt.ciscoPortSecurityMIB.ciscoPortSecurityMIBNotifs.cpsInterfaceNotifs.cpsTrunkSecureMacAddrViolation",".1.3.6.1.4.1.9.9.315.0.0.2",,,"","CISCO-PORT-SECURITY-MIB","The address violation notification is generated when port
+security address violation is detected on a secure trunk
+or a multi-vlan interface and the cpsIfViolationAction is
+set to 'dropNotify'."

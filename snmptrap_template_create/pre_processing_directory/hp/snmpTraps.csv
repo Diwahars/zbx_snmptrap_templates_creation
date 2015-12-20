@@ -1,0 +1,28 @@
+"Name","Full Name","OID","Type","Access","Indexes","MIB Module","Description"
+"snmpTraps",".iso.org.dod.internet.snmpV2.snmpModules.snmpMIB.snmpMIBObjects.snmpTraps",".1.3.6.1.6.3.1.1.5",,,"","SNMPv2-MIB",
+"coldStart",".iso.org.dod.internet.snmpV2.snmpModules.snmpMIB.snmpMIBObjects.snmpTraps.coldStart",".1.3.6.1.6.3.1.1.5.1",,,"","SNMPv2-MIB","A coldStart trap signifies that the SNMP entity,
+supporting a notification originator application, is
+reinitializing itself and that its configuration may
+have been altered."
+"warmStart",".iso.org.dod.internet.snmpV2.snmpModules.snmpMIB.snmpMIBObjects.snmpTraps.warmStart",".1.3.6.1.6.3.1.1.5.2",,,"","SNMPv2-MIB","A warmStart trap signifies that the SNMP entity,
+supporting a notification originator application,
+is reinitializing itself such that its configuration
+is unaltered."
+"authenticationFailure",".iso.org.dod.internet.snmpV2.snmpModules.snmpMIB.snmpMIBObjects.snmpTraps.authenticationFailure",".1.3.6.1.6.3.1.1.5.5",,,"","SNMPv2-MIB","An authenticationFailure trap signifies that the SNMP
+entity has received a protocol message that is not
+properly authenticated.  While all implementations
+of SNMP entities MAY be capable of generating this
+trap, the snmpEnableAuthenTraps object indicates
+whether this trap will be generated."
+"linkDown",".iso.org.dod.internet.snmpV2.snmpModules.snmpMIB.snmpMIBObjects.snmpTraps.linkDown",".1.3.6.1.6.3.1.1.5.3",,,"","IF-MIB","A linkDown trap signifies that the SNMP entity, acting in
+an agent role, has detected that the ifOperStatus object for
+one of its communication links is about to enter the down
+state from some other state (but not from the notPresent
+state).  This other state is indicated by the included value
+of ifOperStatus."
+"linkUp",".iso.org.dod.internet.snmpV2.snmpModules.snmpMIB.snmpMIBObjects.snmpTraps.linkUp",".1.3.6.1.6.3.1.1.5.4",,,"","IF-MIB","A linkUp trap signifies that the SNMP entity, acting in an
+agent role, has detected that the ifOperStatus object for
+one of its communication links left the down state and
+transitioned into some other state (but not into the
+notPresent state).  This other state is indicated by the
+included value of ifOperStatus."

@@ -1,0 +1,22 @@
+"Name","Full Name","OID","Type","Access","Indexes","MIB Module","Description"
+"entityMIBTrapPrefix",".iso.org.dod.internet.mgmt.mib-2.entityMIB.entityMIBTraps.entityMIBTrapPrefix",".1.3.6.1.2.1.47.2.0",,,"","ENTITY-MIB",
+"entConfigChange",".iso.org.dod.internet.mgmt.mib-2.entityMIB.entityMIBTraps.entityMIBTrapPrefix.entConfigChange",".1.3.6.1.2.1.47.2.0.1",,,"","ENTITY-MIB","An entConfigChange notification is generated when the value
+of entLastChangeTime changes.  It can be utilized by an NMS
+to trigger logical/physical entity table maintenance polls.
+An agent should not generate more than one entConfigChange
+'notification-event' in a given time interval (five seconds
+is the suggested default).  A 'notification-event' is the
+transmission of a single trap or inform PDU to a list of
+notification destinations.
+If additional configuration changes occur within the
+throttling period, then notification-events for these
+changes should be suppressed by the agent until the current
+throttling period expires.  At the end of a throttling
+period, one notification-event should be generated if any
+configuration changes occurred since the start of the
+throttling period.  In such a case, another throttling
+period is started right away.
+An NMS should periodically check the value of
+entLastChangeTime to detect any missed entConfigChange
+notification-events, e.g., due to throttling or transmission
+loss."

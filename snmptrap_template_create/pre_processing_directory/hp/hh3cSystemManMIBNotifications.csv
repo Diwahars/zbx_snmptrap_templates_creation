@@ -1,0 +1,13 @@
+"Name","Full Name","OID","Type","Access","Indexes","MIB Module","Description"
+"hh3cSystemManMIBNotifications",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cSystemMan.hh3cSystemManMIBNotifications",".1.3.6.1.4.1.25506.2.3.2",,,"","HH3C-SYS-MAN-MIB",
+"hh3cSysClockChangedNotification",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cSystemMan.hh3cSystemManMIBNotifications.hh3cSysClockChangedNotification",".1.3.6.1.4.1.25506.2.3.2.1",,,"","HH3C-SYS-MAN-MIB","A clock changed notification is generated when the current
+local date and time for the system has been manually changed.
+The value of hh3cSysLocalClock reflects new date and time.
+"
+"hh3cSysReloadNotification",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cSystemMan.hh3cSystemManMIBNotifications.hh3cSysReloadNotification",".1.3.6.1.4.1.25506.2.3.2.2",,,"","HH3C-SYS-MAN-MIB","A hh3cSysReloadNotification will be sent before the corresponding entity is
+rebooted. It will also be sent if the entity fails to reboot because the clock
+has changed.
+"
+"hh3cSysStartUpNotification",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cSystemMan.hh3cSystemManMIBNotifications.hh3cSysStartUpNotification",".1.3.6.1.4.1.25506.2.3.2.3",,,"","HH3C-SYS-MAN-MIB","a hh3cSysStartUpNotification trap will be sent when the system starts up with 'main' image file failed,
+a trap will be sent to indicate which type the current image file (I.e backup or secure)is.
+"

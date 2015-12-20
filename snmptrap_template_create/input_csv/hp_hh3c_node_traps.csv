@@ -1,0 +1,490 @@
+MIB-MODULE,MIB file,OID,Trap Name,Recommended Action,Comments,Description,Alarm String For Notification,Dependency,cleartime In Days
+HH3C-ACL-MIB,hh3c-acl.mib,enterprises.25506.2.8.5.0.1,hh3cMACfilterTrap,Discard,MAC ACL not used.,"This notification is generated when a packet was processed
+by MAC address filter, but not every packet will generate one
+notification, the same notification only generate once in 30
+seconds.
+",Packet was processed by MAC Filter,NONE,3d
+HH3C-ARP-RATELIMIT-MIB,hh3c-arp-ratelimit.mib,enterprises.25506.2.110.1.1.0.1,hh3cARPRatelimitOverspeedTrap,Minor,,"If the rate of ARP packets delivered to the CPU on a device
+exceeds the threshold, a trap message is generated and sent
+to the remote monitoring device.",ARP packets delivered to the CPU on a device exceeds the threshold,NONE,3d
+HH3C-COMMON-SYSTEM-MIB,hh3c-common-system.mib,enterprises.25506.6.8.1,hh3cWriteSuccessTrap,Discard,,Send a trap about write success.,Send a trap about write success.,NONE,3d
+HH3C-COMMON-SYSTEM-MIB,hh3c-common-system.mib,enterprises.25506.6.8.2,hh3cWriteFailureTrap,Discard,,Send a trap about write failure.,Send a trap about write failure.,NONE,3d
+HH3C-COMMON-SYSTEM-MIB,hh3c-common-system.mib,enterprises.25506.6.8.3,hh3cRebootSendTrap,Critical,,"If a user restarts the device with command
+'reboot', this trap will be sent two seconds
+before the device reboots.",Device reboot is initiated,NONE,3d
+HH3C-COMMON-SYSTEM-MIB,hh3c-common-system.mib,enterprises.25506.6.8.4,hh3cSysColdStartTrap,Critical,,System cold start trap.,System cold start,NONE,3d
+HH3C-COMMON-SYSTEM-MIB,hh3c-common-system.mib,enterprises.25506.6.8.5,hh3cSysWarmStartTrap,Critical,,System warm start trap.,System warm start ,NONE,3d
+HH3C-COMMON-SYSTEM-MIB,hh3c-common-system.mib,enterprises.25506.6.8.6,hh3cSysLoghostUnreachableTrap,Discard,Syslog not configured,This notification will be sent when a loghost becomes unreachable.,This notification will be sent when a loghost becomes unreachable.,NONE,3d
+HH3C-CONFIG-MAN-MIB,hh3c-config-man.mib,enterprises.25506.2.4.2.1,hh3cCfgManEventlog,Minor,Save configuration on device or rollback,"The object calculates the checksum on the current config per 10 minutes and
+even if it is different from the saved config but if a trap has been sent
+with the same checksum then don't send again until the checksum is different.",configuration file cksum changed,NONE,3d
+HH3C-CONFIG-MAN-MIB,hh3c-config-man.mib,enterprises.25506.2.4.2.2,hh3cCfgOperateCompletion,Discard,,"When create hh3cCfgOperateTable successfully, a
+notification may be generated.","When create hh3cCfgOperateTable successfully, anotification may be generated.",NONE,3d
+HH3C-CONFIG-MAN-MIB,hh3c-config-man.mib,enterprises.25506.2.4.2.3,hh3cCfgInvalidConfigFile,Major,Fix configuration on device,"When the configuration file is invalid, this
+notification will be generated.",invalid configuration file,NONE,3d
+HH3C-ENTITY-EXT-MIB,hh3c-entity-ext.mib,enterprises.25506.2.6.2.0.1,hh3cEntityExtTemperatureThresholdNotification,Major,,"The hh3cEntityExtTemperatureThresholdNotification
+indicates the temperature exceeded the threshold.
+In this condition, user should check the status and the
+environment of the entity, sometimes it happens because
+of the failure of air-condition.", temperature exceeded the threshold.,NONE,3d
+HH3C-ENTITY-EXT-MIB,hh3c-entity-ext.mib,enterprises.25506.2.6.2.0.10,hh3cEntityExtSFPAlarmOff,Clear,Correlate to hh3cEntityExtSFPAlarmOn on Node/Index,"The trap is generated when the SFP module restores to
+normal status.",SFP module restores to normal status.,NONE,3d
+HH3C-ENTITY-EXT-MIB,hh3c-entity-ext.mib,enterprises.25506.2.6.2.0.11,hh3cEntityExtSFPPhony,Discard,,"This module is NOT sold by authorized manufacturer.
+The normal function of the device or assume the maintenance
+responsibility thereof will NOT be guaranteed.
+The trap is generated periodically after a phony module has been
+found.","This module is NOT sold by authorized manufacturer.
+The normal function of the device or assume the maintenance
+responsibility thereof will NOT be guaranteed.
+The trap is generated periodically after a phony module has been
+found.",NONE,3d
+HH3C-ENTITY-EXT-MIB,hh3c-entity-ext.mib,enterprises.25506.2.6.2.0.12,hh3cEntityInsert,Discard,,"The trap is generated when a removable entity inserting to
+device.",The trap is generated when a removable entity inserting todevice.,NONE,3d
+HH3C-ENTITY-EXT-MIB,hh3c-entity-ext.mib,enterprises.25506.2.6.2.0.13,hh3cEntityRemove,Discard,,"The trap is generated when a removable entity removing from
+device.",The trap is generated when a removable entity removing fromdevice.,NONE,3d
+HH3C-ENTITY-EXT-MIB,hh3c-entity-ext.mib,enterprises.25506.2.6.2.0.14,hh3cEntityExtForcedPowerOff,Critical,Discard if power off was expected,The trap indicates the entity is forced to power off.,Powering off Forcefully,enterprises.25506.2.6.2.0.15,3d
+HH3C-ENTITY-EXT-MIB,hh3c-entity-ext.mib,enterprises.25506.2.6.2.0.15,hh3cEntityExtForcedPowerOn,Discard,,The trap indicates the entity is forced to power on.,The trap indicates the entity is forced to power on.,NONE,3d
+HH3C-ENTITY-EXT-MIB,hh3c-entity-ext.mib,enterprises.25506.2.6.2.0.16,hh3cEntityExtFaultAlarmOn,Threshold,Severity depends on entity,The trap indicates a fault occurs on the specified entity.,hh3c fault occurs on Entity,enterprises.25506.2.6.2.0.16,3d
+HH3C-ENTITY-EXT-MIB,hh3c-entity-ext.mib,enterprises.25506.2.6.2.0.17,hh3cEntityExtFaultAlarmOff,Clear,Correlate to hh3cEntityExtFaultAlarmOn on Node/Entity,The trap indicates a fault disappears on the specified entity.,fault disappears on Entity,NONE,3d
+HH3C-ENTITY-EXT-MIB,hh3c-entity-ext.mib,enterprises.25506.2.6.2.0.18,hh3cEntityExtResourceLack,Minor,,"The trap indicates that a kind of resource is not enough on the
+specified entity.",Resource is not enough on the specified entity,enterprises.25506.2.6.2.0.19,3d
+HH3C-ENTITY-EXT-MIB,hh3c-entity-ext.mib,enterprises.25506.2.6.2.0.19,hh3cEntityExtResourceEnough,Clear,Correlate to hh3cEntityExtResourceLack on Node/Entity,"The trap indicates that the entity recovers from the status of no
+enough resource.",entity recovers from the status of no enough resource.,NONE,3d
+HH3C-ENTITY-EXT-MIB,hh3c-entity-ext.mib,enterprises.25506.2.6.2.0.2,hh3cEntityExtVoltageLowThresholdNotification,Major,,"The hh3cEntityExtVoltageLowThresholdNotification indicates
+the voltage is lower than the threshold.
+If the voltage is lower too much than the entity needs,
+the entity will halt.",voltage is lower than the threshold.,NONE,3d
+HH3C-ENTITY-EXT-MIB,hh3c-entity-ext.mib,enterprises.25506.2.6.2.0.20,hh3cEntityExtTemperatureLower,Minor,,"The trap indicates the temperature of a specified entity is under
+the lower threshold. In this condition, user should check the
+status and the environment of the entity, sometimes it goes wrong
+for some reason.",temperature of a specified entity is under the lower threshold.,enterprises.25506.2.6.2.0.22,3d
+HH3C-ENTITY-EXT-MIB,hh3c-entity-ext.mib,enterprises.25506.2.6.2.0.21,hh3cEntityExtTemperatureTooUp,Minor,,"The trap indicates the temperature of a specified entity exceeded
+the shutdown threshold. In this condition, user should check the
+status and the environment of the entity, sometimes it goes wrong
+for some reason.", temperature of a specified entity exceeded the shutdown threshold,enterprises.25506.2.6.2.0.22,3d
+HH3C-ENTITY-EXT-MIB,hh3c-entity-ext.mib,enterprises.25506.2.6.2.0.22,hh3cEntityExtTemperatureNormal,Clear,Correlate to hh3cEntityExtTemperatureTooUp on Node/Entity,"The trap indicates the temperature of a specified entity recover
+from abnormal status.",temperature of a specified entity recover from abnormal status,NONE,3d
+HH3C-ENTITY-EXT-MIB,hh3c-entity-ext.mib,enterprises.25506.2.6.2.0.23,hh3cEntityExternalAlarmOccur,Minor,,"The trap is generated when the monitored device connected to the
+specified entity fails.",monitored device connected to the specified entity fails,NONE,3d
+HH3C-ENTITY-EXT-MIB,hh3c-entity-ext.mib,enterprises.25506.2.6.2.0.24,hh3cEntityExternalAlarmRecover,Minor,Correlate to hh3cEntityExternalAlarmOccur on Node/Entity,"The trap is generated when the failed device connected to the
+specified entity returns to normal.",failed device connected to the specified entity returns to normal,NONE,3d
+HH3C-ENTITY-EXT-MIB,hh3c-entity-ext.mib,enterprises.25506.2.6.2.0.25,hh3cEntityExtCpuUsageThresholdRecover,Clear,Correlate to hh3cEntityExtCpuUsageThresholdNotfication on Node/Entity,The trap indicates the CPU usage descends the threshold.,CPU usage descends the threshold,NONE,3d
+HH3C-ENTITY-EXT-MIB,hh3c-entity-ext.mib,enterprises.25506.2.6.2.0.26,hh3cEntityExtMemUsageThresholdRecover,Clear,Correlate to hh3cEntityExtMemUsageThresholdNotification on Node/Entity,The trap indicates the memory usage descends the threshold., memory usage descends the threshold,NONE,3d
+HH3C-ENTITY-EXT-MIB,hh3c-entity-ext.mib,enterprises.25506.2.6.2.0.27,hh3cEntityExtMemAllocatedFailed,Major,,The trap indicates the memory allocated failed.,memory allocated failed,NONE,3d
+HH3C-ENTITY-EXT-MIB,hh3c-entity-ext.mib,enterprises.25506.2.6.2.0.28,hh3cEntityExtECCParityAlarm,Minor,,The trap indicates the ECC(Error Correction Code) parity error alarm.,ECC(Error Correction Code) parity error alarm,NONE,3d
+HH3C-ENTITY-EXT-MIB,hh3c-entity-ext.mib,enterprises.25506.2.6.2.0.29,hh3cEntityExtCritLowerTempThresholdNotification,Major,,"The hh3cEntityExtCritLowerTempThresholdNotification
+indicates the temperature is lower than the threshold.
+If the temperature is lower too much than the entity needs,
+the entity will halt.",temperature is lower than the threshold,NONE,3d
+HH3C-ENTITY-EXT-MIB,hh3c-entity-ext.mib,enterprises.25506.2.6.2.0.3,hh3cEntityExtVoltageHighThresholdNotification,Major,,"The hh3cEntityExtVoltageHighThresholdNotification indicates
+the voltage is higher than the threshold.
+If the voltage is higher too much than the entity needs,
+The entity may be damaged by the high voltage.", voltage is higher too much than the entity need,NONE,3d
+HH3C-ENTITY-EXT-MIB,hh3c-entity-ext.mib,enterprises.25506.2.6.2.0.30,hh3cEntityExtTemperatureTooLow,Major,,"The hh3cEntityExtTemperatureTooLow indicates the temperature
+is lower than the threshold.
+If the temperature is lower too much than the entity needs,
+the entity halts now.",temperature is lower too much than the entity needs,NONE,3d
+HH3C-ENTITY-EXT-MIB,hh3c-entity-ext.mib,enterprises.25506.2.6.2.0.31,hh3cEntityExtFanDirectionNotPreferred,Minor,,"This trap indicates the specified fan's direction does not
+accord with preferred. The two parameters indicate the entity
+index and physical name of fan.",specified fan's direction does not,NONE,3d
+HH3C-ENTITY-EXT-MIB,hh3c-entity-ext.mib,enterprises.25506.2.6.2.0.32,hh3cEntityExtFanDirectionNotAccord,Minor,,"This trap indicates the direction of fans does not accord
+with each other. The two parameters indicate the parent
+entity of the fans.",direction of fans does not accord with each other,NONE,3d
+HH3C-ENTITY-EXT-MIB,hh3c-entity-ext.mib,enterprises.25506.2.6.2.0.33,hh3cEntityExtSFPInvalid,Major,,"The transceiver module is not compatible with the interface card.
+The authorized manufacturer therefore shall NOT guarantee
+the normal function of the transceiver.
+The transceiver module will be invalidated in days.
+Please replace it with a compatible one as soon as possible.
+The trap is generated periodically after a phony transceiver module
+has been found.",The transceiver module is not compatible with the interface card,NONE,3d
+HH3C-ENTITY-EXT-MIB,hh3c-entity-ext.mib,enterprises.25506.2.6.2.0.34,hh3cEntityExtSFPInvalidNow,Major,,"This transceiver module is not compatible with the interface card.
+The authorized manufacturer therefore shall NOT guarantee
+the normal function of the transceiver.
+The trap is generated after a phony transceiver module
+has been found.",The transceiver module is not compatible with the interface card,NONE,3d
+HH3C-ENTITY-EXT-MIB,hh3c-entity-ext.mib,enterprises.25506.2.6.2.0.35,hh3cEntityExtMemUsageThresholdOverTrap,Major,,"This trap indicates that the memory usage of the entity is
+overloaded.
+This trap is used to replace
+hh3cEntityExtMemUsageThresholdNotification.",memory usage of the entity is overloaded,enterprises.25506.2.6.2.0.36,3d
+HH3C-ENTITY-EXT-MIB,hh3c-entity-ext.mib,enterprises.25506.2.6.2.0.36,hh3cEntityExtMemUsageThresholdRecoverTrap,Clear,Correlate to hh3cEntityExtMemUsageThresholdOverTrap on Node/Entity,"This trap indicates that the memory usage decreased below
+the threshold.
+This trap is used to replace
+hh3cEntityExtMemUsageThresholdRecover.",memory usage decreased below,NONE,3d
+HH3C-ENTITY-EXT-MIB,hh3c-entity-ext.mib,enterprises.25506.2.6.2.0.4,hh3cEntityExtCpuUsageThresholdNotfication,Major,,"The hh3cEntityExtCpuUsageThresholdNotfication indicates
+the entity is overloaded.",Ext Cpu usage of the entity is overloaded,NONE,3d
+HH3C-ENTITY-EXT-MIB,hh3c-entity-ext.mib,enterprises.25506.2.6.2.0.5,hh3cEntityExtMemUsageThresholdNotification,Major,,"The hh3cEntityExtMemUsageThresholdNotification indicates
+the entity is overloaded.",Ext Memory of the entity is overloaded,NONE,3d
+HH3C-ENTITY-EXT-MIB,hh3c-entity-ext.mib,enterprises.25506.2.6.2.0.6,hh3cEntityExtOperEnabled,Clear,Correlate to hh3cEntityExtOperDisabled on Node,The trap indicates the entity is operable at present.,entity is operable at present,NONE,3d
+HH3C-ENTITY-EXT-MIB,hh3c-entity-ext.mib,enterprises.25506.2.6.2.0.7,hh3cEntityExtOperDisabled,Critical,,The trap indicates the entity is not operable at present., entity is not operable at present,enterprises.25506.2.6.2.0.6,3d
+HH3C-ENTITY-EXT-MIB,hh3c-entity-ext.mib,enterprises.25506.2.6.2.0.8,hh3cEntityExtCriticalTemperatureThresholdNotification,Major,,"The hh3cEntityExtCriticalTemperatureThresholdNotification
+indicates the temperature exceeds the critical temperature.
+In this condition, user should check the status and the
+environment of the entity, sometimes it happens because
+of the failure of air-condition.",temperature exceeds the critical temperature,NONE,3d
+HH3C-ENTITY-EXT-MIB,hh3c-entity-ext.mib,enterprises.25506.2.6.2.0.9,hh3cEntityExtSFPAlarmOn,Critical,,"The trap is generated when the SFP module fails
+or runs abnormally for some particular reason.",SFP module fails or runs abnormally for some particular reason,enterprises.25506.2.6.2.0.10,3d
+HH3C-IF-EXT-MIB,hh3c-if-ext.mib,enterprises.25506.2.40.3.0.1,hh3cIfBandwidthUsageHigh,Major,,"The notification is generated when the rate of the bandwidth for the
+interface exceeds the upper limit.",e rate of the bandwidth for the interface exceeds the upper limit,NONE,3d
+HH3C-IF-EXT-MIB,hh3c-if-ext.mib,enterprises.25506.2.40.3.0.2,hh3cIfDiscardPktRateHigh,Major,,"The notification is generated when the rate of the discarded packets
+for the interface exceeds the upper limit.",rate of the discarded packets  for the interface exceeds the upper limit,NONE,3d
+HH3C-IKE-MONITOR-MIB,hh3c-ike-monitor.mib,enterprises.25506.2.30.1.6.1.1,hh3cIKETunnelStart,Clear,Correlate to hh3cIKETunnelStop on Node/Tunnel,"This notification is generated when an IPsec Phase-1
+IKE Tunnel is created.",IPsec Phase-1 IKE Tunnel is created,NONE,3d
+HH3C-IKE-MONITOR-MIB,hh3c-ike-monitor.mib,enterprises.25506.2.30.1.6.1.10,hh3cIKEUnsportExchTypeFailure,Log,Only applicable to uk-fogg1-oobr02,"This notification is generated when the IPsec phase-1
+unsupported exchange type failure occurs.", IPsec phase-1 unsupported exchange type failure occurs,NONE,3d
+HH3C-IKE-MONITOR-MIB,hh3c-ike-monitor.mib,enterprises.25506.2.30.1.6.1.11,hh3cIKEInvalidIdFailure,Major,Only applicable to uk-fogg1-oobr02,"This notification is generated when the IPsec phase-1
+invalid id failure occurs.",IPsec phase-1 invalid id failure occurs,NONE,3d
+HH3C-IKE-MONITOR-MIB,hh3c-ike-monitor.mib,enterprises.25506.2.30.1.6.1.12,hh3cIKEInvalidProtocolFailure,Major,Only applicable to uk-fogg1-oobr02,"This notification is generated when the processing for
+an IPsec Phase-1 IKE Tunnel has a protocol related errors.", IPsec Phase-1 IKE Tunnel has a protocol related errors,NONE,3d
+HH3C-IKE-MONITOR-MIB,hh3c-ike-monitor.mib,enterprises.25506.2.30.1.6.1.13,hh3cIKECertTypeUnsuppFailure,Major,Only applicable to uk-fogg1-oobr02,"This notification is generated when the IPsec phase-1 unsupported certificate type failure occurs.", IPsec phase-1  unsupported certificate type failure occur,NONE,3d
+HH3C-IKE-MONITOR-MIB,hh3c-ike-monitor.mib,enterprises.25506.2.30.1.6.1.14,hh3cIKEInvalidCertAuthFailure,Major,Only applicable to uk-fogg1-oobr02,"This notification is generated when the IPsec phase-1 invalid certificate authorization failure occurs.", IPsec phase-1  invalid certificate authorization failure occur,NONE,3d
+HH3C-IKE-MONITOR-MIB,hh3c-ike-monitor.mib,enterprises.25506.2.30.1.6.1.15,hh3cIKElInvalidSignFailure,Major,Only applicable to uk-fogg1-oobr02,"This notification is generated when the IPsec phase-1 invalid signature failure occurs.", IPsec phase-1 invalid signature failure occurs,NONE,3d
+HH3C-IKE-MONITOR-MIB,hh3c-ike-monitor.mib,enterprises.25506.2.30.1.6.1.16,hh3cIKECertUnavailableFailure,Major,Only applicable to uk-fogg1-oobr02,"This notification is generated when the IPsec phase-1 certificate unavailable failure occurs.", IPsec phase-1  certificate unavailable failure occur,NONE,3d
+HH3C-IKE-MONITOR-MIB,hh3c-ike-monitor.mib,enterprises.25506.2.30.1.6.1.17,hh3cIKEProposalAdd,Discard,,This notification is generated when an IKE proposal is added.,This notification is generated when an IKE proposal is added.,NONE,3d
+HH3C-IKE-MONITOR-MIB,hh3c-ike-monitor.mib,enterprises.25506.2.30.1.6.1.18,hh3cIKEProposalDel,Discard,,This notification is generated when an IKE proposal is deleted.,This notification is generated when an IKE proposal is deleted.,NONE,3d
+HH3C-IKE-MONITOR-MIB,hh3c-ike-monitor.mib,enterprises.25506.2.30.1.6.1.2,hh3cIKETunnelStop,Critical,Only applicable to uk-fogg1-oobr02,"This notification is generated when an IPsec Phase-1 IKE Tunnel is deleted.", IPsec Phase-1  IKE Tunnel is deleted,enterprises.25506.2.30.1.6.1.1,3d
+HH3C-IKE-MONITOR-MIB,hh3c-ike-monitor.mib,enterprises.25506.2.30.1.6.1.3,hh3cIKENoSaFailure,Critical,Only applicable to uk-fogg1-oobr02,"This notification is generated when the IKE tunnel has a non-existent SA error.", IKE tunnel  has a non-existent SA error,NONE,3d
+HH3C-IKE-MONITOR-MIB,hh3c-ike-monitor.mib,enterprises.25506.2.30.1.6.1.4,hh3cIKEEncryFailFailure,Log,Only applicable to uk-fogg1-oobr02,"This notification is generated when the IKE tunnelhas an encrypting failure.", IKE tunnel has an encrypting failure,NONE,3d
+HH3C-IKE-MONITOR-MIB,hh3c-ike-monitor.mib,enterprises.25506.2.30.1.6.1.5,hh3cIKEDecryFailFailure,Log,Only applicable to uk-fogg1-oobr02,This notification is generated when the IKE tunnel has a decrypting failure., IKE tunnel has a decrypting failure,NONE,3d
+HH3C-IKE-MONITOR-MIB,hh3c-ike-monitor.mib,enterprises.25506.2.30.1.6.1.6,hh3cIKEInvalidProposalFailure,Log,Only applicable to uk-fogg1-oobr02,This notification is generated when the IPsec phase-1invalid proposal occurs., IPsec phase-1invalid proposal occurs,NONE,3d
+HH3C-IKE-MONITOR-MIB,hh3c-ike-monitor.mib,enterprises.25506.2.30.1.6.1.7,hh3cIKEAuthFailFailure,Major,Only applicable to uk-fogg1-oobr02,"This notification is generated when the IPsec phase-1 authentication failure occurs.", IPsec phase-1  authentication failure occur,NONE,3d
+HH3C-IKE-MONITOR-MIB,hh3c-ike-monitor.mib,enterprises.25506.2.30.1.6.1.8,hh3cIKEInvalidCookieFailure,Discard,Only applicable to uk-fogg1-oobr02,"This notification is generated when the IPsec phase-1
+invalid cookie failure occurs.",This notification is generated when the IPsec phase-1invalid cookie failure occurs.,NONE,3d
+HH3C-IKE-MONITOR-MIB,hh3c-ike-monitor.mib,enterprises.25506.2.30.1.6.1.9,hh3cIKEAttrNotSuppFailure,Discard,Only applicable to uk-fogg1-oobr02,"This notification is generated when the IPsec phase-1 unsupported
+attribute failure occurs.",This notification is generated when the IPsec phase-1 unsupportedattribute failure occurs.,NONE,3d
+HH3C-IPSEC-MONITOR-MIB,hh3c-ipsec-monitor.mib,enterprises.25506.2.7.1.8.1.1,hh3cIPSecTunnelStart,Clear,Correlate to hh3cIPSecTunnelStop on Node/Tunnel,This notification is generated when an IPSec Phase-2 Tunnel is created., IPSec Phase-2 Tunnel is created,NONE,3d
+HH3C-IPSEC-MONITOR-MIB,hh3c-ipsec-monitor.mib,enterprises.25506.2.7.1.8.1.10,hh3cIPSecPolicyAttach,Discard,,"This notification is generated when an IPSec policy is attached
+with one interface.",This notification is generated when an IPSec policy is attachedwith one interface.,NONE,3d
+HH3C-IPSEC-MONITOR-MIB,hh3c-ipsec-monitor.mib,enterprises.25506.2.7.1.8.1.11,hh3cIPSecPolicyDetach,Discard,,"This notification is generated when an IPSec policy is detached
+with one interface.",This notification is generated when an IPSec policy is detachedwith one interface.,NONE,3d
+HH3C-IPSEC-MONITOR-MIB,hh3c-ipsec-monitor.mib,enterprises.25506.2.7.1.8.1.2,hh3cIPSecTunnelStop,Critical,Only applicable to uk-fogg1-oobr02,This notification is generated when an IPSec Phase-2 Tunnel is deleted.,IPSec Phase-2 Tunnel is deleted,enterprises.25506.2.7.1.8.1.1,3d
+HH3C-IPSEC-MONITOR-MIB,hh3c-ipsec-monitor.mib,enterprises.25506.2.7.1.8.1.3,hh3cIPSecNoSaFailure,Critical,Only applicable to uk-fogg1-oobr02,This notification is generated when an IPSec Phase-   non-existent SA error occurs., IPSec Phase-   non-existent SA error occurs,NONE,3d
+HH3C-IPSEC-MONITOR-MIB,hh3c-ipsec-monitor.mib,enterprises.25506.2.7.1.8.1.4,hh3cIPSecAuthFailFailure,Major,Only applicable to uk-fogg1-oobr02,This notification is generated when the IPSec phase-2 authentication failure occurs., IPSec phase-2 authentication failure occurs,NONE,3d
+HH3C-IPSEC-MONITOR-MIB,hh3c-ipsec-monitor.mib,enterprises.25506.2.7.1.8.1.5,hh3cIPSecEncryFailFailure,Log,Only applicable to uk-fogg1-oobr02,This notification is generated when the IPSec phase-2tunnel has an encrypting failure., IPSec phase-2tunnel has an encrypting failure,NONE,3d
+HH3C-IPSEC-MONITOR-MIB,hh3c-ipsec-monitor.mib,enterprises.25506.2.7.1.8.1.6,hh3cIPSecDecryFailFailure,Log,Only applicable to uk-fogg1-oobr02,This notification is generated when the IPSec phase-2 tunnel has a decrypting failure., IPSec phase-2 tunnel has a decrypting failure,NONE,3d
+HH3C-IPSEC-MONITOR-MIB,hh3c-ipsec-monitor.mib,enterprises.25506.2.7.1.8.1.7,hh3cIPSecInvalidSaFailure,Minor,Only applicable to uk-fogg1-oobr02,This notification is generated when the IPSec phase-2 invalid SA failure occurs., IPSec phase-2 invalid SA failure occurs.,NONE,3d
+HH3C-IPSEC-MONITOR-MIB,hh3c-ipsec-monitor.mib,enterprises.25506.2.7.1.8.1.8,hh3cIPSecPolicyAdd,Discard,,This notification is generated when an IPSec policy is added.,This notification is generated when an IPSec policy is added.,NONE,3d
+HH3C-IPSEC-MONITOR-MIB,hh3c-ipsec-monitor.mib,enterprises.25506.2.7.1.8.1.9,hh3cIPSecPolicyDel,Discard,,This notification is generated when an IPSec policy is deleted.,This notification is generated when an IPSec policy is deleted.,NONE,3d
+HH3C-NET-MAN-MIB,hh3c-net-man.mib,enterprises.25506.2.90.3.2.0.1,hh3cIpAddrChangeNotify,Major,Discard if change was expected.,"This notification will be generated when the IP address of active
+management interface is changed.  The change maybe originate from NMS,
+DHCP server or administrator.
+The management interfaces are the interfaces that assigned by
+administrator, which can be used to manage device, but may be inactive
+for link fault or IP address (IPv4 or IPv6) missing.
+The active management interface means an active interface, the IP
+address of which can be used for network management.
+This notification announces useful management IP address change.  So it
+is triggered by significative IP address change.
+Suppose that two management interfaces on a device, Interface-A and
+Interface-B.  Initially both interfaces are down and assigned no IP
+address. Configure Interface-A as the primary monitored interface,
+Interface-B as the secondary.
+Significative IP address change in following cases:
+1. If Interface-A is assigned an IP address primarily, and it is linking
+up, then Interface-B will be ignored.  A notification will be triggered,
+appending IP address of Interface-A.
+2. If Interface-B is assigned an IP address primarily, and it is linking
+up, then Interface-A will be ignored.  A notification will be triggered,
+appending IP address of Interface-B.
+3. If IP address of that interface, which had its IP address announced
+to NMS, is changed since last notification triggered, then another
+notification will be sent to NMS.
+4. Suppore that Interface-A was linked up and assigned an IP address
+primarily.  If for some unknown reason, Interface-A is down or loses IP
+address, and Interface-B is assigned an IP address which is different
+with that announced to NMS before, then a notification will be
+triggered, appending the new IP address that Interface-B assigned.
+5. A notification appending new IP address that Interface-A assigned
+will be triggered, if 4 occurs to Interface-B.", IP address of active management interface is changed,NONE,3d
+HH3C-PORT-SECURITY-MIB,hh3c-port-security.mib,enterprises.25506.2.26.1.3.1,hh3cSecureAddressLearned,Discard,,"This trap is sent when a new station has been learned.  The
+port on which the address was received is the first object,
+and the MAC address of the learned station is in the second object.","The port on which the address was received is the first object, and the MAC address of the learned station is in the second object.",NONE,3d
+HH3C-PORT-SECURITY-MIB,hh3c-port-security.mib,enterprises.25506.2.26.1.3.2,hh3cSecureViolation,Critical,,"This trap is sent whenever a security violation has occurred.
+The port on which the violation occured is the first object,
+and the MAC address of the offending station is in the second object.
+ifAdminStatus indicates if the port has been disabled because of the violation.
+The implementation may not send violation traps from the same port
+at intervals of less than 5 seconds.",Security Violation Occurred,NONE,3d
+HH3C-PORT-SECURITY-MIB,hh3c-port-security.mib,enterprises.25506.2.26.1.3.3,hh3cSecureLoginFailure,Major,Create alarm if trap received from same node XX times under YY days.,"This trap is sent whenever a user network access
+authentication has failed.  The port on which the violation occured is
+the first object, and the MAC address of the offending station is in
+the second object.  The dot1xAuthSessionUserName is the identity supplied
+during the user authentication.","port on which the address was received is the first object,",NONE,3d
+HH3C-PORT-SECURITY-MIB,hh3c-port-security.mib,enterprises.25506.2.26.1.3.4,hh3cSecureLogon,Log,,"This trap is sent when a new session is started for
+an authorised port user.  The port on which the violation occured is
+the first object, and the MAC address of the offending station is in
+the second object.
+The dot1xAuthSessionUserName is the identity supplied during the user
+authentication.  The dot1xAuthSessionAuthenticMethod indicates how the
+user was authorised.  The hh3cSecurePortVlanMembershipList object
+identifies the VLAN membership assigned to the port on session
+activation.",new session is started for an authorised port user,NONE,3d
+HH3C-PORT-SECURITY-MIB,hh3c-port-security.mib,enterprises.25506.2.26.1.3.5,hh3cSecureLogoff,Log,,"This trap is sent when a user session is terminated.
+The port on which the violation occured is the first object,
+and the MAC address of the offending station is in the second object.
+The dot1xAuthSessionUserName is the identity supplied during the user
+authentication.  The dot1xAuthSessionTerminateCause indicates the
+reason why the session was terminated.
+The hh3cSecurePortVlanMembershipList object identifies the VLAN
+membership assigned to the port on session termination.",and the MAC address of the learned station is in the second object.,NONE,3d
+HH3C-PORT-SECURITY-MIB,hh3c-port-security.mib,enterprises.25506.2.26.1.3.6,hh3cSecureRalmLoginFailure,Major,Create alarm if trap received from same node XX times under YY days.,"This trap is sent whenever a user network access
+authentication has failed.  The port on which the violation
+occured is the first object, and the MAC address of the
+offending station is in the second object. The authentication mode
+indicates how the user was authorised. The hh3cSecureRalmAuthUsername
+is the identity supplied during the user authentication.",user network access authentication has failed.,NONE,3d
+HH3C-PORT-SECURITY-MIB,hh3c-port-security.mib,enterprises.25506.2.26.1.3.7,hh3cSecureRalmLogon,Log,,"This trap is sent when a new session is started for
+an authorised port user.  The port on which the violation
+occured is the first object, and the MAC address of
+the offending station is in the second object. The authentication mode
+indicates how the user was authorised. The hh3cSecureRalmAuthUsername is
+the identity supplied during the user authentication. The
+hh3cSecurePortVlanMembershipList object identifies the VLAN
+membership assigned to the port on session activation.", new session is started for an authorised port user.,NONE,3d
+HH3C-PORT-SECURITY-MIB,hh3c-port-security.mib,enterprises.25506.2.26.1.3.8,hh3cSecureRalmLogoff,Log,,"This trap is sent when a new session is started for
+an authorised port user.  The port on which the violation
+occured is the first object, and the MAC address of the
+offending station is in the second object. The authentication mode
+indicates how the user was authorised. The hh3cSecureRalmAuthUsername is
+the identity supplied during the user authentication. The
+hh3cSecurePortVlanMembershipList object identifies the VLAN
+membership assigned to the port on session activation.",new session is started for an authorised port user,NONE,3d
+HH3C-REDUNDANCY-POWER-MIB,hh3c-power.mib,enterprises.25506.8.36.4.2.1,hh3cpowerStatusChangedTrap,Major,Discard if change was expected., This trap is generated when the satus of a power unit is changed.,satus of a power unit is changed,NONE,3d
+HH3C-REDUNDANCY-POWER-MIB,hh3c-power.mib,enterprises.25506.8.36.5.2.1,hh3cfanStatusChangedTrap,Major,Discard if change was expected.,This trap is generated when the satus of a power unit is changed.,satus of a power unit is changed,NONE,3d
+HH3C-SSH-MIB,hh3c-ssh.mib,enterprises.25506.2.22.1.3.0.1,hh3cSSHUserAuthFailure,Major,Create alarm if trap received from same node XX times under YY days.,The trap is generated when a user fails to authentication.,user fails to authentication,NONE,3d
+HH3C-SSH-MIB,hh3c-ssh.mib,enterprises.25506.2.22.1.3.0.2,hh3cSSHVersionNegotiationFailure,Log,,"The trap is generated when a user fails to negotiate SSH
+protocol version.",ser fails to negotiate SSH protocol version,NONE,3d
+HH3C-SSH-MIB,hh3c-ssh.mib,enterprises.25506.2.22.1.3.0.3,hh3cSSHUserLogin,Log,,The trap is generated when a user logs in successfully.,user logs in successfully,NONE,3d
+HH3C-SSH-MIB,hh3c-ssh.mib,enterprises.25506.2.22.1.3.0.4,hh3cSSHUserLogoff,Log,,The trap is generated when a user logs off.,user logs off,NONE,3d
+HH3C-SYS-MAN-MIB,hh3c-sys-man.mib,enterprises.25506.2.3.2.1,hh3cSysClockChangedNotification,Discard,,"A clock changed notification is generated when the current
+local date and time for the system has been manually changed.
+The value of hh3cSysLocalClock reflects new date and time.
+",Current local date and time for the system has been manually changed,NONE,3d
+HH3C-SYS-MAN-MIB,hh3c-sys-man.mib,enterprises.25506.2.3.2.2,hh3cSysReloadNotification,Discard,,"A hh3cSysReloadNotification will be sent before the corresponding entity is
+rebooted. It will also be sent if the entity fails to reboot because the clock
+has changed.
+",A hh3cSysReloadNotification will be sent before the corresponding entity isrebooted. It will also be sent if the entity fails to reboot because the clockhas changed.,NONE,3d
+HH3C-TRAP-MIB,hh3c-trap.mib,enterprises.25506.2.38.1.1.4.1,hh3cMacTabFullTrap,Critical,,"Send this trap when the MAC table is filled.  The
+interval between two traps generated should be longer
+than hh3cMacTabTrapInterval.",MAC table is filled,NONE,3d
+HH3C-TRAP-MIB,hh3c-trap.mib,enterprises.25506.2.38.1.1.4.2,hh3cMacTabAlmostFullTrap,Major,,"Send this trap when the MAC table is almost full.  The
+interval between two traps generated should be longer
+than hh3cMacTabTrapInterval.",MAC table is almost full,NONE,3d
+HH3C-TRAP-MIB,hh3c-trap.mib,enterprises.25506.2.38.1.2.4.1,hh3cArpTabFullTrap,Major,,"Send this trap when the ARP table is filled.  The
+interval between two traps generated should be longer
+than hh3cArpTabTrapInterval.",ARP table is filled,NONE,3d
+HH3C-TRAP-MIB,hh3c-trap.mib,enterprises.25506.2.38.1.2.4.2,hh3cArpPortDynamicEntryFullTrap,Major,,"Send this trap when the dynamic ARP number of the
+port exceeds the limitation. The object hh3cArpTabLen
+describes the limitation of the max dynamic ARP number
+of this port. The interval between two traps should be
+longer than hh3cArpTabTrapInterval.",dynamic ARP number of the port exceeds the limitation,NONE,3d
+HH3C-TRAP-MIB,hh3c-trap.mib,enterprises.25506.2.38.1.3.5.1,hh3cRtTabFullTrap,Minor,,"Send this trap when the routing table is filled.  The
+interval between two traps generated should be longer
+than hh3cRtTabTrapInterval.", routing table is filled,NONE,3d
+HH3C-TRAP-MIB,hh3c-trap.mib,enterprises.25506.2.38.1.3.5.2,hh3cDetailRtTabFullTrap,Minor,,"Send this trap when the detail routing table is filled.  The
+interval between two traps generated should be longer than
+hh3cRtTabTrapInterval.",detail routing table is filled,NONE,3d
+HH3C-TRAP-MIB,hh3c-trap.mib,enterprises.25506.2.38.1.3.5.3,hh3cDefaultRtDelTrap,Minor,,Send this trap when the default route is deleted.,the default route is deleted.,NONE,3d
+HH3C-TRAP-MIB,hh3c-trap.mib,enterprises.25506.2.38.1.4.4.1,hh3cMulticastTabFullTrap,Minor,,"Send this trap when the multicast table is filled.  The
+interval between two traps generated should be longer
+than hh3cMulticastTabTrapInterval.",multicast table is filled,NONE,3d
+HH3C-TRAP-MIB,hh3c-trap.mib,enterprises.25506.2.38.1.5.4.1,hh3cNdTabFullTrap,Minor,,"Send this trap when the ND table is filled.  The
+interval between two traps generated should be longer
+than hh3cNdTabTrapInterval.",ND table is filled,NONE,3d
+HH3C-TRAP-MIB,hh3c-trap.mib,enterprises.25506.2.38.1.6.3.0.1,hh3cPeriodicalTrap,Discard,,"If no trap occurs during the interval spicified by
+hh3cPeriodicalTrapInterval, an hh3cPeriodicalTrap
+will be generated.","If no trap occurs during the interval spicified byhh3cPeriodicalTrapInterval, an hh3cPeriodicalTrapwill be generated.",NONE,3d
+LLDP-MIB,lldp.mib,.1.0.8802.1.1.2.0.0.1,lldpRemTablesChange,Minor,Discard if change was expected.,"A lldpRemTablesChange notification is sent when the value
+of lldpStatsRemTableLastChangeTime changes.  It can be
+utilized by an NMS to trigger LLDP remote systems table
+maintenance polls.
+Note that transmission of lldpRemTablesChange
+notifications are throttled by the agent, as specified by the
+'lldpNotificationInterval' object.", value of lldpStatsRemTableLastChangeTime changes,NONE,3d
+LLDP-EXT-MED-MIB,lldp-ext-med.mib,.1.0.8802.1.1.2.1.5.4795.0.1,lldpXMedTopologyChangeDetected,Minor,Discard if change was expected.,"A notification generated by the local device sensing
+a change in the topology that indicates that a new remote
+device attached to a local port, or a remote device disconnected
+or moved from one port to another.", local device sensing  a change in the topology of new remote device conn,NONE,3d
+LLDP-V2-MIB,lldp-v2.mib,.1.3.111.2.802.1.1.13.0.0.1,lldpV2RemTablesChange,Minor,Discard if change was expected.,LLDP REM Table Changed.,LLDP REM Table Changed,NONE,3d
+BRIDGE-MIB,rfc1493-bridge.mib,mib-2.17.0.1,newRoot,Discard,,"The newRoot trap indicates that the sending agent has
+become the new root of the Spanning Tree.",The newRoot trap indicates that the sending agent hasbecome the new root of the Spanning Tree.,NONE,3d
+BRIDGE-MIB,rfc1493-bridge.mib,mib-2.17.0.2,topologyChange,Discard,,"A topologyChange trap is sent by a bridge when any of
+its configured ports transitions from the Learning state
+to the Forwarding state, or from the Forwarding state to
+the Blocking state.  The trap is not sent if a newRoot
+trap is sent for the same transition.  Implementation of
+this trap is optional.",configured ports transitions Learning state -> Forwarding state -> Block State,NONE,3d
+IF-MIB,rfc2863-if.mib,snmpModules.1.1.5.3,linkDown,Critical,,"A linkDown trap signifies that the SNMP entity, acting in
+an agent role, has detected that the ifOperStatus object for
+one of its communication links is about to enter the down
+state from some other state (but not from the notPresent
+state).  This other state is indicated by the included value
+of ifOperStatus.",SNMPAgent has detected that the ifOperStatus object for one of its communication links is about to enter the down,snmpModules.1.1.5.4,3d
+IF-MIB,rfc2863-if.mib,snmpModules.1.1.5.4,linkUp,Clear,Correlate to linkDown on Node.Interface,"A linkUp trap signifies that the SNMP entity, acting in an
+agent role, has detected that the ifOperStatus object for
+one of its communication links left the down state and
+transitioned into some other state (but not into the
+notPresent state).  This other state is indicated by the
+included value of ifOperStatus.",SNMP agent has detected that the ifOperStatus object for one of its communication links left the down state and transitioned into some other state ,NONE,3d
+SNMPv2-MIB,rfc3418-snmpv2.mib,snmpModules.1.1.5.1,coldStart,Critical,,"A coldStart trap signifies that the SNMP entity,
+supporting a notification originator application, is
+reinitializing itself and that its configuration may
+have been altered.",SNMP agent has detected that the ifOperStatus object for one of its communication links left the down state and transitioned into some other state ,NONE,3d
+SNMPv2-MIB,rfc3418-snmpv2.mib,snmpModules.1.1.5.2,warmStart,Critical,,"A warmStart trap signifies that the SNMP entity,
+supporting a notification originator application,
+is reinitializing itself such that its configuration
+is unaltered.",SNMP  notification originator application entity  is reinitializing itself ,NONE,3d
+SNMPv2-MIB,rfc3418-snmpv2.mib,snmpModules.1.1.5.5,authenticationFailure,Log,,"An authenticationFailure trap signifies that the SNMP
+entity has received a protocol message that is not
+properly authenticated.  While all implementations
+of SNMP entities MAY be capable of generating this
+trap, the snmpEnableAuthenTraps object indicates
+whether this trap will be generated.", SNMP entity has received a protocol message that is not properly authenticated,NONE,3d
+ENTITY-MIB,rfc4133-entity.mib,mib-2.47.2.0.1,entConfigChange,Minor,Discard if change was expected.,"An entConfigChange notification is generated when the value
+of entLastChangeTime changes.  It can be utilized by an NMS
+to trigger logical/physical entity table maintenance polls.
+An agent should not generate more than one entConfigChange
+'notification-event' in a given time interval (five seconds
+is the suggested default).  A 'notification-event' is the
+transmission of a single trap or inform PDU to a list of
+notification destinations.
+If additional configuration changes occur within the
+throttling period, then notification-events for these
+changes should be suppressed by the agent until the current
+throttling period expires.  At the end of a throttling
+period, one notification-event should be generated if any
+configuration changes occurred since the start of the
+throttling period.  In such a case, another throttling
+period is started right away.
+An NMS should periodically check the value of
+entLastChangeTime to detect any missed entConfigChange
+notification-events, e.g., due to throttling or transmission
+loss.", value of entLastChangeTime changes,NONE,3d
+BGP4-MIB,rfc4273-bgp4.mib,mib-2.15.0.1,bgpEstablishedNotification,Discard,,"The bgpEstablishedNotification event is generated
+when the BGP FSM enters the established state.
+This Notification replaces the bgpEstablished
+Notification.",The bgpEstablishedNotification event is generatedwhen the BGP FSM enters the established state.This Notification replaces the bgpEstablishedNotification.,NONE,3d
+BGP4-MIB,rfc4273-bgp4.mib,mib-2.15.0.2,bgpBackwardTransNotification,Discard,,"The bgpBackwardTransNotification event is
+generated when the BGP FSM moves from a higher
+numbered state to a lower numbered state.
+This Notification replaces the
+bgpBackwardsTransition Notification.",BGP FSM moves from a higher numbered state to a lower numbered state.,NONE,3d
+BGP4-MIB,rfc4273-bgp4.mib,mib-2.15.7.1,bgpEstablished,Discard,,"The BGP Established event is generated when
+the BGP FSM enters the ESTABLISHED state.",The BGP Established event is generated whenthe BGP FSM enters the ESTABLISHED state.,NONE,3d
+BGP4-MIB,rfc4273-bgp4.mib,mib-2.15.7.2,bgpBackwardTransition,Discard,,"The BGPBackwardTransition Event is generated
+when the BGP FSM moves from a higher numbered
+state to a lower numbered state.",The BGPBackwardTransition Event is generatedwhen the BGP FSM moves from a higher numberedstate to a lower numbered state.,NONE,3d
+OSPF-TRAP-MIB,rfc4750-ospf-trap.mib,mib-2.14.16.2.1,ospfVirtIfStateChange,Discard,,"An ospfVirtIfStateChange trap signifies that there
+has been a change in the state of an OSPF virtual
+interface.
+This trap should be generated when the interface
+state regresses (e.g., goes from Point-to-Point to Down)
+or progresses to a terminal state
+(i.e., Point-to-Point).",change in the state of an OSPF virtual interface.,NONE,3d
+OSPF-TRAP-MIB,rfc4750-ospf-trap.mib,mib-2.14.16.2.10,ospfTxRetransmit,Threshold,Create alarm after XX retransmissions under YY minutes,"An ospfTxRetransmit trap signifies than an
+OSPF packet has been retransmitted on a
+non-virtual interface.  All packets that may be
+retransmitted are associated with an LSDB entry.
+The LS type, LS ID, and Router ID are used to
+identify the LSDB entry.",OSPF packet has been retransmitted on a non-virtual interface.  ,NONE,3d
+OSPF-TRAP-MIB,rfc4750-ospf-trap.mib,mib-2.14.16.2.11,ospfVirtIfTxRetransmit,Threshold,Create alarm after XX retransmissions under YY minutes,"An ospfVirtIfTxRetransmit trap signifies than an
+OSPF packet has been retransmitted on a virtual
+interface.  All packets that may be retransmitted
+are associated with an LSDB entry.  The LS
+type, LS ID, and Router ID are used to identify
+the LSDB entry.",OSPF packet has been retransmitted on a virtual interface.,NONE,3d
+OSPF-TRAP-MIB,rfc4750-ospf-trap.mib,mib-2.14.16.2.12,ospfOriginateLsa,Threshold,Create alarm after receiving this trap XX times under YY minutes,"An ospfOriginateLsa trap signifies that a new
+LSA has been originated by this router.  This
+trap should not be invoked for simple refreshes
+of LSAs (which happens every 30 minutes), but
+instead will only be invoked when an LSA is
+(re)originated due to a topology change.
+Additionally, this trap does not include LSAs that
+are being flushed because they have reached
+MaxAge.",new LSA has been originated by this router,NONE,3d
+OSPF-TRAP-MIB,rfc4750-ospf-trap.mib,mib-2.14.16.2.13,ospfMaxAgeLsa,Threshold,Create alarm after receiving this trap XX times under YY minutes,"An ospfMaxAgeLsa trap signifies that one of
+the LSAs in the router's link state database has
+aged to MaxAge.",one of  the LSAs in the router's link state database has aged to MaxAge.,NONE,3d
+OSPF-TRAP-MIB,rfc4750-ospf-trap.mib,mib-2.14.16.2.14,ospfLsdbOverflow,Major,,"An ospfLsdbOverflow trap signifies that the
+number of LSAs in the router's link state
+database has exceeded ospfExtLsdbLimit.",number of LSAs in the router's link state database has exceeded ospfExtLsdbLimit,NONE,3d
+OSPF-TRAP-MIB,rfc4750-ospf-trap.mib,mib-2.14.16.2.15,ospfLsdbApproachingOverflow,Minor,,"An ospfLsdbApproachingOverflow trap signifies
+that the number of LSAs in the router's
+link state database has exceeded ninety percent of
+ospfExtLsdbLimit.",number of LSAs in the router's link state database has exceeded ninety percent of spfExtLsdbLimit,NONE,3d
+OSPF-TRAP-MIB,rfc4750-ospf-trap.mib,mib-2.14.16.2.16,ospfIfStateChange,Log,,"An ospfIfStateChange trap signifies that there
+has been a change in the state of a non-virtual
+OSPF interface.  This trap should be generated
+when the interface state regresses (e.g., goes
+from Dr to Down) or progresses to a terminal
+state (i.e., Point-to-Point, DR Other, Dr, or
+Backup).",there  has been a change in the state of a non-virtual OSPF interface.,NONE,3d
+OSPF-TRAP-MIB,rfc4750-ospf-trap.mib,mib-2.14.16.2.17,ospfNssaTranslatorStatusChange,Discard,,"An ospfNssaTranslatorStatusChange trap indicates that
+there has been a change in the router's ability to
+translate OSPF type-7 LSAs into OSPF type-5 LSAs.
+This trap should be generated when the translator
+status transitions from or to any defined status on
+a per-area basis.",change in the router's ability to translate OSPF type-7 LSAs into OSPF type-5 LSAs.,NONE,3d
+OSPF-TRAP-MIB,rfc4750-ospf-trap.mib,mib-2.14.16.2.18,ospfRestartStatusChange,Log,,"An ospfRestartStatusChange trap signifies that
+there has been a change in the graceful restart
+state for the router.  This trap should be
+generated when the router restart status
+changes.",there has been a change in the graceful restart state for the router,NONE,3d
+OSPF-TRAP-MIB,rfc4750-ospf-trap.mib,mib-2.14.16.2.19,ospfNbrRestartHelperStatusChange,Discard,,"An ospfNbrRestartHelperStatusChange trap signifies that
+there has been a change in the graceful restart
+helper state for the neighbor.  This trap should be
+generated when the neighbor restart helper status
+transitions for a neighbor.",Change in the graceful restart helper state for the neighbor,NONE,3d
+OSPF-TRAP-MIB,rfc4750-ospf-trap.mib,mib-2.14.16.2.2,ospfNbrStateChange,Discard,,"An ospfNbrStateChange trap signifies that
+there has been a change in the state of a
+non-virtual OSPF neighbor.  This trap should be
+generated when the neighbor state regresses
+(e.g., goes from Attempt or Full to 1-Way or
+Down) or progresses to a terminal state (e.g.,
+2-Way or Full).  When an neighbor transitions
+from or to Full on non-broadcast multi-access
+and broadcast networks, the trap should be
+generated by the designated router.  A designated
+router transitioning to Down will be noted by
+ospfIfStateChange.",change in the state of a non-virtual OSPF neighbor.,NONE,3d
+OSPF-TRAP-MIB,rfc4750-ospf-trap.mib,mib-2.14.16.2.20,ospfVirtNbrRestartHelperStatusChange,Discard,,"An ospfVirtNbrRestartHelperStatusChange trap signifies
+that there has been a change in the graceful restart
+helper state for the virtual neighbor.  This trap should
+be generated when the virtual neighbor restart helper
+status transitions for a virtual neighbor.",Change in the graceful restart helper state for the virtual neighbor.,NONE,3d
+OSPF-TRAP-MIB,rfc4750-ospf-trap.mib,mib-2.14.16.2.3,ospfVirtNbrStateChange,Major,,"An ospfVirtNbrStateChange trap signifies that there
+has been a change in the state of an OSPF virtual
+neighbor.  This trap should be generated
+when the neighbor state regresses (e.g., goes
+from Attempt or Full to 1-Way or Down) or
+progresses to a terminal state (e.g., Full).",change in the state of an OSPF virtual neighbor. ,NONE,3d
+OSPF-TRAP-MIB,rfc4750-ospf-trap.mib,mib-2.14.16.2.4,ospfIfConfigError,Major,,"An ospfIfConfigError trap signifies that a
+packet has been received on a non-virtual
+interface from a router whose configuration
+parameters conflict with this router's
+configuration parameters.  Note that the event
+optionMismatch should cause a trap only if it
+prevents an adjacency from forming.",packet has been received on a non-virtual  interface from a router whose configuration  parameters conflict with this router's configuration parameters,NONE,3d
+OSPF-TRAP-MIB,rfc4750-ospf-trap.mib,mib-2.14.16.2.5,ospfVirtIfConfigError,Major,,"An ospfVirtIfConfigError trap signifies that a
+packet has been received on a virtual interface
+from a router whose configuration parameters
+conflict with this router's configuration
+parameters.  Note that the event optionMismatch
+should cause a trap only if it prevents an
+adjacency from forming.",packet has been received on a non-virtual interface from a router whose authentication key or authentication type conflicts with this router's authentication key,NONE,3d
+OSPF-TRAP-MIB,rfc4750-ospf-trap.mib,mib-2.14.16.2.6,ospfIfAuthFailure,Major,,"An ospfIfAuthFailure trap signifies that a
+packet has been received on a non-virtual
+interface from a router whose authentication key
+or authentication type conflicts with this
+router's authentication key or authentication
+type.",packet has been received on a non-virtual  interface from a router whose  uthentication key or type conflicts with thisrouter,NONE,3d
+OSPF-TRAP-MIB,rfc4750-ospf-trap.mib,mib-2.14.16.2.7,ospfVirtIfAuthFailure,Major,,"An ospfVirtIfAuthFailure trap signifies that a
+packet has been received on a virtual interface
+from a router whose authentication key or
+authentication type conflicts with this router's
+authentication key or authentication type.",OSPF packet has been received on a non-virtual interface that cannot be parsed.,NONE,3d
+OSPF-TRAP-MIB,rfc4750-ospf-trap.mib,mib-2.14.16.2.8,ospfIfRxBadPacket,Threshold,Create alarm after XX bad packets under YY minutes,"An ospfIfRxBadPacket trap signifies that an
+OSPF packet has been received on a non-virtual
+interface that cannot be parsed.",OSPF packet has been received on a non-virtual interface that cannot be parsed,NONE,3d
+OSPF-TRAP-MIB,rfc4750-ospf-trap.mib,mib-2.14.16.2.9,ospfVirtIfRxBadPacket,Threshold,Create alarm after XX bad packets under YY minutes,"An ospfVirtIfRxBadPacket trap signifies that an OSPF
+packet has been received on a virtual interface
+that cannot be parsed.", OSPF packet has been received on a virtual interface that cannot be parsed,NONE,3d

@@ -1,0 +1,55 @@
+"Name","Full Name","OID","Type","Access","Indexes","MIB Module","Description"
+"hh3cPortSecurityNotifications",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cPortSecurity.hh3cPortSecurityMIB.hh3cPortSecurityNotifications",".1.3.6.1.4.1.25506.2.26.1.3",,,"","HH3C-PORT-SECURITY-MIB",
+"hh3cSecureAddressLearned",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cPortSecurity.hh3cPortSecurityMIB.hh3cPortSecurityNotifications.hh3cSecureAddressLearned",".1.3.6.1.4.1.25506.2.26.1.3.1",,,"","HH3C-PORT-SECURITY-MIB","This trap is sent when a new station has been learned.  The
+port on which the address was received is the first object,
+and the MAC address of the learned station is in the second object."
+"hh3cSecureViolation",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cPortSecurity.hh3cPortSecurityMIB.hh3cPortSecurityNotifications.hh3cSecureViolation",".1.3.6.1.4.1.25506.2.26.1.3.2",,,"","HH3C-PORT-SECURITY-MIB","This trap is sent whenever a security violation has occurred.
+The port on which the violation occured is the first object,
+and the MAC address of the offending station is in the second object.
+ifAdminStatus indicates if the port has been disabled because of the violation.
+The implementation may not send violation traps from the same port
+at intervals of less than 5 seconds."
+"hh3cSecureLoginFailure",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cPortSecurity.hh3cPortSecurityMIB.hh3cPortSecurityNotifications.hh3cSecureLoginFailure",".1.3.6.1.4.1.25506.2.26.1.3.3",,,"","HH3C-PORT-SECURITY-MIB","This trap is sent whenever a user network access
+authentication has failed.  The port on which the violation occured is
+the first object, and the MAC address of the offending station is in
+the second object.  The dot1xAuthSessionUserName is the identity supplied
+during the user authentication."
+"hh3cSecureLogon",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cPortSecurity.hh3cPortSecurityMIB.hh3cPortSecurityNotifications.hh3cSecureLogon",".1.3.6.1.4.1.25506.2.26.1.3.4",,,"","HH3C-PORT-SECURITY-MIB","This trap is sent when a new session is started for
+an authorised port user.  The port on which the violation occured is
+the first object, and the MAC address of the offending station is in
+the second object.
+The dot1xAuthSessionUserName is the identity supplied during the user
+authentication.  The dot1xAuthSessionAuthenticMethod indicates how the
+user was authorised.  The hh3cSecurePortVlanMembershipList object
+identifies the VLAN membership assigned to the port on session
+activation."
+"hh3cSecureLogoff",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cPortSecurity.hh3cPortSecurityMIB.hh3cPortSecurityNotifications.hh3cSecureLogoff",".1.3.6.1.4.1.25506.2.26.1.3.5",,,"","HH3C-PORT-SECURITY-MIB","This trap is sent when a user session is terminated.
+The port on which the violation occured is the first object,
+and the MAC address of the offending station is in the second object.
+The dot1xAuthSessionUserName is the identity supplied during the user
+authentication.  The dot1xAuthSessionTerminateCause indicates the
+reason why the session was terminated.
+The hh3cSecurePortVlanMembershipList object identifies the VLAN
+membership assigned to the port on session termination."
+"hh3cSecureRalmLoginFailure",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cPortSecurity.hh3cPortSecurityMIB.hh3cPortSecurityNotifications.hh3cSecureRalmLoginFailure",".1.3.6.1.4.1.25506.2.26.1.3.6",,,"","HH3C-PORT-SECURITY-MIB","This trap is sent whenever a user network access
+authentication has failed.  The port on which the violation
+occured is the first object, and the MAC address of the
+offending station is in the second object. The authentication mode
+indicates how the user was authorised. The hh3cSecureRalmAuthUsername
+is the identity supplied during the user authentication."
+"hh3cSecureRalmLogon",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cPortSecurity.hh3cPortSecurityMIB.hh3cPortSecurityNotifications.hh3cSecureRalmLogon",".1.3.6.1.4.1.25506.2.26.1.3.7",,,"","HH3C-PORT-SECURITY-MIB","This trap is sent when a new session is started for
+an authorised port user.  The port on which the violation
+occured is the first object, and the MAC address of
+the offending station is in the second object. The authentication mode
+indicates how the user was authorised. The hh3cSecureRalmAuthUsername is
+the identity supplied during the user authentication. The
+hh3cSecurePortVlanMembershipList object identifies the VLAN
+membership assigned to the port on session activation."
+"hh3cSecureRalmLogoff",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cPortSecurity.hh3cPortSecurityMIB.hh3cPortSecurityNotifications.hh3cSecureRalmLogoff",".1.3.6.1.4.1.25506.2.26.1.3.8",,,"","HH3C-PORT-SECURITY-MIB","This trap is sent when a new session is started for
+an authorised port user.  The port on which the violation
+occured is the first object, and the MAC address of the
+offending station is in the second object. The authentication mode
+indicates how the user was authorised. The hh3cSecureRalmAuthUsername is
+the identity supplied during the user authentication. The
+hh3cSecurePortVlanMembershipList object identifies the VLAN
+membership assigned to the port on session activation."

@@ -1,0 +1,51 @@
+"Name","Full Name","OID","Type","Access","Indexes","MIB Module","Description"
+"ciscoStackNotificationsPrefix",".iso.org.dod.internet.private.enterprises.cisco.workgroup.ciscoStackNotificationsPrefix",".1.3.6.1.4.1.9.5.0",,,"","CISCO-STACK-MIB",
+"lerAlarmOn",".iso.org.dod.internet.private.enterprises.cisco.workgroup.ciscoStackNotificationsPrefix.lerAlarmOn",".1.3.6.1.4.1.9.5.0.1",,,"","CISCO-STACK-MIB","A lerAlarmOn trap signifies that the agent entity
+has detected that the fddimibPORTLerFlag object in
+the FDDI-SMT73-MIB (RFC 1512) has transitioned to
+the true(1) state for one of its ports.
+The generation of this trap can be controlled by
+the fddimibPORTLerAlarm object in the
+FDDI-SMT73-MIB for each port."
+"lerAlarmOff",".iso.org.dod.internet.private.enterprises.cisco.workgroup.ciscoStackNotificationsPrefix.lerAlarmOff",".1.3.6.1.4.1.9.5.0.2",,,"","CISCO-STACK-MIB","A lerAlarmOff trap signifies that the agent
+entity has detected that the fddimibPORTLerFlag
+object in the FDDI-SMT73-MIB (RFC 1512) has
+transitioned to the false(2) state for one of
+its ports. The generation of this trap can be
+controlled by the fddimibPORTLerAlarm object in
+the FDDI-SMT73-MIB for each port."
+"moduleUp",".iso.org.dod.internet.private.enterprises.cisco.workgroup.ciscoStackNotificationsPrefix.moduleUp",".1.3.6.1.4.1.9.5.0.3",,,"","CISCO-STACK-MIB","A moduleUp trap signifies that the agent entity
+has detected that the moduleStatus object in this
+MIB has transitioned to the ok(2) state for one of
+its modules.
+The generation of this trap can be controlled by
+the sysEnableModuleTraps object in this MIB."
+"moduleDown",".iso.org.dod.internet.private.enterprises.cisco.workgroup.ciscoStackNotificationsPrefix.moduleDown",".1.3.6.1.4.1.9.5.0.4",,,"","CISCO-STACK-MIB","A moduleDown trap signifies that the agent entity
+has detected that the moduleStatus object in this
+MIB has transitioned out of the ok(2) state for
+one of its modules.
+The generation of this trap can be controlled by
+the sysEnableModuleTraps object in this MIB."
+"chassisAlarmOn",".iso.org.dod.internet.private.enterprises.cisco.workgroup.ciscoStackNotificationsPrefix.chassisAlarmOn",".1.3.6.1.4.1.9.5.0.5",,,"","CISCO-STACK-MIB","A chassisAlarmOn trap signifies that the agent
+entity has detected the chassisTempAlarm,
+chassisMinorAlarm, or chassisMajorAlarm object in
+this MIB has transitioned to the on(2) state.
+The generation of this trap can be controlled by
+the sysEnableChassisTraps object in this MIB."
+"chassisAlarmOff",".iso.org.dod.internet.private.enterprises.cisco.workgroup.ciscoStackNotificationsPrefix.chassisAlarmOff",".1.3.6.1.4.1.9.5.0.6",,,"","CISCO-STACK-MIB","A chassisAlarmOff trap signifies that the agent
+entity has detected the chassisTempAlarm,
+chassisMinorAlarm, or chassisMajorAlarm object in
+this MIB has transitioned to the off(1) state.
+The generation of this trap can be controlled by
+the sysEnableChassisTraps object in this MIB."
+"ipPermitDeniedTrap",".iso.org.dod.internet.private.enterprises.cisco.workgroup.ciscoStackNotificationsPrefix.ipPermitDeniedTrap",".1.3.6.1.4.1.9.5.0.7",,,"","CISCO-STACK-MIB","ipPermitDeniedTrap indicates that IP permit
+denied access happens. The generation of this
+trap can be controlled by the
+sysEnableIpPermitTraps object in this MIB."
+"sysConfigChangeTrap",".iso.org.dod.internet.private.enterprises.cisco.workgroup.ciscoStackNotificationsPrefix.sysConfigChangeTrap",".1.3.6.1.4.1.9.5.0.9",,,"","CISCO-STACK-MIB","A sysConfigChange trap signifies that the system
+configuration in NVRAM is changed. The generation
+of this trap can be controlled by the
+sysEnableConfigTraps object in this MIB."
+"tokenRingSoftErrExceededTrap",".iso.org.dod.internet.private.enterprises.cisco.workgroup.ciscoStackNotificationsPrefix.tokenRingSoftErrExceededTrap",".1.3.6.1.4.1.9.5.0.10",,,"","CISCO-STACK-MIB","This trap is generated when a station local to a
+token ring port exceeds its Soft Error Threshold
+within the configured interval."

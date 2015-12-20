@@ -1,0 +1,6 @@
+"Name","Full Name","OID","Type","Access","Indexes","MIB Module","Description"
+"ccCopyMIBTraps",".iso.org.dod.internet.private.enterprises.cisco.ciscoMgmt.ciscoConfigCopyMIB.ciscoConfigCopyMIBTrapPrefix.ccCopyMIBTraps",".1.3.6.1.4.1.9.9.96.2.1",,,"","CISCO-CONFIG-COPY-MIB",
+"ccCopyCompletion",".iso.org.dod.internet.private.enterprises.cisco.ciscoMgmt.ciscoConfigCopyMIB.ciscoConfigCopyMIBTrapPrefix.ccCopyMIBTraps.ccCopyCompletion",".1.3.6.1.4.1.9.9.96.2.1.1",,,"","CISCO-CONFIG-COPY-MIB","A ccCopyCompletion trap is sent at the completion
+of a config-copy request. The ccCopyFailCause is not
+instantiated, and hence not included in a trap, when
+the ccCopyState is success."

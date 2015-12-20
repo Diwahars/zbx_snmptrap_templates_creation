@@ -1,0 +1,3 @@
+"Name","Full Name","OID","Type","Access","Indexes","MIB Module","Description"
+"hh3cpowerTraps",".iso.org.dod.internet.private.enterprises.hh3c.hh3cRhw.hh3cmlsr.hh3credundancyPower.hh3cpowerTraps",".1.3.6.1.4.1.25506.8.36.4.2",,,"","HH3C-REDUNDANCY-POWER-MIB",
+"hh3cpowerStatusChangedTrap",".iso.org.dod.internet.private.enterprises.hh3c.hh3cRhw.hh3cmlsr.hh3credundancyPower.hh3cpowerTraps.hh3cpowerStatusChangedTrap",".1.3.6.1.4.1.25506.8.36.4.2.1",,,"","HH3C-REDUNDANCY-POWER-MIB","This trap is generated when the satus of a power unit is changed."

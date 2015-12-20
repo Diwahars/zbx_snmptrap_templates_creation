@@ -1,0 +1,539 @@
+"bgpEstablishedNotification",".iso.org.dod.internet.mgmt.mib-2.bgp.bgpNotification.bgpEstablishedNotification",".1.3.6.1.2.1.15.0.1",,,"","BGP4-MIB","The bgpEstablishedNotification event is generated
+when the BGP FSM enters the established state.
+This Notification replaces the bgpEstablished
+Notification."
+"bgpBackwardTransNotification",".iso.org.dod.internet.mgmt.mib-2.bgp.bgpNotification.bgpBackwardTransNotification",".1.3.6.1.2.1.15.0.2",,,"","BGP4-MIB","The bgpBackwardTransNotification event is
+generated when the BGP FSM moves from a higher
+numbered state to a lower numbered state.
+This Notification replaces the
+bgpBackwardsTransition Notification."
+"bgpEstablished",".iso.org.dod.internet.mgmt.mib-2.bgp.bgpTraps.bgpEstablished",".1.3.6.1.2.1.15.7.1",,,"","BGP4-MIB","The BGP Established event is generated when
+the BGP FSM enters the ESTABLISHED state."
+"bgpBackwardTransition",".iso.org.dod.internet.mgmt.mib-2.bgp.bgpTraps.bgpBackwardTransition",".1.3.6.1.2.1.15.7.2",,,"","BGP4-MIB","The BGPBackwardTransition Event is generated
+when the BGP FSM moves from a higher numbered
+state to a lower numbered state."
+"newRoot",".iso.org.dod.internet.mgmt.mib-2.dot1dBridge.dot1dNotifications.newRoot",".1.3.6.1.2.1.17.0.1",,,"","BRIDGE-MIB","The newRoot trap indicates that the sending agent has
+become the new root of the Spanning Tree;the trap is
+sent by a bridge soon after its election as the new
+root, e.g., upon expiration of the Topology Change Timer,
+immediately subsequent to its election.  Implementation
+of this trap is optional."
+"topologyChange",".iso.org.dod.internet.mgmt.mib-2.dot1dBridge.dot1dNotifications.topologyChange",".1.3.6.1.2.1.17.0.2",,,"","BRIDGE-MIB","A topologyChange trap is sent by a bridge when any of
+its configured ports transitions from the Learning state
+to the Forwarding state, or from the Forwarding state to
+the Blocking state.  The trap is not sent if a newRoot
+trap is sent for the same transition.  Implementation of
+this trap is optional."
+"entConfigChange",".iso.org.dod.internet.mgmt.mib-2.entityMIB.entityMIBTraps.entityMIBTrapPrefix.entConfigChange",".1.3.6.1.2.1.47.2.0.1",,,"","ENTITY-MIB","An entConfigChange notification is generated when the value
+of entLastChangeTime changes.  It can be utilized by an NMS
+to trigger logical/physical entity table maintenance polls.
+An agent should not generate more than one entConfigChange
+'notification-event' in a given time interval (five seconds
+is the suggested default).  A 'notification-event' is the
+transmission of a single trap or inform PDU to a list of
+notification destinations.
+If additional configuration changes occur within the
+throttling period, then notification-events for these
+changes should be suppressed by the agent until the current
+throttling period expires.  At the end of a throttling
+period, one notification-event should be generated if any
+configuration changes occurred since the start of the
+throttling period.  In such a case, another throttling
+period is started right away.
+An NMS should periodically check the value of
+entLastChangeTime to detect any missed entConfigChange
+notification-events, e.g., due to throttling or transmission
+loss."
+"hh3cARPRatelimitOverspeedTrap",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cARPRatelimit.hh3cARPRatelimitObjects.hh3cARPRatelimitTrap.hh3cARPRatelimitTraps.hh3cARPRatelimitOverspeedTrap",".1.3.6.1.4.1.25506.2.110.1.1.0.1",,,"","HH3C-ARP-RATELIMIT-MIB","If the rate of ARP packets delivered to the CPU on a device
+exceeds the threshold, a trap message is generated and sent
+to the remote monitoring device."
+"hh3cArpTabFullTrap",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cTrap.hh3cTableGroup.hh3cArpTabStatGroup.hh3cArpTabTrap.hh3cArpTabFullTrap",".1.3.6.1.4.1.25506.2.38.1.2.4.1",,,"","HH3C-TRAP-MIB","Send this trap when the ARP table is filled.  The
+interval between two traps generated should be longer
+than hh3cArpTabTrapInterval."
+"hh3cArpPortDynamicEntryFullTrap",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cTrap.hh3cTableGroup.hh3cArpTabStatGroup.hh3cArpTabTrap.hh3cArpPortDynamicEntryFullTrap",".1.3.6.1.4.1.25506.2.38.1.2.4.2",,,"","HH3C-TRAP-MIB","Send this trap when the dynamic ARP number of the
+port exceeds the limitation. The object hh3cArpTabLen
+describes the limitation of the max dynamic ARP number
+of this port. The interval between two traps should be
+longer than hh3cArpTabTrapInterval."
+"hh3cCfgManEventlog",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cConfig.hh3cConfigManNotifications.hh3cCfgManEventlog",".1.3.6.1.4.1.25506.2.4.2.1",,,"","HH3C-CONFIG-MAN-MIB","The object calculates the checksum on the current config per 10 minutes and
+even if it is different from the saved config but if a trap has been sent
+with the same checksum then don't send again until the checksum is different."
+"hh3cCfgOperateCompletion",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cConfig.hh3cConfigManNotifications.hh3cCfgOperateCompletion",".1.3.6.1.4.1.25506.2.4.2.2",,,"","HH3C-CONFIG-MAN-MIB","When create hh3cCfgOperateTable successfully, a
+notification may be generated."
+"hh3cCfgInvalidConfigFile",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cConfig.hh3cConfigManNotifications.hh3cCfgInvalidConfigFile",".1.3.6.1.4.1.25506.2.4.2.3",,,"","HH3C-CONFIG-MAN-MIB","When the configuration file is invalid, this
+notification will be generated."
+"hh3cEntityExtTemperatureThresholdNotification",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtTemperatureThresholdNotification",".1.3.6.1.4.1.25506.2.6.2.0.1",,,"","HH3C-ENTITY-EXT-MIB","The hh3cEntityExtTemperatureThresholdNotification
+indicates the temperature exceeded the threshold.
+In this condition, user should check the status and the
+environment of the entity, sometimes it happens because
+of the failure of air-condition."
+"hh3cEntityExtVoltageLowThresholdNotification",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtVoltageLowThresholdNotification",".1.3.6.1.4.1.25506.2.6.2.0.2",,,"","HH3C-ENTITY-EXT-MIB","The hh3cEntityExtVoltageLowThresholdNotification indicates
+the voltage is lower than the threshold.
+If the voltage is lower too much than the entity needs,
+the entity will halt."
+"hh3cEntityExtVoltageHighThresholdNotification",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtVoltageHighThresholdNotification",".1.3.6.1.4.1.25506.2.6.2.0.3",,,"","HH3C-ENTITY-EXT-MIB","The hh3cEntityExtVoltageHighThresholdNotification indicates
+the voltage is higher than the threshold.
+If the voltage is higher too much than the entity needs,
+The entity may be damaged by the high voltage."
+"hh3cEntityExtCpuUsageThresholdNotfication",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtCpuUsageThresholdNotfication",".1.3.6.1.4.1.25506.2.6.2.0.4",,,"","HH3C-ENTITY-EXT-MIB","The hh3cEntityExtCpuUsageThresholdNotfication indicates
+the entity is overloaded."
+"hh3cEntityExtMemUsageThresholdNotification",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtMemUsageThresholdNotification",".1.3.6.1.4.1.25506.2.6.2.0.5",,,"","HH3C-ENTITY-EXT-MIB","The hh3cEntityExtMemUsageThresholdNotification indicates
+the entity is overloaded."
+"hh3cEntityExtOperEnabled",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtOperEnabled",".1.3.6.1.4.1.25506.2.6.2.0.6",,,"","HH3C-ENTITY-EXT-MIB","The trap indicates the entity is operable at present."
+"hh3cEntityExtOperDisabled",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtOperDisabled",".1.3.6.1.4.1.25506.2.6.2.0.7",,,"","HH3C-ENTITY-EXT-MIB","The trap indicates the entity is not operable at present."
+"hh3cEntityExtCriticalTemperatureThresholdNotification",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtCriticalTemperatureThresholdNotification",".1.3.6.1.4.1.25506.2.6.2.0.8",,,"","HH3C-ENTITY-EXT-MIB","The hh3cEntityExtCriticalTemperatureThresholdNotification
+indicates the temperature exceeds the critical temperature.
+In this condition, user should check the status and the
+environment of the entity, sometimes it happens because
+of the failure of air-condition."
+"hh3cEntityExtSFPAlarmOn",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtSFPAlarmOn",".1.3.6.1.4.1.25506.2.6.2.0.9",,,"","HH3C-ENTITY-EXT-MIB","The trap is generated when the SFP module fails
+or runs abnormally for some particular reason."
+"hh3cEntityExtSFPAlarmOff",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtSFPAlarmOff",".1.3.6.1.4.1.25506.2.6.2.0.10",,,"","HH3C-ENTITY-EXT-MIB","The trap is generated when the SFP module restores to
+normal status."
+"hh3cEntityExtSFPPhony",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtSFPPhony",".1.3.6.1.4.1.25506.2.6.2.0.11",,,"","HH3C-ENTITY-EXT-MIB","This module is NOT sold by authorized manufacturer.
+The normal function of the device or assume the maintenance
+responsibility thereof will NOT be guaranteed.
+The trap is generated periodically after a phony module has been
+found."
+"hh3cEntityInsert",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityInsert",".1.3.6.1.4.1.25506.2.6.2.0.12",,,"","HH3C-ENTITY-EXT-MIB","The trap is generated when a removable entity inserting to
+device."
+"hh3cEntityRemove",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityRemove",".1.3.6.1.4.1.25506.2.6.2.0.13",,,"","HH3C-ENTITY-EXT-MIB","The trap is generated when a removable entity removing from
+device."
+"hh3cEntityExtForcedPowerOff",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtForcedPowerOff",".1.3.6.1.4.1.25506.2.6.2.0.14",,,"","HH3C-ENTITY-EXT-MIB","The trap indicates the entity is forced to power off."
+"hh3cEntityExtForcedPowerOn",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtForcedPowerOn",".1.3.6.1.4.1.25506.2.6.2.0.15",,,"","HH3C-ENTITY-EXT-MIB","The trap indicates the entity is forced to power on."
+"hh3cEntityExtFaultAlarmOn",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtFaultAlarmOn",".1.3.6.1.4.1.25506.2.6.2.0.16",,,"","HH3C-ENTITY-EXT-MIB","The trap indicates a fault occurs on the specified entity."
+"hh3cEntityExtFaultAlarmOff",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtFaultAlarmOff",".1.3.6.1.4.1.25506.2.6.2.0.17",,,"","HH3C-ENTITY-EXT-MIB","The trap indicates a fault disappears on the specified entity."
+"hh3cEntityExtResourceLack",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtResourceLack",".1.3.6.1.4.1.25506.2.6.2.0.18",,,"","HH3C-ENTITY-EXT-MIB","The trap indicates that a kind of resource is not enough on the
+specified entity."
+"hh3cEntityExtResourceEnough",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtResourceEnough",".1.3.6.1.4.1.25506.2.6.2.0.19",,,"","HH3C-ENTITY-EXT-MIB","The trap indicates that the entity recovers from the status of no
+enough resource."
+"hh3cEntityExtTemperatureLower",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtTemperatureLower",".1.3.6.1.4.1.25506.2.6.2.0.20",,,"","HH3C-ENTITY-EXT-MIB","The trap indicates the temperature of a specified entity is under
+the lower threshold. In this condition, user should check the
+status and the environment of the entity, sometimes it goes wrong
+for some reason."
+"hh3cEntityExtTemperatureTooUp",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtTemperatureTooUp",".1.3.6.1.4.1.25506.2.6.2.0.21",,,"","HH3C-ENTITY-EXT-MIB","The trap indicates the temperature of a specified entity exceeded
+the shutdown threshold. In this condition, user should check the
+status and the environment of the entity, sometimes it goes wrong
+for some reason."
+"hh3cEntityExtTemperatureNormal",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtTemperatureNormal",".1.3.6.1.4.1.25506.2.6.2.0.22",,,"","HH3C-ENTITY-EXT-MIB","The trap indicates the temperature of a specified entity recover
+from abnormal status."
+"hh3cEntityExternalAlarmOccur",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExternalAlarmOccur",".1.3.6.1.4.1.25506.2.6.2.0.23",,,"","HH3C-ENTITY-EXT-MIB","The trap is generated when the monitored device connected to the
+specified entity fails."
+"hh3cEntityExternalAlarmRecover",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExternalAlarmRecover",".1.3.6.1.4.1.25506.2.6.2.0.24",,,"","HH3C-ENTITY-EXT-MIB","The trap is generated when the failed device connected to the
+specified entity returns to normal."
+"hh3cEntityExtCpuUsageThresholdRecover",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtCpuUsageThresholdRecover",".1.3.6.1.4.1.25506.2.6.2.0.25",,,"","HH3C-ENTITY-EXT-MIB","The trap indicates the CPU usage descends the threshold."
+"hh3cEntityExtMemUsageThresholdRecover",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtMemUsageThresholdRecover",".1.3.6.1.4.1.25506.2.6.2.0.26",,,"","HH3C-ENTITY-EXT-MIB","The trap indicates the memory usage descends the threshold."
+"hh3cEntityExtMemAllocatedFailed",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtMemAllocatedFailed",".1.3.6.1.4.1.25506.2.6.2.0.27",,,"","HH3C-ENTITY-EXT-MIB","The trap indicates the memory allocated failed."
+"hh3cEntityExtECCParityAlarm",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtECCParityAlarm",".1.3.6.1.4.1.25506.2.6.2.0.28",,,"","HH3C-ENTITY-EXT-MIB","The trap indicates the ECC(Error Correction Code) parity error alarm."
+"hh3cEntityExtCritLowerTempThresholdNotification",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtCritLowerTempThresholdNotification",".1.3.6.1.4.1.25506.2.6.2.0.29",,,"","HH3C-ENTITY-EXT-MIB","The hh3cEntityExtCritLowerTempThresholdNotification
+indicates the temperature is lower than the threshold.
+If the temperature is lower too much than the entity needs,
+the entity will halt."
+"hh3cEntityExtTemperatureTooLow",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtTemperatureTooLow",".1.3.6.1.4.1.25506.2.6.2.0.30",,,"","HH3C-ENTITY-EXT-MIB","The hh3cEntityExtTemperatureTooLow indicates the temperature
+is lower than the threshold.
+If the temperature is lower too much than the entity needs,
+the entity halts now."
+"hh3cEntityExtFanDirectionNotPreferred",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtFanDirectionNotPreferred",".1.3.6.1.4.1.25506.2.6.2.0.31",,,"","HH3C-ENTITY-EXT-MIB","This trap indicates the specified fan's direction does not
+accord with preferred. The two parameters indicate the entity
+index and physical name of fan."
+"hh3cEntityExtFanDirectionNotAccord",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtFanDirectionNotAccord",".1.3.6.1.4.1.25506.2.6.2.0.32",,,"","HH3C-ENTITY-EXT-MIB","This trap indicates the direction of fans does not accord
+with each other. The two parameters indicate the parent
+entity of the fans."
+"hh3cEntityExtSFPInvalid",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtSFPInvalid",".1.3.6.1.4.1.25506.2.6.2.0.33",,,"","HH3C-ENTITY-EXT-MIB","The transceiver module is not compatible with the interface card.
+The authorized manufacturer therefore shall NOT guarantee
+the normal function of the transceiver.
+The transceiver module will be invalidated in days.
+Please replace it with a compatible one as soon as possible.
+The trap is generated periodically after a phony transceiver module
+has been found."
+"hh3cEntityExtSFPInvalidNow",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtSFPInvalidNow",".1.3.6.1.4.1.25506.2.6.2.0.34",,,"","HH3C-ENTITY-EXT-MIB","This transceiver module is not compatible with the interface card.
+The authorized manufacturer therefore shall NOT guarantee
+the normal function of the transceiver.
+The trap is generated after a phony transceiver module
+has been found."
+"hh3cEntityExtMemUsageThresholdOverTrap",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtMemUsageThresholdOverTrap",".1.3.6.1.4.1.25506.2.6.2.0.35",,,"","HH3C-ENTITY-EXT-MIB","This trap indicates that the memory usage of the entity is
+overloaded.
+This trap is used to replace
+hh3cEntityExtMemUsageThresholdNotification."
+"hh3cEntityExtMemUsageThresholdRecoverTrap",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtMemUsageThresholdRecoverTrap",".1.3.6.1.4.1.25506.2.6.2.0.36",,,"","HH3C-ENTITY-EXT-MIB","This trap indicates that the memory usage decreased below
+the threshold.
+This trap is used to replace
+hh3cEntityExtMemUsageThresholdRecover."
+"hh3cEntityExtVoltageNormal",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtVoltageNormal",".1.3.6.1.4.1.25506.2.6.2.0.37",,,"","HH3C-ENTITY-EXT-MIB","This trap indicates that the voltage recovers to normal."
+"hh3cEntityExtVoltageLower",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtVoltageLower",".1.3.6.1.4.1.25506.2.6.2.0.38",,,"","HH3C-ENTITY-EXT-MIB","This trap indicates that the voltage is lower than the
+low threshold."
+"hh3cEntityExtVoltageTooLow",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtVoltageTooLow",".1.3.6.1.4.1.25506.2.6.2.0.39",,,"","HH3C-ENTITY-EXT-MIB","This trap indicates that the voltage is lower than the
+fatal low threshold."
+"hh3cEntityExtVoltageHigher",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtVoltageHigher",".1.3.6.1.4.1.25506.2.6.2.0.40",,,"","HH3C-ENTITY-EXT-MIB","This trap indicates that the voltage is higher than the
+high threshold."
+"hh3cEntityExtVoltageTooHigh",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtVoltageTooHigh",".1.3.6.1.4.1.25506.2.6.2.0.41",,,"","HH3C-ENTITY-EXT-MIB","This trap indicates that the voltage is higher than the
+fatal high threshold."
+"hh3cfanStatusChangedTrap",".iso.org.dod.internet.private.enterprises.hh3c.hh3cRhw.hh3cmlsr.hh3credundancyFan.hh3cfanTraps.hh3cfanStatusChangedTrap",".1.3.6.1.4.1.25506.8.36.5.2.1",,,"","HH3C-REDUNDANCY-POWER-MIB","This trap is generated when the satus of a power unit is changed."
+"hh3cIfBandwidthUsageHigh",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIfExt.hh3cIfExtTrap.hh3cIfExtTrapPrex.hh3cIfBandwidthUsageHigh",".1.3.6.1.4.1.25506.2.40.3.0.1",,,"","HH3C-IF-EXT-MIB","The notification is generated when the rate of the bandwidth for the
+interface exceeds the upper limit."
+"hh3cIfDiscardPktRateHigh",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIfExt.hh3cIfExtTrap.hh3cIfExtTrapPrex.hh3cIfDiscardPktRateHigh",".1.3.6.1.4.1.25506.2.40.3.0.2",,,"","HH3C-IF-EXT-MIB","The notification is generated when the rate of the discarded packets
+for the interface exceeds the upper limit."
+"hh3cIfDampeningSuppressed",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIfExt.hh3cIfExtTrap.hh3cIfExtTrapPrex.hh3cIfDampeningSuppressed",".1.3.6.1.4.1.25506.2.40.3.0.3",,,"","HH3C-IF-EXT-MIB","The notification is generated when the interface is suppressed
+via dampening."
+"hh3cIfDampeningNotSuppressed",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIfExt.hh3cIfExtTrap.hh3cIfExtTrapPrex.hh3cIfDampeningNotSuppressed",".1.3.6.1.4.1.25506.2.40.3.0.4",,,"","HH3C-IF-EXT-MIB","The notification is generated when the interface is resumed to
+not suppressed via dampening."
+"hh3cIKETunnelStart",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIKEMonitor.hh3cIKEObjects.hh3cIKETrap.hh3cIKENotifications.hh3cIKETunnelStart",".1.3.6.1.4.1.25506.2.30.1.6.1.1",,,"","HH3C-IKE-MONITOR-MIB","This notification is generated when an IPsec Phase-1
+IKE Tunnel is created."
+"hh3cIKETunnelStop",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIKEMonitor.hh3cIKEObjects.hh3cIKETrap.hh3cIKENotifications.hh3cIKETunnelStop",".1.3.6.1.4.1.25506.2.30.1.6.1.2",,,"","HH3C-IKE-MONITOR-MIB","This notification is generated when an IPsec Phase-1
+IKE Tunnel is deleted."
+"hh3cIKENoSaFailure",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIKEMonitor.hh3cIKEObjects.hh3cIKETrap.hh3cIKENotifications.hh3cIKENoSaFailure",".1.3.6.1.4.1.25506.2.30.1.6.1.3",,,"","HH3C-IKE-MONITOR-MIB","This notification is generated when the IKE tunnel
+has a non-existent SA error."
+"hh3cIKEEncryFailFailure",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIKEMonitor.hh3cIKEObjects.hh3cIKETrap.hh3cIKENotifications.hh3cIKEEncryFailFailure",".1.3.6.1.4.1.25506.2.30.1.6.1.4",,,"","HH3C-IKE-MONITOR-MIB","This notification is generated when the IKE tunnel
+has an encrypting failure."
+"hh3cIKEDecryFailFailure",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIKEMonitor.hh3cIKEObjects.hh3cIKETrap.hh3cIKENotifications.hh3cIKEDecryFailFailure",".1.3.6.1.4.1.25506.2.30.1.6.1.5",,,"","HH3C-IKE-MONITOR-MIB","This notification is generated when the IKE tunnel
+has a decrypting failure."
+"hh3cIKEInvalidProposalFailure",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIKEMonitor.hh3cIKEObjects.hh3cIKETrap.hh3cIKENotifications.hh3cIKEInvalidProposalFailure",".1.3.6.1.4.1.25506.2.30.1.6.1.6",,,"","HH3C-IKE-MONITOR-MIB","This notification is generated when the IPsec phase-1
+invalid proposal occurs."
+"hh3cIKEAuthFailFailure",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIKEMonitor.hh3cIKEObjects.hh3cIKETrap.hh3cIKENotifications.hh3cIKEAuthFailFailure",".1.3.6.1.4.1.25506.2.30.1.6.1.7",,,"","HH3C-IKE-MONITOR-MIB","This notification is generated when the IPsec phase-1
+authentication failure occurs."
+"hh3cIKEInvalidCookieFailure",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIKEMonitor.hh3cIKEObjects.hh3cIKETrap.hh3cIKENotifications.hh3cIKEInvalidCookieFailure",".1.3.6.1.4.1.25506.2.30.1.6.1.8",,,"","HH3C-IKE-MONITOR-MIB","This notification is generated when the IPsec phase-1
+invalid cookie failure occurs."
+"hh3cIKEAttrNotSuppFailure",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIKEMonitor.hh3cIKEObjects.hh3cIKETrap.hh3cIKENotifications.hh3cIKEAttrNotSuppFailure",".1.3.6.1.4.1.25506.2.30.1.6.1.9",,,"","HH3C-IKE-MONITOR-MIB","This notification is generated when the IPsec phase-1 unsupported
+attribute failure occurs."
+"hh3cIKEUnsportExchTypeFailure",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIKEMonitor.hh3cIKEObjects.hh3cIKETrap.hh3cIKENotifications.hh3cIKEUnsportExchTypeFailure",".1.3.6.1.4.1.25506.2.30.1.6.1.10",,,"","HH3C-IKE-MONITOR-MIB","This notification is generated when the IPsec phase-1
+unsupported exchange type failure occurs."
+"hh3cIKEInvalidIdFailure",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIKEMonitor.hh3cIKEObjects.hh3cIKETrap.hh3cIKENotifications.hh3cIKEInvalidIdFailure",".1.3.6.1.4.1.25506.2.30.1.6.1.11",,,"","HH3C-IKE-MONITOR-MIB","This notification is generated when the IPsec phase-1
+invalid id failure occurs."
+"hh3cIKEInvalidProtocolFailure",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIKEMonitor.hh3cIKEObjects.hh3cIKETrap.hh3cIKENotifications.hh3cIKEInvalidProtocolFailure",".1.3.6.1.4.1.25506.2.30.1.6.1.12",,,"","HH3C-IKE-MONITOR-MIB","This notification is generated when the processing for
+an IPsec Phase-1 IKE Tunnel has a protocol related errors."
+"hh3cIKECertTypeUnsuppFailure",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIKEMonitor.hh3cIKEObjects.hh3cIKETrap.hh3cIKENotifications.hh3cIKECertTypeUnsuppFailure",".1.3.6.1.4.1.25506.2.30.1.6.1.13",,,"","HH3C-IKE-MONITOR-MIB","This notification is generated when the IPsec phase-1
+unsupported certificate type failure occurs."
+"hh3cIKEInvalidCertAuthFailure",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIKEMonitor.hh3cIKEObjects.hh3cIKETrap.hh3cIKENotifications.hh3cIKEInvalidCertAuthFailure",".1.3.6.1.4.1.25506.2.30.1.6.1.14",,,"","HH3C-IKE-MONITOR-MIB","This notification is generated when the IPsec phase-1
+invalid certificate authorization failure occurs."
+"hh3cIKElInvalidSignFailure",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIKEMonitor.hh3cIKEObjects.hh3cIKETrap.hh3cIKENotifications.hh3cIKElInvalidSignFailure",".1.3.6.1.4.1.25506.2.30.1.6.1.15",,,"","HH3C-IKE-MONITOR-MIB","This notification is generated when the IPsec phase-1
+invalid signature failure occurs."
+"hh3cIKECertUnavailableFailure",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIKEMonitor.hh3cIKEObjects.hh3cIKETrap.hh3cIKENotifications.hh3cIKECertUnavailableFailure",".1.3.6.1.4.1.25506.2.30.1.6.1.16",,,"","HH3C-IKE-MONITOR-MIB","This notification is generated when the IPsec phase-1
+certificate unavailable failure occurs."
+"hh3cIKEProposalAdd",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIKEMonitor.hh3cIKEObjects.hh3cIKETrap.hh3cIKENotifications.hh3cIKEProposalAdd",".1.3.6.1.4.1.25506.2.30.1.6.1.17",,,"","HH3C-IKE-MONITOR-MIB","This notification is generated when an IKE proposal is added."
+"hh3cIKEProposalDel",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIKEMonitor.hh3cIKEObjects.hh3cIKETrap.hh3cIKENotifications.hh3cIKEProposalDel",".1.3.6.1.4.1.25506.2.30.1.6.1.18",,,"","HH3C-IKE-MONITOR-MIB","This notification is generated when an IKE proposal is deleted."
+"hh3cIpAddrChangeNotify",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cNetMan.hh3cNMNotify.hh3cNMNotifyObjects.hh3cNMNotifyObjectsPrefix.hh3cIpAddrChangeNotify",".1.3.6.1.4.1.25506.2.90.3.2.0.1",,,"","HH3C-NET-MAN-MIB","This notification will be generated when the IP address of active
+management interface is changed.  The change maybe originate from NMS,
+DHCP server or administrator.
+The management interfaces are the interfaces that assigned by
+administrator, which can be used to manage device, but may be inactive
+for link fault or IP address (IPv4 or IPv6) missing.
+The active management interface means an active interface, the IP
+address of which can be used for network management.
+This notification announces useful management IP address change.  So it
+is triggered by significative IP address change.
+Suppose that two management interfaces on a device, Interface-A and
+Interface-B.  Initially both interfaces are down and assigned no IP
+address. Configure Interface-A as the primary monitored interface,
+Interface-B as the secondary.
+Significative IP address change in following cases:
+1. If Interface-A is assigned an IP address primarily, and it is linking
+up, then Interface-B will be ignored.  A notification will be triggered,
+appending IP address of Interface-A.
+2. If Interface-B is assigned an IP address primarily, and it is linking
+up, then Interface-A will be ignored.  A notification will be triggered,
+appending IP address of Interface-B.
+3. If IP address of that interface, which had its IP address announced
+to NMS, is changed since last notification triggered, then another
+notification will be sent to NMS.
+4. Suppore that Interface-A was linked up and assigned an IP address
+primarily.  If for some unknown reason, Interface-A is down or loses IP
+address, and Interface-B is assigned an IP address which is different
+with that announced to NMS before, then a notification will be
+triggered, appending the new IP address that Interface-B assigned.
+5. A notification appending new IP address that Interface-A assigned
+will be triggered, if 4 occurs to Interface-B."
+"hh3cIPSecTunnelStart",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIPSecMonitor.hh3cIPSecObjects.hh3cIPSecTrap.hh3cIPSecNotifications.hh3cIPSecTunnelStart",".1.3.6.1.4.1.25506.2.7.1.8.1.1",,,"","HH3C-IPSEC-MONITOR-MIB","This notification is generated when an IPSec Phase-2
+Tunnel is created."
+"hh3cIPSecTunnelStop",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIPSecMonitor.hh3cIPSecObjects.hh3cIPSecTrap.hh3cIPSecNotifications.hh3cIPSecTunnelStop",".1.3.6.1.4.1.25506.2.7.1.8.1.2",,,"","HH3C-IPSEC-MONITOR-MIB","This notification is generated when an IPSec Phase-2
+Tunnel is deleted."
+"hh3cIPSecNoSaFailure",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIPSecMonitor.hh3cIPSecObjects.hh3cIPSecTrap.hh3cIPSecNotifications.hh3cIPSecNoSaFailure",".1.3.6.1.4.1.25506.2.7.1.8.1.3",,,"","HH3C-IPSEC-MONITOR-MIB","This notification is generated when an IPSec Phase-2
+non-existent SA error occurs."
+"hh3cIPSecAuthFailFailure",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIPSecMonitor.hh3cIPSecObjects.hh3cIPSecTrap.hh3cIPSecNotifications.hh3cIPSecAuthFailFailure",".1.3.6.1.4.1.25506.2.7.1.8.1.4",,,"","HH3C-IPSEC-MONITOR-MIB","This notification is generated when the IPSec phase-2
+authentication failure occurs."
+"hh3cIPSecEncryFailFailure",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIPSecMonitor.hh3cIPSecObjects.hh3cIPSecTrap.hh3cIPSecNotifications.hh3cIPSecEncryFailFailure",".1.3.6.1.4.1.25506.2.7.1.8.1.5",,,"","HH3C-IPSEC-MONITOR-MIB","This notification is generated when the IPSec phase-2
+tunnel has an encrypting failure."
+"hh3cIPSecDecryFailFailure",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIPSecMonitor.hh3cIPSecObjects.hh3cIPSecTrap.hh3cIPSecNotifications.hh3cIPSecDecryFailFailure",".1.3.6.1.4.1.25506.2.7.1.8.1.6",,,"","HH3C-IPSEC-MONITOR-MIB","This notification is generated when the IPSec phase-2
+tunnel has a decrypting failure."
+"hh3cIPSecInvalidSaFailure",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIPSecMonitor.hh3cIPSecObjects.hh3cIPSecTrap.hh3cIPSecNotifications.hh3cIPSecInvalidSaFailure",".1.3.6.1.4.1.25506.2.7.1.8.1.7",,,"","HH3C-IPSEC-MONITOR-MIB","This notification is generated when the IPSec phase-2
+invalid SA failure occurs."
+"hh3cIPSecPolicyAdd",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIPSecMonitor.hh3cIPSecObjects.hh3cIPSecTrap.hh3cIPSecNotifications.hh3cIPSecPolicyAdd",".1.3.6.1.4.1.25506.2.7.1.8.1.8",,,"","HH3C-IPSEC-MONITOR-MIB","This notification is generated when an IPSec policy is added."
+"hh3cIPSecPolicyDel",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIPSecMonitor.hh3cIPSecObjects.hh3cIPSecTrap.hh3cIPSecNotifications.hh3cIPSecPolicyDel",".1.3.6.1.4.1.25506.2.7.1.8.1.9",,,"","HH3C-IPSEC-MONITOR-MIB","This notification is generated when an IPSec policy is deleted."
+"hh3cIPSecPolicyAttach",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIPSecMonitor.hh3cIPSecObjects.hh3cIPSecTrap.hh3cIPSecNotifications.hh3cIPSecPolicyAttach",".1.3.6.1.4.1.25506.2.7.1.8.1.10",,,"","HH3C-IPSEC-MONITOR-MIB","This notification is generated when an IPSec policy is attached
+with one interface."
+"hh3cIPSecPolicyDetach",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIPSecMonitor.hh3cIPSecObjects.hh3cIPSecTrap.hh3cIPSecNotifications.hh3cIPSecPolicyDetach",".1.3.6.1.4.1.25506.2.7.1.8.1.11",,,"","HH3C-IPSEC-MONITOR-MIB","This notification is generated when an IPSec policy is detached
+with one interface."
+"hh3cMacTabFullTrap",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cTrap.hh3cTableGroup.hh3cMacTabStatGroup.hh3cMacTabTrap.hh3cMacTabFullTrap",".1.3.6.1.4.1.25506.2.38.1.1.4.1",,,"","HH3C-TRAP-MIB","Send this trap when the MAC table is filled.  The
+interval between two traps generated should be longer
+than hh3cMacTabTrapInterval."
+"hh3cMacTabAlmostFullTrap",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cTrap.hh3cTableGroup.hh3cMacTabStatGroup.hh3cMacTabTrap.hh3cMacTabAlmostFullTrap",".1.3.6.1.4.1.25506.2.38.1.1.4.2",,,"","HH3C-TRAP-MIB","Send this trap when the MAC table is almost full.  The
+interval between two traps generated should be longer
+than hh3cMacTabTrapInterval."
+"hh3cMulticastTabFullTrap",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cTrap.hh3cTableGroup.hh3cMulticastTabStatGroup.hh3cMulticastTabTrap.hh3cMulticastTabFullTrap",".1.3.6.1.4.1.25506.2.38.1.4.4.1",,,"","HH3C-TRAP-MIB","Send this trap when the multicast table is filled.  The
+interval between two traps generated should be longer
+than hh3cMulticastTabTrapInterval."
+"hh3cNdTabFullTrap",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cTrap.hh3cTableGroup.hh3cNdTabStatGroup.hh3cNdTabTrap.hh3cNdTabFullTrap",".1.3.6.1.4.1.25506.2.38.1.5.4.1",,,"","HH3C-TRAP-MIB","Send this trap when the ND table is filled.  The
+interval between two traps generated should be longer
+than hh3cNdTabTrapInterval."
+"hh3cPeriodicalTrap",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cTrap.hh3cTableGroup.hh3cPeriodicalTrapGroup.hh3cPeriodicalNotification.hh3cPeriodicalNotificationPrefix.hh3cPeriodicalTrap",".1.3.6.1.4.1.25506.2.38.1.6.3.0.1",,,"","HH3C-TRAP-MIB","If no trap occurs during the interval spicified by
+hh3cPeriodicalTrapInterval, an hh3cPeriodicalTrap
+will be generated. If the interval is set to 0, no
+hh3cPeriodicalTrap will be generated."
+"hh3cMACfilterTrap",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cAcl.hh3cAclPacketfilterTrap.hh3cPfilterTrapPrefix.hh3cMACfilterTrap",".1.3.6.1.4.1.25506.2.8.5.0.1",,,"","HH3C-ACL-MIB","This notification is generated when a packet was processed
+by MAC address filter, but not every packet will generate one
+notification, the same notification only generate once in 30
+seconds.
+"
+"hh3cAclRuleMatchCount",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cAcl.hh3cAclPacketfilterTrap.hh3cPfilterTrapPrefix.hh3cAclRuleMatchCount",".1.3.6.1.4.1.25506.2.8.5.0.2",,,"","HH3C-ACL-MIB","This notification is generated periodically due to a timer.
+The interval of the timer is configured in hh3cAclIntervalTable.
+The notification details the entries about the packet-filter
+object, the matched ACL rule and the number of matching packets.
+"
+"hh3cAclFirstIPv4PktCaptured",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cAcl.hh3cAclPacketfilterTrap.hh3cPfilterTrapPrefix.hh3cAclFirstIPv4PktCaptured",".1.3.6.1.4.1.25506.2.8.5.0.3",,,"","HH3C-ACL-MIB","This notification is generated immediately when the first
+packet of the matched IPv4 flow is captured.  Other packets
+of the matched flow won't be captured.
+"
+"hh3cAclFirstIPv6PktCaptured",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cAcl.hh3cAclPacketfilterTrap.hh3cPfilterTrapPrefix.hh3cAclFirstIPv6PktCaptured",".1.3.6.1.4.1.25506.2.8.5.0.4",,,"","HH3C-ACL-MIB","This notification is generated immediately when the first
+packet of the matched IPv6 flow is captured.  Other packets
+of the matched flow won't be captured.
+"
+"hh3cAclFirstEthernetPktCaptured",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cAcl.hh3cAclPacketfilterTrap.hh3cPfilterTrapPrefix.hh3cAclFirstEthernetPktCaptured",".1.3.6.1.4.1.25506.2.8.5.0.5",,,"","HH3C-ACL-MIB","This notification is generated immediately when the first
+packet of the matched Ethernet flow is captured.  Other packets
+of the matched flow won't be captured.
+"
+"hh3cSecureAddressLearned",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cPortSecurity.hh3cPortSecurityMIB.hh3cPortSecurityNotifications.hh3cSecureAddressLearned",".1.3.6.1.4.1.25506.2.26.1.3.1",,,"","HH3C-PORT-SECURITY-MIB","This trap is sent when a new station has been learned.  The
+port on which the address was received is the first object,
+and the MAC address of the learned station is in the second object."
+"hh3cSecureViolation",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cPortSecurity.hh3cPortSecurityMIB.hh3cPortSecurityNotifications.hh3cSecureViolation",".1.3.6.1.4.1.25506.2.26.1.3.2",,,"","HH3C-PORT-SECURITY-MIB","This trap is sent whenever a security violation has occurred.
+The port on which the violation occured is the first object,
+and the MAC address of the offending station is in the second object.
+ifAdminStatus indicates if the port has been disabled because of the violation.
+The implementation may not send violation traps from the same port
+at intervals of less than 5 seconds."
+"hh3cSecureLoginFailure",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cPortSecurity.hh3cPortSecurityMIB.hh3cPortSecurityNotifications.hh3cSecureLoginFailure",".1.3.6.1.4.1.25506.2.26.1.3.3",,,"","HH3C-PORT-SECURITY-MIB","This trap is sent whenever a user network access
+authentication has failed.  The port on which the violation occured is
+the first object, and the MAC address of the offending station is in
+the second object.  The dot1xAuthSessionUserName is the identity supplied
+during the user authentication."
+"hh3cSecureLogon",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cPortSecurity.hh3cPortSecurityMIB.hh3cPortSecurityNotifications.hh3cSecureLogon",".1.3.6.1.4.1.25506.2.26.1.3.4",,,"","HH3C-PORT-SECURITY-MIB","This trap is sent when a new session is started for
+an authorised port user.  The port on which the violation occured is
+the first object, and the MAC address of the offending station is in
+the second object.
+The dot1xAuthSessionUserName is the identity supplied during the user
+authentication.  The dot1xAuthSessionAuthenticMethod indicates how the
+user was authorised.  The hh3cSecurePortVlanMembershipList object
+identifies the VLAN membership assigned to the port on session
+activation."
+"hh3cSecureLogoff",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cPortSecurity.hh3cPortSecurityMIB.hh3cPortSecurityNotifications.hh3cSecureLogoff",".1.3.6.1.4.1.25506.2.26.1.3.5",,,"","HH3C-PORT-SECURITY-MIB","This trap is sent when a user session is terminated.
+The port on which the violation occured is the first object,
+and the MAC address of the offending station is in the second object.
+The dot1xAuthSessionUserName is the identity supplied during the user
+authentication.  The dot1xAuthSessionTerminateCause indicates the
+reason why the session was terminated.
+The hh3cSecurePortVlanMembershipList object identifies the VLAN
+membership assigned to the port on session termination."
+"hh3cSecureRalmLoginFailure",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cPortSecurity.hh3cPortSecurityMIB.hh3cPortSecurityNotifications.hh3cSecureRalmLoginFailure",".1.3.6.1.4.1.25506.2.26.1.3.6",,,"","HH3C-PORT-SECURITY-MIB","This trap is sent whenever a user network access
+authentication has failed.  The port on which the violation
+occured is the first object, and the MAC address of the
+offending station is in the second object. The authentication mode
+indicates how the user was authorised. The hh3cSecureRalmAuthUsername
+is the identity supplied during the user authentication."
+"hh3cSecureRalmLogon",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cPortSecurity.hh3cPortSecurityMIB.hh3cPortSecurityNotifications.hh3cSecureRalmLogon",".1.3.6.1.4.1.25506.2.26.1.3.7",,,"","HH3C-PORT-SECURITY-MIB","This trap is sent when a new session is started for
+an authorised port user.  The port on which the violation
+occured is the first object, and the MAC address of
+the offending station is in the second object. The authentication mode
+indicates how the user was authorised. The hh3cSecureRalmAuthUsername is
+the identity supplied during the user authentication. The
+hh3cSecurePortVlanMembershipList object identifies the VLAN
+membership assigned to the port on session activation."
+"hh3cSecureRalmLogoff",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cPortSecurity.hh3cPortSecurityMIB.hh3cPortSecurityNotifications.hh3cSecureRalmLogoff",".1.3.6.1.4.1.25506.2.26.1.3.8",,,"","HH3C-PORT-SECURITY-MIB","This trap is sent when a new session is started for
+an authorised port user.  The port on which the violation
+occured is the first object, and the MAC address of the
+offending station is in the second object. The authentication mode
+indicates how the user was authorised. The hh3cSecureRalmAuthUsername is
+the identity supplied during the user authentication. The
+hh3cSecurePortVlanMembershipList object identifies the VLAN
+membership assigned to the port on session activation."
+"hh3cpowerStatusChangedTrap",".iso.org.dod.internet.private.enterprises.hh3c.hh3cRhw.hh3cmlsr.hh3credundancyPower.hh3cpowerTraps.hh3cpowerStatusChangedTrap",".1.3.6.1.4.1.25506.8.36.4.2.1",,,"","HH3C-REDUNDANCY-POWER-MIB","This trap is generated when the satus of a power unit is changed."
+"hh3cRtTabFullTrap",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cTrap.hh3cTableGroup.hh3cRtTabStatGroup.hh3cRtTabTrap.hh3cRtTabFullTrap",".1.3.6.1.4.1.25506.2.38.1.3.5.1",,,"","HH3C-TRAP-MIB","Send this trap when the routing table is filled.  The
+interval between two traps generated should be longer
+than hh3cRtTabTrapInterval."
+"hh3cDetailRtTabFullTrap",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cTrap.hh3cTableGroup.hh3cRtTabStatGroup.hh3cRtTabTrap.hh3cDetailRtTabFullTrap",".1.3.6.1.4.1.25506.2.38.1.3.5.2",,,"","HH3C-TRAP-MIB","Send this trap when the detail routing table is filled.  The
+interval between two traps generated should be longer than
+hh3cRtTabTrapInterval."
+"hh3cDefaultRtDelTrap",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cTrap.hh3cTableGroup.hh3cRtTabStatGroup.hh3cRtTabTrap.hh3cDefaultRtDelTrap",".1.3.6.1.4.1.25506.2.38.1.3.5.3",,,"","HH3C-TRAP-MIB","Send this trap when the default route is deleted."
+"hh3cSSHUserAuthFailure",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cSSH.hh3cSSHServerMIB.hh3cSSHServerNotifications.hh3cSSHServerNotificationsPrefix.hh3cSSHUserAuthFailure",".1.3.6.1.4.1.25506.2.22.1.3.0.1",,,"","HH3C-SSH-MIB","The trap is generated when a user fails to authentication."
+"hh3cSSHVersionNegotiationFailure",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cSSH.hh3cSSHServerMIB.hh3cSSHServerNotifications.hh3cSSHServerNotificationsPrefix.hh3cSSHVersionNegotiationFailure",".1.3.6.1.4.1.25506.2.22.1.3.0.2",,,"","HH3C-SSH-MIB","The trap is generated when a user fails to negotiate SSH
+protocol version."
+"hh3cSSHUserLogin",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cSSH.hh3cSSHServerMIB.hh3cSSHServerNotifications.hh3cSSHServerNotificationsPrefix.hh3cSSHUserLogin",".1.3.6.1.4.1.25506.2.22.1.3.0.3",,,"","HH3C-SSH-MIB","The trap is generated when a user logs in successfully."
+"hh3cSSHUserLogoff",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cSSH.hh3cSSHServerMIB.hh3cSSHServerNotifications.hh3cSSHServerNotificationsPrefix.hh3cSSHUserLogoff",".1.3.6.1.4.1.25506.2.22.1.3.0.4",,,"","HH3C-SSH-MIB","The trap is generated when a user logs off."
+"hh3cSysClockChangedNotification",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cSystemMan.hh3cSystemManMIBNotifications.hh3cSysClockChangedNotification",".1.3.6.1.4.1.25506.2.3.2.1",,,"","HH3C-SYS-MAN-MIB","A clock changed notification is generated when the current
+local date and time for the system has been manually changed.
+The value of hh3cSysLocalClock reflects new date and time.
+"
+"hh3cSysReloadNotification",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cSystemMan.hh3cSystemManMIBNotifications.hh3cSysReloadNotification",".1.3.6.1.4.1.25506.2.3.2.2",,,"","HH3C-SYS-MAN-MIB","A hh3cSysReloadNotification will be sent before the corresponding entity is
+rebooted. It will also be sent if the entity fails to reboot because the clock
+has changed.
+"
+"hh3cSysStartUpNotification",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cSystemMan.hh3cSystemManMIBNotifications.hh3cSysStartUpNotification",".1.3.6.1.4.1.25506.2.3.2.3",,,"","HH3C-SYS-MAN-MIB","a hh3cSysStartUpNotification trap will be sent when the system starts up with 'main' image file failed,
+a trap will be sent to indicate which type the current image file (I.e backup or secure)is.
+"
+"hh3cWriteSuccessTrap",".iso.org.dod.internet.private.enterprises.hh3c.hh3cSystem.hh3cSystemNotification.hh3cWriteSuccessTrap",".1.3.6.1.4.1.25506.6.8.1",,,"","HH3C-COMMON-SYSTEM-MIB","Send a trap about write success."
+"hh3cWriteFailureTrap",".iso.org.dod.internet.private.enterprises.hh3c.hh3cSystem.hh3cSystemNotification.hh3cWriteFailureTrap",".1.3.6.1.4.1.25506.6.8.2",,,"","HH3C-COMMON-SYSTEM-MIB","Send a trap about write failure."
+"hh3cRebootSendTrap",".iso.org.dod.internet.private.enterprises.hh3c.hh3cSystem.hh3cSystemNotification.hh3cRebootSendTrap",".1.3.6.1.4.1.25506.6.8.3",,,"","HH3C-COMMON-SYSTEM-MIB","If a user restarts the device with command
+'reboot', this trap will be sent two seconds
+before the device reboots."
+"hh3cSysColdStartTrap",".iso.org.dod.internet.private.enterprises.hh3c.hh3cSystem.hh3cSystemNotification.hh3cSysColdStartTrap",".1.3.6.1.4.1.25506.6.8.4",,,"","HH3C-COMMON-SYSTEM-MIB","System cold start trap."
+"hh3cSysWarmStartTrap",".iso.org.dod.internet.private.enterprises.hh3c.hh3cSystem.hh3cSystemNotification.hh3cSysWarmStartTrap",".1.3.6.1.4.1.25506.6.8.5",,,"","HH3C-COMMON-SYSTEM-MIB","System warm start trap."
+"hh3cSysLoghostUnreachableTrap",".iso.org.dod.internet.private.enterprises.hh3c.hh3cSystem.hh3cSystemNotification.hh3cSysLoghostUnreachableTrap",".1.3.6.1.4.1.25506.6.8.6",,,"","HH3C-COMMON-SYSTEM-MIB","This notification will be sent when a loghost becomes unreachable."
+"lldpRemTablesChange",".iso.std.iso8802.ieee802dot1.ieee802dot1mibs.lldpMIB.lldpNotifications.lldpNotificationPrefix.lldpRemTablesChange",".1.0.8802.1.1.2.0.0.1",,,"","LLDP-MIB","A lldpRemTablesChange notification is sent when the value
+of lldpStatsRemTableLastChangeTime changes.  It can be
+utilized by an NMS to trigger LLDP remote systems table
+maintenance polls.
+Note that transmission of lldpRemTablesChange
+notifications are throttled by the agent, as specified by the
+'lldpNotificationInterval' object."
+"lldpXMedTopologyChangeDetected",".iso.std.iso8802.ieee802dot1.ieee802dot1mibs.lldpMIB.lldpObjects.lldpExtensions.lldpXMedMIB.lldpXMedNotifications.lldpXMedTopologyChangeDetected",".1.0.8802.1.1.2.1.5.4795.0.1",,,"","LLDP-EXT-MED-MIB","A notification generated by the local device sensing
+a change in the topology that indicates that a new remote
+device attached to a local port, or a remote device disconnected
+or moved from one port to another."
+"ospfVirtIfStateChange",".iso.org.dod.internet.mgmt.mib-2.ospf.ospfTrap.ospfTraps.ospfVirtIfStateChange",".1.3.6.1.2.1.14.16.2.1",,,"","OSPF-TRAP-MIB","An ospfVirtIfStateChange trap signifies that there
+has been a change in the state of an OSPF virtual
+interface.
+This trap should be generated when the interface
+state regresses (e.g., goes from Point-to-Point to Down)
+or progresses to a terminal state
+(i.e., Point-to-Point)."
+"ospfNbrStateChange",".iso.org.dod.internet.mgmt.mib-2.ospf.ospfTrap.ospfTraps.ospfNbrStateChange",".1.3.6.1.2.1.14.16.2.2",,,"","OSPF-TRAP-MIB","An ospfNbrStateChange trap signifies that
+there has been a change in the state of a
+non-virtual OSPF neighbor.  This trap should be
+generated when the neighbor state regresses
+(e.g., goes from Attempt or Full to 1-Way or
+Down) or progresses to a terminal state (e.g.,
+2-Way or Full).  When an neighbor transitions
+from or to Full on non-broadcast multi-access
+and broadcast networks, the trap should be
+generated by the designated router.  A designated
+router transitioning to Down will be noted by
+ospfIfStateChange."
+"ospfVirtNbrStateChange",".iso.org.dod.internet.mgmt.mib-2.ospf.ospfTrap.ospfTraps.ospfVirtNbrStateChange",".1.3.6.1.2.1.14.16.2.3",,,"","OSPF-TRAP-MIB","An ospfVirtNbrStateChange trap signifies that there
+has been a change in the state of an OSPF virtual
+neighbor.  This trap should be generated
+when the neighbor state regresses (e.g., goes
+from Attempt or Full to 1-Way or Down) or
+progresses to a terminal state (e.g., Full)."
+"ospfIfConfigError",".iso.org.dod.internet.mgmt.mib-2.ospf.ospfTrap.ospfTraps.ospfIfConfigError",".1.3.6.1.2.1.14.16.2.4",,,"","OSPF-TRAP-MIB","An ospfIfConfigError trap signifies that a
+packet has been received on a non-virtual
+interface from a router whose configuration
+parameters conflict with this router's
+configuration parameters.  Note that the event
+optionMismatch should cause a trap only if it
+prevents an adjacency from forming."
+"ospfVirtIfConfigError",".iso.org.dod.internet.mgmt.mib-2.ospf.ospfTrap.ospfTraps.ospfVirtIfConfigError",".1.3.6.1.2.1.14.16.2.5",,,"","OSPF-TRAP-MIB","An ospfVirtIfConfigError trap signifies that a
+packet has been received on a virtual interface
+from a router whose configuration parameters
+conflict with this router's configuration
+parameters.  Note that the event optionMismatch
+should cause a trap only if it prevents an
+adjacency from forming."
+"ospfIfAuthFailure",".iso.org.dod.internet.mgmt.mib-2.ospf.ospfTrap.ospfTraps.ospfIfAuthFailure",".1.3.6.1.2.1.14.16.2.6",,,"","OSPF-TRAP-MIB","An ospfIfAuthFailure trap signifies that a
+packet has been received on a non-virtual
+interface from a router whose authentication key
+or authentication type conflicts with this
+router's authentication key or authentication
+type."
+"ospfVirtIfAuthFailure",".iso.org.dod.internet.mgmt.mib-2.ospf.ospfTrap.ospfTraps.ospfVirtIfAuthFailure",".1.3.6.1.2.1.14.16.2.7",,,"","OSPF-TRAP-MIB","An ospfVirtIfAuthFailure trap signifies that a
+packet has been received on a virtual interface
+from a router whose authentication key or
+authentication type conflicts with this router's
+authentication key or authentication type."
+"ospfIfRxBadPacket",".iso.org.dod.internet.mgmt.mib-2.ospf.ospfTrap.ospfTraps.ospfIfRxBadPacket",".1.3.6.1.2.1.14.16.2.8",,,"","OSPF-TRAP-MIB","An ospfIfRxBadPacket trap signifies that an
+OSPF packet has been received on a non-virtual
+interface that cannot be parsed."
+"ospfVirtIfRxBadPacket",".iso.org.dod.internet.mgmt.mib-2.ospf.ospfTrap.ospfTraps.ospfVirtIfRxBadPacket",".1.3.6.1.2.1.14.16.2.9",,,"","OSPF-TRAP-MIB","An ospfVirtIfRxBadPacket trap signifies that an OSPF
+packet has been received on a virtual interface
+that cannot be parsed."
+"ospfTxRetransmit",".iso.org.dod.internet.mgmt.mib-2.ospf.ospfTrap.ospfTraps.ospfTxRetransmit",".1.3.6.1.2.1.14.16.2.10",,,"","OSPF-TRAP-MIB","An ospfTxRetransmit trap signifies than an
+OSPF packet has been retransmitted on a
+non-virtual interface.  All packets that may be
+retransmitted are associated with an LSDB entry.
+The LS type, LS ID, and Router ID are used to
+identify the LSDB entry."
+"ospfVirtIfTxRetransmit",".iso.org.dod.internet.mgmt.mib-2.ospf.ospfTrap.ospfTraps.ospfVirtIfTxRetransmit",".1.3.6.1.2.1.14.16.2.11",,,"","OSPF-TRAP-MIB","An ospfVirtIfTxRetransmit trap signifies than an
+OSPF packet has been retransmitted on a virtual
+interface.  All packets that may be retransmitted
+are associated with an LSDB entry.  The LS
+type, LS ID, and Router ID are used to identify
+the LSDB entry."
+"ospfOriginateLsa",".iso.org.dod.internet.mgmt.mib-2.ospf.ospfTrap.ospfTraps.ospfOriginateLsa",".1.3.6.1.2.1.14.16.2.12",,,"","OSPF-TRAP-MIB","An ospfOriginateLsa trap signifies that a new
+LSA has been originated by this router.  This
+trap should not be invoked for simple refreshes
+of LSAs (which happens every 30 minutes), but
+instead will only be invoked when an LSA is
+(re)originated due to a topology change.
+Additionally, this trap does not include LSAs that
+are being flushed because they have reached
+MaxAge."
+"ospfMaxAgeLsa",".iso.org.dod.internet.mgmt.mib-2.ospf.ospfTrap.ospfTraps.ospfMaxAgeLsa",".1.3.6.1.2.1.14.16.2.13",,,"","OSPF-TRAP-MIB","An ospfMaxAgeLsa trap signifies that one of
+the LSAs in the router's link state database has
+aged to MaxAge."
+"ospfLsdbOverflow",".iso.org.dod.internet.mgmt.mib-2.ospf.ospfTrap.ospfTraps.ospfLsdbOverflow",".1.3.6.1.2.1.14.16.2.14",,,"","OSPF-TRAP-MIB","An ospfLsdbOverflow trap signifies that the
+number of LSAs in the router's link state
+database has exceeded ospfExtLsdbLimit."
+"ospfLsdbApproachingOverflow",".iso.org.dod.internet.mgmt.mib-2.ospf.ospfTrap.ospfTraps.ospfLsdbApproachingOverflow",".1.3.6.1.2.1.14.16.2.15",,,"","OSPF-TRAP-MIB","An ospfLsdbApproachingOverflow trap signifies
+that the number of LSAs in the router's
+link state database has exceeded ninety percent of
+ospfExtLsdbLimit."
+"ospfIfStateChange",".iso.org.dod.internet.mgmt.mib-2.ospf.ospfTrap.ospfTraps.ospfIfStateChange",".1.3.6.1.2.1.14.16.2.16",,,"","OSPF-TRAP-MIB","An ospfIfStateChange trap signifies that there
+has been a change in the state of a non-virtual
+OSPF interface.  This trap should be generated
+when the interface state regresses (e.g., goes
+from Dr to Down) or progresses to a terminal
+state (i.e., Point-to-Point, DR Other, Dr, or
+Backup)."
+"ospfNssaTranslatorStatusChange",".iso.org.dod.internet.mgmt.mib-2.ospf.ospfTrap.ospfTraps.ospfNssaTranslatorStatusChange",".1.3.6.1.2.1.14.16.2.17",,,"","OSPF-TRAP-MIB","An ospfNssaTranslatorStatusChange trap indicates that
+there has been a change in the router's ability to
+translate OSPF type-7 LSAs into OSPF type-5 LSAs.
+This trap should be generated when the translator
+status transitions from or to any defined status on
+a per-area basis."
+"ospfRestartStatusChange",".iso.org.dod.internet.mgmt.mib-2.ospf.ospfTrap.ospfTraps.ospfRestartStatusChange",".1.3.6.1.2.1.14.16.2.18",,,"","OSPF-TRAP-MIB","An ospfRestartStatusChange trap signifies that
+there has been a change in the graceful restart
+state for the router.  This trap should be
+generated when the router restart status
+changes."
+"ospfNbrRestartHelperStatusChange",".iso.org.dod.internet.mgmt.mib-2.ospf.ospfTrap.ospfTraps.ospfNbrRestartHelperStatusChange",".1.3.6.1.2.1.14.16.2.19",,,"","OSPF-TRAP-MIB","An ospfNbrRestartHelperStatusChange trap signifies that
+there has been a change in the graceful restart
+helper state for the neighbor.  This trap should be
+generated when the neighbor restart helper status
+transitions for a neighbor."
+"ospfVirtNbrRestartHelperStatusChange",".iso.org.dod.internet.mgmt.mib-2.ospf.ospfTrap.ospfTraps.ospfVirtNbrRestartHelperStatusChange",".1.3.6.1.2.1.14.16.2.20",,,"","OSPF-TRAP-MIB","An ospfVirtNbrRestartHelperStatusChange trap signifies
+that there has been a change in the graceful restart
+helper state for the virtual neighbor.  This trap should
+be generated when the virtual neighbor restart helper
+status transitions for a virtual neighbor."
+"coldStart",".iso.org.dod.internet.snmpV2.snmpModules.snmpMIB.snmpMIBObjects.snmpTraps.coldStart",".1.3.6.1.6.3.1.1.5.1",,,"","SNMPv2-MIB","A coldStart trap signifies that the SNMP entity,
+supporting a notification originator application, is
+reinitializing itself and that its configuration may
+have been altered."
+"warmStart",".iso.org.dod.internet.snmpV2.snmpModules.snmpMIB.snmpMIBObjects.snmpTraps.warmStart",".1.3.6.1.6.3.1.1.5.2",,,"","SNMPv2-MIB","A warmStart trap signifies that the SNMP entity,
+supporting a notification originator application,
+is reinitializing itself such that its configuration
+is unaltered."
+"authenticationFailure",".iso.org.dod.internet.snmpV2.snmpModules.snmpMIB.snmpMIBObjects.snmpTraps.authenticationFailure",".1.3.6.1.6.3.1.1.5.5",,,"","SNMPv2-MIB","An authenticationFailure trap signifies that the SNMP
+entity has received a protocol message that is not
+properly authenticated.  While all implementations
+of SNMP entities MAY be capable of generating this
+trap, the snmpEnableAuthenTraps object indicates
+whether this trap will be generated."
+"linkDown",".iso.org.dod.internet.snmpV2.snmpModules.snmpMIB.snmpMIBObjects.snmpTraps.linkDown",".1.3.6.1.6.3.1.1.5.3",,,"","IF-MIB","A linkDown trap signifies that the SNMP entity, acting in
+an agent role, has detected that the ifOperStatus object for
+one of its communication links is about to enter the down
+state from some other state (but not from the notPresent
+state).  This other state is indicated by the included value
+of ifOperStatus."
+"linkUp",".iso.org.dod.internet.snmpV2.snmpModules.snmpMIB.snmpMIBObjects.snmpTraps.linkUp",".1.3.6.1.6.3.1.1.5.4",,,"","IF-MIB","A linkUp trap signifies that the SNMP entity, acting in an
+agent role, has detected that the ifOperStatus object for
+one of its communication links left the down state and
+transitioned into some other state (but not into the
+notPresent state).  This other state is indicated by the
+included value of ifOperStatus."

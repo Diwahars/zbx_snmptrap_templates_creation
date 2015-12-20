@@ -1,0 +1,36 @@
+"Name","Full Name","OID","Type","Access","Indexes","MIB Module","Description"
+"stpxNotificationsPrefix",".iso.org.dod.internet.private.enterprises.cisco.ciscoMgmt.ciscoStpExtensionsMIB.stpxNotifications.stpxNotificationsPrefix",".1.3.6.1.4.1.9.9.82.2.0",,,"","CISCO-STP-EXTENSIONS-MIB",
+"stpxInconsistencyUpdate",".iso.org.dod.internet.private.enterprises.cisco.ciscoMgmt.ciscoStpExtensionsMIB.stpxNotifications.stpxNotificationsPrefix.stpxInconsistencyUpdate",".1.3.6.1.4.1.9.9.82.2.0.1",,,"","CISCO-STP-EXTENSIONS-MIB","A stpxPortInconsistencyUpdate notification is sent by a
+bridge when an instance of stpxInconsistentState is
+created or destroyed.  That is, when an inconsistency is
+discovered in the VLAN's Spanning Tree for a particular
+port, or when such an inconsistency disappears.  Note
+that the trap is not sent if the port transitions between
+different types of inconsistency.
+The stpxInconsistentState value indicates the type of
+inconsistency which now exists/no longer exists for the
+relevant VLAN on the relevant port."
+"stpxRootInconsistencyUpdate",".iso.org.dod.internet.private.enterprises.cisco.ciscoMgmt.ciscoStpExtensionsMIB.stpxNotifications.stpxNotificationsPrefix.stpxRootInconsistencyUpdate",".1.3.6.1.4.1.9.9.82.2.0.2",,,"","CISCO-STP-EXTENSIONS-MIB","A stpxRootInconsistencyUpdate notification is sent by a
+bridge when an instance of stpxRootInconsistencyState
+is created or destroyed. That is, when an
+root-inconsistency is discovered in the VLAN's or
+instance's Spanning Tree for a particular port, or when
+such an root-inconsistency disappears. For creation, the
+value of stpxRootInconsistencyState in the notification is
+true(1);for deletion, the value is false(2).
+The object value of stpxSpanningTreeType indicates
+which Spanning Tree protocol is running when an instance
+of stpxRootInconsistencyState is created or destroyed.  "
+"stpxLoopInconsistencyUpdate",".iso.org.dod.internet.private.enterprises.cisco.ciscoMgmt.ciscoStpExtensionsMIB.stpxNotifications.stpxNotificationsPrefix.stpxLoopInconsistencyUpdate",".1.3.6.1.4.1.9.9.82.2.0.3",,,"","CISCO-STP-EXTENSIONS-MIB","A stpxLoopInconsistencyUpdate notification is sent by a
+bridge when an instance of stpxLoopInconsistencyState
+is created or destroyed. That is, when an
+loop-inconsistency is discovered in the VLAN's or
+instance's Spanning Tree for a particular port, or when
+such an loop-inconsistency disappears. For creation,
+the value of stpxLoopInconsistencyState in the
+notification is true(1);for deletion, the value is
+false(2).
+The object value of stpxSpanningTreeType indicates
+which Spanning Tree protocol is running when an instance
+of stpxLoopInconsistencyState is created or
+destroyed."

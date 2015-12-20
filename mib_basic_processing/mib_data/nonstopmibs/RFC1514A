@@ -1,0 +1,1593 @@
+-- This is the Tandemized verion of the Host Resources MIB as
+-- defined in RFC 1514.  These changes were made to the orginal
+-- version:  InternationalDisplayString objects and hrPartitionID
+-- are chaged to DisplayString, Boolean objects are redefined as INTEGER
+-- objects with values TRUE and FALSE, DESCRIPTION clauses are
+-- modified to provide information specific to Tandem, and read-write
+-- objects have been redefined as read-only objects. Refer to
+-- comments provided with each group for a description of compliance
+-- with RFC 1514.
+
+   HOST-RESOURCES-MIB DEFINITIONS ::= BEGIN
+
+   IMPORTS
+       OBJECT-TYPE               FROM RFC-1212
+       DisplayString             FROM RFC1213-MIB
+       TimeTicks,
+       mgmt, Counter, Gauge      FROM RFC1155-SMI;
+
+   mib-2      OBJECT IDENTIFIER ::= { mgmt 1 }
+   host       OBJECT IDENTIFIER ::= { mib-2 25 }
+
+
+   hrSystem        OBJECT IDENTIFIER ::= { host 1 }
+   hrStorage       OBJECT IDENTIFIER ::= { host 2 }
+   hrDevice        OBJECT IDENTIFIER ::= { host 3 }
+   hrSWRun         OBJECT IDENTIFIER ::= { host 4 }
+   hrSWRunPerf     OBJECT IDENTIFIER ::= { host 5 }
+   hrSWInstalled   OBJECT IDENTIFIER ::= { host 6 }
+
+
+   -- textual conventions
+
+   -- a truth value
+   Boolean ::=   INTEGER { true(1), false(2) }
+
+
+   -- memory size, expressed in units of 1024bytes
+   KBytes ::=    INTEGER (0..2147483647)
+
+   -- This textual convention is intended to identify the manufacturer,
+   -- model, and version of a specific hardware or software product.
+   -- It is suggested that these OBJECT IDENTIFIERs are allocated such
+   -- that all products from a particular manufacturer are registered
+   -- under a subtree distinct to that manufacturer.  In addition, all
+   -- versions of a product should be registered under a subtree
+   -- distinct to that product.  With this strategy, a management
+   -- station may uniquely determine the manufacturer and/or model of a
+   -- product whose productID is unknown to the management station.
+   -- Objects of this type may be useful for inventory purposes or for
+   -- automatically detecting incompatibilities or version mismatches
+   -- between various hardware and software components on a system.
+   ProductID ::= OBJECT IDENTIFIER
+   -- unknownProduct will be used for any unknown ProductID
+   -- unknownProduct OBJECT IDENTIFIER ::= { 0 0 }
+
+   -- For example, the product ID for the ACME 4860 66MHz clock doubled
+   -- processor might be:
+   -- enterprises.acme.acmeProcessors.a4860DX2.MHz66
+   -- A software product might be registered as:
+   -- enterprises.acme.acmeOperatingSystems.acmeDOS.six(6).one(1)
+
+
+   DateAndTime ::= OCTET STRING (SIZE (8 | 11))
+   --        A date-time specification for the local time of day.
+   --        This data type is intended to provide a consistent
+   --        method of reporting date information.
+   --
+   --            field  octets  contents                  range
+   --            _____  ______  ________                  _____
+   --              1      1-2   year                      0..65536
+   --                           (in network byte order)
+   --              2       3    month                     1..12
+   --              3       4    day                       1..31
+   --              4       5    hour                      0..23
+   --              5       6    minutes                   0..59
+   --              6       7    seconds                   0..60
+   --                           (use 60 for leap-second)
+   --              7       8    deci-seconds              0..9
+   --              8       9    direction from UTC        "+" / "-"
+   --                           (in ascii notation)
+   --              9      10    hours from UTC            0..11
+   --             10      11    minutes from UTC          0..59
+   --
+   --            Note that if only local time is known, then
+   --            timezone information (fields 8-10) is not present.
+
+   InternationalDisplayString ::= DisplayString (SIZE (0..255))
+   --  This data type is used to model textual information in some
+   --  character set.  A network management station should use a local
+   --  algorithm to determine which character set is in use and how it
+   --  should be displayed.  Note that this character set may be encoded
+   --  with more than one octet per symbol, but will most often be NVT
+   --  ASCII.
+
+
+   -- The Host Resources System Group
+   --
+   -- Implementation of this group is mandatory for all host systems.
+
+   -- The following objects do not fully comply with RFC 1514:
+   --   hrSystemDate:  Set operation not supported.
+   --   hrSystemInitialLoadDevice:  Set operation not supported.
+   --   hrSystemInitialLoadParameters:  Set operation not supported.
+
+
+   hrSystemUptime OBJECT-TYPE
+       SYNTAX TimeTicks
+       ACCESS read-only
+       STATUS mandatory
+       DESCRIPTION
+         "Number of microseconds since system coldload.
+
+         VALUE: Integer without leading 0s.
+
+         DERIVATION:  Guardian procedure JULIANTIMESTAMP."
+       ::= { hrSystem 1 }
+
+   hrSystemDate OBJECT-TYPE
+       SYNTAX DateAndTime
+       ACCESS read-only
+       STATUS mandatory
+       DESCRIPTION
+         "Current Greenwich mean time.
+
+         VALUE:  Refer to RFC1514 for an explanation of how to
+         interpret the octet string used to format DateAndTime
+         values.
+
+         DERIVATION:  Guardian procedure JULIANTIMESTAMP."
+       ::= { hrSystem 2 }
+
+   hrSystemInitialLoadDevice OBJECT-TYPE
+       SYNTAX INTEGER (1..2147483647)
+       ACCESS read-only
+       STATUS mandatory
+       DESCRIPTION
+         "Index of hrDeviceEntry for coldload subvolume.
+         hrDeviceEntry is a row in the hrDeviceTable.
+
+         VALUE:  Integer without leading 0s.
+
+         DERIVATION:  Guardian procedure NODE_GETCOLDLOADINFO_."
+       ::= { hrSystem 3 }
+
+   hrSystemInitialLoadParameters OBJECT-TYPE
+       SYNTAX DisplayString (SIZE (0..128))
+       ACCESS read-only
+       STATUS mandatory
+       DESCRIPTION
+         "The full name of the command interpreter started from
+         the coldload subvolume.
+
+         VALUE:  $SYSTEM.subvolume.TACL.
+
+         DERIVATION:  Guardian procedure NODE_GETCOLDLOADINFO_."
+       ::= { hrSystem 4 }
+
+   hrSystemNumUsers OBJECT-TYPE
+       SYNTAX Gauge
+       ACCESS read-only
+       STATUS mandatory
+       DESCRIPTION
+         "Number of users running a command interpreter.  Users
+         logged in through a non-TACL process like Pathway are
+         not counted.  Users running multiple TACLs are counted
+         only once.
+
+         VALUE:  Integer without leading 0s.
+
+         DERIVATION:  Guardian procedure PROCESS_GETINFOLIST_."
+       ::= { hrSystem 5 }
+
+   hrSystemProcesses OBJECT-TYPE
+       SYNTAX Gauge
+       ACCESS read-only
+       STATUS mandatory
+       DESCRIPTION
+         "Number of process control blocks in both low and high
+         process identification numbers (PINs) currently in use.
+
+         VALUE:  Integer without leading 0s.
+
+         DERIVATION: Guardian procedure PROCESSOR_GETINFOLIST_."
+       ::= { hrSystem 6 }
+
+   hrSystemMaxProcesses OBJECT-TYPE
+       SYNTAX INTEGER (0..2147483647)
+       ACCESS read-only
+       STATUS mandatory
+       DESCRIPTION
+         "Number of process control blocks in both low and high
+         PINs currently in use plus the number that are not.
+
+         VALUE:  Integer without leading 0s.
+
+         DERIVATION: Guardian procedure PROCESSOR_GETINFOLIST_."
+       ::= { hrSystem 7 }
+
+
+   -- The Host Resources Storage Group
+   --
+   -- Implementation of this group is mandatory for all host systems.
+
+   -- The following objects do not fully comply with RFC 1514:
+   --   hrStorageSize:  Set operation not supported.
+   --   hrStorageAllocationFailures:  The value 0 is returned for
+   --     disk and file system entries.
+
+   -- Registration for some storage types, for use with hrStorageType
+   hrStorageTypes          OBJECT IDENTIFIER ::= { hrStorage 1 }
+   hrStorageOther          OBJECT IDENTIFIER ::= { hrStorageTypes 1 }
+   hrStorageRam            OBJECT IDENTIFIER ::= { hrStorageTypes 2 }
+   -- hrStorageVirtualMemory is temporary storage of swapped
+   -- or paged memory
+   hrStorageVirtualMemory  OBJECT IDENTIFIER ::= { hrStorageTypes 3 }
+   hrStorageFixedDisk      OBJECT IDENTIFIER ::= { hrStorageTypes 4 }
+   hrStorageRemovableDisk  OBJECT IDENTIFIER ::= { hrStorageTypes 5 }
+   hrStorageFloppyDisk     OBJECT IDENTIFIER ::= { hrStorageTypes 6 }
+   hrStorageCompactDisc    OBJECT IDENTIFIER ::= { hrStorageTypes 7 }
+   hrStorageRamDisk        OBJECT IDENTIFIER ::= { hrStorageTypes 8 }
+
+   hrMemorySize OBJECT-TYPE
+       SYNTAX KBytes
+       ACCESS read-only
+       STATUS mandatory
+       DESCRIPTION
+         "The total amount of physical memory in all CPUs.
+
+         VALUE:  Integer without leading 0s.
+
+         DERIVATION:  Guardian procedure PROCESSOR_GETINFOLIST_
+         is called once for each CPU and the sum derived after
+         pages are converted into kilobytes."
+       ::= { hrStorage 2 }
+
+
+   hrStorageTable OBJECT-TYPE
+       SYNTAX SEQUENCE OF HrStorageEntry
+       ACCESS not-accessible
+       STATUS mandatory
+       DESCRIPTION
+              "The (conceptual) table of logical storage areas on
+              the host.
+
+              An entry shall be placed in the storage table for
+              each logical area of storage that is allocated and
+              has fixed resource limits.  The amount of storage
+              represented in an entity is the amount actually
+              usable by the requesting entity, and excludes loss
+              due to formatting or file system reference
+              information.
+
+              These entries are associated with logical storage
+              areas, as might be seen by an application, rather
+              than physical storage entities which are typically
+              seen by an operating system.  Storage such as tapes
+              and floppies without file systems on them are
+              typically not allocated in chunks by the operating
+              system to requesting applications, and therefore
+              shouldn't appear in this table.  Examples of valid
+              storage for this table include disk partitions,
+              file systems, ram (for some architectures this is
+              further segmented into regular memory, extended
+              memory, and so on), backing store for virtual
+              memory (`swap space').
+
+              This table is intended to be a useful diagnostic
+              for `out of memory' and `out of buffers' types of
+              failures.  In addition, it can be a useful
+              performance monitoring tool for tracking memory,
+              disk, or buffer usage."
+
+       ::= { hrStorage 3 }
+
+   hrStorageEntry OBJECT-TYPE
+       SYNTAX HrStorageEntry
+       ACCESS not-accessible
+       STATUS mandatory
+       DESCRIPTION
+         "Information about storage areas on the system."
+       INDEX { hrStorageIndex }
+       ::= { hrStorageTable 1 }
+
+   HrStorageEntry ::= SEQUENCE {
+           hrStorageIndex               INTEGER,
+           hrStorageType                OBJECT IDENTIFIER,
+           hrStorageDescr               DisplayString,
+           hrStorageAllocationUnits     INTEGER,
+           hrStorageSize                INTEGER,
+           hrStorageUsed                INTEGER,
+           hrStorageAllocationFailures  Counter
+       }
+
+   hrStorageIndex OBJECT-TYPE
+       SYNTAX INTEGER (1..2147483647)
+       ACCESS read-only
+       STATUS mandatory
+       DESCRIPTION
+         "An index value having a corresponding value
+         (hrFSStorageIndex) in the hrFSTable.  Note that a
+         Guardian file system corresponds to a writeable disk.
+
+         VALUE:  For CPUs:  1 through 16.
+                 For disks:  1001 through 10000.
+                 For file system:  10001 and above.
+
+         DERIVATION:  Computed by Host Resources Subagent."
+       ::= { hrStorageEntry 1 }
+
+   hrStorageType OBJECT-TYPE
+       SYNTAX OBJECT IDENTIFIER
+       ACCESS read-only
+       STATUS mandatory
+       DESCRIPTION
+         "One of the following storage types defined by RFC 1514
+         that characterizes the entry:  hrStorageRam,
+         hrStorageFixedDisk, hrStorageOther (designating file
+         system entries).
+
+         VALUE:  For RAM:  1.3.6.1.2.1.25.2.1.2.
+                 For disk:  1.3.6.1.2.1.25.2.1.4.
+                 For file system:  1.3.6.1.2.1.25.2.1.1.
+
+         DERIVATION:  RFC 1514."
+       ::= { hrStorageEntry 2 }
+
+   hrStorageDescr OBJECT-TYPE
+       SYNTAX DisplayString
+       ACCESS read-only
+       STATUS mandatory
+       DESCRIPTION
+         "Description of the type of storage represented by the
+         entry.
+
+         VALUE:  For RAM:  the number and type of a processor:
+                  CPUnn (processor-type).running Dnn.nn.
+                 For disks and file system entries:  the name
+                  and type of the disk: $volume(disk-type).
+
+         DERIVATION:  For physical memory:  Guardian procedure
+                       PROCESSOR_GETINFOLIST_.
+                      For disks and file system entries:
+                       Guardian procedure
+                       FILE_GETINFOLISTBYNAME_."
+       ::= { hrStorageEntry 3 }
+
+   hrStorageAllocationUnits OBJECT-TYPE
+       SYNTAX      INTEGER (1..2147483647)
+       ACCESS      read-only
+       STATUS      mandatory
+       DESCRIPTION
+         "The number of bytes allocated by the entry when
+         storage is requested.
+
+         VALUE:  For RAM:  an integer without leading 0s,
+                  indicating the page size.
+                 For disks and file system entries:  2048,
+                  indicating one page.
+
+         DERIVATION:  For RAM:  Guardian procedure
+                       PROCESSOR_GETINFOLIST_.
+                      For disks and file system entries:
+                       constant."
+       ::= { hrStorageEntry 4 }
+
+   hrStorageSize OBJECT-TYPE
+       SYNTAX INTEGER (0..2147483647)
+       ACCESS read-only
+       STATUS mandatory
+       DESCRIPTION
+         "The capacity of the entry, in number of allocation
+         units.
+
+         VALUE:  For physical memory:  If the number exceeds
+                  2,147,483,647, the value returned is -1D.
+                 For disks:  The number describes the pages
+                  formatted.
+                 For file system entries:  The number describes
+                  the size of the writeable disk.
+
+         DERIVATION:  For physical memory:  Guardian procedure
+                       PROCESSOR_GETINFOLIST_.
+                      For disks:  Guardian procedure
+                       FILE_GETINFOLISTBYNAME_."
+       ::= { hrStorageEntry 5 }
+
+
+   hrStorageUsed OBJECT-TYPE
+       SYNTAX INTEGER (0..2147483647)
+       ACCESS read-only
+       STATUS mandatory
+       DESCRIPTION
+         "The amount of allocated storage associated with the
+         entry, in allocation units.
+
+         VALUE:  Integer without leading 0s.
+
+         DERIVATION:  For physical memory:  the number of free
+                       pages returned by Guardian procedure
+                       PROCESSOR_GETINFOLIST_ is subtracted from
+                       the value of hrStorageSize.
+                      For disks and file system entries:  the
+                       number of free pages returned by Guardian
+                       procedure FILE_GETINFOLISTBYNAME_ is
+                       subtracted from the value of
+                       hrStorageSize."
+       ::= { hrStorageEntry 6 }
+
+   hrStorageAllocationFailures OBJECT-TYPE
+       SYNTAX Counter
+       ACCESS read-only
+       STATUS mandatory
+       DESCRIPTION
+         "The number of requests for storage by the entry that
+         could not be honored because of insufficient space.
+
+         VALUE:  For physical memory:  The number of page-fault
+                  interrupts since the processor was loaded.
+                 For disks and file system entries:  This value
+                  is not available, and 0 is returned.
+
+         DERIVATION:  For physical memory:  the page faults
+                       returned by Guardian procedure
+                       PROCESSOR_GETINFOLIST_.
+                      For disks and file system entries:
+                       constant."
+       ::= { hrStorageEntry 7 }
+
+   -- The Host Resources Device Group
+   --
+   -- Implementation of this group is mandatory for all host systems.
+   --
+   -- The following objects do not fully comply with RFC 1514:
+   --   hrProcessorFrwID:  Value is a "dummy" object identifier.
+   --   hrFSLastFullBackupDate:  Set operation not supported; value is
+   --     set to January 1, year 0000,00:00:00.0.
+   --   hrFSLastPartialBackupDate:  Set operation not supported; value
+   --     is set to January 1, year 0000,00:00:00.0.
+
+   -- The device group is useful for identifying and diagnosing the
+   -- devices on a system.  The hrDeviceTable contains common
+   -- information for any type of device.  In addition, some devices
+   -- have device-specific tables for more detailed information.  More
+   -- such tables may be defined in the future for other device types.
+
+   -- Registration for some device types, for use with hrDeviceType
+   hrDeviceTypes             OBJECT IDENTIFIER ::= { hrDevice 1 }
+
+   hrDeviceOther             OBJECT IDENTIFIER ::= { hrDeviceTypes 1 }
+   hrDeviceUnknown           OBJECT IDENTIFIER ::= { hrDeviceTypes 2 }
+   hrDeviceProcessor         OBJECT IDENTIFIER ::= { hrDeviceTypes 3 }
+   hrDeviceNetwork           OBJECT IDENTIFIER ::= { hrDeviceTypes 4 }
+   hrDevicePrinter           OBJECT IDENTIFIER ::= { hrDeviceTypes 5 }
+   hrDeviceDiskStorage       OBJECT IDENTIFIER ::= { hrDeviceTypes 6 }
+   hrDeviceVideo             OBJECT IDENTIFIER ::= { hrDeviceTypes 10 }
+   hrDeviceAudio             OBJECT IDENTIFIER ::= { hrDeviceTypes 11 }
+   hrDeviceCoprocessor       OBJECT IDENTIFIER ::= { hrDeviceTypes 12 }
+   hrDeviceKeyboard          OBJECT IDENTIFIER ::= { hrDeviceTypes 13 }
+   hrDeviceModem             OBJECT IDENTIFIER ::= { hrDeviceTypes 14 }
+   hrDeviceParallelPort      OBJECT IDENTIFIER ::= { hrDeviceTypes 15 }
+   hrDevicePointing          OBJECT IDENTIFIER ::= { hrDeviceTypes 16 }
+   hrDeviceSerialPort        OBJECT IDENTIFIER ::= { hrDeviceTypes 17 }
+   hrDeviceTape              OBJECT IDENTIFIER ::= { hrDeviceTypes 18 }
+   hrDeviceClock             OBJECT IDENTIFIER ::= { hrDeviceTypes 19 }
+   hrDeviceVolatileMemory    OBJECT IDENTIFIER ::= { hrDeviceTypes 20 }
+   hrDeviceNonVolatileMemory OBJECT IDENTIFIER ::= { hrDeviceTypes 21 }
+
+
+   hrDeviceTable OBJECT-TYPE
+       SYNTAX SEQUENCE OF HrDeviceEntry
+       ACCESS not-accessible
+       STATUS mandatory
+       DESCRIPTION
+              "The (conceptual) table of devices contained by the
+              host."
+       ::= { hrDevice 2 }
+
+   hrDeviceEntry OBJECT-TYPE
+       SYNTAX HrDeviceEntry
+       ACCESS not-accessible
+       STATUS mandatory
+       DESCRIPTION
+         "Information about and pointing to other entries for
+         devices associated with the system.  Entries maintained
+         are controlled by the -e startup parameter."
+       INDEX { hrDeviceIndex }
+       ::= { hrDeviceTable 1 }
+
+   HrDeviceEntry ::= SEQUENCE {
+           hrDeviceIndex           INTEGER,
+           hrDeviceType            OBJECT IDENTIFIER,
+           hrDeviceDescr           DisplayString,
+           hrDeviceID              ProductID,
+           hrDeviceStatus          INTEGER,
+           hrDeviceErrors          Counter
+       }
+
+   hrDeviceIndex OBJECT-TYPE
+       SYNTAX INTEGER (1..2147483647)
+       ACCESS read-only
+       STATUS mandatory
+       DESCRIPTION
+         "Index values that point to entries in the
+         hrProcessorTable, the hrPrinterTable, the
+         hrDiskStorageTable, the hrNetworkTable, and the
+         hrPartitionTable.
+
+         VALUES:  For CPUs:  1 through 16.
+                  For network devices:  101 through 500.
+                  For printers:  501 through 1000.
+                  For disks:  1001 through 10000.
+                  For tape drives:  10001 through 11000.
+
+         DERIVATION:  Computed by Host Resources Subagent."
+       ::= { hrDeviceEntry 1 }
+
+   hrDeviceType OBJECT-TYPE
+       SYNTAX OBJECT IDENTIFIER
+       ACCESS read-only
+       STATUS mandatory
+       DESCRIPTION
+         "One of the following device types defined by RFC 1514
+         that characterizes the entry:  hrDeviceProcessor,
+         hrDeviceNetwork, hrDevicePrinter, hrDeviceDiskStorage,
+         hrDeviceTape.
+
+         VALUE:  For CPUs:  1.3.6.1.2.1.25.3.1.3.
+                 For printers:  1.3.6.1.2.1.25.3.1.5.
+                 For disks:  1.3.6.1.2.1.25.3.1.6.
+                 For tape drives:  1.3.6.1.2.1.25.3.1.18.
+                 For network devices:  1.3.6.1.2.1.25.3.1.4.
+
+         DERIVATION:  RFC 1514."
+       ::= { hrDeviceEntry 2 }
+
+   hrDeviceDescr OBJECT-TYPE
+       SYNTAX DisplayString (SIZE (0..64))
+       ACCESS read-only
+       STATUS mandatory
+       DESCRIPTION
+         "Description of the type of device represented by the
+         entry.
+
+         VALUE:  For CPUs:  the number and type of a processor:
+                  CPUnn (processor-type).
+                 For printers:  the name of a printer or Spooler
+                  collector. Printers have names of the form
+                  $printer-id.  Spooler collectors, used as
+                  pseudo printers, have names of the form
+                  [\node-name]$collector-process-name[.#group-
+                  name].
+                 For disks:  the name and type of the disk:
+                  $volume(disk-type).
+                 For tapes:  $tape-drive-name.
+                 For network devices:  $network-device.
+                 For a loop back device:  $NOIOP.
+
+         DERIVATION:  For CPUs:  Guardian procedure
+                       PROCESSOR_GETINFOLIST_.
+                      For printers:  Spooler procedure
+                       SPOOLERSTATUS2.
+                      For disks and tape drives:  Guardian
+                       procedures DEVICE_GETINFOBYLDEV_ and
+                       FILE_GETINFOBYLISTNAME_."
+       ::= { hrDeviceEntry 3 }
+
+   hrDeviceID OBJECT-TYPE
+       SYNTAX ProductID
+       ACCESS read-only
+       STATUS mandatory
+       DESCRIPTION
+         "An identifier characterizing the entry as a particular
+         device type and subtype.
+
+         VALUE:  The root of the identifier is the same for all
+         entries:1.3.6.1.4.1.169.3.180.  Appended to this value
+         are the type and subtype values.  For example, the
+         hrDeviceID for a 4500 (1038-MB formatted capacity per
+         spindle) disk would look like this:
+         1.3.6.1.4.1.169.3.180.3.22.  Refer to the 'Guardian
+         Procedure Calls Reference Manual' for a complete list
+         of all device types and subtypes.
+
+         DERIVATION:  The product ID for a device is a
+         concatenation of the product ID of the Host Resources
+         Subagent subsystem and the device type and subtype.
+         For processor type, the device type is set to 0."
+       ::= { hrDeviceEntry 4 }
+
+   hrDeviceStatus OBJECT-TYPE
+        SYNTAX  INTEGER {
+             unknown(1),
+             running(2),
+             warning(3),
+             testing(4),
+             down(5)
+        }
+        ACCESS  read-only
+        STATUS  mandatory
+        DESCRIPTION
+         "The current state the device represented by the entry
+         is in.
+
+         VALUE:  One of the following values:  unknown, running,
+         warning, testing, down.
+
+         DERIVATION:  For CPUs:  Guardian procedure
+                       PROCESSORSTATUS.
+                      For printers:  See hrPrinterStatus.
+                      For disks:  Guardian procedure
+                       DEVICE_GETINFOBYLDEV_.
+                      For tapes:  Guardian procedure
+                       DEVICE_GETINFOBYLDEV_.
+                      For network devices:  Guardian procedure
+                       DEVICE_GETINFOBYLDEV_."
+        ::= { hrDeviceEntry 5 }
+
+   hrDeviceErrors OBJECT-TYPE
+       SYNTAX Counter
+       ACCESS read-only
+       STATUS mandatory
+       DESCRIPTION
+         "The number of errors detected on the device described
+         by the entry.
+
+         VALUE:  Integer without leading 0s.
+
+         DERIVATION:  Simulation using information about changes
+         in device states."
+       ::= { hrDeviceEntry 6 }
+
+   hrProcessorTable OBJECT-TYPE
+       SYNTAX SEQUENCE OF HrProcessorEntry
+       ACCESS not-accessible
+       STATUS mandatory
+       DESCRIPTION
+              "The (conceptual) table of processors contained by
+              the host.
+
+              Note that this table is potentially sparse:  a
+              (conceptual) entry exists only if the correspondent
+              value of the hrDeviceType object is
+              'hrDeviceProcessor'."
+       ::= { hrDevice 3 }
+
+   hrProcessorEntry OBJECT-TYPE
+       SYNTAX HrProcessorEntry
+       ACCESS not-accessible
+       STATUS mandatory
+       DESCRIPTION
+         "Information about processors associated with the
+         system."
+       INDEX { hrDeviceIndex }
+       ::= { hrProcessorTable 1 }
+
+   HrProcessorEntry ::= SEQUENCE {
+           hrProcessorFrwID            ProductID,
+           hrProcessorLoad             INTEGER
+       }
+
+   hrProcessorFrwID OBJECT-TYPE
+       SYNTAX ProductID
+       ACCESS read-only
+       STATUS mandatory
+       DESCRIPTION
+         "The value 1.3.6.1.4.1.169.3.180 is always returned."
+       ::= { hrProcessorEntry 1 }
+
+   hrProcessorLoad OBJECT-TYPE
+       SYNTAX INTEGER (0..100)
+       ACCESS read-only
+       STATUS mandatory
+       DESCRIPTION
+         "The average percent of time a processor was not idle
+         during the last minute.
+
+         VALUE:  Integer without leading 0s.
+
+         DERIVATION:  Guardian procedure PROCESSOR_GETINFOLIST_
+         is called to obtain two snapshots of non-idle time
+         since cold load; then the value is calculated as
+         follows: ((non-idle-time-2 - non-idle-time-1)/delta-
+         time)*100."
+       ::= { hrProcessorEntry 2 }
+
+   hrNetworkTable OBJECT-TYPE
+       SYNTAX SEQUENCE OF HrNetworkEntry
+       ACCESS not-accessible
+       STATUS mandatory
+       DESCRIPTION
+              "The (conceptual) table of network devices
+              contained by the host.
+
+              Note that this table is potentially sparse: a
+              (conceptual) entry exists only if the correspondent
+              value of the hrDeviceType object is
+              `hrDeviceNetwork'."
+       ::= { hrDevice 4 }
+
+   hrNetworkEntry OBJECT-TYPE
+       SYNTAX HrNetworkEntry
+       ACCESS not-accessible
+       STATUS mandatory
+       DESCRIPTION
+         "Information about network devices associated with the
+         system."
+       INDEX { hrDeviceIndex }
+       ::= { hrNetworkTable 1 }
+
+   HrNetworkEntry ::= SEQUENCE {
+           hrNetworkIfIndex    INTEGER
+       }
+
+   hrNetworkIfIndex OBJECT-TYPE
+       SYNTAX INTEGER
+       ACCESS read-only
+       STATUS mandatory
+       DESCRIPTION
+         "Value of ifIndex that corresponds to the network
+         device the entry represents.
+
+         VALUE:  Integer without leading 0s.
+
+         DERIVATION:  Computed by Host Resources Subagent."
+       ::= { hrNetworkEntry 1 }
+
+   hrPrinterTable OBJECT-TYPE
+       SYNTAX SEQUENCE OF HrPrinterEntry
+       ACCESS not-accessible
+       STATUS mandatory
+       DESCRIPTION
+              "The (conceptual) table of printers local to the
+              host.
+
+              Note that this table is potentially sparse: a
+              (conceptual) entry exists only if the correspondent
+              value of the hrDeviceType object is
+              `hrDevicePrinter'."
+       ::= { hrDevice 5 }
+
+   hrPrinterEntry OBJECT-TYPE
+       SYNTAX HrPrinterEntry
+       ACCESS not-accessible
+       STATUS mandatory
+       DESCRIPTION
+         "Information about printers associated with the
+         system."
+       INDEX { hrDeviceIndex }
+       ::= { hrPrinterTable 1 }
+
+   HrPrinterEntry ::= SEQUENCE {
+           hrPrinterStatus             INTEGER,
+           hrPrinterDetectedErrorState OCTET STRING
+       }
+
+   hrPrinterStatus OBJECT-TYPE
+       SYNTAX INTEGER {
+           other(1),
+           unknown(2),
+           idle(3),
+           printing(4),
+           warmup(5)
+       }
+       ACCESS read-only
+       STATUS mandatory
+       DESCRIPTION
+         "The current state the printer represented by the entry
+         is in.
+
+         VALUE:  One of the following values:  other (in error
+         or unavailable), idle, printing, or unknown.
+
+         If a printer is defined and recorded by the Spooler
+         supervisor but the device does not exit in reality, the
+         device has an entry in hrDeviceTable and
+         hrPrinterTable, but its device status is defined as
+         down and the printer status is returned as unknown.
+
+         DERIVATION:  Spooler procedure SPOOLERSTATUS2.  The
+         value returned as state maps as follows to
+         hrPrinterStatus/hrDeviceStatus values:  State 1
+         (device waiting) maps to 3/2.  State 2 (device busy)
+         maps to 4/2.  State 3 (device suspended), State 4
+         (device error), state 5 (device offline), and
+         state 6 (print process error) map to 1/5."
+       ::= { hrPrinterEntry 1 }
+
+   hrPrinterDetectedErrorState OBJECT-TYPE
+       SYNTAX OCTET STRING
+       ACCESS read-only
+       STATUS mandatory
+       DESCRIPTION
+         "A description of any error condition existing for the
+         printer.
+
+         VALUE:  One of these values, indicated by setting the
+         octet string bit indicated in parentheses:  offline
+         (bit 6) or noPaper (bit 1).  Offline displays as 40,
+         and noPaper displays as 02.
+
+         DERIVATION:  The last error value returned by Spooler
+         procedure SPOOLERSTATUS2.  Error codes 100 (device not
+         ready) and 104 (device does not respond) are mapped to
+         offline.  Error code 102 (paper out) is mapped to
+         noPaper."
+       ::= { hrPrinterEntry 2 }
+
+   hrDiskStorageTable OBJECT-TYPE
+       SYNTAX SEQUENCE OF HrDiskStorageEntry
+       ACCESS not-accessible
+       STATUS mandatory
+       DESCRIPTION
+              "The (conceptual) table of long-term storage
+              devices contained by the host.  In particular, disk
+              devices accessed remotely over a network are not
+              included here.
+
+              Note that this table is potentially sparse: a
+              (conceptual) entry exists only if the correspondent
+              value of the hrDeviceType object is
+              `hrDeviceDiskStorage'."
+       ::= { hrDevice 6 }
+
+   hrDiskStorageEntry OBJECT-TYPE
+       SYNTAX HrDiskStorageEntry
+       ACCESS not-accessible
+       STATUS mandatory
+       DESCRIPTION
+         "Information about long-term storage devices
+         associated with the system."
+       INDEX { hrDeviceIndex }
+       ::= { hrDiskStorageTable 1 }
+
+   HrDiskStorageEntry ::= SEQUENCE {
+           hrDiskStorageAccess         INTEGER,
+           hrDiskStorageMedia          INTEGER,
+           hrDiskStorageRemoveble      INTEGER,
+           hrDiskStorageCapacity       KBytes
+       }
+
+   hrDiskStorageAccess OBJECT-TYPE
+       SYNTAX INTEGER {
+                       readWrite(1),
+                       readOnly(2)
+               }
+       ACCESS read-only
+       STATUS mandatory
+       DESCRIPTION
+         "An indication of whether the disk represented by the
+         entry is readable and writeable, or only readable.
+         Optical disks are always read-only.
+
+         VALUE:  One of these values:  readWrite or readOnly.
+
+         DERIVATION:  Guardian procedure DEVICE_GETINFOBYLDEV_."
+       ::= { hrDiskStorageEntry 1 }
+
+   hrDiskStorageMedia OBJECT-TYPE
+       SYNTAX INTEGER {
+                   other(1),
+                   unknown(2),
+                   hardDisk(3),
+                   floppyDisk(4),
+                   opticalDiskROM(5),
+                   opticalDiskWORM(6),     -- Write Once Read Many
+                   opticalDiskRW(7),
+                   ramDisk(8)
+               }
+       ACCESS read-only
+       STATUS mandatory
+       DESCRIPTION
+         "A characterization of the type of disk represented by
+         the entry.
+
+         VALUE:  One of these values:  hardDisk or
+         opticalDiskWORM.
+
+         The value opticalDiskWORM is returned for nonwriteable
+         disks.  The value hardDisk is returned for all other
+         disks.
+
+         DERIVATION:  Guardian procedure DEVICE_GETINFOBYLDEV_."
+       ::= { hrDiskStorageEntry 2 }
+
+   hrDiskStorageRemoveble OBJECT-TYPE
+       SYNTAX INTEGER { true(1),
+                        false(2) }
+       ACCESS read-only
+       STATUS mandatory
+       DESCRIPTION
+         "An indication of whether the disk represented by the
+         entry can be removed from the drive.  Optical disks are
+         removable.  Most others are not.
+
+         VALUE:  One of these values:  true (Removable) or false
+         (nonRemovable).
+
+         DERIVATION:  Guardian procedure DEVICE_GETINFOBYLDEV_."
+       ::= { hrDiskStorageEntry 3 }
+
+   hrDiskStorageCapacity OBJECT-TYPE
+       SYNTAX KBytes
+       ACCESS read-only
+       STATUS mandatory
+       DESCRIPTION
+         "The total number of kilobytes the disk represented by
+         the entry can store.
+
+         VALUE:  Integer without leading 0s.
+
+         DERIVATION: Guardian procedure FILE_GETINFOLISTBYNAME_.
+         "
+       ::= { hrDiskStorageEntry 4 }
+
+   hrPartitionTable OBJECT-TYPE
+       SYNTAX SEQUENCE OF HrPartitionEntry
+       ACCESS not-accessible
+       STATUS mandatory
+       DESCRIPTION
+              "The (conceptual) table of partitions for long-term
+              storage devices contained by the host.  In
+              particular, partitions accessed remotely over a
+              network are not included here."
+       ::= { hrDevice 7 }
+
+   hrPartitionEntry OBJECT-TYPE
+       SYNTAX HrPartitionEntry
+       ACCESS not-accessible
+       STATUS mandatory
+       DESCRIPTION
+         "Information about partitions of long-term storage
+         devices associated with the system."
+       INDEX { hrDeviceIndex, hrPartitionIndex }
+       ::= { hrPartitionTable 1 }
+
+   HrPartitionEntry ::= SEQUENCE {
+           hrPartitionIndex                INTEGER,
+           hrPartitionLabel                DisplayString,
+           hrPartitionID                   DisplayString,
+           hrPartitionSize                 KBytes,
+           hrPartitionFSIndex              INTEGER
+       }
+
+   hrPartitionIndex OBJECT-TYPE
+       SYNTAX INTEGER (1..2147483647)
+       ACCESS read-only
+       STATUS mandatory
+       DESCRIPTION
+         "Index to each partition in a disk.
+
+         VALUE:  On a NonStop system, each disk has only one
+         partition, so a value of 1 is always returned."
+       ::= { hrPartitionEntry 1 }
+
+   hrPartitionLabel OBJECT-TYPE
+       SYNTAX DisplayString (SIZE (0..128))
+       ACCESS read-only
+       STATUS mandatory
+       DESCRIPTION
+         "The name of the disk.
+
+         VALUE:  $volume.
+
+         DERIVATION:  Guardian procedure
+         FILE_GETINFOLISTBYNAME_."
+       ::= { hrPartitionEntry 2 }
+
+   hrPartitionID OBJECT-TYPE
+       SYNTAX DisplayString
+       ACCESS read-only
+       STATUS mandatory
+       DESCRIPTION
+         "Partition identifier.
+
+         VALUE:  On a NonStop system, each disk has only one
+         partition, so a value of 1 is always returned."
+       ::= { hrPartitionEntry 3 }
+
+   hrPartitionSize OBJECT-TYPE
+       SYNTAX KBytes
+       ACCESS read-only
+       STATUS mandatory
+       DESCRIPTION
+         "The total number of kilobytes the disk represented by
+         the entry can store.
+
+         VALUE:  Integer without leading 0s.
+
+         DERIVATION:  Guardian procedure
+         FILE_GETINFOLISTBYNAME_."
+       ::= { hrPartitionEntry 4 }
+
+   hrPartitionFSIndex OBJECT-TYPE
+       SYNTAX INTEGER (0..2147483647)
+       ACCESS read-only
+       STATUS mandatory
+       DESCRIPTION
+         "An index value having a corresponding value
+         (hrFSIndex) in the hrFSTable.
+
+         VALUE:  Integer without leading 0s.
+
+         DERIVATION:  Computed by Host Resources Subagent."
+       ::= { hrPartitionEntry 5 }
+
+
+   -- The File System Table
+   hrFSTable OBJECT-TYPE
+       SYNTAX SEQUENCE OF HrFSEntry
+       ACCESS not-accessible
+       STATUS mandatory
+       DESCRIPTION
+               "The (conceptual) table of file systems local to
+               this host or remotely mounted from a file server.
+               File systems that are in only one user's
+               environment on a multi-user system will not be
+               included in this table."
+       ::= { hrDevice 8 }
+
+   hrFSEntry OBJECT-TYPE
+       SYNTAX HrFSEntry
+       ACCESS not-accessible
+       STATUS mandatory
+       DESCRIPTION
+         "Information about each file system associated with
+         the system.  For NonStop systems, there is one file
+         system entry per writeable disk."
+       INDEX { hrFSIndex }
+       ::= { hrFSTable 1 }
+
+   -- Registration for some popular File System types,
+   -- for use with hrFSType.
+
+   hrFSTypes               OBJECT IDENTIFIER ::= { hrDevice 9 }
+
+   hrFSOther               OBJECT IDENTIFIER ::= { hrFSTypes 1 }
+   hrFSUnknown             OBJECT IDENTIFIER ::= { hrFSTypes 2 }
+   hrFSBerkeleyFFS         OBJECT IDENTIFIER ::= { hrFSTypes 3 }
+   hrFSSys5FS              OBJECT IDENTIFIER ::= { hrFSTypes 4 }
+   -- DOS
+   hrFSFat                 OBJECT IDENTIFIER ::= { hrFSTypes 5 }
+   -- OS/2 High Performance File System
+   hrFSHPFS                OBJECT IDENTIFIER ::= { hrFSTypes 6 }
+   --  Macintosh Hierarchical File System
+   hrFSHFS                 OBJECT IDENTIFIER ::= { hrFSTypes 7 }
+
+
+   -- Macintosh File System
+   hrFSMFS                 OBJECT IDENTIFIER ::= { hrFSTypes 8 }
+   -- Windows NT
+   hrFSNTFS                OBJECT IDENTIFIER ::= { hrFSTypes 9 }
+   hrFSVNode               OBJECT IDENTIFIER ::= { hrFSTypes 10 }
+   hrFSJournaled           OBJECT IDENTIFIER ::= { hrFSTypes 11 }
+   -- CD File systems
+   hrFSiso9660             OBJECT IDENTIFIER ::= { hrFSTypes 12 }
+   hrFSRockRidge           OBJECT IDENTIFIER ::= { hrFSTypes 13 }
+
+   hrFSNFS                 OBJECT IDENTIFIER ::= { hrFSTypes 14 }
+   hrFSNetware             OBJECT IDENTIFIER ::= { hrFSTypes 15 }
+   -- Andrew File System
+   hrFSAFS                 OBJECT IDENTIFIER ::= { hrFSTypes 16 }
+   -- OSF DCE Distributed File System
+   hrFSDFS                 OBJECT IDENTIFIER ::= { hrFSTypes 17 }
+   hrFSAppleshare          OBJECT IDENTIFIER ::= { hrFSTypes 18 }
+   hrFSRFS                 OBJECT IDENTIFIER ::= { hrFSTypes 19 }
+   -- Data General
+   hrFSDGCFS               OBJECT IDENTIFIER ::= { hrFSTypes 20 }
+   -- SVR4 Boot File System
+   hrFSBFS                 OBJECT IDENTIFIER ::= { hrFSTypes 21 }
+
+
+
+   HrFSEntry ::= SEQUENCE {
+           hrFSIndex                   INTEGER,
+           hrFSMountPoint              DisplayString,
+           hrFSRemoteMountPoint        DisplayString,
+           hrFSType                    OBJECT IDENTIFIER,
+           hrFSAccess                  INTEGER,
+           hrFSBootable                INTEGER,
+           hrFSStorageIndex            INTEGER,
+           hrFSLastFullBackupDate      DateAndTime,
+           hrFSLastPartialBackupDate   DateAndTime
+       }
+
+   hrFSIndex OBJECT-TYPE
+       SYNTAX INTEGER (1..2147483647)
+       ACCESS read-only
+       STATUS mandatory
+       DESCRIPTION
+         "Index to the entry having a corresponding value
+         (hrPartitionFSIndex) in the hrPartition Table.
+
+         VALUE:  Integer without leading 0s.
+
+         DERIVATION:  Computed by Host Resources Subagent."
+       ::= { hrFSEntry 1 }
+
+   hrFSMountPoint OBJECT-TYPE
+       SYNTAX DisplayString (SIZE(0..128))
+       ACCESS read-only
+       STATUS mandatory
+       DESCRIPTION
+         "The name of the disk.
+
+         VALUE:  $volume.
+
+         DERIVATION:  Guardian procedure
+         FILE_GETINFOLISTBYNAME_."
+       ::= { hrFSEntry 2 }
+
+   hrFSRemoteMountPoint OBJECT-TYPE
+       SYNTAX DisplayString (SIZE(0..128))
+       ACCESS read-only
+       STATUS mandatory
+       DESCRIPTION
+         "Name of the system.
+
+         VALUE:  \system name."
+       ::= { hrFSEntry 3 }
+
+   hrFSType OBJECT-TYPE
+       SYNTAX OBJECT IDENTIFIER
+       ACCESS read-only
+       STATUS mandatory
+       DESCRIPTION
+         "An object identifier from RFC 1514 identifying the
+         type of file system represented by the entry.
+
+         VALUE:  1.3.6.1.2.1.25.3.9.1 (hrFSOther).
+
+         DERIVATION:  RFC 1514."
+       ::= { hrFSEntry 4 }
+
+   hrFSAccess OBJECT-TYPE
+       SYNTAX INTEGER {
+               readWrite(1),
+               readOnly(2)
+           }
+       ACCESS read-only
+       STATUS mandatory
+       DESCRIPTION
+         "An indication of whether the entry describes a file
+         system that is readable and writeable, or only
+         readable.
+
+         VALUE:  Always readWrite."
+       ::= { hrFSEntry 5 }
+
+   hrFSBootable OBJECT-TYPE
+       SYNTAX INTEGER { true(1),
+                        false(2) }
+       ACCESS read-only
+       STATUS mandatory
+       DESCRIPTION
+         "An indication of whether the disk represented by the
+         entry is bootable.  For NonStop systems, only $SYSTEM
+         is bootable.
+
+         VALUE:  One of these values:  true (bootable) or false
+         (nonBootable).
+
+         DERIVATION:  Bootable if hrFSMountPoint is $SYSTEM."
+       ::= { hrFSEntry 6 }
+
+   hrFSStorageIndex OBJECT-TYPE
+       SYNTAX INTEGER (0..2147483647)
+       ACCESS read-only
+       STATUS mandatory
+       DESCRIPTION
+         "An index that has a corresponding value in the
+         hrStorageTable (hrStorageIndex).
+
+         INDEX:  Integer without leading 0s.
+
+         DERIVATION:  Computed by Host Resources Subagent."
+       ::= { hrFSEntry 7 }
+
+   hrFSLastFullBackupDate OBJECT-TYPE
+       SYNTAX DateAndTime
+       ACCESS read-only
+       STATUS mandatory
+       DESCRIPTION
+         "For NonStop systems, the value for this object is
+         unknown, so (hex)00 00 01 01 00 00 00 00,
+         representing the value January 1, year 0000,00:00:00.0,
+         is returned."
+       ::= { hrFSEntry 8 }
+
+   hrFSLastPartialBackupDate OBJECT-TYPE
+       SYNTAX DateAndTime
+       ACCESS read-only
+       STATUS mandatory
+       DESCRIPTION
+         "For NonStop systems, the value for this object is
+         unknown, so (hex)00 00 01 01 00 00 00 00,
+         representing the value January 1, year 0000,00:00:00.0,
+         is returned."
+       ::= { hrFSEntry 9 }
+
+   -- The Host Resources Running Software Group
+   --
+   -- Implementation of this group is optional.
+   --
+   -- The following object does not fully comply with RFC 1514:
+   --   hrSWRunStatus:  Set operation not supported.
+
+   -- The hrSWRunTable contains an entry for each distinct piece of
+   -- software that is running or loaded into physical or virtual
+   -- memory in preparation for running.  This includes the host's
+   -- operating system, device drivers, and applications.
+
+   hrSWOSIndex OBJECT-TYPE
+       SYNTAX INTEGER (1..2147483647)
+       ACCESS read-only
+       STATUS mandatory
+       DESCRIPTION
+         "An index value that points to the hrSWRunTable entry
+         for the operating system associated with the lowest-
+         numbered CPU on the system.
+
+         VALUE:  Integer without leading 0s.
+
+         DERIVATION:  Computed by Host Resources Subagent."
+       ::= { hrSWRun 1 }
+
+   hrSWRunTable OBJECT-TYPE
+       SYNTAX SEQUENCE OF HrSWRunEntry
+       ACCESS not-accessible
+       STATUS mandatory
+       DESCRIPTION
+              "The (conceptual) table of software running on the
+              host."
+       ::= { hrSWRun 2 }
+
+   hrSWRunEntry OBJECT-TYPE
+       SYNTAX HrSWRunEntry
+       ACCESS not-accessible
+       STATUS mandatory
+       DESCRIPTION
+         "Information about each process the -e startup
+         parameter specifies that is currently running on the
+         system.  Each process running has one entry.  If the
+         process is running as a process pair, each member has a
+         separate entry."
+       INDEX { hrSWRunIndex }
+       ::= { hrSWRunTable 1 }
+
+   HrSWRunEntry ::= SEQUENCE {
+           hrSWRunIndex       INTEGER,
+           hrSWRunName        DisplayString,
+           hrSWRunID          ProductID,
+           hrSWRunPath        DisplayString,
+           hrSWRunParameters  DisplayString,
+           hrSWRunType        INTEGER,
+           hrSWRunStatus      INTEGER
+       }
+
+   hrSWRunIndex OBJECT-TYPE
+       SYNTAX INTEGER (1..2147483647)
+       ACCESS read-only
+       STATUS mandatory
+       DESCRIPTION
+         "Index values that point to entries in the
+         hrSWRunPerfTable.
+
+         VALUE:  For the Host Resources Subagent:  1 (primary
+                  process) or 2 (backup process).
+                 For the NonStop agent:  11 (primary process) or
+                  12 (backup process).
+                 For the operating system associated with each
+                  CPU:  100 through 199.
+                 For other processes:  ((CPU+1)*1000)+PIN.
+
+         DERIVATION:  Comnputed by Host Resources Subagent."
+       ::= { hrSWRunEntry 1 }
+
+   hrSWRunName OBJECT-TYPE
+       SYNTAX DisplayString (SIZE (0..64))
+       ACCESS read-only
+       STATUS mandatory
+       DESCRIPTION
+         "The unqualified name of the program file whose process
+         the entry represents.
+
+         VALUE:  For non-operating system processes:
+                  unqualified file name.
+                 For operating systems:  NSK Dnn, where Dnn is
+                  the operating system version.
+
+         DERIVATION:  For non-operating system processes, the
+         name is derived by using Guardian procedure
+         PROCESS_GETINFOLIST_."
+       ::= { hrSWRunEntry 2 }
+
+   hrSWRunID OBJECT-TYPE
+       SYNTAX ProductID
+       ACCESS read-only
+       STATUS mandatory
+       DESCRIPTION
+         "An identifier for the process.
+
+         VALUE:  1.3.6.1.4.1.169.3.180.0.
+
+         DERIVATION:  For non-operating system processes,
+         a 0 is added to the subagent's object identifier.
+         For operating system processes, 9050 is added."
+       ::= { hrSWRunEntry 3 }
+
+   hrSWRunPath OBJECT-TYPE
+       SYNTAX DisplayString (SIZE(0..128))
+       ACCESS read-only
+       STATUS mandatory
+       DESCRIPTION
+         "The fully qualified name of the program file whose
+         process the entry represents.
+
+         VALUE:  For non-operating system processes,
+         \node-name.$volume-name.subvolume-name.
+         program-file-name.  For operating system processes,
+         $SYSTEM.SYSnn.OS, identifying the subvolume from
+         which the system is loaded.
+
+         DERIVATION:  The name is derived by using Guardian
+         procedure PROCESS_GETINFOLIST_."
+       ::= { hrSWRunEntry 4 }
+
+   hrSWRunParameters OBJECT-TYPE
+       SYNTAX DisplayString (SIZE(0..128))
+       ACCESS read-only
+       STATUS mandatory
+       DESCRIPTION
+         "Information describing the process.
+
+         VALUE:  A series of values describing such process
+         attributes as CPU number, PIN, process role (primary,
+         backup, single), process name, process start time,
+         PAID, home terminal ID, and CPU load time.  An example
+         for a non-operating system processes is:
+            $HMSA1-P(9,87) started April 12, 1995 12:11:32.2.
+            by 165,243.
+         An example for an operating system process is:
+            CPU 0 loaded with D20.06 at March 18, 1995
+            14:44:3.0 (running 36 days, 21 hours, 7 minutes, 3
+            seconds).
+
+         DERIVATION:  The information is derived by using
+         Guardian procedure PROCESS_GETINFOLIST_."
+       ::= { hrSWRunEntry 5 }
+
+   hrSWRunType OBJECT-TYPE
+       SYNTAX INTEGER {
+                   unknown(1),
+                   operatingSystem(2),
+                   deviceDriver(3),
+                   application(4)
+              }
+       ACCESS read-only
+       STATUS mandatory
+       DESCRIPTION
+         "The type of software the entry represents.
+
+         VALUE:  One of the following values:  operatingSystem
+         or application.  The value operatingSystem is returned
+         for NonStop system processes.  The value application is
+         returned for all other processes.
+
+         DERIVATION:  When Guardian procedure
+         PROCESS_GETINFOLIST_ returns a value of 3 for process
+         state, a process is identified as an operating system
+         process.  Any other return value indicates the process
+         is an application process."
+       ::= { hrSWRunEntry 6 }
+
+   hrSWRunStatus OBJECT-TYPE
+       SYNTAX INTEGER {
+               running(1),
+               runnable(2),    -- waiting for resource (CPU, memory, IO)
+               notRunnable(3), -- loaded but waiting for event
+               invalid(4)      -- not loaded
+           }
+       ACCESS read-only
+       STATUS mandatory
+       DESCRIPTION
+         "The state of the process.
+
+         VALUE:  One of the following values:  running or
+         runnable.
+
+         DERIVATION:  The process state information returned by
+         Guardian procedure PROCESS_GETINFOLIST_ is mapped to
+         values as follows:
+            1 if bit 1 and 2 are off.
+            2 if bit 1 or 2 are on.
+         For operating system entries, the value is always
+         running."
+       ::= { hrSWRunEntry 7 }
+
+
+   -- The Host Resources Running Software Performance Group
+   -- Implementation of this group is optional.
+   --
+   -- The hrSWRunPerfTable contains an entry corresponding to
+   -- each entry in the hrSWRunTable.
+
+   hrSWRunPerfTable OBJECT-TYPE
+       SYNTAX SEQUENCE OF HrSWRunPerfEntry
+       ACCESS not-accessible
+       STATUS mandatory
+       DESCRIPTION
+               "The (conceptual) table of running software
+               performance metrics."
+       ::= { hrSWRunPerf 1 }
+
+   hrSWRunPerfEntry OBJECT-TYPE
+       SYNTAX HrSWRunPerfEntry
+       ACCESS not-accessible
+       STATUS mandatory
+       DESCRIPTION
+         "Entries providing performance metrics for resources
+         having entries in the hrSWRun group."
+       INDEX  { hrSWRunIndex }  -- This table augments information in
+                                -- the hrSWRunTable.
+       ::= { hrSWRunPerfTable 1 }
+
+   HrSWRunPerfEntry ::= SEQUENCE {
+           hrSWRunPerfCPU          INTEGER,
+           hrSWRunPerfMem          KBytes
+   }
+
+   hrSWRunPerfCPU OBJECT-TYPE
+       SYNTAX INTEGER
+       ACCESS read-only
+       STATUS mandatory
+       DESCRIPTION
+         "The number of centiseconds of the total system's CPU
+         resources consumed by the process described by this
+         entry.  For operating system entries, the CPU busy
+         time.
+
+         VALUE:  Integer without leading 0s.
+
+         DERIVATION:  The process time is obtained by calling
+         Guardian procedure PROCESS_GETINFOLIST_.  If the time
+         is less than 1 centisecond (tick), the value is rounded
+         up to 1."
+       ::= { hrSWRunPerfEntry 1 }
+
+   hrSWRunPerfMem OBJECT-TYPE
+       SYNTAX KBytes
+       ACCESS read-only
+       STATUS mandatory
+       DESCRIPTION
+         "The kilobytes associated with the memory pages that
+         have been swapped in by the process represented by this
+         entry and which are still resident.  For operating
+         system entries, the amount of RAM installed in the
+         corresponding CPU.
+
+         VALUE:  Integer without leading 0s.
+
+         DERIVATION:  Guardian procedure FILE_GETINFOLIST_.  The
+         value for non-operating system entries is derived from
+         the current page value returned."
+       ::= { hrSWRunPerfEntry 2 }
+
+   -- The Host Resources Installed Software Group
+   --
+   -- Implementation of this group is optional.
+   --
+   -- The hrSWInstalledTable contains an entry for each piece
+   -- of software installed in long-term storage (e.g. a disk
+   -- drive) locally on this host.  Note that this does not
+   -- include software loadable remotely from a network
+   -- server.
+   --
+   -- This table is useful for identifying and inventorying
+   -- software on a host and for diagnosing incompatibility
+   -- and version mismatch problems between various pieces
+   -- of hardware and software.
+
+   hrSWInstalledLastChange OBJECT-TYPE
+       SYNTAX TimeTicks
+       ACCESS read-only
+       STATUS mandatory
+       DESCRIPTION
+              "The value of sysUpTime when an entry in the
+              hrSWInstalledTable was last added, renamed, or
+              deleted.  Because this table is likely to contain
+              many entries, polling of this object allows a
+              management station to determine when re-downloading
+              of the table might be useful."
+       ::= { hrSWInstalled 1 }
+
+   hrSWInstalledLastUpdateTime OBJECT-TYPE
+       SYNTAX TimeTicks
+       ACCESS read-only
+       STATUS mandatory
+       DESCRIPTION
+              "The value of sysUpTime when the hrSWInstalledTable
+              was last completely updated.  Because caching of
+              this data will be a popular implementation
+              strategy, retrieval of this object allows a
+              management station to obtain a guarantee that no
+              data in this table is older than the indicated
+              time."
+       ::= { hrSWInstalled 2 }
+
+   hrSWInstalledTable OBJECT-TYPE
+       SYNTAX SEQUENCE OF HrSWInstalledEntry
+       ACCESS not-accessible
+       STATUS mandatory
+       DESCRIPTION
+              "The (conceptual) table of software installed on
+              this host."
+       ::= { hrSWInstalled 3 }
+
+   hrSWInstalledEntry OBJECT-TYPE
+       SYNTAX HrSWInstalledEntry
+       ACCESS not-accessible
+       STATUS mandatory
+       DESCRIPTION
+              "A (conceptual) entry for a piece of software
+              installed on this host.
+
+              As an example of how objects in this table are
+              named, an instance of the hrSWInstalledName object
+              might be named hrSWInstalledName.96"
+       INDEX { hrSWInstalledIndex }
+       ::= { hrSWInstalledTable 1 }
+
+   HrSWInstalledEntry ::= SEQUENCE {
+           hrSWInstalledIndex       INTEGER,
+           hrSWInstalledName        DisplayString,
+           hrSWInstalledID          ProductID,
+           hrSWInstalledType        INTEGER,
+           hrSWInstalledDate        DateAndTime
+   }
+
+   hrSWInstalledIndex OBJECT-TYPE
+       SYNTAX INTEGER (1..2147483647)
+       ACCESS read-only
+       STATUS mandatory
+       DESCRIPTION
+              "A unique value for each piece of software
+              installed on the host.  This value shall be in the
+              range from 1 to the number of pieces of software
+              installed on the host."
+       ::= { hrSWInstalledEntry 1 }
+
+   hrSWInstalledName OBJECT-TYPE
+       SYNTAX DisplayString (SIZE (0..64))
+       ACCESS read-only
+       STATUS mandatory
+       DESCRIPTION
+              "A textual description of this installed piece of
+              software, including the manufacturer, revision, the
+              name by which it is commonly known, and optionally,
+              its serial number."
+       ::= { hrSWInstalledEntry 2 }
+
+   hrSWInstalledID OBJECT-TYPE
+       SYNTAX ProductID
+       ACCESS read-only
+       STATUS mandatory
+       DESCRIPTION
+              "The product ID of this installed piece of
+              software."
+       ::= { hrSWInstalledEntry 3 }
+
+   hrSWInstalledType OBJECT-TYPE
+       SYNTAX INTEGER {
+                   unknown(1),
+                   operatingSystem(2),
+                   deviceDriver(3),
+                   application(4)
+              }
+       ACCESS read-only
+       STATUS mandatory
+       DESCRIPTION
+               "The type of this software."
+       ::= { hrSWInstalledEntry 4 }
+
+   hrSWInstalledDate OBJECT-TYPE
+       SYNTAX DateAndTime
+       ACCESS read-only
+       STATUS mandatory
+       DESCRIPTION
+              "The last-modification date of this application as
+              it would appear in a directory listing."
+       ::= { hrSWInstalledEntry 5 }
+
+   END
+

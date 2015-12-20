@@ -1,0 +1,108 @@
+"Name","Full Name","OID","Type","Access","Indexes","MIB Module","Description"
+"hh3cEntityExtTrapsPrefix",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix",".1.3.6.1.4.1.25506.2.6.2.0",,,"","HH3C-ENTITY-EXT-MIB",
+"hh3cEntityExtTemperatureThresholdNotification",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtTemperatureThresholdNotification",".1.3.6.1.4.1.25506.2.6.2.0.1",,,"","HH3C-ENTITY-EXT-MIB","The hh3cEntityExtTemperatureThresholdNotification
+indicates the temperature exceeded the threshold.
+In this condition, user should check the status and the
+environment of the entity, sometimes it happens because
+of the failure of air-condition."
+"hh3cEntityExtVoltageLowThresholdNotification",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtVoltageLowThresholdNotification",".1.3.6.1.4.1.25506.2.6.2.0.2",,,"","HH3C-ENTITY-EXT-MIB","The hh3cEntityExtVoltageLowThresholdNotification indicates
+the voltage is lower than the threshold.
+If the voltage is lower too much than the entity needs,
+the entity will halt."
+"hh3cEntityExtVoltageHighThresholdNotification",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtVoltageHighThresholdNotification",".1.3.6.1.4.1.25506.2.6.2.0.3",,,"","HH3C-ENTITY-EXT-MIB","The hh3cEntityExtVoltageHighThresholdNotification indicates
+the voltage is higher than the threshold.
+If the voltage is higher too much than the entity needs,
+The entity may be damaged by the high voltage."
+"hh3cEntityExtCpuUsageThresholdNotfication",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtCpuUsageThresholdNotfication",".1.3.6.1.4.1.25506.2.6.2.0.4",,,"","HH3C-ENTITY-EXT-MIB","The hh3cEntityExtCpuUsageThresholdNotfication indicates
+the entity is overloaded."
+"hh3cEntityExtMemUsageThresholdNotification",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtMemUsageThresholdNotification",".1.3.6.1.4.1.25506.2.6.2.0.5",,,"","HH3C-ENTITY-EXT-MIB","The hh3cEntityExtMemUsageThresholdNotification indicates
+the entity is overloaded."
+"hh3cEntityExtOperEnabled",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtOperEnabled",".1.3.6.1.4.1.25506.2.6.2.0.6",,,"","HH3C-ENTITY-EXT-MIB","The trap indicates the entity is operable at present."
+"hh3cEntityExtOperDisabled",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtOperDisabled",".1.3.6.1.4.1.25506.2.6.2.0.7",,,"","HH3C-ENTITY-EXT-MIB","The trap indicates the entity is not operable at present."
+"hh3cEntityExtCriticalTemperatureThresholdNotification",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtCriticalTemperatureThresholdNotification",".1.3.6.1.4.1.25506.2.6.2.0.8",,,"","HH3C-ENTITY-EXT-MIB","The hh3cEntityExtCriticalTemperatureThresholdNotification
+indicates the temperature exceeds the critical temperature.
+In this condition, user should check the status and the
+environment of the entity, sometimes it happens because
+of the failure of air-condition."
+"hh3cEntityExtSFPAlarmOn",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtSFPAlarmOn",".1.3.6.1.4.1.25506.2.6.2.0.9",,,"","HH3C-ENTITY-EXT-MIB","The trap is generated when the SFP module fails
+or runs abnormally for some particular reason."
+"hh3cEntityExtSFPAlarmOff",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtSFPAlarmOff",".1.3.6.1.4.1.25506.2.6.2.0.10",,,"","HH3C-ENTITY-EXT-MIB","The trap is generated when the SFP module restores to
+normal status."
+"hh3cEntityExtSFPPhony",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtSFPPhony",".1.3.6.1.4.1.25506.2.6.2.0.11",,,"","HH3C-ENTITY-EXT-MIB","This module is NOT sold by authorized manufacturer.
+The normal function of the device or assume the maintenance
+responsibility thereof will NOT be guaranteed.
+The trap is generated periodically after a phony module has been
+found."
+"hh3cEntityInsert",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityInsert",".1.3.6.1.4.1.25506.2.6.2.0.12",,,"","HH3C-ENTITY-EXT-MIB","The trap is generated when a removable entity inserting to
+device."
+"hh3cEntityRemove",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityRemove",".1.3.6.1.4.1.25506.2.6.2.0.13",,,"","HH3C-ENTITY-EXT-MIB","The trap is generated when a removable entity removing from
+device."
+"hh3cEntityExtForcedPowerOff",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtForcedPowerOff",".1.3.6.1.4.1.25506.2.6.2.0.14",,,"","HH3C-ENTITY-EXT-MIB","The trap indicates the entity is forced to power off."
+"hh3cEntityExtForcedPowerOn",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtForcedPowerOn",".1.3.6.1.4.1.25506.2.6.2.0.15",,,"","HH3C-ENTITY-EXT-MIB","The trap indicates the entity is forced to power on."
+"hh3cEntityExtFaultAlarmOn",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtFaultAlarmOn",".1.3.6.1.4.1.25506.2.6.2.0.16",,,"","HH3C-ENTITY-EXT-MIB","The trap indicates a fault occurs on the specified entity."
+"hh3cEntityExtFaultAlarmOff",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtFaultAlarmOff",".1.3.6.1.4.1.25506.2.6.2.0.17",,,"","HH3C-ENTITY-EXT-MIB","The trap indicates a fault disappears on the specified entity."
+"hh3cEntityExtResourceLack",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtResourceLack",".1.3.6.1.4.1.25506.2.6.2.0.18",,,"","HH3C-ENTITY-EXT-MIB","The trap indicates that a kind of resource is not enough on the
+specified entity."
+"hh3cEntityExtResourceEnough",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtResourceEnough",".1.3.6.1.4.1.25506.2.6.2.0.19",,,"","HH3C-ENTITY-EXT-MIB","The trap indicates that the entity recovers from the status of no
+enough resource."
+"hh3cEntityExtTemperatureLower",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtTemperatureLower",".1.3.6.1.4.1.25506.2.6.2.0.20",,,"","HH3C-ENTITY-EXT-MIB","The trap indicates the temperature of a specified entity is under
+the lower threshold. In this condition, user should check the
+status and the environment of the entity, sometimes it goes wrong
+for some reason."
+"hh3cEntityExtTemperatureTooUp",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtTemperatureTooUp",".1.3.6.1.4.1.25506.2.6.2.0.21",,,"","HH3C-ENTITY-EXT-MIB","The trap indicates the temperature of a specified entity exceeded
+the shutdown threshold. In this condition, user should check the
+status and the environment of the entity, sometimes it goes wrong
+for some reason."
+"hh3cEntityExtTemperatureNormal",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtTemperatureNormal",".1.3.6.1.4.1.25506.2.6.2.0.22",,,"","HH3C-ENTITY-EXT-MIB","The trap indicates the temperature of a specified entity recover
+from abnormal status."
+"hh3cEntityExternalAlarmOccur",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExternalAlarmOccur",".1.3.6.1.4.1.25506.2.6.2.0.23",,,"","HH3C-ENTITY-EXT-MIB","The trap is generated when the monitored device connected to the
+specified entity fails."
+"hh3cEntityExternalAlarmRecover",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExternalAlarmRecover",".1.3.6.1.4.1.25506.2.6.2.0.24",,,"","HH3C-ENTITY-EXT-MIB","The trap is generated when the failed device connected to the
+specified entity returns to normal."
+"hh3cEntityExtCpuUsageThresholdRecover",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtCpuUsageThresholdRecover",".1.3.6.1.4.1.25506.2.6.2.0.25",,,"","HH3C-ENTITY-EXT-MIB","The trap indicates the CPU usage descends the threshold."
+"hh3cEntityExtMemUsageThresholdRecover",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtMemUsageThresholdRecover",".1.3.6.1.4.1.25506.2.6.2.0.26",,,"","HH3C-ENTITY-EXT-MIB","The trap indicates the memory usage descends the threshold."
+"hh3cEntityExtMemAllocatedFailed",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtMemAllocatedFailed",".1.3.6.1.4.1.25506.2.6.2.0.27",,,"","HH3C-ENTITY-EXT-MIB","The trap indicates the memory allocated failed."
+"hh3cEntityExtECCParityAlarm",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtECCParityAlarm",".1.3.6.1.4.1.25506.2.6.2.0.28",,,"","HH3C-ENTITY-EXT-MIB","The trap indicates the ECC(Error Correction Code) parity error alarm."
+"hh3cEntityExtCritLowerTempThresholdNotification",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtCritLowerTempThresholdNotification",".1.3.6.1.4.1.25506.2.6.2.0.29",,,"","HH3C-ENTITY-EXT-MIB","The hh3cEntityExtCritLowerTempThresholdNotification
+indicates the temperature is lower than the threshold.
+If the temperature is lower too much than the entity needs,
+the entity will halt."
+"hh3cEntityExtTemperatureTooLow",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtTemperatureTooLow",".1.3.6.1.4.1.25506.2.6.2.0.30",,,"","HH3C-ENTITY-EXT-MIB","The hh3cEntityExtTemperatureTooLow indicates the temperature
+is lower than the threshold.
+If the temperature is lower too much than the entity needs,
+the entity halts now."
+"hh3cEntityExtFanDirectionNotPreferred",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtFanDirectionNotPreferred",".1.3.6.1.4.1.25506.2.6.2.0.31",,,"","HH3C-ENTITY-EXT-MIB","This trap indicates the specified fan's direction does not
+accord with preferred. The two parameters indicate the entity
+index and physical name of fan."
+"hh3cEntityExtFanDirectionNotAccord",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtFanDirectionNotAccord",".1.3.6.1.4.1.25506.2.6.2.0.32",,,"","HH3C-ENTITY-EXT-MIB","This trap indicates the direction of fans does not accord
+with each other. The two parameters indicate the parent
+entity of the fans."
+"hh3cEntityExtSFPInvalid",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtSFPInvalid",".1.3.6.1.4.1.25506.2.6.2.0.33",,,"","HH3C-ENTITY-EXT-MIB","The transceiver module is not compatible with the interface card.
+The authorized manufacturer therefore shall NOT guarantee
+the normal function of the transceiver.
+The transceiver module will be invalidated in days.
+Please replace it with a compatible one as soon as possible.
+The trap is generated periodically after a phony transceiver module
+has been found."
+"hh3cEntityExtSFPInvalidNow",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtSFPInvalidNow",".1.3.6.1.4.1.25506.2.6.2.0.34",,,"","HH3C-ENTITY-EXT-MIB","This transceiver module is not compatible with the interface card.
+The authorized manufacturer therefore shall NOT guarantee
+the normal function of the transceiver.
+The trap is generated after a phony transceiver module
+has been found."
+"hh3cEntityExtMemUsageThresholdOverTrap",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtMemUsageThresholdOverTrap",".1.3.6.1.4.1.25506.2.6.2.0.35",,,"","HH3C-ENTITY-EXT-MIB","This trap indicates that the memory usage of the entity is
+overloaded.
+This trap is used to replace
+hh3cEntityExtMemUsageThresholdNotification."
+"hh3cEntityExtMemUsageThresholdRecoverTrap",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtMemUsageThresholdRecoverTrap",".1.3.6.1.4.1.25506.2.6.2.0.36",,,"","HH3C-ENTITY-EXT-MIB","This trap indicates that the memory usage decreased below
+the threshold.
+This trap is used to replace
+hh3cEntityExtMemUsageThresholdRecover."
+"hh3cEntityExtVoltageNormal",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtVoltageNormal",".1.3.6.1.4.1.25506.2.6.2.0.37",,,"","HH3C-ENTITY-EXT-MIB","This trap indicates that the voltage recovers to normal."
+"hh3cEntityExtVoltageLower",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtVoltageLower",".1.3.6.1.4.1.25506.2.6.2.0.38",,,"","HH3C-ENTITY-EXT-MIB","This trap indicates that the voltage is lower than the
+low threshold."
+"hh3cEntityExtVoltageTooLow",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtVoltageTooLow",".1.3.6.1.4.1.25506.2.6.2.0.39",,,"","HH3C-ENTITY-EXT-MIB","This trap indicates that the voltage is lower than the
+fatal low threshold."
+"hh3cEntityExtVoltageHigher",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtVoltageHigher",".1.3.6.1.4.1.25506.2.6.2.0.40",,,"","HH3C-ENTITY-EXT-MIB","This trap indicates that the voltage is higher than the
+high threshold."
+"hh3cEntityExtVoltageTooHigh",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cEntityExtend.hh3cEntityExtTraps.hh3cEntityExtTrapsPrefix.hh3cEntityExtVoltageTooHigh",".1.3.6.1.4.1.25506.2.6.2.0.41",,,"","HH3C-ENTITY-EXT-MIB","This trap indicates that the voltage is higher than the
+fatal high threshold."

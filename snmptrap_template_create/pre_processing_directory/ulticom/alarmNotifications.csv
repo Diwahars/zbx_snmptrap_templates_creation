@@ -1,0 +1,29 @@
+"Name","Full Name","OID","Type","Access","Indexes","MIB Module","Description"
+"alarmNotifications",".iso.org.dod.internet.mgmt.mib-2.alarmMIB.alarmNotifications",".1.3.6.1.2.1.118.0",,,"","ALARM-MIB",
+"alarmActiveState",".iso.org.dod.internet.mgmt.mib-2.alarmMIB.alarmNotifications.alarmActiveState",".1.3.6.1.2.1.118.0.2",,,"","ALARM-MIB","An instance of the alarm indicated by
+alarmActiveModelPointer has been raised
+against the entity indicated by
+alarmActiveResourceId.
+The agent must throttle the generation of
+consecutive alarmActiveState traps so that there is at
+least a two-second gap between traps of this
+type against the same alarmActiveModelPointer and
+alarmActiveResourceId.  When traps are throttled,
+they are dropped, not queued for sending at a future time.
+A management application should periodically check
+the value of alarmActiveLastChanged to detect any
+missed alarmActiveState notification-events, e.g.,
+due to throttling or transmission loss."
+"alarmClearState",".iso.org.dod.internet.mgmt.mib-2.alarmMIB.alarmNotifications.alarmClearState",".1.3.6.1.2.1.118.0.3",,,"","ALARM-MIB","An instance of the alarm indicated by
+alarmActiveModelPointer has been cleared against
+the entity indicated by alarmActiveResourceId.
+The agent must throttle the generation of
+consecutive alarmActiveClear traps so that there is at
+least a two-second gap between traps of this
+type against the same alarmActiveModelPointer and
+alarmActiveResourceId.  When traps are throttled,
+they are dropped, not queued for sending at a future time.
+A management application should periodically check
+the value of alarmActiveLastChanged to detect any
+missed alarmClearState notification-events, e.g.,
+due to throttling or transmission loss."

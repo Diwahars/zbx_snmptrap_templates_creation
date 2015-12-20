@@ -1,0 +1,14 @@
+"Name","Full Name","OID","Type","Access","Indexes","MIB Module","Description"
+"swnrNotifications",".iso.org.dod.internet.private.enterprises.ulticom.swnr.swnrMIB.swnrNotifications",".1.3.6.1.4.1.6629.10.1.0",,,"","ULTICOM-SWNR-MIB",
+"ulcmNsStandardEvent",".iso.org.dod.internet.private.enterprises.ulticom.swnr.swnrMIB.swnrNotifications.ulcmNsStandardEvent",".1.3.6.1.4.1.6629.10.1.0.1",,,"","ULTICOM-SWNR-MIB","StandardEvent Notification:Raised when an event with no
+associated resource is detected into the swnr platform"
+"ulcmNsResourceEvent",".iso.org.dod.internet.private.enterprises.ulticom.swnr.swnrMIB.swnrNotifications.ulcmNsResourceEvent",".1.3.6.1.4.1.6629.10.1.0.2",,,"","ULTICOM-SWNR-MIB","ResourceEvent Notification:Raised when an event with an
+associated resource is detected into the swnr platform"
+"ulcmNsShutdown",".iso.org.dod.internet.private.enterprises.ulticom.swnr.swnrMIB.swnrNotifications.ulcmNsShutdown",".1.3.6.1.4.1.6629.10.1.0.3",,,"","ULTICOM-SWNR-MIB","Shutdown Notification:Raised when an swnr platform shutdown
+is detected"
+"ulcmNsActiveAgentChange",".iso.org.dod.internet.private.enterprises.ulticom.swnr.swnrMIB.swnrNotifications.ulcmNsActiveAgentChange",".1.3.6.1.4.1.6629.10.1.0.4",,,"","ULTICOM-SWNR-MIB","ActiveAgentChange Notification:Raised when the SNMP agent is
+designed as 'active' by TAP"
+"ulcmNsAlarmActive",".iso.org.dod.internet.private.enterprises.ulticom.swnr.swnrMIB.swnrNotifications.ulcmNsAlarmActive",".1.3.6.1.4.1.6629.10.1.0.5",,,"","ULTICOM-SWNR-MIB","AlarmActive Notification:Raised when a new alarm is created into
+the AlarmActiveTable"
+"ulcmNsAlarmClear",".iso.org.dod.internet.private.enterprises.ulticom.swnr.swnrMIB.swnrNotifications.ulcmNsAlarmClear",".1.3.6.1.4.1.6629.10.1.0.6",,,"","ULTICOM-SWNR-MIB","AlarmActive Notification:Raised when a previously created alarm
+is deleted from AlarmActiveTable"

@@ -1,0 +1,22 @@
+"Name","Full Name","OID","Type","Access","Indexes","MIB Module","Description"
+"hh3cIPSecNotifications",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIPSecMonitor.hh3cIPSecObjects.hh3cIPSecTrap.hh3cIPSecNotifications",".1.3.6.1.4.1.25506.2.7.1.8.1",,,"","HH3C-IPSEC-MONITOR-MIB",
+"hh3cIPSecTunnelStart",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIPSecMonitor.hh3cIPSecObjects.hh3cIPSecTrap.hh3cIPSecNotifications.hh3cIPSecTunnelStart",".1.3.6.1.4.1.25506.2.7.1.8.1.1",,,"","HH3C-IPSEC-MONITOR-MIB","This notification is generated when an IPSec Phase-2
+Tunnel is created."
+"hh3cIPSecTunnelStop",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIPSecMonitor.hh3cIPSecObjects.hh3cIPSecTrap.hh3cIPSecNotifications.hh3cIPSecTunnelStop",".1.3.6.1.4.1.25506.2.7.1.8.1.2",,,"","HH3C-IPSEC-MONITOR-MIB","This notification is generated when an IPSec Phase-2
+Tunnel is deleted."
+"hh3cIPSecNoSaFailure",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIPSecMonitor.hh3cIPSecObjects.hh3cIPSecTrap.hh3cIPSecNotifications.hh3cIPSecNoSaFailure",".1.3.6.1.4.1.25506.2.7.1.8.1.3",,,"","HH3C-IPSEC-MONITOR-MIB","This notification is generated when an IPSec Phase-2
+non-existent SA error occurs."
+"hh3cIPSecAuthFailFailure",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIPSecMonitor.hh3cIPSecObjects.hh3cIPSecTrap.hh3cIPSecNotifications.hh3cIPSecAuthFailFailure",".1.3.6.1.4.1.25506.2.7.1.8.1.4",,,"","HH3C-IPSEC-MONITOR-MIB","This notification is generated when the IPSec phase-2
+authentication failure occurs."
+"hh3cIPSecEncryFailFailure",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIPSecMonitor.hh3cIPSecObjects.hh3cIPSecTrap.hh3cIPSecNotifications.hh3cIPSecEncryFailFailure",".1.3.6.1.4.1.25506.2.7.1.8.1.5",,,"","HH3C-IPSEC-MONITOR-MIB","This notification is generated when the IPSec phase-2
+tunnel has an encrypting failure."
+"hh3cIPSecDecryFailFailure",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIPSecMonitor.hh3cIPSecObjects.hh3cIPSecTrap.hh3cIPSecNotifications.hh3cIPSecDecryFailFailure",".1.3.6.1.4.1.25506.2.7.1.8.1.6",,,"","HH3C-IPSEC-MONITOR-MIB","This notification is generated when the IPSec phase-2
+tunnel has a decrypting failure."
+"hh3cIPSecInvalidSaFailure",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIPSecMonitor.hh3cIPSecObjects.hh3cIPSecTrap.hh3cIPSecNotifications.hh3cIPSecInvalidSaFailure",".1.3.6.1.4.1.25506.2.7.1.8.1.7",,,"","HH3C-IPSEC-MONITOR-MIB","This notification is generated when the IPSec phase-2
+invalid SA failure occurs."
+"hh3cIPSecPolicyAdd",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIPSecMonitor.hh3cIPSecObjects.hh3cIPSecTrap.hh3cIPSecNotifications.hh3cIPSecPolicyAdd",".1.3.6.1.4.1.25506.2.7.1.8.1.8",,,"","HH3C-IPSEC-MONITOR-MIB","This notification is generated when an IPSec policy is added."
+"hh3cIPSecPolicyDel",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIPSecMonitor.hh3cIPSecObjects.hh3cIPSecTrap.hh3cIPSecNotifications.hh3cIPSecPolicyDel",".1.3.6.1.4.1.25506.2.7.1.8.1.9",,,"","HH3C-IPSEC-MONITOR-MIB","This notification is generated when an IPSec policy is deleted."
+"hh3cIPSecPolicyAttach",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIPSecMonitor.hh3cIPSecObjects.hh3cIPSecTrap.hh3cIPSecNotifications.hh3cIPSecPolicyAttach",".1.3.6.1.4.1.25506.2.7.1.8.1.10",,,"","HH3C-IPSEC-MONITOR-MIB","This notification is generated when an IPSec policy is attached
+with one interface."
+"hh3cIPSecPolicyDetach",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cIPSecMonitor.hh3cIPSecObjects.hh3cIPSecTrap.hh3cIPSecNotifications.hh3cIPSecPolicyDetach",".1.3.6.1.4.1.25506.2.7.1.8.1.11",,,"","HH3C-IPSEC-MONITOR-MIB","This notification is generated when an IPSec policy is detached
+with one interface."

@@ -1,0 +1,9 @@
+"Name","Full Name","OID","Type","Access","Indexes","MIB Module","Description"
+"lldpNotificationPrefix",".iso.std.iso8802.ieee802dot1.ieee802dot1mibs.lldpMIB.lldpNotifications.lldpNotificationPrefix",".1.0.8802.1.1.2.0.0",,,"","LLDP-MIB",
+"lldpRemTablesChange",".iso.std.iso8802.ieee802dot1.ieee802dot1mibs.lldpMIB.lldpNotifications.lldpNotificationPrefix.lldpRemTablesChange",".1.0.8802.1.1.2.0.0.1",,,"","LLDP-MIB","A lldpRemTablesChange notification is sent when the value
+of lldpStatsRemTableLastChangeTime changes.  It can be
+utilized by an NMS to trigger LLDP remote systems table
+maintenance polls.
+Note that transmission of lldpRemTablesChange
+notifications are throttled by the agent, as specified by the
+'lldpNotificationInterval' object."

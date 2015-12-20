@@ -1,0 +1,659 @@
+<?xml version="1.0" ?>
+<zabbix_export>
+	<version>2.0</version>
+	<date>2015-12-19T21:16:28Z</date>
+	<groups>
+		<group>
+			<name>Custom Template Globe Touch</name>
+		</group>
+	</groups>
+	<templates>
+		<template>
+			<template>Template SNMP Traps INS MIB Nodes</template>
+			<name>Template SNMP Traps INS MIB Nodes</name>
+			<groups>
+				<group>
+					<name>Custom Template Globe Touch</name>
+				</group>
+			</groups>
+			<applications>
+				<application>
+					<name>Alarms</name>
+				</application>
+			</applications>
+			<items>
+				<item>
+					<name>Alarm Notification For : insSubagentRestartTrap</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.169.10.1.0.1$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>The INS Subagent has (re)started  The PDU contains the INS trap sequence count (which for this trap is always ) and the startup mode (cold warm) </description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : insNodeMgmtActivated</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.169.10.1.0.2$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>SNMP management for a given INS node has been activated The PDU contains the INS trap sequence count and the INS node ID </description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : insNodeMgmtDeactivated</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.169.10.1.0.3$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>SNMP management for a given INS node has been deactivated The PDU contains the INS trap sequence count and the INS node ID </description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : insAlarmActivateTrap</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.169.10.1.1.0.1$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>Issued when an alarm is activated  The PDU contains the global trap sequence number INS node ID alarm table entry count timestamp of table update alarm ID miscellaneous attributes encoded as display string descriptive text and alarm location </description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : insAlarmDeactivateTrap</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.169.10.1.1.0.2$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>One or more alarms have been deactivated by the INS Subagent The PDU contains the global trap sequence number INS node ID active alarm count (after rendering this operation) timestamp of alarm table update deactivate mode (insAlarmStatus) and deactivation cause  Whether values for the remaining objects (insAlarmId insEradCatId insAlarmEradNum) are meaningful depends upon the deactivate mode as follows Mode                Consequence 'offone' ()       Release the alarm associated with the alarm ID value given by the insAlarmId object  Values for the insEradCatId and insAlarmEradNum objects are meaningless 'offall' ()       Release all alarms  Values for the insAlarmId insEradCatId and insAlarmEradNum objects are meaningless 'offcategory' ()  Release alarms of the category identified by the insEradCatId object  Values for the insAlarmId and insAlarmEradNum objects are meaningless 'offgroup' ()     Release alarms with the ER report number given by the insAlarmEradNum object and category given by the insEradCatId object The value of the insAlarmId object is meaningless </description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : insEradTrap</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.169.10.1.1.0.3$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>This trap conveys informational ER (nonalarmable event) information  The PDU contains the INS trap sequence number INS node ID and ER text ( lines combined in one string) </description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : insEradAlarmSubsystemRestart</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.169.10.1.1.0.4$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>This trap signals that the alarm subsystem has reinitialized as a result of a configuration change or fault recovery  SNMP Manager Applications should refresh any cache they maintain of alarmassociated data </description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : insFullTextEradTrap</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.169.10.1.1.0.5$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>This trap conveys informational ER (nonalarmable event) information  The PDU contains the INS trap sequence number INS node ID and full ER text (all lines combined in one string) </description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : insStatsRestart</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.169.10.1.2.0.1$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>This trap indicates that the Statistics subsystem has been (re)initialized for the indicated INS node  This occurs at program startup (or restart in case of a fatal failure) and when the INS node statistics configuration is changed and cut over  NSMs should flush any cached statistics configuration data and retrieve a fresh set from the SNMP Agent </description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : insStatsRegSetTableChanged</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.169.10.1.2.0.2$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>This trap indicates that new statistics register set mapping data has been added to the insStatsRegSetIdTable and insStatsRegSetNameTable objects for the indicated INS node REFERENCE insStatsRegSetIdTable and insStatsRegSetNameTable</description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : insStatsGroupSumPosted</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.169.10.1.2.0.3$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>This trap indicates that a new statistics summary has been posted for a given statistics group on a given node </description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+				<item>
+					<name>Alarm Notification For : insNwCfgTableChange</name>
+					<type>17</type>
+					<snmp_community/>
+					<multiplier>0</multiplier>
+					<snmp_oid/>
+					<key>snmptrap[&quot;(\benterprises.169.10.1.3.0.1$\b)&quot;]</key>
+					<delay>0</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>2</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<description>Identifies a network configuration table that has been initialized or has changed </description>
+					<inventory_link>0</inventory_link>
+					<valuemap/>
+					<applications>
+						<application>
+							<name>Alarms</name>
+						</application>
+					</applications>
+				</item>
+			</items>
+			<discovery_rules/>
+			<macros/>
+			<templates/>
+			<screens/>
+		</template>
+	</templates>
+	<triggers>
+		<trigger>
+			<expression>{Template SNMP Traps INS MIB Nodes:snmptrap[&quot;(\benterprises.169.10.1.0.1$\b)&quot;].str(&quot;enterprises.169.10.1.0.1&quot;)}=1 &amp; {Template SNMP Traps INS MIB Nodes:snmptrap[&quot;(\benterprises.169.10.1.0.1$\b)&quot;].nodata(3d)}=0</expression>
+			<name>The INS Subagent has (re)started</name>
+			<url/>
+			<status>0</status>
+			<priority>4</priority>
+			<description>The INS Subagent has (re)started  The PDU contains the INS trap sequence count (which for this trap is always ) and the startup mode (cold warm) </description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps INS MIB Nodes:snmptrap[&quot;(\benterprises.169.10.1.0.2$\b)&quot;].str(&quot;enterprises.169.10.1.0.2&quot;)}=1 &amp; {Template SNMP Traps INS MIB Nodes:snmptrap[&quot;(\benterprises.169.10.1.0.2$\b)&quot;].nodata(1d)}=0</expression>
+			<name>SNMP management for a given INS node has been activated.</name>
+			<url/>
+			<status>0</status>
+			<priority>1</priority>
+			<description>SNMP management for a given INS node has been activated The PDU contains the INS trap sequence count and the INS node ID </description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps INS MIB Nodes:snmptrap[&quot;(\benterprises.169.10.1.0.3$\b)&quot;].str(&quot;enterprises.169.10.1.0.3&quot;)}=1 &amp; {Template SNMP Traps INS MIB Nodes:snmptrap[&quot;(\benterprises.169.10.1.0.3$\b)&quot;].nodata(3d)}=0 &amp; {Template SNMP Traps INS MIB Nodes:snmptrap[&quot;(\benterprises.169.10.1.0.2$\b)&quot;].str(&quot;enterprises.169.10.1.0.2&quot;)}=0</expression>
+			<name>SNMP management for a given INS node has been deactivated.</name>
+			<url/>
+			<status>0</status>
+			<priority>4</priority>
+			<description>SNMP management for a given INS node has been deactivated The PDU contains the INS trap sequence count and the INS node ID </description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps INS MIB Nodes:snmptrap[&quot;(\benterprises.169.10.1.1.0.1$\b)&quot;].str(&quot;enterprises.169.10.1.1.0.1&quot;)}=1 &amp; {Template SNMP Traps INS MIB Nodes:snmptrap[&quot;(\benterprises.169.10.1.1.0.1$\b)&quot;].nodata(1d)}=0</expression>
+			<name>Alarm Activated.</name>
+			<url/>
+			<status>0</status>
+			<priority>1</priority>
+			<description>Issued when an alarm is activated  The PDU contains the global trap sequence number INS node ID alarm table entry count timestamp of table update alarm ID miscellaneous attributes encoded as display string descriptive text and alarm location </description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps INS MIB Nodes:snmptrap[&quot;(\benterprises.169.10.1.1.0.2$\b)&quot;].str(&quot;enterprises.169.10.1.1.0.2&quot;)}=1 &amp; {Template SNMP Traps INS MIB Nodes:snmptrap[&quot;(\benterprises.169.10.1.1.0.2$\b)&quot;].nodata(3d)}=0 &amp; {Template SNMP Traps INS MIB Nodes:snmptrap[&quot;(\benterprises.169.10.1.1.0.1$\b)&quot;].str(&quot;enterprises.169.10.1.1.0.1&quot;)}=0</expression>
+			<name>One or more alarms have been deactivated by the INS Subagent.</name>
+			<url/>
+			<status>0</status>
+			<priority>4</priority>
+			<description>One or more alarms have been deactivated by the INS Subagent The PDU contains the global trap sequence number INS node ID active alarm count (after rendering this operation) timestamp of alarm table update deactivate mode (insAlarmStatus) and deactivation cause  Whether values for the remaining objects (insAlarmId insEradCatId insAlarmEradNum) are meaningful depends upon the deactivate mode as follows Mode                Consequence 'offone' ()       Release the alarm associated with the alarm ID value given by the insAlarmId object  Values for the insEradCatId and insAlarmEradNum objects are meaningless 'offall' ()       Release all alarms  Values for the insAlarmId insEradCatId and insAlarmEradNum objects are meaningless 'offcategory' ()  Release alarms of the category identified by the insEradCatId object  Values for the insAlarmId and insAlarmEradNum objects are meaningless 'offgroup' ()     Release alarms with the ER report number given by the insAlarmEradNum object and category given by the insEradCatId object The value of the insAlarmId object is meaningless </description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps INS MIB Nodes:snmptrap[&quot;(\benterprises.169.10.1.1.0.3$\b)&quot;].str(&quot;enterprises.169.10.1.1.0.3&quot;)}=1 &amp; {Template SNMP Traps INS MIB Nodes:snmptrap[&quot;(\benterprises.169.10.1.1.0.3$\b)&quot;].nodata(3d)}=0</expression>
+			<name>ER (nonalarmable event) information.</name>
+			<url/>
+			<status>0</status>
+			<priority>1</priority>
+			<description>This trap conveys informational ER (nonalarmable event) information  The PDU contains the INS trap sequence number INS node ID and ER text ( lines combined in one string) </description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps INS MIB Nodes:snmptrap[&quot;(\benterprises.169.10.1.1.0.4$\b)&quot;].str(&quot;enterprises.169.10.1.1.0.4&quot;)}=1 &amp; {Template SNMP Traps INS MIB Nodes:snmptrap[&quot;(\benterprises.169.10.1.1.0.4$\b)&quot;].nodata(3d)}=0</expression>
+			<name>Subsystem has reinitialized as a result of a configuration change or fault recovery.</name>
+			<url/>
+			<status>0</status>
+			<priority>4</priority>
+			<description>This trap signals that the alarm subsystem has reinitialized as a result of a configuration change or fault recovery  SNMP Manager Applications should refresh any cache they maintain of alarmassociated data </description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps INS MIB Nodes:snmptrap[&quot;(\benterprises.169.10.1.1.0.5$\b)&quot;].str(&quot;enterprises.169.10.1.1.0.5&quot;)}=1 &amp; {Template SNMP Traps INS MIB Nodes:snmptrap[&quot;(\benterprises.169.10.1.1.0.5$\b)&quot;].nodata(3d)}=0</expression>
+			<name>Informational ER (nonalarmable event) information.</name>
+			<url/>
+			<status>0</status>
+			<priority>1</priority>
+			<description>This trap conveys informational ER (nonalarmable event) information  The PDU contains the INS trap sequence number INS node ID and full ER text (all lines combined in one string) </description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps INS MIB Nodes:snmptrap[&quot;(\benterprises.169.10.1.2.0.1$\b)&quot;].str(&quot;enterprises.169.10.1.2.0.1&quot;)}=1 &amp; {Template SNMP Traps INS MIB Nodes:snmptrap[&quot;(\benterprises.169.10.1.2.0.1$\b)&quot;].nodata(3d)}=0</expression>
+			<name>Statistics subsystem has been (re)initialized for the indicated INS node.</name>
+			<url/>
+			<status>0</status>
+			<priority>4</priority>
+			<description>This trap indicates that the Statistics subsystem has been (re)initialized for the indicated INS node  This occurs at program startup (or restart in case of a fatal failure) and when the INS node statistics configuration is changed and cut over  NSMs should flush any cached statistics configuration data and retrieve a fresh set from the SNMP Agent </description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps INS MIB Nodes:snmptrap[&quot;(\benterprises.169.10.1.2.0.2$\b)&quot;].str(&quot;enterprises.169.10.1.2.0.2&quot;)}=1 &amp; {Template SNMP Traps INS MIB Nodes:snmptrap[&quot;(\benterprises.169.10.1.2.0.2$\b)&quot;].nodata(3d)}=0</expression>
+			<name>New statistics register set mapping data has been added to the insStatsRegSetIdTable and insStatsRegSetNameTable objects.</name>
+			<url/>
+			<status>0</status>
+			<priority>4</priority>
+			<description>This trap indicates that new statistics register set mapping data has been added to the insStatsRegSetIdTable and insStatsRegSetNameTable objects for the indicated INS node REFERENCE insStatsRegSetIdTable and insStatsRegSetNameTable</description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps INS MIB Nodes:snmptrap[&quot;(\benterprises.169.10.1.2.0.3$\b)&quot;].str(&quot;enterprises.169.10.1.2.0.3&quot;)}=1 &amp; {Template SNMP Traps INS MIB Nodes:snmptrap[&quot;(\benterprises.169.10.1.2.0.3$\b)&quot;].nodata(3d)}=0</expression>
+			<name>New statistics summary has been posted for a given statistics group on a given node.</name>
+			<url/>
+			<status>0</status>
+			<priority>1</priority>
+			<description>This trap indicates that a new statistics summary has been posted for a given statistics group on a given node </description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+		<trigger>
+			<expression>{Template SNMP Traps INS MIB Nodes:snmptrap[&quot;(\benterprises.169.10.1.3.0.1$\b)&quot;].str(&quot;enterprises.169.10.1.3.0.1&quot;)}=1 &amp; {Template SNMP Traps INS MIB Nodes:snmptrap[&quot;(\benterprises.169.10.1.3.0.1$\b)&quot;].nodata(3d)}=0</expression>
+			<name>Identifies a network configuration table that has been initialized or has changed.</name>
+			<url/>
+			<status>0</status>
+			<priority>3</priority>
+			<description>Identifies a network configuration table that has been initialized or has changed </description>
+			<type>0</type>
+			<dependencies/>
+		</trigger>
+	</triggers>
+	<graphs/>
+</zabbix_export>

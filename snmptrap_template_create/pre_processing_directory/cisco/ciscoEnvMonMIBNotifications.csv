@@ -1,0 +1,55 @@
+"Name","Full Name","OID","Type","Access","Indexes","MIB Module","Description"
+"ciscoEnvMonMIBNotifications",".iso.org.dod.internet.private.enterprises.cisco.ciscoMgmt.ciscoEnvMonMIB.ciscoEnvMonMIBNotificationPrefix.ciscoEnvMonMIBNotifications",".1.3.6.1.4.1.9.9.13.3.0",,,"","CISCO-ENVMON-MIB",
+"ciscoEnvMonShutdownNotification",".iso.org.dod.internet.private.enterprises.cisco.ciscoMgmt.ciscoEnvMonMIB.ciscoEnvMonMIBNotificationPrefix.ciscoEnvMonMIBNotifications.ciscoEnvMonShutdownNotification",".1.3.6.1.4.1.9.9.13.3.0.1",,,"","CISCO-ENVMON-MIB","A ciscoEnvMonShutdownNotification is sent if the environmental
+monitor detects a testpoint reaching a critical state
+and is about to initiate a shutdown.  This notification
+contains no objects so that it may be encoded and sent in the
+shortest amount of time possible.  Even so, management
+applications should not rely on receiving such a notification
+as it may not be sent before the shutdown completes."
+"ciscoEnvMonVoltageNotification",".iso.org.dod.internet.private.enterprises.cisco.ciscoMgmt.ciscoEnvMonMIB.ciscoEnvMonMIBNotificationPrefix.ciscoEnvMonMIBNotifications.ciscoEnvMonVoltageNotification",".1.3.6.1.4.1.9.9.13.3.0.2",,,"","CISCO-ENVMON-MIB","A ciscoEnvMonVoltageNotification is sent if the voltage
+measured at a given testpoint is outside the normal range
+for the testpoint (i.e. is at the warning, critical, or
+shutdown stage).  Since such a notification is usually
+generated before the shutdown state is reached, it can
+convey more data and has a better chance of being sent
+than does the ciscoEnvMonShutdownNotification.
+This notification is deprecated in favour of
+ciscoEnvMonVoltStatusChangeNotif."
+"ciscoEnvMonTemperatureNotification",".iso.org.dod.internet.private.enterprises.cisco.ciscoMgmt.ciscoEnvMonMIB.ciscoEnvMonMIBNotificationPrefix.ciscoEnvMonMIBNotifications.ciscoEnvMonTemperatureNotification",".1.3.6.1.4.1.9.9.13.3.0.3",,,"","CISCO-ENVMON-MIB","A ciscoEnvMonTemperatureNotification is sent if the
+temperature measured at a given testpoint is outside
+the normal range for the testpoint (i.e. is at the warning,
+critical, or shutdown stage).  Since such a Notification
+is usually generated before the shutdown state is reached,
+it can convey more data and has a better chance of being
+sent than does the ciscoEnvMonShutdownNotification.
+This notification is deprecated in favour of
+ciscoEnvMonTempStatusChangeNotif."
+"ciscoEnvMonFanNotification",".iso.org.dod.internet.private.enterprises.cisco.ciscoMgmt.ciscoEnvMonMIB.ciscoEnvMonMIBNotificationPrefix.ciscoEnvMonMIBNotifications.ciscoEnvMonFanNotification",".1.3.6.1.4.1.9.9.13.3.0.4",,,"","CISCO-ENVMON-MIB","A ciscoEnvMonFanNotification is sent if any one of
+the fans in the fan array (where extant) fails.
+Since such a notification is usually generated before
+the shutdown state is reached, it can convey more
+data and has a better chance of being sent
+than does the ciscoEnvMonShutdownNotification.
+This notification is deprecated in favour of
+ciscoEnvMonFanStatusChangeNotif."
+"ciscoEnvMonRedundantSupplyNotification",".iso.org.dod.internet.private.enterprises.cisco.ciscoMgmt.ciscoEnvMonMIB.ciscoEnvMonMIBNotificationPrefix.ciscoEnvMonMIBNotifications.ciscoEnvMonRedundantSupplyNotification",".1.3.6.1.4.1.9.9.13.3.0.5",,,"","CISCO-ENVMON-MIB","A ciscoEnvMonRedundantSupplyNotification is sent if
+the redundant power supply (where extant) fails.
+Since such a notification is usually generated before
+the shutdown state is reached, it can convey more
+data and has a better chance of being sent
+than does the ciscoEnvMonShutdownNotification.
+This notification is deprecated in favour of
+ciscoEnvMonSuppStatusChangeNotif."
+"ciscoEnvMonVoltStatusChangeNotif",".iso.org.dod.internet.private.enterprises.cisco.ciscoMgmt.ciscoEnvMonMIB.ciscoEnvMonMIBNotificationPrefix.ciscoEnvMonMIBNotifications.ciscoEnvMonVoltStatusChangeNotif",".1.3.6.1.4.1.9.9.13.3.0.6",,,"","CISCO-ENVMON-MIB","A ciscoEnvMonVoltStatusChangeNotif is sent if there is
+change in the state of a device being monitored
+by ciscoEnvMonVoltageState."
+"ciscoEnvMonTempStatusChangeNotif",".iso.org.dod.internet.private.enterprises.cisco.ciscoMgmt.ciscoEnvMonMIB.ciscoEnvMonMIBNotificationPrefix.ciscoEnvMonMIBNotifications.ciscoEnvMonTempStatusChangeNotif",".1.3.6.1.4.1.9.9.13.3.0.7",,,"","CISCO-ENVMON-MIB","A ciscoEnvMonTempStatusChangeNotif is sent if there
+is change in the state of a device being monitored
+by ciscoEnvMonTemperatureState."
+"ciscoEnvMonFanStatusChangeNotif",".iso.org.dod.internet.private.enterprises.cisco.ciscoMgmt.ciscoEnvMonMIB.ciscoEnvMonMIBNotificationPrefix.ciscoEnvMonMIBNotifications.ciscoEnvMonFanStatusChangeNotif",".1.3.6.1.4.1.9.9.13.3.0.8",,,"","CISCO-ENVMON-MIB","A ciscoEnvMonFanStatusChangeNotif is sent if there
+is change in the state of a device being monitored
+by ciscoEnvMonFanState."
+"ciscoEnvMonSuppStatusChangeNotif",".iso.org.dod.internet.private.enterprises.cisco.ciscoMgmt.ciscoEnvMonMIB.ciscoEnvMonMIBNotificationPrefix.ciscoEnvMonMIBNotifications.ciscoEnvMonSuppStatusChangeNotif",".1.3.6.1.4.1.9.9.13.3.0.9",,,"","CISCO-ENVMON-MIB","A ciscoEnvMonSupplyStatChangeNotif is sent if there
+is change in the state of a device being monitored
+by ciscoEnvMonSupplyState."

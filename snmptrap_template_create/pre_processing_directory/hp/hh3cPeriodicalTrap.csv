@@ -1,0 +1,6 @@
+"Name","Full Name","OID","Type","Access","Indexes","MIB Module","Description"
+"hh3cPeriodicalNotificationPrefix",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cTrap.hh3cTableGroup.hh3cPeriodicalTrapGroup.hh3cPeriodicalNotification.hh3cPeriodicalNotificationPrefix",".1.3.6.1.4.1.25506.2.38.1.6.3.0",,,"","HH3C-TRAP-MIB",
+"hh3cPeriodicalTrap",".iso.org.dod.internet.private.enterprises.hh3c.hh3cCommon.hh3cTrap.hh3cTableGroup.hh3cPeriodicalTrapGroup.hh3cPeriodicalNotification.hh3cPeriodicalNotificationPrefix.hh3cPeriodicalTrap",".1.3.6.1.4.1.25506.2.38.1.6.3.0.1",,,"","HH3C-TRAP-MIB","If no trap occurs during the interval spicified by
+hh3cPeriodicalTrapInterval, an hh3cPeriodicalTrap
+will be generated. If the interval is set to 0, no
+hh3cPeriodicalTrap will be generated."

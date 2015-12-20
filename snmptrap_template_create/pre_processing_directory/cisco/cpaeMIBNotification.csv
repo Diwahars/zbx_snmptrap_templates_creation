@@ -1,0 +1,14 @@
+"Name","Full Name","OID","Type","Access","Indexes","MIB Module","Description"
+"cpaeMIBNotification",".iso.org.dod.internet.private.enterprises.cisco.ciscoMgmt.ciscoPaeMIB.cpaeMIBNotification",".1.3.6.1.4.1.9.9.220.0",,,"","CISCO-PAE-MIB",
+"cpaeNoGuestVlanNotif",".iso.org.dod.internet.private.enterprises.cisco.ciscoMgmt.ciscoPaeMIB.cpaeMIBNotification.cpaeNoGuestVlanNotif",".1.3.6.1.4.1.9.9.220.0.1",,,"","CISCO-PAE-MIB","A cpaeNoGuestVlanNotif is sent if a non-802.1x
+supplicant is detected on a PAE port for which the
+value of corresponding instance of
+dot1xAuthAuthControlledPortControl is 'auto' and the
+value of corresponding instance of cpaeGuestVlanNumber
+is zero."
+"cpaeNoAuthFailVlanNotif",".iso.org.dod.internet.private.enterprises.cisco.ciscoMgmt.ciscoPaeMIB.cpaeMIBNotification.cpaeNoAuthFailVlanNotif",".1.3.6.1.4.1.9.9.220.0.2",,,"","CISCO-PAE-MIB","A cpaeNoAuthFailVlanNotif is sent if a 802.1x
+supplicant fails to authenticate on a PAE port for
+which the value of corresponding instance of
+dot1xAuthAuthControlledPortControl is 'auto' and the
+value of corresponding instance of cpaePortAuthFailVlan
+is zero."
