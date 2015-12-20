@@ -1,10 +1,10 @@
 <?xml version="1.0" ?>
 <zabbix_export>
 	<version>2.0</version>
-	<date>2015-12-19T21:16:28Z</date>
+	<date>2015-12-20T20:40:09Z</date>
 	<groups>
 		<group>
-			<name>Custom Template Globe Touch</name>
+			<name>Custom Template GT</name>
 		</group>
 	</groups>
 	<templates>
@@ -13,7 +13,7 @@
 			<name>Template SNMP Traps HP SIM Nodes</name>
 			<groups>
 				<group>
-					<name>Custom Template Globe Touch</name>
+					<name>Custom Template GT</name>
 				</group>
 			</groups>
 			<applications>
