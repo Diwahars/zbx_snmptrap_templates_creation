@@ -1,6 +1,9 @@
 import os
 import re
+import argparse
 from logging import exception
+import logging
+
 
 # dictionary to hold IANA SMI numbers.
 iana_smi_numbers = {
@@ -145,15 +148,15 @@ iana_smi_name_to_numbers = {
 }
 
 ins_mibs_dictionary = {
-    'tandem':'1.3.6.1.4.1.169',
-    'nonstopsystems':'1.3.6.1.4.1.169.3 ',
-    'ems':'1.3.6.1.4.1.169.3.12 ',
-    'ntsp':'1.3.6.1.4.1.169.10 ',
-    'ins':'1.3.6.1.4.1.169.10.1 ',
-    'insErad':'1.3.6.1.4.1.169.10.1.1 ',
-    'insStats':'1.3.6.1.4.1.169.10.1.2 ',
-    'insNwConfig':'1.3.6.1.4.1.169.10.1.3 ',
-    'insEradInfo':'1.3.6.1.4.1.169.10.1.1.10'
+    'tandem': '1.3.6.1.4.1.169',
+    'nonstopsystems': '1.3.6.1.4.1.169.3 ',
+    'ems': '1.3.6.1.4.1.169.3.12 ',
+    'ntsp': '1.3.6.1.4.1.169.10 ',
+    'ins': '1.3.6.1.4.1.169.10.1 ',
+    'insErad': '1.3.6.1.4.1.169.10.1.1 ',
+    'insStats': '1.3.6.1.4.1.169.10.1.2 ',
+    'insNwConfig': '1.3.6.1.4.1.169.10.1.3 ',
+    'insEradInfo': '1.3.6.1.4.1.169.10.1.1.10'
 }
 
 sim_mib_dictionary = {
@@ -445,9 +448,11 @@ regex_string = re.compile('TRAP-TYPE$')
 regex_string_ent = re.compile('ENTERPRISE')
 regex_string_description = re.compile('DESCRIPTION')
 regex_string_till_exp_str = re.compile('--#SEVERITY|--#TYPE|--#SUMMARY|::=')
-mib_trap_data_list = []
+
 
 def merge_dictionary():
+
+    # Merging Dictionaries.
     merged_dictionary = sim_mib_dictionary.copy()
     merged_dictionary.update(iana_smi_name_to_numbers)
     merged_dictionary.update(ins_mibs_dictionary)
@@ -456,7 +461,10 @@ def merge_dictionary():
 # making it public as this data uis static
 merged_data = merge_dictionary()
 
+
 def check_comment_trap(line_to_process):
+
+    # Skipping lines.
     if line_to_process.strip()[:2] == '--' or line_to_process.strip()[:9] == 'TRAP-TYPE' \
             or line_to_process.strip() == '':
         return True
@@ -465,6 +473,8 @@ def check_comment_trap(line_to_process):
 
 
 def get_oid_from_name(enterprise_name):
+
+    # Searching for OIDs.
     if enterprise_name in merged_data:
         return merged_data[enterprise_name]
     else:
@@ -472,13 +482,20 @@ def get_oid_from_name(enterprise_name):
 
 
 def parsing_trap(path_to_files):
+
+    # Setting check list.
     continue_check = True
     found_trap = False
+    file_trap_list = []
 
+    # Processing File.
     file_to_read_desc = open(path_to_files)
+
+    # Processing.
     for line in file_to_read_desc:
 
         if check_comment_trap(line):
+            # Ignoring comments and other lines.
             continue
 
         if regex_string.search(line) and continue_check == True:
@@ -519,8 +536,11 @@ def parsing_trap(path_to_files):
             continue_check = True
             found_trap = False
 
-            mib_trap_data_list.append(file_dictionary)
-    return mib_trap_data_list
+            # Debugging.
+            #logging.DEBUG(str(file_dictionary))
+
+            file_trap_list.append(file_dictionary)
+    return file_trap_list
 
 
 def remove_file(file_remove):
@@ -541,10 +561,21 @@ def get_files_from_directory(path_to_files):
 
 
 def file_processing(path_to_files):
+
+    # Generating list from directory.
     file_list = get_files_from_directory(path_to_files)
+    mib_trap_data_list = []
 
     for item in file_list:
-        parsing_trap(path_to_files + item)
+
+        # Debug information
+        #logging.DEBUG("Processing File : " + str(item))
+
+        # Processing File.
+        file_trap_list = parsing_trap(path_to_files + item)
+        mib_trap_data_list = mib_trap_data_list + file_trap_list
+
+    return mib_trap_data_list
 
 
 def mib_file_obj_ident_dictionary(path_to_files):
@@ -558,50 +589,63 @@ def mib_file_obj_ident_dictionary(path_to_files):
         for line in file_to_read_desc:
             # Skipping Commented line.
             if line.strip()[:2] == '--':
+                #logging.DEBUG("SKIPPING LINE : " + line)
                 continue
             if regex_string.search(line):
                 object_key_line = line.strip().replace('OBJECT IDENTIFIER ::=', '').replace('{', ":").replace('}', "")
                 update_key_value = object_key_line.split(':')
                 store_dictionary[update_key_value[0].strip()] = \
                     update_key_value[1].split('--')[0].strip().replace(' ', '.')
+
+                #logging.INFO(store_dictionary)
+
         file_to_read_desc.close()
     return store_dictionary
 
 
-file_processing('mib_data/ins/')
-# file_processing('mibs/nonstopmibs/')
-# file_processing('mib_data/ilo/')
+def creating_csv_file(file_name, trap_list):
+
+    csv_file_generator = open(file_name, "w")
+    csv_file_generator.write(
+        "MIB-MODULE,MIB File,OID,Name,Recommended Action,Comments,Description,"
+        "Trigger Description,Dependency,cleartime In Days\n")
+
+    count_less_than_limit = 0
+    count_more_than_limit = 0
+    description_len_limit = 85
+
+    for item in trap_list:
+        if len(item['description']) < description_len_limit:
+            count_less_than_limit += 1
+            trigger_name_description = item['description'] + '.'
+        else:
+            count_more_than_limit += 1
+            trigger_name_description = item['description'][:description_len_limit] + '...'
+
+        csv_file_generator.write(item['filename'] + ',' + item['trap_oid_enterprise_name'] + ',.' + item['oid'] \
+                        + ',' + item['trap_name'] + ',Average,,' + item[
+                            'description'] + ',' + trigger_name_description + ',NONE,3d\n')
+
+    #logging.INFO("Description less than limit (" + str(description_len_limit) + " Chars) : " + str(count_less_than_limit) +
+    #              "\nDescription more than limit (" + str(description_len_limit) + " Chars) : " + str(count_more_than_limit))
+
+    csv_file_generator.close()
 
 
-#file_processing('mib_data/ins/')
+if __name__ == '__main__':
 
-#############################################
-#############################################
-#############################################
-#############################################
+    parser = argparse.ArgumentParser(description=
+                                     ''' ''')
 
-test_file = open('output_file_save_as_csv.csv', "w")
+    parser.add_argument('-c', '--csv-file-name', help='CSV File name to be generated', required=True)
+    parser.add_argument('-p', '--path-to-mibs', help='Path to MIB files. Example: /file/path/to/mibs/', required=True)
+    args = parser.parse_args()
 
-test_file.write(
-    "MIB-MODULE,MIB File,OID,Name,Recommended Action,Comments,Description,"
-    "Trigger Description,Dependency,cleartime In Days\n")
+    csv_file_name = args.csv_file_name
+    path_to_mibs = args.path_to_mibs
 
-count_less_than_limit = 0
-count_more_than_limit = 0
-description_len_limit = 85
+    if path_to_mibs[-1:] != '/':
+        path_to_mibs = path_to_mibs + '/'
 
+    creating_csv_file(csv_file_name, file_processing(path_to_mibs))
 
-for item in mib_trap_data_list:
-    if len(item['description']) < description_len_limit:
-        count_less_than_limit += 1
-        trigger_name_description = item['description'] + '.'
-    else:
-        count_more_than_limit += 1
-        trigger_name_description = item['description'][:description_len_limit] + '...'
-
-    test_file.write(item['filename'] + ',' + item['trap_oid_enterprise_name'] + ',.' + item['oid'] \
-                    + ',' + item['trap_name'] + ',Average,,' + item[
-                        'description'] + ',' + trigger_name_description + ',NONE,3d\n')
-
-print count_less_than_limit, count_more_than_limit
-test_file.close()
