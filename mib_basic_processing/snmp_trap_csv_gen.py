@@ -11,6 +11,6 @@ file_processing_list = [{'file_path': 'mib_data/hp_sim_nsc_nsk/',
 
 for file_to_process in file_processing_list:
     print file_to_process
-    mib_trap_processing.creating_csv_file(file_to_process['csv_name'],
+    mib_trap_processing.creating_file(file_to_process['csv_name'],
         mib_trap_processing.file_processing(file_to_process['file_path']))
 

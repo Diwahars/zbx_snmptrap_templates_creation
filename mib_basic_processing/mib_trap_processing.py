@@ -3,6 +3,7 @@ import re
 import argparse
 from logging import exception
 import logging
+import csv
 
 
 # dictionary to hold IANA SMI numbers.
@@ -533,6 +534,19 @@ def parsing_trap(path_to_files):
             file_dictionary['oid'] = get_oid_from_name(file_dictionary['trap_oid_enterprise_name']).strip() + '.0.' \
                                      + file_dictionary['singlet_oid']
 
+            file_dictionary['comment'] = ''
+            file_dictionary['priority'] = 'Average'
+            file_dictionary['dependency'] = 'NONE'
+            file_dictionary['clear_time_in_days'] = '3d'
+
+            description_len_limit = 85
+
+            if len(file_dictionary['description']) < description_len_limit:
+                file_dictionary['trigger_name_description'] = file_dictionary['description'] + '.'
+            else:
+                file_dictionary['trigger_name_description'] = file_dictionary['description'][:description_len_limit] +\
+                                                              '...'
+
             continue_check = True
             found_trap = False
 
@@ -603,31 +617,20 @@ def mib_file_obj_ident_dictionary(path_to_files):
     return store_dictionary
 
 
-def creating_csv_file(file_name, trap_list):
+def creating_file(file_name, trap_list):
 
-    csv_file_generator = open(file_name, "w")
+    csv_file_generator = open(file_name, "wb")
     csv_file_generator.write(
         "MIB-MODULE,MIB File,OID,Name,Recommended Action,Comments,Description,"
-        "Trigger Description,Dependency,cleartime In Days\n")
+        "Trigger Description,Dependency,cleartime In Days")
 
-    count_less_than_limit = 0
-    count_more_than_limit = 0
-    description_len_limit = 85
-
-    for item in trap_list:
-        if len(item['description']) < description_len_limit:
-            count_less_than_limit += 1
-            trigger_name_description = item['description'] + '.'
-        else:
-            count_more_than_limit += 1
-            trigger_name_description = item['description'][:description_len_limit] + '...'
-
-        csv_file_generator.write(item['filename'] + ',' + item['trap_oid_enterprise_name'] + ',.' + item['oid'] \
-                        + ',' + item['trap_name'] + ',Average,,' + item[
-                            'description'] + ',' + trigger_name_description + ',NONE,3d\n')
-
-    #logging.INFO("Description less than limit (" + str(description_len_limit) + " Chars) : " + str(count_less_than_limit) +
-    #              "\nDescription more than limit (" + str(description_len_limit) + " Chars) : " + str(count_more_than_limit))
+    for row_data in trap_list:
+        csv_file_generator.write('\n')
+        csv_file_generator.write(
+            row_data['filename'] + ',' + row_data['trap_oid_enterprise_name'] + ',.' + row_data['oid'] \
+                        + ',' + row_data['trap_name'] + ',' + row_data['priority'] + ',' + row_data['comment']
+                        + ',' + row_data['description'] + ',' + row_data['trigger_name_description']
+                        + ',' + row_data['dependency'] + ',' + row_data['clear_time_in_days'])
 
     csv_file_generator.close()
 
@@ -647,5 +650,5 @@ if __name__ == '__main__':
     if path_to_mibs[-1:] != '/':
         path_to_mibs = path_to_mibs + '/'
 
-    creating_csv_file(csv_file_name, file_processing(path_to_mibs))
+    creating_file(csv_file_name, path_to_mibs)
 
