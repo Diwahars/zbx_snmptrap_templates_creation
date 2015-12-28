@@ -1,6 +1,6 @@
 import zabbix_snmptrap_template_import_from_csv
 
-file_processing_list_all = [{'file_path': 'input_csv/checkpoint_node_traps.csv',
+file_processing_list = [{'file_path': 'input_csv/checkpoint_node_traps.csv',
                          'template_name': 'Template SNMP Traps CHECKPOINT Nodes',
                          'template_group': 'Custom Template GT'},
                         {'file_path': 'input_csv/cisco_node_traps.csv',
@@ -34,7 +34,7 @@ file_processing_list_all = [{'file_path': 'input_csv/checkpoint_node_traps.csv',
                          'template_name': 'Template SNMP Traps GGSN Nodes',
                          'template_group': 'Custom Template GT'}]
 
-file_processing_list = [{'file_path': 'input_csv/ams_bru_hkg_ggsn.csv',
+file_processing_list_ggsn = [{'file_path': 'input_csv/ams_bru_hkg_ggsn.csv',
                          'template_name': 'Template SNMP Traps GGSN Nodes',
                          'template_group': 'Custom Template GT'}]
 
@@ -47,10 +47,3 @@ for file_to_process in file_processing_list:
     zabbix_snmptrap_template_import_from_csv.xml_pretty_me \
         ('templates/' + file_to_process['template_name'].lower().replace(' ', '-') +
          '-item-template-trigger-import.xml', xml_tree_gen_as_string)
-
-
-string_1 = '''This is a line
-This is another line
-'''
-
-print string_1.strip('\n\r')
