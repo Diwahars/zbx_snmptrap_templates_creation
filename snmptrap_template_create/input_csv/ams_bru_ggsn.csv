@@ -1,0 +1,830 @@
+MIB-MODULE,MIB File,OID,Name,Recommended Action,Comments,Description,Trigger Description,Dependency,cleartime In Days
+DISMAN-SCHEDULE-MIB,DISMAN-SCHEDULE-MIB,.1.3.6.1.2.1.63.2.0.1,schedActionFailure,Average,,"""This notification is generated whenever the invocation of a
+scheduled action fails.""",Scheduled Action FAILED.,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.1,tmnxHwConfigChange,Average,,"""A tmnxHwConfigChange notification is generated when the value of
+tmnxHwLastChange is updated.  It can be used by the NMS to trigger
+maintenance polls of the hardware configuration information.
+Only one tmnxHwConfigChange notification event will be generated
+in a 5 second throttling time period.  A notification event is
+the transmission of a single trap to a list of notification
+destinations configured in the SNMP-TARGET-MIB.
+If additional hardware configuration change occurs within the
+throttling period, the notification events for these changes are
+suppressed until the throttling period expires.  At the end of
+the throttling period, one notification event is generated if
+any addition configuration changes occurred within the just
+completed throttling period and another throttling period is
+started.
+The NMS should periodically check the value of tmnxHwConfigChange
+to detect any missed tmnxHwConfigChange traps.
+This notification was made obsolete in the 2.1 release.
+The tmnxHwConfigChange notification has been replaced
+with the generic change notifications from the
+TIMETRA-SYSTEM-MIB:tmnxConfigModify, tmnxConfigCreate,
+tmnxConfigDelete, tmnxStateChange.""",`tmnxHwLastChange` is updated.,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.2,tmnxEnvTempTooHigh,Critical,,"""Generated when the temperature sensor reading on an equipment
+object is greater than its configured threshold.""",Temperature sensor reading is High.,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.3,tmnxEqPowerSupplyFailure,Critical,,"""Generated when one of the chassis's power supplies fails.""",Power Supply FAILED.,.1.3.6.1.4.1.6527.3.1.3.2.1.0.4,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.4,tmnxEqPowerSupplyInserted,Clear,,"""Generated when one of the chassis's power supplies is inserted.""",Power Supply Inserted.,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.5,tmnxEqPowerSupplyRemoved,Major,,"""Generated when one of the chassis's power supplies is removed.""",Power Supply Removed.,.1.3.6.1.4.1.6527.3.1.3.2.1.0.4,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.6,tmnxEqFanFailure,Critical,,"""Generated when one of the fans in a fan tray has failed.""",Fan in Fan tray has FAILED.,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.7,tmnxEqCardFailure,Critical,,"""Generated when one of the cards in a chassis has failed.  The card
+type may be IOM, Fabric, MDA, MCM, CCM, CPM module, compact flash
+module, etc. tmnxChassisNotifyCardFailureReason contains the reason
+for card failure.""",Cards in a chassis has FAILED.,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.8,tmnxEqCardInserted,Average,,"""Generated when a card is inserted into the chassis.  The card type
+may be IOM, Fabric, MDA, MCM, CCM CPM module, compact flash module,
+etc.""",Card has been inserted.,.1.3.6.1.4.1.6527.3.1.3.2.1.0.9,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.9,tmnxEqCardRemoved,Average,,"""Generated when a card is removed from the chassis.  The card type
+may be IOM, Fabric, MDA, MCM, CCM, CPM module, compact flash module,
+etc.""",Card removed from the Chassis.,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.10,tmnxEqWrongCard,Major,,"""Generated when the wrong type of card is inserted into a slot of
+the chassis.  Even though a card may be physically supported by
+the slot, it may have been administratively configured to allow
+only certain card types in a particular slot location.  The card
+type may be IOM, Fabric, MDA, MCM, CPM module, etc.""",Wrong type Cardinserted into Chassis.,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.11,tmnxEqCpuFailure,Critical,,"""Generated when a failure is detected for a CPU on an IOM card or
+CPM module.
+This notification was made obsolete in the 2.1 release.
+A cpu failure on a CPM card is detected by the hardware
+bootup and is indicated by the boot diagnostic display.
+If there is no working redundant CPM card, the system
+does not come up.
+A failure of an IOM card or standby redundant CPM card
+causes the tmnxEqCardFailure notification to be sent.""",CPU FAILED.,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.12,tmnxEqMemoryFailure,Critical,,"""Generated when a memory module failure is detected for an IOM card or
+CPM module.
+This notification was made obsolete in the 2.1 release.
+A failure of the memory device is detected by the
+hardware bootup and is indicated by the boot diagnostic
+display.  If there is no working redundant CPM card,
+the system does not come up.
+A failure of the memory device during run-time causes
+the system to fail and the 'admin tech-support'
+information to be saved.
+A failure of an IOM card or standby redundant CPM card
+causes the tmnxEqCardFailure notification to be sent.""",MEMORY FAILED.,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.13,tmnxEqBackdoorBusFailure,Critical,,"""Generated when the backdoor bus has failed.
+This notification was made obsolete in the 2.1 release.""",Backdoor bus has FAILED.,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.14,tmnxPeSoftwareError,Major,,"""Generated when a software error has been detected.
+This notification was made obsolete in the 2.1 release.
+Many of the other notifications more specifically
+indicate detection of some type of software error.
+The 'admin tech-support' information helps developers
+diagnose a failure of the software in the field.""",Software Error Detected.,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.15,tmnxPeSoftwareAbnormalHalt,Major,,"""Generated when the software has abnormally terminated.
+This notification was made obsolete in the 2.1 release.
+Many of the other notifications more specifically
+indicate detection of some type of software error.
+The 'admin tech-support' information helps developers
+diagnose a failure of the software in the field.""",Software halt Abnormally.,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.16,tmnxPeSoftwareVersionMismatch,Average,,"""Generated when there is a mismatch between software versions of the
+active CPM and standby CPM or the CPM and IOM.
+tmnxChassisNotifyHwIndex identifies the mismatched CPM/IOM card and
+tmnxChassisNotifyMismatchedVer will contain the version of the
+mismatched card. The tmnxHwSoftwareCodeVersion object will contain
+the expected version.""",Software Version Mismatch.,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.17,tmnxPeOutOfMemory,Major,,"""Generated when there is an out of memory error detected.
+This notification was made obsolete in the 2.1 release.
+The tmnxPeOutOfMemory notification has been replaced
+with the module specific notification from the
+TIMETRA-SYSTEM-MIB:tmnxModuleMallocFailed.""",Out Of Memory Dectected.,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.18,tmnxPeConfigurationError,Average,,"""Generated when a configuration error has been detected.
+This notification was made obsolete in the 2.1 release.
+Many other notifications more specifically indicate
+detection of a configuration error.  In most cases the
+SNMP SET request that tries to make an invalid
+configuration results in an error response.
+In some cases the configuration parameters are valid
+and the SNMP SET request succeeds but the system cannot
+successfully apply the new parameters.  The affected
+object may then put into an operational 'down' state.
+A state change notification such as tmnxStateChange or
+a more specific notification is sent to alert about the
+problem.
+For example, an attempt to create an event log with a
+file-type destination when the specified cflash media is
+full or not present results in TIMETRA-LOG-MIB
+notifications tmnxLogSpaceContention, tmnxLogAdminLocFailed,
+or tmnxLogBackupLocFailed.""",Configuration Error Detected.,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.19,tmnxPeStorageProblem,Average,,"""Generated when there is a storage capacity problem.
+This notification was made obsolete in the 2.1 release.
+The only 'storage' devices on the SR7750 are the cflash
+drives.  Cflash write errors cause a tmnxEqFlashDataLoss
+notification to be sent.  The tmnxEqFlashDiskFull
+notification is sent when the driver detects that the
+cflash device is full.""",Storage Capacity Problem Dectected.,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.20,tmnxPeCpuCyclesExceeded,Average,,"""Generated when the CPU cycle usage limit has been exceeded.
+This notification was made obsolete in the 2.1 release.
+It does not apply. The SR7750 software architecture does
+not restrict CPU cycles used by a specific code module.""",CPU cycle usage Exceeded.,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.21,tmnxRedPrimaryCPMFail,Critical,,"""Generated when the primary CPM fails.""",Primary CPM FAILED.,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.22,tmnxRedSecondaryCPMStatusChange,Major,,"""Generated when there is a change in the secondary CPM status.
+This notification was made obsolete in the 2.1 release.
+There is no way to administratively enable or disable
+CPM cards so there is no need for a status change event
+for administrative state changes.
+Operational changes detected about the standby CPM
+card are indicated by more specific notifications such
+as tmnxEqCardFailure, tmnxEqCardRemoved, tmnxEqCardInserted
+TIMETRA-SYSTEM-MIB::ssiRedStandbyReady,
+TIMETRA-SYSTEM-MIB::ssiRedStandbySyncLost, and
+TIMETRA-SYSTEM-MIB::ssiRedStandbySyncLost.""",Secondary CPM FAILED.,.1.3.6.1.4.1.6527.3.1.3.2.1.0.23,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.23,tmnxRedRestoreSuccess,Clear,,"""Generated when the secondary CPM successfully restores
+the config and state.
+This notification was made obsolete in the 2.1 release.
+It does not apply. This event was originally created
+for an early redundancy mechanism that was never
+released.""",CPM Restored.,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.24,tmnxRedRestoreFail,Major,,"""Generated when the secondary CPM fails to
+restore the config and state.
+This notification was made obsolete in the 2.1 release.
+It does not apply. This event was originally created
+for an early redundancy mechanism that was never
+released.""",CPM Restored FAILED.,.1.3.6.1.4.1.6527.3.1.3.2.1.0.23,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.25,tmnxChassisNotificationClear,Average,,"""A trap indicating the clear of a chassis notification
+identified by tmnxChassisNotifyOID.""",Chassis Notification Clear.,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.26,tmnxEqSyncIfTimingHoldover,Average,,"""Generated when the synchronous equipment timing subsystem
+transitions into a holdover state.
+This notification will have the same indices as those of
+the tmnxCpmCardTable.""",Synchronous equipment timing subsystem transitions into a holdover state.,.1.3.6.1.4.1.6527.3.1.3.2.1.0.27,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.27,tmnxEqSyncIfTimingHoldoverClear,Clear,,"""Generated when the synchronous equipment timing subsystem
+transitions out of the holdover state.
+This notification will have the same indices as those of
+the tmnxCpmCardTable.""",Synchronous equipment timing subsystem transitions OUT of holdover state.,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.28,tmnxEqSyncIfTimingRef1Alarm,Average,,"""Generated when an alarm condition on the first timing
+reference is detected.
+This notification will have the same indices as those of
+the tmnxCpmCardTable.""",Alarm condition on the first timing reference is detected.,.1.3.6.1.4.1.6527.3.1.3.2.1.0.29,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.29,tmnxEqSyncIfTimingRef1AlarmClear,Clear,,"""Generated when an alarm condition on the first timing
+reference is cleared.
+This notification will have the same indices as those of
+the tmnxCpmCardTable.""",Alarm condition on the first timing reference is Cleared.,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.30,tmnxEqSyncIfTimingRef2Alarm,Average,,"""Generated when an alarm condition on the second timing
+reference is detected.
+This notification will have the same indices as those of
+the tmnxCpmCardTable.""",,.1.3.6.1.4.1.6527.3.1.3.2.1.0.31,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.31,tmnxEqSyncIfTimingRef2AlarmClear,Clear,,"""Generated when an alarm condition on the second timing
+reference is cleared.
+This notification will have the same indices as those of
+the tmnxCpmCardTable.""",,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.32,tmnxEqFlashDataLoss,Major,,"""tmnxEqFlashDataLoss is generated when there was an error
+while data was getting written on to the compact flash. This
+notification indicates a probable data loss.""",,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.33,tmnxEqFlashDiskFull,Critical,,"""tmnxEqFlashDiskFull is generated when there is no space
+left on the compact flash. No more data can be written to it.""",,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.34,tmnxPeSoftwareLoadFailed,Major,,"""Generated when the CPM fails to load the software from a specified
+location.
+tmnxChassisNotifyHwIndex identifies the card for which the software
+load failed and tmnxChassisNotifySoftwareLocation contains the
+location from where the software load was attempted.""",,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.35,tmnxPeBootloaderVersionMismatch,Major,,"""Generated when there is a mismatch between the CPM and boot loader
+versions. tmnxChassisNotifyHwIndex identifies the CPM card.
+tmnxChassisNotifyMismatchedVer contains the mismatched version of
+bootloader and tmnxHwSoftwareCodeVersion contains the
+expected version of the bootloader.""",,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.36,tmnxPeBootromVersionMismatch,Major,,"""Generated when there is a mismatch between the boot rom versions.
+tmnxChassisNotifyHwIndex identifies the IOM card.
+tmnxChassisNotifyMismatchedVer contains the mismatched version of
+bootrom and tmnxHwSoftwareCodeVersion contains the expected version
+of the bootrom.""",,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.37,tmnxPeFPGAVersionMismatch,Major,,"""Generated when there is a mismatch between the FPGA versions.
+tmnxChassisNotifyHwIndex identifies the IOM card.
+tmnxChassisNotifyMismatchedVer contains the mismatched version of
+FPGA and tmnxHwSoftwareCodeVersion contains the expected version
+of the FPGA.""",,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.38,tmnxEqSyncIfTimingBITSAlarm,Average,,"""Generated when an alarm condition on the BITS timing
+reference is detected.
+This notification will have the same indices as those of
+the tmnxCpmCardTable.""",,.1.3.6.1.4.1.6527.3.1.3.2.1.0.39,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.39,tmnxEqSyncIfTimingBITSAlarmClear,Clear,,"""Generated when an alarm condition on the BITS timing
+reference is cleared.
+This notification will have the same indices as those of
+the tmnxCpmCardTable.""",,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.40,tmnxEqCardFirmwareUpgraded,Average,,"""Generated when a card is hot-inserted into the chassis and its
+firmware is automatically upgraded.  The card type may be IOM or
+CPM module.""",,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.41,tmnxChassisUpgradeInProgress,Clear,,"""The tmnxChassisUpgradeInProgress notification is generated only
+after a CPM switchover occurs and the new active CPM is running new
+software, while the IOMs are still running old software. This is the
+start of the upgrade process. The tmnxChassisUpgradeInProgress
+notification will continue to be generated every 30 minutes while at
+least one IOM is still running older software.""",,.1.3.6.1.4.1.6527.3.1.3.2.1.0.42,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.42,tmnxChassisUpgradeComplete,Clear,,"""The tmnxChassisUpgradeComplete notification is generated to
+indicate that all the IOMs are running matching software version in
+reference to the active CPM software version changed as part of the
+upgrade process.""",,.1.3.6.1.4.1.6527.3.1.3.2.1.0.40,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.43,tmnxChassisHiBwMcastAlarm,Average,,"""The tmnxChassisHiBwMcastAlarm notification is generated when a plane
+is  shared by more than one high bandwidth multicast tap.""",,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.44,tmnxEqMdaCfgNotCompatible,Average,,"""Generated when a supported MDA is inserted into a slot of an
+IOM, the MDA is compatible with the currently provisioned
+MDA, but the current configuration on the MDA's ports is not
+compatible with the inserted MDA.
+[EFFECT] Though services can still be created, if the tmnxMdaNotifyType
+is the same as the tmnxMDAEquippedType then the MDA will fail to
+operate as configured and will be in a failed state.
+[RECOVERY] Change the configuration to reflect the capabilities of the
+MDA port, or switch out/re-provision the MDA for one that is
+compatible.""",,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.45,tmnxCpmCardSyncFileNotPresent,Average,,"""The tmnxCpmCardSyncFileNotPresent notification is generated when
+the redundancy file synchronization failed to locate an optional
+file.""",,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.46,tmnxEqMdaXplError,Major,,"""The tmnxEqMdaXplError notification is generated when an MDA
+exhibits persistent XPL Errors.""",,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.47,tmnxEqCardPChipError,Major,,"""The tmnxEqCardPChipError notification is generated when persistent FCS
+errors are detected by the P chip in either the ingress or egress
+datapath/complex.  The value tmnxCardSrcSlotBitmap is only used for the
+egress datapath/complex direction.""",,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.48,tmnxEqCardSoftResetAlarm,Average,,"""The tmnxEqCardSoftResetAlarm notification is generated when an IOM
+card enters and exits the 'soft-reset' state.""",,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.49,tmnxEqMdaSyncENotCompatible,Major,,"""The tmnxEqMdaSyncENotCompatible notification is generated when an
+MDA card is inserted into a slot of an IOM. The MDA is compatible
+with the currently provisioned MDA, but the currently configured
+synchronous ethernet, tmnxMDASynchronousEthernet, is not compatible
+with the inserted MDA.
+[EFFECT] Though services can still be created, if the tmnxMdaNotifyType
+is the same as the tmnxMDAEquippedType then the MDA will fail to
+operate as configured and will be in a failed state.
+[RECOVERY] Change the configuration to reflect the capabilities of the
+MDA port, or switch out/re-provision the MDA for one that is
+compatible.""",,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.50,tmnxIPsecIsaGrpActiveIsaChgd,Average,,"""The tmnxIPsecIsaGrpActiveIsaChgd notification is generated when a
+change in the active ISA (Integrated Service Adaptor) occurs in a
+IPsec ISA module group.""",,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.51,tmnxEqCardPChipMemoryEvent,Average,,"""The tmnxEqCardPChipMemoryEvent notification is generated when
+a P-chip experiences an occurrence of a memory parity error.""",,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.52,tmnxIPsecIsaGrpUnableToSwitch,Average,,"""The tmnxIPsecIsaGrpUnableToSwitch notification is generated when
+an IPsec ISA (Integrated Service Adaptor) module group is unable
+to switch due to lack of resources.
+In such an event the ISA group is left without an active MDA and
+the tmnxIPsecIsaGrpOperState is set to 'outOfService'.
+Recovery is possible by releasing resources, and setting the
+tmnxIPsecIsaGrpAdminState object to 'outOfService' followed by a
+reset to 'inService' to bring up the ISA group.""",,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.53,tmnxIPsecIsaGrpTnlLowWMark,Average,,"""The tmnxIPsecIsaGrpTnlLowWMark notification is generated when
+number of tunnels for an IPsec ISA (Integrated Service Adaptor) module
+has dropped to the low watermark which is 90% of the
+tmnxIPsecIsaGrpMaxTunnels.""",,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.54,tmnxIPsecIsaGrpTnlHighWMark,Average,,"""The tmnxIPsecIsaGrpTnlHighWMark notification is generated when
+number of tunnels for an IPsec ISA (Integrated Service Adaptor) module
+has reached to the high watermark which is 95% of the
+tmnxIPsecIsaGrpMaxTunnels.""",,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.55,tmnxIPsecIsaGrpTnlMax,Average,,"""The tmnxIPsecIsaGrpTnlMax notification is generated when
+number of tunnels for an IPsec ISA (Integrated Service Adaptor) module
+has reached the maximum of the tmnxIPsecIsaGrpMaxTunnels.""",,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.56,tmnxEqSyncIfTimingRef1Quality,Average,,"""Generated when there is a change of the received quality level
+on timing reference 1.""",,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.57,tmnxEqSyncIfTimingRef2Quality,Average,,"""Generated when there is a change of the received quality level
+on timing reference 2.""",,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.58,tmnxEqSyncIfTimingBITSQuality,Average,,"""Generated when there is a change of the received quality level
+on the bits interface.""",,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.59,tmnxEqSyncIfTimingBITS2Quality,Average,,"""Generated when there is a change of the received quality level
+on the second bits interface.""",,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.60,tmnxEqSyncIfTimingRefSwitch,Average,,"""Generated when there is a change of which timing reference
+is providing timing for the system.""",,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.61,tmnxEqSyncIfTimingBITS2Alarm,Average,,"""Generated when an alarm condition on the BITS 2 timing
+reference is detected.
+This notification will have the same indices as those of
+the tmnxCpmCardTable.""",,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.62,tmnxEqSyncIfTimingBITS2AlarmClr,Average,,"""Generated when an alarm condition on the BITS 2 timing
+reference is cleared.
+This notification will have the same indices as those of
+the tmnxCpmCardTable.""",,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.63,tmnxEqSyncIfTimingBITSOutRefChg,Average,,"""Generated when the BITS Out timing reference selection changes.""",,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.64,tmnxEqCardPChipCamEvent,Average,,"""The tmnxEqCardPChipCamEvent notification is generated when either an
+IOM or a CPM experiences a persistent occurrence of a PChip CAM error.
+On a CPM card, the tmnxCardComplexNumber will be fixed to the value
+zero (0).""",,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.65,tmnxEqSyncIfTimingSystemQuality,Average,,"""The tmnxEqSyncIfTimingSystemQuality notification is generated when
+there is a change in the system timing quality level. This
+notification is a point-in-time state change event.
+[CAUSE] This notification may be triggered for the following reasons:
+1) There has been a switch in the timing reference in use by the
+network element, either because the previously active timing
+reference was disqualified, or to ensure that the network element
+is using the timing reference with the best timing quality.
+2) There has been a change in the active timing reference's quality
+and the change does not result in a timing reference switch.
+3) The network element has transitioned into or out of the holdover
+state.
+[EFFECT] The system quality level is used to determine the SSM code
+transmitted on synchronous interfaces. This may affect the SSM code
+transmitted on some or all interfaces, which may affect the
+distribution of timing throughout the network.
+[RECOVERY] If the customer is expecting the system to be locked to a
+reference of a particular quality and the system quality has
+decreased, the customer will need to determine the root cause (for
+example, loss of communication with a satellite) and resolve the
+issue.""",,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.66,tmnxEqHwEnhancedCapability,Average,,"""The tmnxEqHwEnhancedCapability notification is generated when the
+hardware, specified by the supplied objects, consists of enhanced
+capabilities as compared to the active hardware.
+[EFFECT] The system behaves normally under this situation, however,
+switching to the newer hardware will put the system in an incompatible
+state with the currently active hardware. That is, once this device
+takes activity, the lesser capable hardware will fail to communicate
+with it.
+In this mode, the system is deemed to be in a 'one-way upgrade'
+scenario.
+[RECOVERY] Two modes of recovery exist for this notification.
+1. Remove the enhanced hardware, and supply a more compatible
+device (status quo) with the active hardware, or
+2. Switch to the enhanced device, and replace the older hardware
+with a similarly enhanced device (upgrade).""",,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.67,tmnxEqSyncIfTimingPTPQuality,Average,,"""Generated when there is a change of the received quality level
+on the Precision Timing Protocol (PTP).""",,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.68,tmnxEqSyncIfTimingPTPAlarm,Average,,"""Generated when an alarm condition on the Precision Timing Protocol
+(PTP) timing reference is detected.
+This notification will have the same indices as those of the
+tmnxCpmCardTable.""",,.1.3.6.1.4.1.6527.3.1.3.2.1.0.69,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.69,tmnxEqSyncIfTimingPTPAlarmClear,Clear,,"""Generated when an alarm condition on the Precision Timing Protocol
+(PTP) timing reference is cleared.
+This notification will have the same indices as those of the
+tmnxCpmCardTable.""",,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.86,tmnxEqCardQChipBufMemoryEvent,Average,,"""[CAUSE] The tmnxEqCardQChipBufMemoryEvent notification is generated
+when a Q-chip experiences an occurrence of a buffer memory error.
+[EFFECT] Contact Alcatel-Lucent customer support.
+[RECOVERY] Contact Alcatel-Lucent customer support.""",,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.87,tmnxEqCardQChipStatsMemoryEvent,Average,,"""[CAUSE] The tmnxEqCardQChipStatsMemoryEvent notification is generated
+when a Q-chip experiences an occurrence of a statistics memory error.
+[EFFECT] Contact Alcatel-Lucent customer support.
+[RECOVERY] Contact Alcatel-Lucent customer support.""",,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.88,tmnxEqCardQChipIntMemoryEvent,Average,,"""[CAUSE] The tmnxEqCardQChipIntMemoryEvent notification is generated
+when a Q-chip experiences an occurrence of an internal memory error.
+[EFFECT] Contact Alcatel-Lucent customer support.
+[RECOVERY] Contact Alcatel-Lucent customer support.""",,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.89,tmnxEqCardChipIfDownEvent,Average,,"""[CAUSE] The tmnxEqCardChipIfDownEvent notification is generated when
+an inter-chip interface (XPL2 bundle) experiences an internal datapath
+problem.
+[EFFECT] Contact Alcatel-Lucent customer support.
+[RECOVERY] Contact Alcatel-Lucent customer support.""",,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.90,tmnxEqCardChipIfCellEvent,Average,,"""[CAUSE] The tmnxEqCardChipIfCellEvent notification is generated when
+an inter-chip interface (XPL2 bundle) experiences internal datapath
+cell errors.
+[EFFECT] Contact Alcatel-Lucent customer support.
+[RECOVERY] Contact Alcatel-Lucent customer support.""",,NONE,3d
+TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.97,tmnxEqCardTChipParityEvent,Average,,"""[CAUSE] The tmnxEqCardTChipParityEvent notification is generated
+when a T-chip experiences an occurrence of an internal memory error.
+[EFFECT] Contact Alcatel-Lucent customer support.
+[RECOVERY] Contact Alcatel-Lucent customer support.""",,NONE,3d
+TIMETRA-MOBILE-GATEWAY-MIB,TIMETRA-MOBILE-GATEWAY-MIB,.1.3.6.1.4.1.6527.3.1.3.70.0.1,tmnxMobGwPathMgmtPeerState,Average,,"""A tmnxMobGwPathMgmtPeerState notification is generated when there
+has been a change in the reference point peer state during path
+management.""",,NONE,3d
+TIMETRA-MOBILE-GATEWAY-MIB,TIMETRA-MOBILE-GATEWAY-MIB,.1.3.6.1.4.1.6527.3.1.3.70.0.2,tmnxMobGwDiameterPeerState,Average,,"""A tmnxMobGwDiameterPeerState notification is generated when there
+has been a change in the reference point peer state for the diameter
+application.""",,NONE,3d
+TIMETRA-MOBILE-GATEWAY-MIB,TIMETRA-MOBILE-GATEWAY-MIB,.1.3.6.1.4.1.6527.3.1.3.70.0.3,tmnxMobGwAcrFailuresAlarmMajor,Major,,"""A tmnxMobGwAcrFailuresAlarmMajor notification is generated when 2
+ACR transmission failures occur in a 10 second interval or 5
+ACR transmission failures occur in a 60 second interval to the peer.
+[CAUSE] Charging Data Functions (CDF) peer is slow to respond to RF ACR
+message requests or it is not responding to RF ACR message
+requests but from a diameter connection perspective the peer
+is still in service.
+[EFFECT] The gateway will choose a secondary CDF peer to send the RF
+accounting messages for the failure attempts.
+[RECOVERY] Diagnose why the CDF peer is slow to respond or why it is
+not responding to RF accounting message requests.""",,.1.3.6.1.4.1.6527.3.1.3.70.0.6,3d
+TIMETRA-MOBILE-GATEWAY-MIB,TIMETRA-MOBILE-GATEWAY-MIB,.1.3.6.1.4.1.6527.3.1.3.70.0.4,tmnxMobGwCdfDownAlarm,Average,,"""A tmnxMobGwCdfDownAlarm notification is generated when both
+the primary and the secondary Charging Data Functions (CDFs) are down
+for active Rf diameter sessions.
+[CAUSE] CDF peers are down or communication paths to the peers are
+down.
+[EFFECT] RF accounting messages will be stored locally on compact
+flash of the gateway.
+[RECOVERY] Recover CDF peers or communication links with the peers.""",,.1.3.6.1.4.1.6527.3.1.3.70.0.5,3d
+TIMETRA-MOBILE-GATEWAY-MIB,TIMETRA-MOBILE-GATEWAY-MIB,.1.3.6.1.4.1.6527.3.1.3.70.0.5,tmnxMobGwCdfDownAlarmCleared,Clear,,"""A tmnxMobGwCdfDownAlarmCleared notification is generated when one of
+the primary and the secondary Charging Data Functions (CDFs) becomes up
+for active Rf diameter sessions.""",,NONE,3d
+TIMETRA-MOBILE-GATEWAY-MIB,TIMETRA-MOBILE-GATEWAY-MIB,.1.3.6.1.4.1.6527.3.1.3.70.0.6,tmnxMobGwAcrFailuresAlarmClear,Clear,,"""A tmnxMobGwAcrFailuresAlarmClear notification is generated after the
+tmnxMobGwAcrFailuresAlarmMajor notification when the first time less
+then 2 Accounting Request (ACR) transmission failures occured in a 10
+seconds interval or the first time less then 5 ACR transmission
+failures occured in a 60 seconds interval to the peer.""",,NONE,3d
+TIMETRA-MOBILE-GATEWAY-MIB,TIMETRA-MOBILE-GATEWAY-MIB,.1.3.6.1.4.1.6527.3.1.3.70.0.7,tmnxMobGwCfCapacityAlarmMinor,Minor,,"""A tmnxMobGwCfCapacityAlarmMinor notification is generated when compact
+flash capacity reaches 85% limit.
+[CAUSE] Compact flash capacity is low because a CDF outage has occurred
+and accounting messages are stored locally on the compact
+flash of the gateway.
+[EFFECT] There is limited space to store accounting messages on the
+compact flash of the gateway. Accounting messages will be lost
+when the compact flash has no space left.
+[RECOVERY] Pull Accounting files from the gateway and them delete the
+files from the compact flash.""",,.1.3.6.1.4.1.6527.3.1.3.70.0.8,3d
+TIMETRA-MOBILE-GATEWAY-MIB,TIMETRA-MOBILE-GATEWAY-MIB,.1.3.6.1.4.1.6527.3.1.3.70.0.8,tmnxMobGwCfCapacityAlmMnrClear,Clear,,"""A tmnxMobGwCfCapacityAlmMnrClear notification is generated when
+compact flash capacity drops below 80% limit.""",,NONE,3d
+TIMETRA-MOBILE-GATEWAY-MIB,TIMETRA-MOBILE-GATEWAY-MIB,.1.3.6.1.4.1.6527.3.1.3.70.0.9,tmnxMobGwCfCapacityAlarmMajor,Major,,"""A tmnxMobGwCfCapacityAlarmMajor notification is generated when compact
+flash capacity reaches 95% limit.
+[CAUSE] Compact flash capacity is low because a CDF outage has occurred
+and accounting messages are stored locally on the compact
+flash of the gateway.
+[EFFECT] There is limited space to store accounting messages on the
+compact flash of the gateway. Accounting messages will be lost
+when the compact flash has no space left.
+[RECOVERY] Pull Accounting files from the gateway and them delete the
+files from the compact flash.""",,.1.3.6.1.4.1.6527.3.1.3.70.0.10,3d
+TIMETRA-MOBILE-GATEWAY-MIB,TIMETRA-MOBILE-GATEWAY-MIB,.1.3.6.1.4.1.6527.3.1.3.70.0.10,tmnxMobGwCfCapacityAlmMjrClear,Clear,,"""A tmnxMobGwCfCapacityAlmMjrClear notification is generated when
+compact flash capacity drops below 90% limit.""",,NONE,3d
+TIMETRA-MOBILE-GATEWAY-MIB,TIMETRA-MOBILE-GATEWAY-MIB,.1.3.6.1.4.1.6527.3.1.3.70.0.11,tmnxMobGwSysGrpRedStateChange,Average,,"""A tmnxMobGwSysGrpRedStateChange notification is generated when the
+the redundancy state of a group changes.
+[CAUSE] A working card failure, changing the redundancy configuration,
+or adding a protection card will trigger a change to the
+group's redundancy state.
+[EFFECT] When the value of tmnxMobGwSysGroupRedState changes from
+'hot' to 'cold', a switchover has happened. No services are
+affected when the value of tmnxMobGwSysGroupRedState changes.
+[RECOVERY] After a switchover has happened, no backup card will be up.
+The operator needs to bring a backup card online to avoid
+any disruption to services in case of further failures.""",,NONE,3d
+TIMETRA-MOBILE-GATEWAY-MIB,TIMETRA-MOBILE-GATEWAY-MIB,.1.3.6.1.4.1.6527.3.1.3.70.0.12,tmnxMobGwSysGrpCardRedStChange,Average,,"""A tmnxMobGwSysGrpCardRedStChange notification is generated when the
+the redundancy state of this card changes.
+[CAUSE] A card failure will change the card redudndancy state to
+'notValid'. When an active card goes down, standby card will
+become active which will trigger a state change to 'active'.
+When a 'standbyInProg' card becomes in sync with the active
+card, state will be changed to 'standby'.
+[EFFECT] When card goes down, it will not be able to provide any
+mobile gateway services supported by the system.
+[RECOVERY] If the card goes down, operator's assitance is needed to
+get the card back online.""",,NONE,3d
+TIMETRA-MOBILE-GATEWAY-MIB,TIMETRA-MOBILE-GATEWAY-MIB,.1.3.6.1.4.1.6527.3.1.3.70.0.13,tmnxMobGwGtpPriServFailAlarm,Critical,,"""A tmnxMobGwGtpPriServFailAlarm notification is generated when GPRS
+Tunneling Protocol (GTP) Prime Server failure is detected.""",,.1.3.6.1.4.1.6527.3.1.3.70.0.14,3d
+TIMETRA-MOBILE-GATEWAY-MIB,TIMETRA-MOBILE-GATEWAY-MIB,.1.3.6.1.4.1.6527.3.1.3.70.0.14,tmnxMobGwGtpPriServFailAlarmClrd,Clear,,"""A tmnxMobGwGtpPriServFailAlarm notification is generated when GPRS
+Tunneling Protocol (GTP) Prime Server is recovered from the previous
+failure.""",,NONE,3d
+TIMETRA-MOBILE-GATEWAY-MIB,TIMETRA-MOBILE-GATEWAY-MIB,.1.3.6.1.4.1.6527.3.1.3.70.0.15,tmnxMobGwGtpPriSrvSwitchoverSucc,Average,,"""A tmnxMobGwGtpPriServFailAlarm notification is generated when a new
+GPRS Tunneling Protocol (GTP) Prime Server is selected after the
+failure of the active server.""",,NONE,3d
+TIMETRA-MOBILE-GATEWAY-MIB,TIMETRA-MOBILE-GATEWAY-MIB,.1.3.6.1.4.1.6527.3.1.3.70.0.16,tmnxMobGwGtpPriGrpFailAlarm,Average,,"""A tmnxMobGwGtpPriGrpFailAlarm notification is generated when all GPRS
+Tunneling Protocol (GTP) Prime Server have failed in the GTP Prime
+Server Group.""",,.1.3.6.1.4.1.6527.3.1.3.70.0.17,3d
+TIMETRA-MOBILE-GATEWAY-MIB,TIMETRA-MOBILE-GATEWAY-MIB,.1.3.6.1.4.1.6527.3.1.3.70.0.17,tmnxMobGwGtpPriGrpFailAlarmClrd,Clear,,"""A tmnxMobGwGtpPriGrpFailAlarmClrd notification is generated when
+a previously failed GTP Prime Server Group has at least one
+operational GTP Prime Server.""",,NONE,3d
+TIMETRA-MOBILE-GATEWAY-MIB,TIMETRA-MOBILE-GATEWAY-MIB,.1.3.6.1.4.1.6527.3.1.3.70.0.18,tmnxMobGwRadPeerFailAlarm,Average,,"""A tmnxMobGwRadPeerFailAlarm notification is generated when the Radius
+Server failure is detected.
+[CAUSE] This happens when the operating state for radius server is
+changed to 'down' state
+[EFFECT] When the radius server fails, radius messages may not be
+sent to the radius-server
+[RECOVERY] If the radius server goes down, the radius server will
+allow radius-messages to be sent to it when its operating state is
+changed to 'up' state or after deadtimer expiring.""",,.1.3.6.1.4.1.6527.3.1.3.70.0.19,3d
+TIMETRA-MOBILE-GATEWAY-MIB,TIMETRA-MOBILE-GATEWAY-MIB,.1.3.6.1.4.1.6527.3.1.3.70.0.19,tmnxMobGwRadPeerFailAlarmClrd,Clear,,"""A tmnxMobGwRadPeerFailAlarm notification is generated when the Radius
+Server is recovered from the previous failure.
+[CAUSE] The radius server is recovered from the previous failure
+and its Operating-State is changed to 'up' state.
+[EFFECT] When the radius server is recovered from the previous failure,
+and operation for the radius-server is back to normal.
+[RECOVERY] If the radius server is recovered from the previous failure,
+no further action is needed. """,,NONE,3d
+TIMETRA-MOBILE-GATEWAY-MIB,TIMETRA-MOBILE-GATEWAY-MIB,.1.3.6.1.4.1.6527.3.1.3.70.0.20,tmnxMobGwRadGrpFailAlarm,Average,,"""A tmnxMobGwRadGrpFailAlarm notification is generated when all the
+radius servers have failed in the radius server group.
+[CAUSE] This event will be generated when all the radius servers
+for the group are in operating 'down' state.
+[EFFECT] When the group of radius servers fails, radius messages
+may not be sent to the group.
+[RECOVERY] The radius group will recover from this failure mode when
+one of its server is going back to operating 'up' state.""",,.1.3.6.1.4.1.6527.3.1.3.70.0.21,3d
+TIMETRA-MOBILE-GATEWAY-MIB,TIMETRA-MOBILE-GATEWAY-MIB,.1.3.6.1.4.1.6527.3.1.3.70.0.21,tmnxMobGwRadGrpFailAlarmClrd,Clear,,"""A tmnxMobGwRadGrpFailAlarmClrd notification is generated when
+a previously failed Radius Server Group has at least one
+operational Radius Server.
+[CAUSE] The radius server group is recovered from the previous failure
+and at least one of its servers has transitioned to operating 'up'
+state.
+[EFFECT] When the radius server group is recovered from the previous
+failure and operation for the radius-group is back to normal.
+[RECOVERY] If the radius group is recovered from the previous failure,
+no further action is needed. """,,NONE,3d
+TIMETRA-MOBILE-GATEWAY-MIB,TIMETRA-MOBILE-GATEWAY-MIB,.1.3.6.1.4.1.6527.3.1.3.70.0.22,tmnxMobLiDf2OperStateChange,Average,,"""A tmnxMobLiDf2OperStateChange notification is generated when the
+current operational state of the Delivery Function 2 peer changes.
+[CAUSE] The df2-peer's operational state will change when the TCP
+connection's state to the df2-peer changes.
+[EFFECT] When the df2-peer's state is down, the Intercept Related
+Information (IRI) packets are not sent to the peer. When the
+df2-peer's state is up, the IRI packets are sent to the peer.
+[RECOVERY] If the df2-peer goes down, then the IRI packets being sent
+to the peer will be buffered until it comes up. Then, all the packets
+will be sent to the peer.
+This notification has been made obsolete in the MG5.0 R1 release.""",,NONE,3d
+TIMETRA-MOBILE-GATEWAY-MIB,TIMETRA-MOBILE-GATEWAY-MIB,.1.3.6.1.4.1.6527.3.1.3.70.0.23,tmnxMobGwGtpPriServerState,Average,,"""A tmnxMobGwGtpPriServerState notification is generated when there
+has been a change in the when GPRS Tunneling Protocol (GTP) Prime
+Server state for all mobile system groups.
+[CAUSE] When there is a change in GTP Prime Server State.
+[EFFECT] When the GTP Prime Server State is add, the server has been
+added to the system. When the state is delete, the server has been
+deleted from the system. When the state is down, Charging Data
+Record (CDR) packets are not sent to the peer. When the state is up,
+CDR packets can be sent to the peer.
+[RECOVERY] If a GTP Prime server state is down, then Charging Data
+Request(CDR) packets will be sent to an alternate GTP Prime server.
+If no servers are available, CDR packets will be written to CDR files.""",,NONE,3d
+TIMETRA-MOBILE-GATEWAY-MIB,TIMETRA-MOBILE-GATEWAY-MIB,.1.3.6.1.4.1.6527.3.1.3.70.0.24,tmnxMobGwSysGrpGtpPriServerState,Average,,"""A tmnxMobGwSysGrpGtpPriServerState notification is generated when there
+has been a change in the when GPRS Tunneling Protocol (GTP) Prime
+Server state per mobile system group.
+[CAUSE] When there is a change in GTP Prime Server State.
+[EFFECT] When the GTP Prime Server State is add, the server has been
+added to the system. When the state is delete, the server has been
+deleted from the system. When the state is down, Charging Data
+Record (CDR) packets are not sent to the peer. When the state is up,
+CDR packets can be sent to the peer.
+[RECOVERY] If a GTP Prime server state is down, then Charging Data
+Request(CDR) packets will be sent to an alternate GTP Prime server.
+If no servers are available, CDR packets will be written to CDR files.""",,NONE,3d
+TIMETRA-MOBILE-GATEWAY-MIB,TIMETRA-MOBILE-GATEWAY-MIB,.1.3.6.1.4.1.6527.3.1.3.70.0.25,tmnxMobGwGtpPriSrvGrpState,Average,,"""A tmnxMobGwGtpPriSrvGrpState notification is generated when there
+has been a change in the when GPRS Tunneling Protocol (GTP) Prime
+Server state for all mobile system groups.
+[CAUSE] When there is a change in GTP Prime Server Group State.
+[EFFECT] When the GTP Prime Server Group State is add, the group has
+been added to the system. When the state is delete, the group has been
+deleted from the system. When the state is down means all GTP Prime
+Servers in the group are down, and Charging Data Record (CDR) packets
+are not sent to the group server. When the state is up, CDR packets can
+be sent to the group server.
+[RECOVERY] If a GTP Prime server group state is down, CDR packets will
+be written to CDR files until at least one server becomes available.""",,NONE,3d
+TIMETRA-MOBILE-GATEWAY-MIB,TIMETRA-MOBILE-GATEWAY-MIB,.1.3.6.1.4.1.6527.3.1.3.70.0.26,tmnxMobGwSysGrpGtpPriSrvGrpState,Average,,"""A tmnxMobGwGtpPriSrvGrpState notification is generated when there
+has been a change in the when GPRS Tunneling Protocol (GTP) Prime
+Server state per mobile system group.
+[CAUSE] When there is a change in GTP Prime Server Group State.
+[EFFECT] When the GTP Prime Server Group State is add, the group has
+been added to the system. When the state is delete, the group has been
+deleted from the system. When the state is down means all GTP Prime
+Servers in the group are down, and Charging Data Record (CDR) packets
+are not sent to the group server. When the state is up, CDR packets can
+be sent to the group server.
+[RECOVERY] If a GTP Prime server group state is down, CDR packets will
+be written to CDR files until at least one server becomes available.""",,NONE,3d
+TIMETRA-MOBILE-GATEWAY-MIB,TIMETRA-MOBILE-GATEWAY-MIB,.1.3.6.1.4.1.6527.3.1.3.70.0.27,tmnxMobGwSysGrpWriteCdrToCfAlarm,Average,,"""A tmnxMobGwSysGrpWriteCdrToCfAlarm notification is generated when the
+SGW or PGW starts to write Charging Data Record (CDR) packets to the
+local compact flash for the mobile system group.
+[CAUSE] When there is a change in action to write Charging Data
+Record (CDR) packets to compact flash.
+[EFFECT] When the action is start, the system has started writing CDR
+packets to files on compact flash. the system has stopped writing CDR
+packets to files on compact flash.
+[RECOVERY] Retrieve CDR files from compact flash.""",,NONE,3d
+TIMETRA-MOBILE-GATEWAY-MIB,TIMETRA-MOBILE-GATEWAY-MIB,.1.3.6.1.4.1.6527.3.1.3.70.0.28,tmnxMobGwSysGrpDiameterPeerState,Average,,"""The tmnxMobGwSysGrpDiameterPeerState notification is generated when
+there has been a change in the state of a reference point peer in
+the diameter application per mobile system group.
+[CAUSE] When there is a change in Diameter Peer State.
+[EFFECT] If the value of tmnxMobGwNtfyDiameterPeerState is 'pathDown'
+for the mobile system group, then the diameter application supported on
+that connection will not function between the given mobile system group
+and the given diameter peer.
+[RECOVERY] If the value of tmnxMobGwNtfyDiameterPeerState is 'pathDown'
+for a mobile system group, the operator may have to take an action to
+investigate and recover the connection between the mobile system
+group and the diameter peer.""",,NONE,3d
+TIMETRA-MOBILE-GATEWAY-MIB,TIMETRA-MOBILE-GATEWAY-MIB,.1.3.6.1.4.1.6527.3.1.3.70.0.29,tmnxMobGwDdnThrottlingStart,Average,,"""A tmnxMobGwDdnThrottlingStart notification is generated when the serving
+gateway (SGW) starts throttling the Downlink Data Notification (DDN) for the
+low priority traffic towards a peer node (SGSN/MME).
+[CAUSE] The SGW will start throttling the DDN when it receives a throttling
+instruction carried in the 'downlink (DL) low priority traffic Throttling'
+IE from a peer node.
+[EFFECT] The SGW will start throttling the DDN based on a priority threshold
+value. The traffic with an priority value higher than or equal to the
+threshold value is considered as a bearer for non-priority traffic.
+[RECOVERY] When the throttling duration is passed, the SGW will stop throttling
+the DDN.""",,.1.3.6.1.4.1.6527.3.1.3.70.0.30,3d
+TIMETRA-MOBILE-GATEWAY-MIB,TIMETRA-MOBILE-GATEWAY-MIB,.1.3.6.1.4.1.6527.3.1.3.70.0.30,tmnxMobGwDdnThrottlingStop,Average,,"""A tmnxMobGwDdnThrottlingStop notification is generated when the serving
+gateway (SGW) stops throttling the Downlink Data Notification (DDN) for the
+low priority traffic towards a peer node (SGSN/MME).
+[CAUSE] The SGW will stop throttling the DDN when the throttling time is over.
+[EFFECT] The SGW will stop throttling the DDN based on a priority threshold
+value. All DDN will be sent to the peer node.
+[RECOVERY] When the another throttling instruction is received from a peer
+node, the SGW will start throttling the DDN.""",,NONE,3d
+TIMETRA-MOBILE-GATEWAY-MIB,TIMETRA-MOBILE-GATEWAY-MIB,.1.3.6.1.4.1.6527.3.1.3.70.0.31,tmnxMobLiDf2StsOperStateChange,Average,,"""A tmnxMobLiDf2StsOperStateChange notification is generated when the
+current operational state of the Delivery Function 2 peer belonging
+to a card group changes.
+[CAUSE] The df2-peer's operational state will change when the TCP
+connection's state to the df2-peer changes.
+[EFFECT] When the df2-peer's state is down, the Intercept Related
+Information (IRI) packets are not sent to the peer. When the
+df2-peer's state is up, the IRI packets are sent to the peer.
+[RECOVERY] If the df2-peer goes down, then the IRI packets being sent
+to the peer will be buffered to the system limit. Then, all the
+packets will be sent to the peer.""",,NONE,3d
+TIMETRA-MOBILE-GATEWAY-MIB,TIMETRA-MOBILE-GATEWAY-MIB,.1.3.6.1.4.1.6527.3.1.3.70.0.32,tmnxMobLiDf3StsOperStateChange,Average,,"""A tmnxMobLiDf3StsOperStateChange notification is generated when the
+current operational state of the Delivery Function 3 peer belonging
+to a group changes.
+[CAUSE] The df3-peer's operational state will change when the TCP
+connection's state to the df3-peer changes.
+[EFFECT] When the df3-peer's state is down, the Intercept Related
+Information (IRI) packets are not sent to the peer. When the
+df3-peer's state is up, the IRI packets are sent to the peer.
+[RECOVERY] If the df3-peer goes down, then the IRI packets being sent
+to the peer will be buffered to the system limit. Then, all the
+packets will be sent to the peer.""",,NONE,3d
+TIMETRA-MOBILE-GATEWAY-MIB,TIMETRA-MOBILE-GATEWAY-MIB,.1.3.6.1.4.1.6527.3.1.3.70.0.33,tmnxMobPdnApnMaxPdnConnAlarm,Average,,"""A tmnxMobPdnApnMaxPdnConnAlarm notification is generated when the
+maximum number of Packet Data Network (PDN) connections for this Access
+Point Name (APN) on the gateway is reached.
+[CAUSE] Maximum number of Packet Data Network (PDN) connections for
+this Access Point Name (APN) on the gateway is reached.
+[EFFECT] New PDN connections will not be accepted until the limit
+goes below the value of
+TIMETRA-MOBILE-PDN-MIB::tmnxMobPdnApnMaxPdnConnections.
+[RECOVERY] To accept new PDN connections, system has to wait until
+the number of PDN connections goes below the value of
+TIMETRA-MOBILE-PDN-MIB::tmnxMobPdnApnMaxPdnConnections.""",,.1.3.6.1.4.1.6527.3.1.3.70.0.34,3d
+TIMETRA-MOBILE-GATEWAY-MIB,TIMETRA-MOBILE-GATEWAY-MIB,.1.3.6.1.4.1.6527.3.1.3.70.0.34,tmnxMobPdnApnMaxPdnConnAlarmClr,Clear,,"""A tmnxMobPdnApnMaxPdnConnAlarmClr notification is generated when the
+maximum number of Packet Data Network (PDN) connections for this Access
+Point Name (APN) on the gateway is dropped below the the value of
+TIMETRA-MOBILE-PDN-MIB::tmnxMobPdnApnMaxPdnConnections.
+[CAUSE] The value of maximum number of Packet Data Network (PDN)
+connections for this Access Point Name (APN) on the gateway is
+dropped below the value of
+TIMETRA-MOBILE-PDN-MIB::tmnxMobPdnApnMaxPdnConnections.
+[EFFECT] New PDN connections will be accepted.
+[RECOVERY] No further action is needed.""",,NONE,3d
+TIMETRA-MOBILE-GATEWAY-MIB,TIMETRA-MOBILE-GATEWAY-MIB,.1.3.6.1.4.1.6527.3.1.3.70.0.35,tmnxMobGwDhcpSvrState,Average,,"""A tmnxMobGwDhcpSvrState notification is generated when there
+has been a change in the Dynamic Host Configuration Protocol
+(DHCP) Server state.
+[CAUSE] When there is a change in DHCP Server State.
+[EFFECT] When the DHCP Server State is 'add', the server has been
+added to the system. When the state is 'delete', the server has been
+deleted from the system. When the state is 'down', the discover/request
+messages are not sent to the server. When the state is 'up' and the
+DHCP-server is selected, the discover/request messages are sent to
+this server.
+[RECOVERY] If the DHCP-server is 'down', the discover/request messages
+are sent to alternate configured servers. This server will be brought
+back 'up' after the dead time 'tmnxMobProfDHCPSGDeadTime' expires.""",,NONE,3d
+TIMETRA-MOBILE-GATEWAY-MIB,TIMETRA-MOBILE-GATEWAY-MIB,.1.3.6.1.4.1.6527.3.1.3.70.0.36,tmnxMobGwABSAlarm,Average,,"""A tmnxMobGwABSAlarm notification is generated when a set of the
+internal parameters for ICC call latency and memory utilization reach
+the high threshold (activated), or drop back and keep staying below
+the low threshold for at least some time period (de-activated).
+[CAUSE] When the set of the internal parameters for ICC call latency
+and memory utilization reach the high threshold (activated), and/or
+drop back and keep staying bolow the low threshold for at least some
+time period (de-activated).
+[EFFECT] When the ABS alarm is 'active', the application will use the
+'selective packet discard' flag passed from Octeon drive to make a
+decision if the packet should be dropped. When the ABS alarm is
+'inactive', the Octeon drive will stop passing the
+'selective packet discard' flag to the application.
+[RECOVERY] Diagnose why high memory utilization and/or control
+signaling overload happen.""",,NONE,3d
+TIMETRA-MOBILE-GATEWAY-MIB,TIMETRA-MOBILE-GATEWAY-MIB,.1.3.6.1.4.1.6527.3.1.3.70.0.37,tmnxMobGwPoolCapacityAlarmMinor,Minor,,"""A tmnxMobGwPoolCapacityAlarmMinor notification is generated when either
+the IPv4 or IPv6 address pool usage reaches 85% of the pool size.
+[CAUSE] The IPv4 or IPv6 address pool usage reaches 85% of the pool
+size because Ipv4 or Ipv6 address pool are close to be
+exhausted.
+[EFFECT] If the utilization of Ipv4 or Ipv6 address pool reaches 100%,
+the Packet Data Network (PDN) Gateway (PGW) will reject
+requests for new PDN connections.
+[RECOVERY] If the utilization of Ipv4 or Ipv6 address pool reaches
+100%, operator's assistance is needed to increase the
+address pool size. More IP addresses might be added through
+creating a new entry in vRtrIpPoolAddrTable for the
+corresponding router and IP pool name with a non-overlapping
+IP prefix.""",,.1.3.6.1.4.1.6527.3.1.3.70.0.38,3d
+TIMETRA-MOBILE-GATEWAY-MIB,TIMETRA-MOBILE-GATEWAY-MIB,.1.3.6.1.4.1.6527.3.1.3.70.0.38,tmnxMobGwPoolCapacityAlmMnrClear,Clear,,"""A tmnxMobGwPoolCapacityAlmMnrClear notification is generated when both
+the IPv4 and IPv6 address pool usage drop below 80% of the pool size.""",,NONE,3d
+TIMETRA-MOBILE-GATEWAY-MIB,TIMETRA-MOBILE-GATEWAY-MIB,.1.3.6.1.4.1.6527.3.1.3.70.0.39,tmnxMobGwPoolCapacityAlarmMajor,Major,,"""A tmnxMobGwPoolCapacityAlarmMajor notification is generated when either
+the IPv4 or IPv6 address pool usage reaches 95% of the pool size.
+[CAUSE] The IPv4 or IPv6 address pool usage reaches 95% of the pool
+size because Ipv4 or Ipv6 address pool are very close to be
+exhausted.
+[EFFECT] If the utilization of Ipv4 or Ipv6 address pool reaches 100%,
+the Packet Data Network (PDN) Gateway (PGW) will reject
+requests for new PDN connections.
+[RECOVERY] If the utilization of Ipv4 or Ipv6 address pool reaches
+100%, operator's assistance is needed to increase the
+address pool size. More IP addresses might be added through
+creating a new entry in vRtrIpPoolAddrTable for the
+corresponding router and IP pool name with a non-overlapping
+IP prefix.""",,.1.3.6.1.4.1.6527.3.1.3.70.0.40,3d
+TIMETRA-MOBILE-GATEWAY-MIB,TIMETRA-MOBILE-GATEWAY-MIB,.1.3.6.1.4.1.6527.3.1.3.70.0.40,tmnxMobGwPoolCapacityAlmMjrClear,Clear,,"""A tmnxMobGwPoolCapacityAlmMjrClear notification is generated when both
+the IPv4 and IPv6 address pool usage drop below 90% of the pool size.""",,NONE,3d
+TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.1,tmnxVRtrMidRouteTCA,Average,,"""The tmnxVRtrMidRouteTCA notification is generated when the number
+of routes contained in a VPRN exceeds the value specified by
+vRtrMidRouteThreshold.  No other notifications of this type
+are generated until after the soak period specified by
+vRtrRouteThresholdSoakTime has expired.""",,.1.3.6.1.4.1.6527.3.1.3.3.0.3,3d
+TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.2,tmnxVRtrHighRouteTCA,Major,,"""The tmnxVRtrHighRouteTCA notification is generated when the number
+of routes contained in a VPRN exceeds the value specified by
+vRtrHighRouteThreshold.  No other notifications of this type
+are generated until after the soak period specified by
+vRtrRouteThresholdSoakTime has expired.""",,.1.3.6.1.4.1.6527.3.1.3.3.0.3,3d
+TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.3,tmnxVRtrHighRouteCleared,Clear,,"""The tmnxVRtrHighRouteCleared notification is generated when the
+number of routes contained in a VPRN has dropped below the
+vRtrHighRouteThreshold value following the generation of a
+tmnxVRtrHighRouteTCA notification.""",,NONE,3d
+TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.4,tmnxVRtrIllegalLabelTCA,Average,,"""The tmnxVRtrIllegalLabelTCA notification is generated when the
+number of illegal label violations on a VRF has exceeded the
+value specified by vRtrIllegalLabelThreshold.""",,NONE,3d
+TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.5,tmnxVRtrMcastMidRouteTCA,Average,,"""The tmnxVRtrMcastMidRouteTCA notification is generated when the number
+of multicast routes contained in a VPRN exceeds the value specified by
+vRtrMcastMidRouteThreshold.  No other notifications of this type
+are generated until after the soak period specified by
+vRtrRouteThresholdSoakTime has expired.""",,.1.3.6.1.4.1.6527.3.1.3.3.0.7,3d
+TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.6,tmnxVRtrMcastMaxRoutesTCA,Major,,"""The tmnxVRtrMcastMaxRoutesTCA notification is generated when the number
+of multicast routes contained in a VPRN exceeds the value specified by
+vRtrMaxMcastNumRoutes.  No other notifications of this type
+are generated until after the soak period specified by
+vRtrRouteThresholdSoakTime has expired.""",,.1.3.6.1.4.1.6527.3.1.3.3.0.7,3d
+TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.7,tmnxVRtrMcastMaxRoutesCleared,Clear,,"""The tmnxVRtrMcastMaxRoutesCleared notification is generated when the
+number of multicast routes contained in a VPRN has dropped below the
+vRtrMaxMcastNumRoutes value following the generation of a
+tmnxVRtrMcastMaxRoutesTCA notification.""",,NONE,3d
+TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.8,tmnxVRtrMaxArpEntriesTCA,Average,,"""The tmnxVRtrMaxArpEntriesTCA notification is generated when the
+number of ARP entries in a VPRN exceeds the maximum supported.""",,.1.3.6.1.4.1.6527.3.1.3.3.0.9,3d
+TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.9,tmnxVRtrMaxArpEntriesCleared,Clear,,"""The tmnxVRtrMaxArpEntriesCleared notification is generated when the
+number of ARP entries contained in a VPRN has dropped below the
+maximum value following the generation of a tmnxVRtrMaxArpEntriesTCA
+notification.""",,NONE,3d
+TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.10,tmnxVRtrDHCPAFEntriesExceeded,Major,,"""The tmnxVRtrDHCPAFEntriesExceeded notification is generated
+when the number of DHCP 'AutoFilter' entries on a given interface
+reaches a user configurable upper limit given by vRtrIfDHCPAutoFilter.""",,NONE,3d
+TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.11,tmnxVRtrMaxRoutes,Average,,"""The tmnxVRtrMaxRoutes notification is
+generated when the number of routes contained in a
+VPRN reaches the value specified by vRtrMaxNumRoutes.""",,NONE,3d
+TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.12,tmnxVRtrDHCPLseStsExceeded,Average,,"""The tmnxVRtrDHCPLseStsExceeded notification is
+generated when the number  of  DHCP  lease states
+entries on a given interface reaches a user configurable
+upper limit.""",,NONE,3d
+TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.13,tmnxVRtrDHCPLeaseStateOverride,Average,,"""The tmnxVRtrDHCPLeaseStateOverride notification is
+generated when an existing DHCP lease state is
+overridden by a new lease state which has the same
+IP address but a different MAC address.""",,NONE,3d
+TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.14,tmnxVRtrDHCPSuspiciousPcktRcvd,Average,,"""The tmnxVRtrDHCPSuspiciousPcktRcvd notification is
+generated when a DHCP packet is received with suspicious
+content.""",,NONE,3d
+TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.15,tmnxVRtrDHCPLseStRestoreProblem,Major,,"""The tmnxVRtrDHCPLseStRestoreProblem notification is
+generated when an an error is detected while
+processing a persistency record.""",,NONE,3d
+TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.16,tmnxVRtrDHCPLseStatePopulateErr,Average,,"""The tmnxVRtrDHCPLseStatePopulateErr notification
+indicates that the system was unable to update the
+Lease State Table with the information contained in
+the DHCP ACK message. The DHCP ACK message has been
+discarded.""",,NONE,3d
+TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.17,tmnxVRtrBfdSessionDown,Major,,"""The tmnxVRtrBfdSessionDown notification is generated when
+a BFD session goes down.""",,NONE,3d
+TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.18,tmnxVRtrBfdMaxSessionOnSlot,Average,,"""The tmnxVRtrBfdMaxSessionOnSlot notification is generated
+when the maximum number of BFD sessions has been reached
+on the slot indicated in 'vRtrBfdSlotNumber'.""",,NONE,3d
+TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.19,tmnxVRtrBfdPortTypeNotSupported,Average,,"""The tmnxVRtrBfdPortTypeNotSupported notification is
+generated when BFD is not supported on the port specified
+in 'tmnxPortNotifyPortId'.""",,NONE,3d
+TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.20,tmnxVRtrDHCPIfLseStatesExceeded,Average,,"""The tmnxVRtrDHCPIfLseStatesExceeded notifications is
+generated when the number of lease states on an interface
+exceeds vRtrIfDHCPLeasePopulate.""",,NONE,3d
+TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.21,tmnxVRtrDHCP6RelayLseStExceeded,Average,,"""The tmnxVRtrDHCP6RelayLseStExceeded notifications is
+generated when the number of lease states populated by
+dhcp6 relay on an interface exceeds
+vRtrIfDHCP6LeasePopulate.""",,NONE,3d
+TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.22,tmnxVRtrDHCP6ServerLseStExceeded,Average,,"""The tmnxVRtrDHCP6ServerLseStExceeded notifications is
+generated when the number of lease states populated by
+dhcp6 server on an interface exceeds
+vRtrIfDHCP6ServerMaxLeaseStates.""",,NONE,3d
+TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.23,tmnxVRtrDHCP6LseStateOverride,Average,,"""The tmnxVRtrDHCP6LseStateOverride notifications is
+generated when an existing DHCP6 lease state can be
+overridden by a new lease state.
+This is allowed if the new lease state has the same IP
+address but a different client id or mac address.
+This is not allowed if the new lease state has the same IP
+address but a different prefix length.""",,NONE,3d
+TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.24,tmnxVRtrDHCP6RelayReplyStripUni,Average,,"""The tmnxVRtrDHCP6RelayReplyStripUni notifications is
+generated when a unicast option is stripped from a message
+relayed from a server to a client
+in a relay reply message.""",,NONE,3d
+TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.25,tmnxVRtrDHCP6IllegalClientAddr,Average,,"""The tmnxVRtrDHCP6IllegalClientAddr notifications is
+generated when an incoming message is dropped
+because the client's source IP does not match the subnet
+of the incoming interface.""",,NONE,3d
+TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.26,tmnxVRtrDHCP6AssignedIllegSubnet,Average,,"""The tmnxVRtrDHCP6AssignedIllegSubnet notifications is
+generated when an IP address assigned to the client
+does not match the subnet of the interface.""",,NONE,3d
+TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.27,tmnxVRtrDHCP6ClientMacUnresolved,Average,,"""The tmnxVRtrDHCP6ClientMacUnresolved notifications is
+generated when we receive a relay reply for a client,
+and the client's MAC address has not been resolved yet.""",,NONE,3d
+TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.28,tmnxVRtrBfdSessionUp,Average,,"""The tmnxVRtrBfdSessionUp notification is generated when
+a BFD session goes up.""",,NONE,3d
+TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.29,tmnxVRtrIPv6MidRouteTCA,Average,,"""The tmnxVRtrIPv6MidRouteTCA notification is generated when
+the number of IPv6 routes contained in a VPRN exceeds
+the value specified by vRtrIPv6MidRouteThreshold. No other
+notifications of this type are generated until after the
+soak period specified by vRtrIPv6RouteThresholdSoakTime
+has expired.""",,.1.3.6.1.4.1.6527.3.1.3.3.0.31,3d
+TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.30,tmnxVRtrIPv6HighRouteTCA,Major,,"""The tmnxVRtrIPv6HighRouteTCA notification is generated when
+the number of IPv6 routes contained in a VPRN exceeds
+the value specified by vRtrIPv6HighRouteThreshold. No other
+notifications of this type are generated until after the
+soak period specified by vRtrIPv6RouteThresholdSoakTime
+has expired.""",,.1.3.6.1.4.1.6527.3.1.3.3.0.31,3d
+TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.31,tmnxVRtrIPv6HighRouteCleared,Clear,,"""The tmnxVRtrIPv6HighRouteCleared notification is generated
+when the number of IPv6 routes contained in a VPRN has
+dropped below the vRtrIPv6HighRouteThreshold value
+following the generation of a tmnxVRtrIPv6HighRouteTCA
+notification.""",,NONE,3d
+TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.32,tmnxVRtrStaticRouteCPEStatus,Average,,"""The tmnxVRtrStaticRouteCPEStatus notification is generated
+when a CPE associated with a static route, as specified
+by the vRtrInetStatRteCpeNotifyAddr object, becomes
+reachable or unreachable.""",,NONE,3d
+TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.33,tmnxVRtrBfdSessionDeleted,Average,,"""The tmnxVRtrBfdSessionDeleted notification is generated when
+a BFD session is deleted.""",,NONE,3d
+TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.34,tmnxVRtrBfdSessionProtChange,Average,,"""The tmnxVRtrBfdSessionProtChange notification is generated when
+there is a change in the list of protocols using the BFD session.""",,NONE,3d
+TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.35,tmnxVRtrManagedRouteAddFailed,Major,,"""The tmnxVRtrManagedRouteAddFailed notification
+is generated when a managed route could not be installed.""",,NONE,3d
