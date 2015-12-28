@@ -222,7 +222,16 @@ def item_creator_type_17_oid_fogg_hp(items, template_name, triggers, alarm_value
                                   + template_name + ':' + 'snmptrap["(\\b' + alarm_values['dependency'] + '$\\b)"]' + \
                                   '.str("' + alarm_values['dependency'] + '")}=0'
 
-    trigger_name.text = alarm_values['trigger_name_description']
+
+    if alarm_values['trigger_name_description'] == '':
+        trigger_name.text = 'ATTENTION : On {HOST.NAME}, An Alarm : ' + alarm_values['name'] + \
+                        ' - {#SNMPVALUE}, From Module : ' + alarm_values['mib_module']
+    else:
+        print alarm_values['trigger_name_description'].replace("\n", " ")
+        print "---"
+        updated_name = alarm_values['trigger_name_description'].replace("\n", " ")
+        trigger_name.text = updated_name
+
     trigger_status.text = '0'
 
     if alarm_values['priority'] == 'Discard':
