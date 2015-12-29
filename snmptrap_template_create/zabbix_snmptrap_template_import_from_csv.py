@@ -169,6 +169,10 @@ def item_creator_type_17_oid_fogg_hp(items, template_name, triggers, alarm_value
     applications = SubElement(item, 'applications')
     application = SubElement(applications, 'application')
     application_name = SubElement(application, 'name')
+    SubElement(item, 'valuemap')
+    logtimefmt = SubElement(item, 'logtimefmt')
+
+
 
     #
     # Setting basic information for the item.
@@ -193,6 +197,7 @@ def item_creator_type_17_oid_fogg_hp(items, template_name, triggers, alarm_value
     description.text = str(alarm_values['description'])
 
     application_name.text = 'Alarms'
+    logtimefmt.text = 'hh:mm:ss yyyy/MM/dd'
 
     trigger = SubElement(triggers, 'trigger')
     trigger_expression = SubElement(trigger, 'expression')
@@ -227,8 +232,8 @@ def item_creator_type_17_oid_fogg_hp(items, template_name, triggers, alarm_value
         trigger_name.text = 'ATTENTION : On {HOST.NAME}, An Alarm : ' + alarm_values['name'] + \
                         ' - {#SNMPVALUE}, From Module : ' + alarm_values['mib_module']
     else:
-        print alarm_values['trigger_name_description'].replace("\n", " ")
-        print "---"
+        #print alarm_values['trigger_name_description'].replace("\n", " ")
+        #print "---"
         updated_name = alarm_values['trigger_name_description'].replace("\n", " ")
         trigger_name.text = updated_name
 
