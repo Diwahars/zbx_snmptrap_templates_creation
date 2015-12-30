@@ -30,7 +30,7 @@ file_processing_list = [{'file_path': 'input_csv/checkpoint_node_traps.csv',
                         {'file_path': 'input_csv/billing_application.csv',
                          'template_name': 'Template SNMP Traps BILLING App Nodes',
                          'template_group': 'Custom Template GT'},
-                        {'file_path': 'input_csv/ams_bru_hkg_ggsn.csv',
+                        {'file_path': 'input_csv/ams_bru_hkg_ggsn_updated.csv',
                          'template_name': 'Template SNMP Traps GGSN Nodes',
                          'template_group': 'Custom Template GT'}]
 

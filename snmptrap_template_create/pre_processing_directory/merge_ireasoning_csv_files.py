@@ -34,3 +34,6 @@ merge_csv('ulticom/', 'merge_csv/ulticom_merge.csv')
 
 print 'Merging HGES MIBs'
 merge_csv('hges_mibs/', 'merge_csv/hges_merge.csv')
+
+print 'Merging HGES MIBs'
+merge_csv('billing_application/', 'merge_csv/billing_apps_merge.csv')

@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <zabbix_export>
 	<version>2.0</version>
-	<date>2015-12-20T20:40:08Z</date>
+	<date>2015-12-30T07:55:20Z</date>
 	<groups>
 		<group>
 			<name>Custom Template GT</name>
@@ -64,6 +64,8 @@ a managed network element turns unreachable (ICMP).</description>
 							<name>Alarms</name>
 						</application>
 					</applications>
+					<valuemap/>
+					<logtimefmt>hh:mm:ss yyyy/MM/dd</logtimefmt>
 				</item>
 				<item>
 					<name>Alarm Notification For : networkElementNotManageable</name>
@@ -107,6 +109,8 @@ a managed network element is reachable via ICMP but not reachable via the Manage
 							<name>Alarms</name>
 						</application>
 					</applications>
+					<valuemap/>
+					<logtimefmt>hh:mm:ss yyyy/MM/dd</logtimefmt>
 				</item>
 				<item>
 					<name>Alarm Notification For : networkElementManageable</name>
@@ -150,6 +154,8 @@ unreachable / not manageable events raised previously.</description>
 							<name>Alarms</name>
 						</application>
 					</applications>
+					<valuemap/>
+					<logtimefmt>hh:mm:ss yyyy/MM/dd</logtimefmt>
 				</item>
 				<item>
 					<name>Alarm Notification For : unSupportedNetworkElementVersion</name>
@@ -193,6 +199,8 @@ encounters / discovers a Network element running an Unsupported software version
 							<name>Alarms</name>
 						</application>
 					</applications>
+					<valuemap/>
+					<logtimefmt>hh:mm:ss yyyy/MM/dd</logtimefmt>
 				</item>
 				<item>
 					<name>Alarm Notification For : cliLoginFailed</name>
@@ -237,6 +245,8 @@ Credentials</description>
 							<name>Alarms</name>
 						</application>
 					</applications>
+					<valuemap/>
+					<logtimefmt>hh:mm:ss yyyy/MM/dd</logtimefmt>
 				</item>
 				<item>
 					<name>Alarm Notification For : alarmEmailNotificationFailure</name>
@@ -280,6 +290,8 @@ Failure to send the E-Mail Notification to NB Clients registered for E-Mail Noti
 							<name>Alarms</name>
 						</application>
 					</applications>
+					<valuemap/>
+					<logtimefmt>hh:mm:ss yyyy/MM/dd</logtimefmt>
 				</item>
 				<item>
 					<name>Alarm Notification For : dataCollectionFailure</name>
@@ -323,6 +335,8 @@ NB managers can either ignore it (or) log-it.</description>
 							<name>Alarms</name>
 						</application>
 					</applications>
+					<valuemap/>
+					<logtimefmt>hh:mm:ss yyyy/MM/dd</logtimefmt>
 				</item>
 				<item>
 					<name>Alarm Notification For : temsServerPerfMetricCriticalTCA</name>
@@ -367,6 +381,8 @@ crossed for the current Performance Metric</description>
 							<name>Alarms</name>
 						</application>
 					</applications>
+					<valuemap/>
+					<logtimefmt>hh:mm:ss yyyy/MM/dd</logtimefmt>
 				</item>
 				<item>
 					<name>Alarm Notification For : temsServerPerfMetricMajorTCA</name>
@@ -411,6 +427,8 @@ crossed for the current Performance Metric</description>
 							<name>Alarms</name>
 						</application>
 					</applications>
+					<valuemap/>
+					<logtimefmt>hh:mm:ss yyyy/MM/dd</logtimefmt>
 				</item>
 				<item>
 					<name>Alarm Notification For : temsServerPerfMetricMinorTCA</name>
@@ -455,6 +473,8 @@ crossed for the current Performance Metric</description>
 							<name>Alarms</name>
 						</application>
 					</applications>
+					<valuemap/>
+					<logtimefmt>hh:mm:ss yyyy/MM/dd</logtimefmt>
 				</item>
 				<item>
 					<name>Alarm Notification For : temsServerPerfMetricClearTCA</name>
@@ -498,6 +518,8 @@ the previously raised Critical / Major / Minor TCA for this Performance Metric.<
 							<name>Alarms</name>
 						</application>
 					</applications>
+					<valuemap/>
+					<logtimefmt>hh:mm:ss yyyy/MM/dd</logtimefmt>
 				</item>
 				<item>
 					<name>Alarm Notification For : alarmFromNetworkElement</name>
@@ -544,6 +566,8 @@ and alarmSeverity shall be used to uniquely identify a specific root cause</desc
 							<name>Alarms</name>
 						</application>
 					</applications>
+					<valuemap/>
+					<logtimefmt>hh:mm:ss yyyy/MM/dd</logtimefmt>
 				</item>
 				<item>
 					<name>Alarm Notification For : hotStandbyTakesOver</name>
@@ -587,6 +611,8 @@ Note:This alarm will be triggered only when the Management Server is deployed in
 							<name>Alarms</name>
 						</application>
 					</applications>
+					<valuemap/>
+					<logtimefmt>hh:mm:ss yyyy/MM/dd</logtimefmt>
 				</item>
 				<item>
 					<name>Alarm Notification For : primaryServerisRestored</name>
@@ -630,6 +656,8 @@ Note:This alarm will be triggered only when the Management Server is deployed in
 							<name>Alarms</name>
 						</application>
 					</applications>
+					<valuemap/>
+					<logtimefmt>hh:mm:ss yyyy/MM/dd</logtimefmt>
 				</item>
 				<item>
 					<name>Alarm Notification For : alarmfromElementManagementSystem</name>
@@ -676,6 +704,8 @@ and alarmSeverity shall be used to uniquely identify a specific root cause</desc
 							<name>Alarms</name>
 						</application>
 					</applications>
+					<valuemap/>
+					<logtimefmt>hh:mm:ss yyyy/MM/dd</logtimefmt>
 				</item>
 				<item>
 					<name>Alarm Notification For : georedundancyGroupMismatch</name>
@@ -719,6 +749,8 @@ mismatch information from EMS, active and standby network element</description>
 							<name>Alarms</name>
 						</application>
 					</applications>
+					<valuemap/>
+					<logtimefmt>hh:mm:ss yyyy/MM/dd</logtimefmt>
 				</item>
 			</items>
 			<discovery_rules/>

@@ -1,19 +1,19 @@
 <?xml version="1.0" ?>
 <zabbix_export>
 	<version>2.0</version>
-	<date>2015-12-30T07:55:19Z</date>
+	<date>2015-12-29T20:22:44Z</date>
 	<groups>
 		<group>
-			<name>Custom Template GT</name>
+			<name>Custom Group</name>
 		</group>
 	</groups>
 	<templates>
 		<template>
-			<template>Template SNMP Traps CISCO Nodes</template>
-			<name>Template SNMP Traps CISCO Nodes</name>
+			<template>Custom Template Name</template>
+			<name>Custom Template Name</name>
 			<groups>
 				<group>
-					<name>Custom Template GT</name>
+					<name>Custom Group</name>
 				</group>
 			</groups>
 			<applications>
@@ -3378,7 +3378,7 @@ This notification is only applicable to VLANs of type
 	</templates>
 	<triggers>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.96.2.1.1$\b)&quot;].str(&quot;enterprises.9.9.96.2.1.1&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.96.2.1.1$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.9.96.2.1.1$\b)&quot;].str(&quot;enterprises.9.9.96.2.1.1&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.96.2.1.1$\b)&quot;].nodata(3d)}=0</expression>
 			<name>A ccCopyCompletion trap is sent at the completionof a config-copy request.</name>
 			<url/>
 			<status>0</status>
@@ -3391,7 +3391,7 @@ the ccCopyState is success.</description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.117.2.0.1$\b)&quot;].str(&quot;enterprises.9.9.117.2.0.1&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.117.2.0.1$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.9.117.2.0.1$\b)&quot;].str(&quot;enterprises.9.9.117.2.0.1&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.117.2.0.1$\b)&quot;].nodata(3d)}=0</expression>
 			<name>This notification is generated when the value ofcefcModuleOperStatus changes.</name>
 			<url/>
 			<status>0</status>
@@ -3405,7 +3405,7 @@ managing.
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.117.2.0.2$\b)&quot;].str(&quot;enterprises.9.9.117.2.0.2&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.117.2.0.2$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.9.117.2.0.2$\b)&quot;].str(&quot;enterprises.9.9.117.2.0.2&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.117.2.0.2$\b)&quot;].nodata(3d)}=0</expression>
 			<name>The cefcFRUPowerStatusChange notification indicates thatthe power status of a FRU has changed.</name>
 			<url/>
 			<status>0</status>
@@ -3418,7 +3418,7 @@ and the new operational-status of the FRU.</description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.117.2.0.3$\b)&quot;].str(&quot;enterprises.9.9.117.2.0.3&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.117.2.0.3$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.9.117.2.0.3$\b)&quot;].str(&quot;enterprises.9.9.117.2.0.3&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.117.2.0.3$\b)&quot;].nodata(3d)}=0</expression>
 			<name>The cecfFRUInserted notification indicates that a FRU was inserted.</name>
 			<url/>
 			<status>0</status>
@@ -3431,7 +3431,7 @@ of the FRU's container.</description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.117.2.0.4$\b)&quot;].str(&quot;enterprises.9.9.117.2.0.4&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.117.2.0.4$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.9.117.2.0.4$\b)&quot;].str(&quot;enterprises.9.9.117.2.0.4&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.117.2.0.4$\b)&quot;].nodata(3d)}=0</expression>
 			<name>The cefcFRURemoved notification indicates that a FRU wasremoved. The varbind for this notification indicates theentPhysicalIndex of the removed FRU, and the entPhysicalIndexof the FRU's container.</name>
 			<url/>
 			<status>0</status>
@@ -3444,7 +3444,7 @@ of the FRU's container.</description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.117.2.0.5$\b)&quot;].str(&quot;enterprises.9.9.117.2.0.5&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.117.2.0.5$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.9.117.2.0.5$\b)&quot;].str(&quot;enterprises.9.9.117.2.0.5&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.117.2.0.5$\b)&quot;].nodata(3d)}=0</expression>
 			<name>FRU was inserted whose product ID is not supported.</name>
 			<url/>
 			<status>0</status>
@@ -3461,7 +3461,7 @@ notification. </description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.117.2.0.6$\b)&quot;].str(&quot;enterprises.9.9.117.2.0.6&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.117.2.0.6$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.9.117.2.0.6$\b)&quot;].str(&quot;enterprises.9.9.117.2.0.6&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.117.2.0.6$\b)&quot;].nodata(3d)}=0</expression>
 			<name>This notification is generated when the value ofcefcFanTrayOperStatus changes.</name>
 			<url/>
 			<status>0</status>
@@ -3472,7 +3472,7 @@ cefcFanTrayOperStatus changes. </description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.117.2.0.7$\b)&quot;].str(&quot;enterprises.9.9.117.2.0.7&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.117.2.0.7$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.9.117.2.0.7$\b)&quot;].str(&quot;enterprises.9.9.117.2.0.7&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.117.2.0.7$\b)&quot;].nodata(3d)}=0</expression>
 			<name>The notification indicates that the powersupply's output capacity has changed.</name>
 			<url/>
 			<status>0</status>
@@ -3486,7 +3486,7 @@ has transitioned from 'false' to 'true'.</description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.134.2.0.1$\b)&quot;].str(&quot;enterprises.9.9.134.2.0.1&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.134.2.0.1$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.9.134.2.0.1$\b)&quot;].str(&quot;enterprises.9.9.134.2.0.1&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.134.2.0.1$\b)&quot;].nodata(3d)}=0</expression>
 			<name>ccClusterMemberOperStatus changes after the member is completely added to the cluster.</name>
 			<url/>
 			<status>0</status>
@@ -3499,7 +3499,7 @@ member is completely added to the cluster.</description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.43.2.0.1$\b)&quot;].str(&quot;enterprises.9.9.43.2.0.1&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.43.2.0.1$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.9.43.2.0.1$\b)&quot;].str(&quot;enterprises.9.9.43.2.0.1&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.43.2.0.1$\b)&quot;].nodata(3d)}=0</expression>
 			<name>Notification of a configuration management event as recorded in ccmHistoryEventTable.</name>
 			<url/>
 			<status>0</status>
@@ -3510,7 +3510,7 @@ recorded in ccmHistoryEventTable.</description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.13.3.0.1$\b)&quot;].str(&quot;enterprises.9.9.13.3.0.1&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.13.3.0.1$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.9.13.3.0.1$\b)&quot;].str(&quot;enterprises.9.9.13.3.0.1&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.13.3.0.1$\b)&quot;].nodata(3d)}=0</expression>
 			<name>Monitor detects a testpoint reaching a critical state and is about to initiate a shutdown.</name>
 			<url/>
 			<status>0</status>
@@ -3526,7 +3526,7 @@ as it may not be sent before the shutdown completes.</description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.13.3.0.2$\b)&quot;].str(&quot;enterprises.9.9.13.3.0.2&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.13.3.0.2$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.9.13.3.0.2$\b)&quot;].str(&quot;enterprises.9.9.13.3.0.2&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.13.3.0.2$\b)&quot;].nodata(3d)}=0</expression>
 			<name>voltage measured at a given testpoint is outside the normal range for the testpoint.</name>
 			<url/>
 			<status>0</status>
@@ -3544,7 +3544,7 @@ ciscoEnvMonVoltStatusChangeNotif.</description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.13.3.0.3$\b)&quot;].str(&quot;enterprises.9.9.13.3.0.3&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.13.3.0.3$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.9.13.3.0.3$\b)&quot;].str(&quot;enterprises.9.9.13.3.0.3&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.13.3.0.3$\b)&quot;].nodata(3d)}=0</expression>
 			<name>given testpoint is outsidethe normal range for the testpoint.</name>
 			<url/>
 			<status>0</status>
@@ -3562,7 +3562,7 @@ ciscoEnvMonTempStatusChangeNotif.</description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.13.3.0.4$\b)&quot;].str(&quot;enterprises.9.9.13.3.0.4&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.13.3.0.4$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.9.13.3.0.4$\b)&quot;].str(&quot;enterprises.9.9.13.3.0.4&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.13.3.0.4$\b)&quot;].nodata(3d)}=0</expression>
 			<name>fans in the fan array (where extant) failed.</name>
 			<url/>
 			<status>0</status>
@@ -3579,7 +3579,7 @@ ciscoEnvMonFanStatusChangeNotif.</description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.13.3.0.5$\b)&quot;].str(&quot;enterprises.9.9.13.3.0.5&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.13.3.0.5$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.9.13.3.0.5$\b)&quot;].str(&quot;enterprises.9.9.13.3.0.5&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.13.3.0.5$\b)&quot;].nodata(3d)}=0</expression>
 			<name>redundant power supply (where extant) fails.</name>
 			<url/>
 			<status>0</status>
@@ -3596,7 +3596,7 @@ ciscoEnvMonSuppStatusChangeNotif.</description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.13.3.0.6$\b)&quot;].str(&quot;enterprises.9.9.13.3.0.6&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.13.3.0.6$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.9.13.3.0.6$\b)&quot;].str(&quot;enterprises.9.9.13.3.0.6&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.13.3.0.6$\b)&quot;].nodata(3d)}=0</expression>
 			<name>change in the state of a device being monitored by ciscoEnvMonVoltageState.</name>
 			<url/>
 			<status>0</status>
@@ -3608,7 +3608,7 @@ by ciscoEnvMonVoltageState.</description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.13.3.0.7$\b)&quot;].str(&quot;enterprises.9.9.13.3.0.7&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.13.3.0.7$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.9.13.3.0.7$\b)&quot;].str(&quot;enterprises.9.9.13.3.0.7&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.13.3.0.7$\b)&quot;].nodata(3d)}=0</expression>
 			<name>change in the state of a device being monitored by ciscoEnvMonTemperatureState.</name>
 			<url/>
 			<status>0</status>
@@ -3620,7 +3620,7 @@ by ciscoEnvMonTemperatureState.</description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.13.3.0.8$\b)&quot;].str(&quot;enterprises.9.9.13.3.0.8&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.13.3.0.8$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.9.13.3.0.8$\b)&quot;].str(&quot;enterprises.9.9.13.3.0.8&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.13.3.0.8$\b)&quot;].nodata(3d)}=0</expression>
 			<name>change in the state of a device being monitored by ciscoEnvMonFanState.</name>
 			<url/>
 			<status>0</status>
@@ -3632,7 +3632,7 @@ by ciscoEnvMonFanState.</description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.13.3.0.9$\b)&quot;].str(&quot;enterprises.9.9.13.3.0.9&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.13.3.0.9$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.9.13.3.0.9$\b)&quot;].str(&quot;enterprises.9.9.13.3.0.9&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.13.3.0.9$\b)&quot;].nodata(3d)}=0</expression>
 			<name>change in the state of a device being monitored by ciscoEnvMonSupplyState.</name>
 			<url/>
 			<status>0</status>
@@ -3644,7 +3644,7 @@ by ciscoEnvMonSupplyState.</description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.10.1.3.0.1$\b)&quot;].str(&quot;enterprises.9.9.10.1.3.0.1&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.10.1.3.0.1$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.9.10.1.3.0.1$\b)&quot;].str(&quot;enterprises.9.9.10.1.3.0.1&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.10.1.3.0.1$\b)&quot;].nodata(3d)}=0</expression>
 			<name>flash copy operation Completed</name>
 			<url/>
 			<status>0</status>
@@ -3657,7 +3657,7 @@ was requested when the operation was initiated.
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.10.1.3.0.2$\b)&quot;].str(&quot;enterprises.9.9.10.1.3.0.2&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.10.1.3.0.2$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.9.10.1.3.0.2$\b)&quot;].str(&quot;enterprises.9.9.10.1.3.0.2&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.10.1.3.0.2$\b)&quot;].nodata(3d)}=0</expression>
 			<name>partitioning operation Complete.</name>
 			<url/>
 			<status>0</status>
@@ -3670,7 +3670,7 @@ was requested when the operation was initiated.
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.10.1.3.0.3$\b)&quot;].str(&quot;enterprises.9.9.10.1.3.0.3&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.10.1.3.0.3$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.9.10.1.3.0.3$\b)&quot;].str(&quot;enterprises.9.9.10.1.3.0.3&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.10.1.3.0.3$\b)&quot;].nodata(3d)}=0</expression>
 			<name>miscellaneous flash operation Completed.</name>
 			<url/>
 			<status>0</status>
@@ -3684,7 +3684,7 @@ was requested when the operation was initiated.
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.10.1.3.0.4$\b)&quot;].str(&quot;enterprises.9.9.10.1.3.0.4&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.10.1.3.0.4$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.9.10.1.3.0.4$\b)&quot;].str(&quot;enterprises.9.9.10.1.3.0.4&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.10.1.3.0.4$\b)&quot;].nodata(3d)}=0</expression>
 			<name>removable Flash device is inserted or removed.</name>
 			<url/>
 			<status>0</status>
@@ -3696,7 +3696,7 @@ removable Flash device is inserted or removed.
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.10.1.3.0.5$\b)&quot;].str(&quot;enterprises.9.9.10.1.3.0.5&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.10.1.3.0.5$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.9.10.1.3.0.5$\b)&quot;].str(&quot;enterprises.9.9.10.1.3.0.5&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.10.1.3.0.5$\b)&quot;].nodata(3d)}=0</expression>
 			<name>removable Flash device is inserted.</name>
 			<url/>
 			<status>0</status>
@@ -3707,7 +3707,7 @@ whenever a removable Flash device is inserted.</description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.10.1.3.0.6$\b)&quot;].str(&quot;enterprises.9.9.10.1.3.0.6&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.10.1.3.0.6$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.9.10.1.3.0.6$\b)&quot;].str(&quot;enterprises.9.9.10.1.3.0.6&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.10.1.3.0.6$\b)&quot;].nodata(3d)}=0</expression>
 			<name>removable Flash device is removed.</name>
 			<url/>
 			<status>0</status>
@@ -3718,7 +3718,7 @@ whenever a removable Flash device is removed.</description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.10.1.3.0.7$\b)&quot;].str(&quot;enterprises.9.9.10.1.3.0.7&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.10.1.3.0.7$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.9.10.1.3.0.7$\b)&quot;].str(&quot;enterprises.9.9.10.1.3.0.7&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.10.1.3.0.7$\b)&quot;].nodata(3d)}=0</expression>
 			<name>removable Flash device is inserted.</name>
 			<url/>
 			<status>0</status>
@@ -3733,7 +3733,7 @@ deprecated</description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.10.1.3.0.8$\b)&quot;].str(&quot;enterprises.9.9.10.1.3.0.8&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.10.1.3.0.8$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.9.10.1.3.0.8$\b)&quot;].str(&quot;enterprises.9.9.10.1.3.0.8&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.10.1.3.0.8$\b)&quot;].nodata(3d)}=0</expression>
 			<name>removable Flash device is removed.</name>
 			<url/>
 			<status>0</status>
@@ -3748,7 +3748,7 @@ deprecated</description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.109.2.0.1$\b)&quot;].str(&quot;enterprises.9.9.109.2.0.1&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.109.2.0.1$\b)&quot;].nodata(3d)}=0 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.109.2.0.2$\b)&quot;].str(&quot;enterprises.9.9.109.2.0.2&quot;)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.9.109.2.0.1$\b)&quot;].str(&quot;enterprises.9.9.109.2.0.1&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.109.2.0.1$\b)&quot;].nodata(3d)}=0 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.109.2.0.2$\b)&quot;].str(&quot;enterprises.9.9.109.2.0.2&quot;)}=0</expression>
 			<name>CPU Utilization Threshold Reached.</name>
 			<url/>
 			<status>0</status>
@@ -3766,7 +3766,7 @@ in a notification indicating the top users of CPU.</description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.109.2.0.2$\b)&quot;].str(&quot;enterprises.9.9.109.2.0.2&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.109.2.0.2$\b)&quot;].nodata(1d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.9.109.2.0.2$\b)&quot;].str(&quot;enterprises.9.9.109.2.0.2&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.109.2.0.2$\b)&quot;].nodata(1d)}=0</expression>
 			<name>CPU Utilization falling below Threshold.</name>
 			<url/>
 			<status>0</status>
@@ -3782,7 +3782,7 @@ and such a notification is requested.</description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.5.0.1$\b)&quot;].str(&quot;enterprises.9.5.0.1&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.5.0.1$\b)&quot;].nodata(1d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.5.0.1$\b)&quot;].str(&quot;enterprises.9.5.0.1&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.5.0.1$\b)&quot;].nodata(1d)}=0</expression>
 			<name>Ler Alarm ON.</name>
 			<url/>
 			<status>0</status>
@@ -3798,7 +3798,7 @@ FDDI-SMT73-MIB for each port.</description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.5.0.2$\b)&quot;].str(&quot;enterprises.9.5.0.2&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.5.0.2$\b)&quot;].nodata(3d)}=0 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.5.0.1$\b)&quot;].str(&quot;enterprises.9.5.0.1&quot;)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.5.0.2$\b)&quot;].str(&quot;enterprises.9.5.0.2&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.5.0.2$\b)&quot;].nodata(3d)}=0 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.5.0.1$\b)&quot;].str(&quot;enterprises.9.5.0.1&quot;)}=0</expression>
 			<name>Ler Alarm OFF.</name>
 			<url/>
 			<status>0</status>
@@ -3814,7 +3814,7 @@ the FDDI-SMT73-MIB for each port.</description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.5.0.3$\b)&quot;].str(&quot;enterprises.9.5.0.3&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.5.0.3$\b)&quot;].nodata(1d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.5.0.3$\b)&quot;].str(&quot;enterprises.9.5.0.3&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.5.0.3$\b)&quot;].nodata(1d)}=0</expression>
 			<name>Module UP.</name>
 			<url/>
 			<status>0</status>
@@ -3829,7 +3829,7 @@ the sysEnableModuleTraps object in this MIB.</description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.5.0.4$\b)&quot;].str(&quot;enterprises.9.5.0.4&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.5.0.4$\b)&quot;].nodata(3d)}=0 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.5.0.3$\b)&quot;].str(&quot;enterprises.9.5.0.3&quot;)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.5.0.4$\b)&quot;].str(&quot;enterprises.9.5.0.4&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.5.0.4$\b)&quot;].nodata(3d)}=0 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.5.0.3$\b)&quot;].str(&quot;enterprises.9.5.0.3&quot;)}=0</expression>
 			<name>Module DOWN.</name>
 			<url/>
 			<status>0</status>
@@ -3844,7 +3844,7 @@ the sysEnableModuleTraps object in this MIB.</description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.5.0.5$\b)&quot;].str(&quot;enterprises.9.5.0.5&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.5.0.5$\b)&quot;].nodata(1d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.5.0.5$\b)&quot;].str(&quot;enterprises.9.5.0.5&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.5.0.5$\b)&quot;].nodata(1d)}=0</expression>
 			<name>Chassis Alarm ON.</name>
 			<url/>
 			<status>0</status>
@@ -3859,7 +3859,7 @@ the sysEnableChassisTraps object in this MIB.</description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.5.0.6$\b)&quot;].str(&quot;enterprises.9.5.0.6&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.5.0.6$\b)&quot;].nodata(3d)}=0 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.5.0.5$\b)&quot;].str(&quot;enterprises.9.5.0.5&quot;)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.5.0.6$\b)&quot;].str(&quot;enterprises.9.5.0.6&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.5.0.6$\b)&quot;].nodata(3d)}=0 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.5.0.5$\b)&quot;].str(&quot;enterprises.9.5.0.5&quot;)}=0</expression>
 			<name>Chassis Alarm OFF.</name>
 			<url/>
 			<status>0</status>
@@ -3874,7 +3874,7 @@ the sysEnableChassisTraps object in this MIB.</description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.5.0.7$\b)&quot;].str(&quot;enterprises.9.5.0.7&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.5.0.7$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.5.0.7$\b)&quot;].str(&quot;enterprises.9.5.0.7&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.5.0.7$\b)&quot;].nodata(3d)}=0</expression>
 			<name>IP Permit Denied Access.</name>
 			<url/>
 			<status>0</status>
@@ -3887,7 +3887,7 @@ sysEnableIpPermitTraps object in this MIB.</description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.5.0.9$\b)&quot;].str(&quot;enterprises.9.5.0.9&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.5.0.9$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.5.0.9$\b)&quot;].str(&quot;enterprises.9.5.0.9&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.5.0.9$\b)&quot;].nodata(3d)}=0</expression>
 			<name>system configuration in NVRAM is changed.</name>
 			<url/>
 			<status>0</status>
@@ -3900,7 +3900,7 @@ sysEnableConfigTraps object in this MIB.</description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.5.0.10$\b)&quot;].str(&quot;enterprises.9.5.0.10&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.5.0.10$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.5.0.10$\b)&quot;].str(&quot;enterprises.9.5.0.10&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.5.0.10$\b)&quot;].nodata(3d)}=0</expression>
 			<name>token ring port exceeds its Soft Error Threshold within the configured interval.</name>
 			<url/>
 			<status>0</status>
@@ -3912,7 +3912,7 @@ within the configured interval.</description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.41.2.0.1$\b)&quot;].str(&quot;enterprises.9.9.41.2.0.1&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.41.2.0.1$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.9.41.2.0.1$\b)&quot;].str(&quot;enterprises.9.9.41.2.0.1&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.41.2.0.1$\b)&quot;].nodata(3d)}=0</expression>
 			<name>Clog Message Generated.</name>
 			<url/>
 			<status>0</status>
@@ -3925,7 +3925,7 @@ via the clogNotificationsEnabled object.</description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.215.2.0.1$\b)&quot;].str(&quot;enterprises.9.9.215.2.0.1&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.215.2.0.1$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.9.215.2.0.1$\b)&quot;].str(&quot;enterprises.9.9.215.2.0.1&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.215.2.0.1$\b)&quot;].nodata(3d)}=0</expression>
 			<name>MAC address changed or removed.</name>
 			<url/>
 			<status>0</status>
@@ -3944,7 +3944,7 @@ will be generated.</description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.215.2.0.2$\b)&quot;].str(&quot;enterprises.9.9.215.2.0.2&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.215.2.0.2$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.9.215.2.0.2$\b)&quot;].str(&quot;enterprises.9.9.215.2.0.2&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.215.2.0.2$\b)&quot;].nodata(3d)}=0</expression>
 			<name>MAC address move between Interfaces.</name>
 			<url/>
 			<status>0</status>
@@ -3955,7 +3955,7 @@ moved between two interfaces.</description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.215.2.0.3$\b)&quot;].str(&quot;enterprises.9.9.215.2.0.3&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.215.2.0.3$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.9.215.2.0.3$\b)&quot;].str(&quot;enterprises.9.9.215.2.0.3&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.215.2.0.3$\b)&quot;].nodata(3d)}=0</expression>
 			<name>cmnUtilizationUtilization exceeds or equals to the cmnMACThresholdLimit for a given entPhysicalIndex.</name>
 			<url/>
 			<status>0</status>
@@ -3967,7 +3967,7 @@ cmnMACThresholdLimit for a given entPhysicalIndex.</description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.220.0.1$\b)&quot;].str(&quot;enterprises.9.9.220.0.1&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.220.0.1$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.9.220.0.1$\b)&quot;].str(&quot;enterprises.9.9.220.0.1&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.220.0.1$\b)&quot;].nodata(3d)}=0</expression>
 			<name>No Guest in VLAN</name>
 			<url/>
 			<status>0</status>
@@ -3982,7 +3982,7 @@ is zero.</description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.220.0.2$\b)&quot;].str(&quot;enterprises.9.9.220.0.2&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.220.0.2$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.9.220.0.2$\b)&quot;].str(&quot;enterprises.9.9.220.0.2&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.220.0.2$\b)&quot;].nodata(3d)}=0</expression>
 			<name>cpae No Auth Fail Vlan Notification</name>
 			<url/>
 			<status>0</status>
@@ -3997,7 +3997,7 @@ is zero.</description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.315.0.0.1$\b)&quot;].str(&quot;enterprises.9.9.315.0.0.1&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.315.0.0.1$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.9.315.0.0.1$\b)&quot;].str(&quot;enterprises.9.9.315.0.0.1&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.315.0.0.1$\b)&quot;].nodata(3d)}=0</expression>
 			<name>port security address violation is detectedon a secure non-trunk, access interface.</name>
 			<url/>
 			<status>0</status>
@@ -4011,7 +4011,7 @@ a single vlan) and the cpsIfViolationAction is set to
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.315.0.0.2$\b)&quot;].str(&quot;enterprises.9.9.315.0.0.2&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.315.0.0.2$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.9.315.0.0.2$\b)&quot;].str(&quot;enterprises.9.9.315.0.0.2&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.315.0.0.2$\b)&quot;].nodata(3d)}=0</expression>
 			<name>port security address violation is detectedon a secure trunk, access interface.</name>
 			<url/>
 			<status>0</status>
@@ -4024,7 +4024,7 @@ set to 'dropNotify'.</description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.42.2.0.1$\b)&quot;].str(&quot;enterprises.9.9.42.2.0.1&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.42.2.0.1$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.9.42.2.0.1$\b)&quot;].str(&quot;enterprises.9.9.42.2.0.1&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.42.2.0.1$\b)&quot;].nodata(3d)}=0</expression>
 			<name>rtt Monitoring Connection Change Notification.</name>
 			<url/>
 			<status>0</status>
@@ -4045,7 +4045,7 @@ the rttMonHistoryCollectionAddress object will be null.</description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.42.2.0.2$\b)&quot;].str(&quot;enterprises.9.9.42.2.0.2&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.42.2.0.2$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.9.42.2.0.2$\b)&quot;].str(&quot;enterprises.9.9.42.2.0.2&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.42.2.0.2$\b)&quot;].nodata(3d)}=0</expression>
 			<name>rtt Monitoring Connection Timeout Notification.</name>
 			<url/>
 			<status>0</status>
@@ -4068,7 +4068,7 @@ the rttMonHistoryCollectionAddress object will be null.</description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.42.2.0.3$\b)&quot;].str(&quot;enterprises.9.9.42.2.0.3&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.42.2.0.3$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.9.42.2.0.3$\b)&quot;].str(&quot;enterprises.9.9.42.2.0.3&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.42.2.0.3$\b)&quot;].nodata(3d)}=0</expression>
 			<name>threshold violation for a RTT operation</name>
 			<url/>
 			<status>0</status>
@@ -4091,7 +4091,7 @@ the rttMonHistoryCollectionAddress object will be null.</description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.42.2.0.4$\b)&quot;].str(&quot;enterprises.9.9.42.2.0.4&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.42.2.0.4$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.9.42.2.0.4$\b)&quot;].str(&quot;enterprises.9.9.42.2.0.4&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.42.2.0.4$\b)&quot;].nodata(3d)}=0</expression>
 			<name>data corruption in an RTT operation.</name>
 			<url/>
 			<status>0</status>
@@ -4102,7 +4102,7 @@ occurrence of a data corruption in an RTT operation.</description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.42.2.0.5$\b)&quot;].str(&quot;enterprises.9.9.42.2.0.5&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.42.2.0.5$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.9.42.2.0.5$\b)&quot;].str(&quot;enterprises.9.9.42.2.0.5&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.42.2.0.5$\b)&quot;].nodata(3d)}=0</expression>
 			<name>threshold violation and previous violation has subsided for a subsequent operation</name>
 			<url/>
 			<status>0</status>
@@ -4134,7 +4134,7 @@ all other probes it will be null.</description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.42.2.0.6$\b)&quot;].str(&quot;enterprises.9.9.42.2.0.6&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.42.2.0.6$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.9.42.2.0.6$\b)&quot;].str(&quot;enterprises.9.9.42.2.0.6&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.42.2.0.6$\b)&quot;].nodata(3d)}=0</expression>
 			<name>LSP PathDiscovery to the target PE has failed.</name>
 			<url/>
 			<status>0</status>
@@ -4149,7 +4149,7 @@ instance value for rttMonLpdGrpStatsLPDFailCause is not valid.</description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.42.2.0.7$\b)&quot;].str(&quot;enterprises.9.9.42.2.0.7&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.42.2.0.7$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.9.42.2.0.7$\b)&quot;].str(&quot;enterprises.9.9.42.2.0.7&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.42.2.0.7$\b)&quot;].nodata(3d)}=0</expression>
 			<name>LPDGroup status rttMonLpdGrpStatsGroupStatus has changed.</name>
 			<url/>
 			<status>0</status>
@@ -4163,7 +4163,7 @@ value.</description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.82.2.0.1$\b)&quot;].str(&quot;enterprises.9.9.82.2.0.1&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.82.2.0.1$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.9.82.2.0.1$\b)&quot;].str(&quot;enterprises.9.9.82.2.0.1&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.82.2.0.1$\b)&quot;].nodata(3d)}=0</expression>
 			<name>A bridge when an instance of stpxInconsistentState is created or destroyed.</name>
 			<url/>
 			<status>0</status>
@@ -4182,7 +4182,7 @@ relevant VLAN on the relevant port.</description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.82.2.0.2$\b)&quot;].str(&quot;enterprises.9.9.82.2.0.2&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.82.2.0.2$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.9.82.2.0.2$\b)&quot;].str(&quot;enterprises.9.9.82.2.0.2&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.82.2.0.2$\b)&quot;].nodata(3d)}=0</expression>
 			<name>A bridge when an instance of stpxRootInconsistencyStateis created or destroyed.</name>
 			<url/>
 			<status>0</status>
@@ -4202,7 +4202,7 @@ of stpxRootInconsistencyState is created or destroyed.  </description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.82.2.0.3$\b)&quot;].str(&quot;enterprises.9.9.82.2.0.3&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.82.2.0.3$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.9.82.2.0.3$\b)&quot;].str(&quot;enterprises.9.9.82.2.0.3&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.82.2.0.3$\b)&quot;].nodata(3d)}=0</expression>
 			<name>A bridge when an instance of stpxLoopInconsistencyStateis created or destroyed.</name>
 			<url/>
 			<status>0</status>
@@ -4224,7 +4224,7 @@ destroyed.</description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.68.2.0.1$\b)&quot;].str(&quot;enterprises.9.9.68.2.0.1&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.68.2.0.1$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.9.68.2.0.1$\b)&quot;].str(&quot;enterprises.9.9.68.2.0.1&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.68.2.0.1$\b)&quot;].nodata(3d)}=0</expression>
 			<name>vmVmpsChanges is incremented. The IP addressof the new VMPS is sent.</name>
 			<url/>
 			<status>0</status>
@@ -4236,7 +4236,7 @@ of the new VMPS is sent.</description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.46.2.0.1$\b)&quot;].str(&quot;enterprises.9.9.46.2.0.1&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.46.2.0.1$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.9.46.2.0.1$\b)&quot;].str(&quot;enterprises.9.9.46.2.0.1&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.46.2.0.1$\b)&quot;].nodata(3d)}=0</expression>
 			<name>device has incremented its vtpConfigRevNumberErrors counter.</name>
 			<url/>
 			<status>0</status>
@@ -4257,7 +4257,7 @@ recipients.)</description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.46.2.0.2$\b)&quot;].str(&quot;enterprises.9.9.46.2.0.2&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.46.2.0.2$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.9.46.2.0.2$\b)&quot;].str(&quot;enterprises.9.9.46.2.0.2&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.46.2.0.2$\b)&quot;].nodata(3d)}=0</expression>
 			<name>Device has incremented its vtpConfigDigestErrors counter.</name>
 			<url/>
 			<status>0</status>
@@ -4276,7 +4276,7 @@ notification means sending to all configured recipients.)</description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.46.2.0.3$\b)&quot;].str(&quot;enterprises.9.9.46.2.0.3&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.46.2.0.3$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.9.46.2.0.3$\b)&quot;].str(&quot;enterprises.9.9.46.2.0.3&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.46.2.0.3$\b)&quot;].nodata(3d)}=0</expression>
 			<name>Local system is no longer able to function as a VTP Server because the number of defined VLANs is greater than vtpMaxVlanStorage.</name>
 			<url/>
 			<status>0</status>
@@ -4291,7 +4291,7 @@ vtpNotificationsEnabled has the value 'false'.</description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.46.2.0.4$\b)&quot;].str(&quot;enterprises.9.9.46.2.0.4&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.46.2.0.4$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.9.46.2.0.4$\b)&quot;].str(&quot;enterprises.9.9.46.2.0.4&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.46.2.0.4$\b)&quot;].nodata(3d)}=0</expression>
 			<name>VLAN's MTU size is larger than can be supported.</name>
 			<url/>
 			<status>0</status>
@@ -4315,7 +4315,7 @@ vtpNotificationsEnabled has the value 'false'.</description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.46.2.0.6$\b)&quot;].str(&quot;enterprises.9.9.46.2.0.6&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.46.2.0.6$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.9.46.2.0.6$\b)&quot;].str(&quot;enterprises.9.9.46.2.0.6&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.46.2.0.6$\b)&quot;].nodata(3d)}=0</expression>
 			<name>vtp Version One Device has been Detected.</name>
 			<url/>
 			<status>0</status>
@@ -4332,7 +4332,7 @@ revision number than the current configuration.</description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.46.2.0.7$\b)&quot;].str(&quot;enterprises.9.9.46.2.0.7&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.46.2.0.7$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.9.46.2.0.7$\b)&quot;].str(&quot;enterprises.9.9.46.2.0.7&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.46.2.0.7$\b)&quot;].nodata(3d)}=0</expression>
 			<name>value of vlanTrunkPortDynamicStatus object has been changed.</name>
 			<url/>
 			<status>0</status>
@@ -4344,7 +4344,7 @@ vlanTrunkPortDynamicStatus object has been changed.</description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.46.2.0.8$\b)&quot;].str(&quot;enterprises.9.9.46.2.0.8&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.46.2.0.8$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.9.46.2.0.8$\b)&quot;].str(&quot;enterprises.9.9.46.2.0.8&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.46.2.0.8$\b)&quot;].nodata(3d)}=0</expression>
 			<name>vtp Local Mode has been Changed.</name>
 			<url/>
 			<status>0</status>
@@ -4356,7 +4356,7 @@ managementDomainLocalMode is changed.</description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.46.2.0.9$\b)&quot;].str(&quot;enterprises.9.9.46.2.0.9&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.46.2.0.9$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.9.46.2.0.9$\b)&quot;].str(&quot;enterprises.9.9.46.2.0.9&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.46.2.0.9$\b)&quot;].nodata(3d)}=0</expression>
 			<name>vtp Version In Use Changed.</name>
 			<url/>
 			<status>0</status>
@@ -4369,7 +4369,7 @@ changed.</description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.46.2.0.10$\b)&quot;].str(&quot;enterprises.9.9.46.2.0.10&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.46.2.0.10$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.9.46.2.0.10$\b)&quot;].str(&quot;enterprises.9.9.46.2.0.10&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.46.2.0.10$\b)&quot;].nodata(3d)}=0</expression>
 			<name>vtp Vlan Created.</name>
 			<url/>
 			<status>0</status>
@@ -4380,7 +4380,7 @@ device when a VLAN is created. </description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.46.2.0.11$\b)&quot;].str(&quot;enterprises.9.9.46.2.0.11&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.46.2.0.11$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.9.46.2.0.11$\b)&quot;].str(&quot;enterprises.9.9.46.2.0.11&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.46.2.0.11$\b)&quot;].nodata(3d)}=0</expression>
 			<name>vtp Vlan Deleted.</name>
 			<url/>
 			<status>0</status>
@@ -4391,7 +4391,7 @@ device when a VLAN is deleted. </description>
 			<dependencies/>
 		</trigger>
 		<trigger>
-			<expression>{Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.46.2.0.12$\b)&quot;].str(&quot;enterprises.9.9.46.2.0.12&quot;)}=1 &amp; {Template SNMP Traps CISCO Nodes:snmptrap[&quot;(\benterprises.9.9.46.2.0.12$\b)&quot;].nodata(3d)}=0</expression>
+			<expression>{Custom Template Name:snmptrap[&quot;(\benterprises.9.9.46.2.0.12$\b)&quot;].str(&quot;enterprises.9.9.46.2.0.12&quot;)}=1 &amp; {Custom Template Name:snmptrap[&quot;(\benterprises.9.9.46.2.0.12$\b)&quot;].nodata(3d)}=0</expression>
 			<name>vtp Vlan Ring Number has a Conflict.</name>
 			<url/>
 			<status>0</status>
