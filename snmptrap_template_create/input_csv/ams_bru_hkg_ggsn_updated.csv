@@ -320,7 +320,7 @@ distribution of timing throughout the network.
 reference of a particular quality and the system quality has
 decreased, the customer will need to determine the root cause (for
 example, loss of communication with a satellite) and resolve the
-issue.""",,NONE,3d
+issue.""",SystemQuality notification is generated,NONE,3d
 TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.66,tmnxEqHwEnhancedCapability,Average,,"""The tmnxEqHwEnhancedCapability notification is generated when the
 hardware, specified by the supplied objects, consists of enhanced
 capabilities as compared to the active hardware.
@@ -335,7 +335,7 @@ scenario.
 1. Remove the enhanced hardware, and supply a more compatible
 device (status quo) with the active hardware, or
 2. Switch to the enhanced device, and replace the older hardware
-with a similarly enhanced device (upgrade).""",,NONE,3d
+with a similarly enhanced device (upgrade).""",EnhancedCapability notification is generated,NONE,3d
 TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.67,tmnxEqSyncIfTimingPTPQuality,Average,,"""Generated when there is a change of the received quality level
 on the Precision Timing Protocol (PTP).""",There is a change of the received quality level on the Precision Timing Protocol (PTP).,NONE,3d
 TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.68,tmnxEqSyncIfTimingPTPAlarm,Average,,"""Generated when an alarm condition on the Precision Timing Protocol
@@ -346,8 +346,7 @@ tmnxCpmCardTable.""","Precision Timing Protocol PTP timing Protocol
 TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.69,tmnxEqSyncIfTimingPTPAlarmClear,Clear,,"""Generated when an alarm condition on the Precision Timing Protocol
 (PTP) timing reference is cleared.
 This notification will have the same indices as those of the
-tmnxCpmCardTable.""","Precision Timing Protocol PTP timing Protocol
-(PTP) timing reference is cleared.",NONE,3d
+tmnxCpmCardTable.""","Precision Timing Protocol PTP timing Protocol (PTP) timing reference is cleared.",NONE,3d
 TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.86,tmnxEqCardQChipBufMemoryEvent,Average,,"""[CAUSE] The tmnxEqCardQChipBufMemoryEvent notification is generated
 when a Q-chip experiences an occurrence of a buffer memory error.
 [EFFECT] Contact Alcatel-Lucent customer support.
@@ -364,12 +363,15 @@ TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.89,tmnxEqC
 an inter-chip interface (XPL2 bundle) experiences an internal datapath
 problem.
 [EFFECT] Contact Alcatel-Lucent customer support.
-[RECOVERY] Contact Alcatel-Lucent customer support.""",,NONE,3d
+[RECOVERY] Contact Alcatel-Lucent customer support.""",Inter-chip interface (XPL2 bundle) experiences an internal datapath problem.,NONE,3d
 TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.90,tmnxEqCardChipIfCellEvent,Average,,"""[CAUSE] The tmnxEqCardChipIfCellEvent notification is generated when
 an inter-chip interface (XPL2 bundle) experiences internal datapath
 cell errors.
 [EFFECT] Contact Alcatel-Lucent customer support.
-[RECOVERY] Contact Alcatel-Lucent customer support.""",,NONE,3d
+[RECOVERY] Contact Alcatel-Lucent customer support.""","Inter-chip interface (XPL2 bundle) experiences internal datapath
+
+cell errors.
+",NONE,3d
 TIMETRA-CHASSIS-MIB,TIMETRA-CHASSIS-MIB,.1.3.6.1.4.1.6527.3.1.3.2.1.0.97,tmnxEqCardTChipParityEvent,Average,,"""[CAUSE] The tmnxEqCardTChipParityEvent notification is generated
 when a T-chip experiences an occurrence of an internal memory error.
 [EFFECT] Contact Alcatel-Lucent customer support.
@@ -390,7 +392,7 @@ is still in service.
 [EFFECT] The gateway will choose a secondary CDF peer to send the RF
 accounting messages for the failure attempts.
 [RECOVERY] Diagnose why the CDF peer is slow to respond or why it is
-not responding to RF accounting message requests.""",,.1.3.6.1.4.1.6527.3.1.3.70.0.6,3d
+not responding to RF accounting message requests.""",ACR transmission failures occur in a 10 second interval or 5,.1.3.6.1.4.1.6527.3.1.3.70.0.6,3d
 TIMETRA-MOBILE-GATEWAY-MIB,TIMETRA-MOBILE-GATEWAY-MIB,.1.3.6.1.4.1.6527.3.1.3.70.0.4,tmnxMobGwCdfDownAlarm,Average,,"""A tmnxMobGwCdfDownAlarm notification is generated when both
 the primary and the secondary Charging Data Functions (CDFs) are down
 for active Rf diameter sessions.
@@ -398,7 +400,7 @@ for active Rf diameter sessions.
 down.
 [EFFECT] RF accounting messages will be stored locally on compact
 flash of the gateway.
-[RECOVERY] Recover CDF peers or communication links with the peers.""",,.1.3.6.1.4.1.6527.3.1.3.70.0.5,3d
+[RECOVERY] Recover CDF peers or communication links with the peers.""",Primary and the secondary Charging Data Functions (CDFs) are down,.1.3.6.1.4.1.6527.3.1.3.70.0.5,3d
 TIMETRA-MOBILE-GATEWAY-MIB,TIMETRA-MOBILE-GATEWAY-MIB,.1.3.6.1.4.1.6527.3.1.3.70.0.5,tmnxMobGwCdfDownAlarmCleared,Clear,,"""A tmnxMobGwCdfDownAlarmCleared notification is generated when one of
 the primary and the secondary Charging Data Functions (CDFs) becomes up
 for active Rf diameter sessions.""","Primary and Secondary Charging Data Functions (CDFs) becomes up for active Rf diameter sessions.",NONE,3d
@@ -406,7 +408,7 @@ TIMETRA-MOBILE-GATEWAY-MIB,TIMETRA-MOBILE-GATEWAY-MIB,.1.3.6.1.4.1.6527.3.1.3.70
 tmnxMobGwAcrFailuresAlarmMajor notification when the first time less
 then 2 Accounting Request (ACR) transmission failures occured in a 10
 seconds interval or the first time less then 5 ACR transmission
-failures occured in a 60 seconds interval to the peer.""",,NONE,3d
+failures occured in a 60 seconds interval to the peer.""",TmnxMobGwAcrFailuresAlarmMajor notification,NONE,3d
 TIMETRA-MOBILE-GATEWAY-MIB,TIMETRA-MOBILE-GATEWAY-MIB,.1.3.6.1.4.1.6527.3.1.3.70.0.7,tmnxMobGwCfCapacityAlarmMinor,Minor,,"""A tmnxMobGwCfCapacityAlarmMinor notification is generated when compact
 flash capacity reaches 85% limit.
 [CAUSE] Compact flash capacity is low because a CDF outage has occurred
@@ -441,7 +443,7 @@ group's redundancy state.
 affected when the value of tmnxMobGwSysGroupRedState changes.
 [RECOVERY] After a switchover has happened, no backup card will be up.
 The operator needs to bring a backup card online to avoid
-any disruption to services in case of further failures.""",,NONE,3d
+any disruption to services in case of further failures.""",Redundancy state of a group changes,NONE,3d
 TIMETRA-MOBILE-GATEWAY-MIB,TIMETRA-MOBILE-GATEWAY-MIB,.1.3.6.1.4.1.6527.3.1.3.70.0.12,tmnxMobGwSysGrpCardRedStChange,Average,,"""A tmnxMobGwSysGrpCardRedStChange notification is generated when the
 the redundancy state of this card changes.
 [CAUSE] A card failure will change the card redudndancy state to
@@ -452,7 +454,7 @@ card, state will be changed to 'standby'.
 [EFFECT] When card goes down, it will not be able to provide any
 mobile gateway services supported by the system.
 [RECOVERY] If the card goes down, operator's assitance is needed to
-get the card back online.""",,NONE,3d
+get the card back online.""",Redundancy state of this card changes,NONE,3d
 TIMETRA-MOBILE-GATEWAY-MIB,TIMETRA-MOBILE-GATEWAY-MIB,.1.3.6.1.4.1.6527.3.1.3.70.0.13,tmnxMobGwGtpPriServFailAlarm,Critical,,"""A tmnxMobGwGtpPriServFailAlarm notification is generated when GPRS
 Tunneling Protocol (GTP) Prime Server failure is detected.""",GTP) Prime Server failure is detected.,.1.3.6.1.4.1.6527.3.1.3.70.0.14,3d
 TIMETRA-MOBILE-GATEWAY-MIB,TIMETRA-MOBILE-GATEWAY-MIB,.1.3.6.1.4.1.6527.3.1.3.70.0.14,tmnxMobGwGtpPriServFailAlarmClrd,Clear,,"""A tmnxMobGwGtpPriServFailAlarm notification is generated when GPRS
@@ -512,7 +514,7 @@ df2-peer's state is up, the IRI packets are sent to the peer.
 [RECOVERY] If the df2-peer goes down, then the IRI packets being sent
 to the peer will be buffered until it comes up. Then, all the packets
 will be sent to the peer.
-This notification has been made obsolete in the MG5.0 R1 release.""",,NONE,3d
+This notification has been made obsolete in the MG5.0 R1 release.""", IRI packets are sent to the peer,NONE,3d
 TIMETRA-MOBILE-GATEWAY-MIB,TIMETRA-MOBILE-GATEWAY-MIB,.1.3.6.1.4.1.6527.3.1.3.70.0.23,tmnxMobGwGtpPriServerState,Average,,"""A tmnxMobGwGtpPriServerState notification is generated when there
 has been a change in the when GPRS Tunneling Protocol (GTP) Prime
 Server state for all mobile system groups.
@@ -524,7 +526,7 @@ Record (CDR) packets are not sent to the peer. When the state is up,
 CDR packets can be sent to the peer.
 [RECOVERY] If a GTP Prime server state is down, then Charging Data
 Request(CDR) packets will be sent to an alternate GTP Prime server.
-If no servers are available, CDR packets will be written to CDR files.""",,NONE,3d
+If no servers are available, CDR packets will be written to CDR files.""", Charging Data Record (CDR) packets are not sent to the peer.,NONE,3d
 TIMETRA-MOBILE-GATEWAY-MIB,TIMETRA-MOBILE-GATEWAY-MIB,.1.3.6.1.4.1.6527.3.1.3.70.0.24,tmnxMobGwSysGrpGtpPriServerState,Average,,"""A tmnxMobGwSysGrpGtpPriServerState notification is generated when there
 has been a change in the when GPRS Tunneling Protocol (GTP) Prime
 Server state per mobile system group.
@@ -536,7 +538,8 @@ Record (CDR) packets are not sent to the peer. When the state is up,
 CDR packets can be sent to the peer.
 [RECOVERY] If a GTP Prime server state is down, then Charging Data
 Request(CDR) packets will be sent to an alternate GTP Prime server.
-If no servers are available, CDR packets will be written to CDR files.""",,NONE,3d
+If no servers are available, CDR packets will be written to CDR files.""","Change in the when GPRS Tunneling Protocol (GTP) Prime
+Server state per mobile system group",NONE,3d
 TIMETRA-MOBILE-GATEWAY-MIB,TIMETRA-MOBILE-GATEWAY-MIB,.1.3.6.1.4.1.6527.3.1.3.70.0.25,tmnxMobGwGtpPriSrvGrpState,Average,,"""A tmnxMobGwGtpPriSrvGrpState notification is generated when there
 has been a change in the when GPRS Tunneling Protocol (GTP) Prime
 Server state for all mobile system groups.
@@ -548,7 +551,7 @@ Servers in the group are down, and Charging Data Record (CDR) packets
 are not sent to the group server. When the state is up, CDR packets can
 be sent to the group server.
 [RECOVERY] If a GTP Prime server group state is down, CDR packets will
-be written to CDR files until at least one server becomes available.""",,NONE,3d
+be written to CDR files until at least one server becomes available.""",All GTP Prime Servers in the group are down,NONE,3d
 TIMETRA-MOBILE-GATEWAY-MIB,TIMETRA-MOBILE-GATEWAY-MIB,.1.3.6.1.4.1.6527.3.1.3.70.0.26,tmnxMobGwSysGrpGtpPriSrvGrpState,Average,,"""A tmnxMobGwGtpPriSrvGrpState notification is generated when there
 has been a change in the when GPRS Tunneling Protocol (GTP) Prime
 Server state per mobile system group.
@@ -560,7 +563,7 @@ Servers in the group are down, and Charging Data Record (CDR) packets
 are not sent to the group server. When the state is up, CDR packets can
 be sent to the group server.
 [RECOVERY] If a GTP Prime server group state is down, CDR packets will
-be written to CDR files until at least one server becomes available.""",,NONE,3d
+be written to CDR files until at least one server becomes available.""",CDR packets will be written to CDR files,NONE,3d
 TIMETRA-MOBILE-GATEWAY-MIB,TIMETRA-MOBILE-GATEWAY-MIB,.1.3.6.1.4.1.6527.3.1.3.70.0.27,tmnxMobGwSysGrpWriteCdrToCfAlarm,Average,,"""A tmnxMobGwSysGrpWriteCdrToCfAlarm notification is generated when the
 SGW or PGW starts to write Charging Data Record (CDR) packets to the
 local compact flash for the mobile system group.
@@ -569,7 +572,7 @@ Record (CDR) packets to compact flash.
 [EFFECT] When the action is start, the system has started writing CDR
 packets to files on compact flash. the system has stopped writing CDR
 packets to files on compact flash.
-[RECOVERY] Retrieve CDR files from compact flash.""",,NONE,3d
+[RECOVERY] Retrieve CDR files from compact flash.""",SGW or PGW starts to write Charging Data Record (CDR) packets,NONE,3d
 TIMETRA-MOBILE-GATEWAY-MIB,TIMETRA-MOBILE-GATEWAY-MIB,.1.3.6.1.4.1.6527.3.1.3.70.0.28,tmnxMobGwSysGrpDiameterPeerState,Average,,"""The tmnxMobGwSysGrpDiameterPeerState notification is generated when
 there has been a change in the state of a reference point peer in
 the diameter application per mobile system group.
@@ -611,7 +614,7 @@ Information (IRI) packets are not sent to the peer. When the
 df2-peer's state is up, the IRI packets are sent to the peer.
 [RECOVERY] If the df2-peer goes down, then the IRI packets being sent
 to the peer will be buffered to the system limit. Then, all the
-packets will be sent to the peer.""",,NONE,3d
+packets will be sent to the peer.""",Current operational state of the Delivery Function 2 peer belonging  to a card group changes,NONE,3d
 TIMETRA-MOBILE-GATEWAY-MIB,TIMETRA-MOBILE-GATEWAY-MIB,.1.3.6.1.4.1.6527.3.1.3.70.0.32,tmnxMobLiDf3StsOperStateChange,Average,,"""A tmnxMobLiDf3StsOperStateChange notification is generated when the
 current operational state of the Delivery Function 3 peer belonging
 to a group changes.
@@ -622,7 +625,7 @@ Information (IRI) packets are not sent to the peer. When the
 df3-peer's state is up, the IRI packets are sent to the peer.
 [RECOVERY] If the df3-peer goes down, then the IRI packets being sent
 to the peer will be buffered to the system limit. Then, all the
-packets will be sent to the peer.""",,NONE,3d
+packets will be sent to the peer.""",Current operational state of the Delivery Function 3 peer belonging to a group changes.,NONE,3d
 TIMETRA-MOBILE-GATEWAY-MIB,TIMETRA-MOBILE-GATEWAY-MIB,.1.3.6.1.4.1.6527.3.1.3.70.0.33,tmnxMobPdnApnMaxPdnConnAlarm,Average,,"""A tmnxMobPdnApnMaxPdnConnAlarm notification is generated when the
 maximum number of Packet Data Network (PDN) connections for this Access
 Point Name (APN) on the gateway is reached.
@@ -633,7 +636,7 @@ goes below the value of
 TIMETRA-MOBILE-PDN-MIB::tmnxMobPdnApnMaxPdnConnections.
 [RECOVERY] To accept new PDN connections, system has to wait until
 the number of PDN connections goes below the value of
-TIMETRA-MOBILE-PDN-MIB::tmnxMobPdnApnMaxPdnConnections.""",,.1.3.6.1.4.1.6527.3.1.3.70.0.34,3d
+TIMETRA-MOBILE-PDN-MIB::tmnxMobPdnApnMaxPdnConnections.""",Point Name (APN) on the gateway is reached.,.1.3.6.1.4.1.6527.3.1.3.70.0.34,3d
 TIMETRA-MOBILE-GATEWAY-MIB,TIMETRA-MOBILE-GATEWAY-MIB,.1.3.6.1.4.1.6527.3.1.3.70.0.34,tmnxMobPdnApnMaxPdnConnAlarmClr,Clear,,"""A tmnxMobPdnApnMaxPdnConnAlarmClr notification is generated when the
 maximum number of Packet Data Network (PDN) connections for this Access
 Point Name (APN) on the gateway is dropped below the the value of
@@ -643,7 +646,7 @@ connections for this Access Point Name (APN) on the gateway is
 dropped below the value of
 TIMETRA-MOBILE-PDN-MIB::tmnxMobPdnApnMaxPdnConnections.
 [EFFECT] New PDN connections will be accepted.
-[RECOVERY] No further action is needed.""",,NONE,3d
+[RECOVERY] No further action is needed.""",Maximum number of Packet Data Network (PDN) connections for this Access Point Name (APN) on the gateway is dropped,NONE,3d
 TIMETRA-MOBILE-GATEWAY-MIB,TIMETRA-MOBILE-GATEWAY-MIB,.1.3.6.1.4.1.6527.3.1.3.70.0.35,tmnxMobGwDhcpSvrState,Average,,"""A tmnxMobGwDhcpSvrState notification is generated when there
 has been a change in the Dynamic Host Configuration Protocol
 (DHCP) Server state.
@@ -656,7 +659,7 @@ DHCP-server is selected, the discover/request messages are sent to
 this server.
 [RECOVERY] If the DHCP-server is 'down', the discover/request messages
 are sent to alternate configured servers. This server will be brought
-back 'up' after the dead time 'tmnxMobProfDHCPSGDeadTime' expires.""",,NONE,3d
+back 'up' after the dead time 'tmnxMobProfDHCPSGDeadTime' expires.""",Change in the Dynamic Host Configuration Protocol (DHCP) Server state.,NONE,3d
 TIMETRA-MOBILE-GATEWAY-MIB,TIMETRA-MOBILE-GATEWAY-MIB,.1.3.6.1.4.1.6527.3.1.3.70.0.36,tmnxMobGwABSAlarm,Average,,"""A tmnxMobGwABSAlarm notification is generated when a set of the
 internal parameters for ICC call latency and memory utilization reach
 the high threshold (activated), or drop back and keep staying below
@@ -671,7 +674,7 @@ decision if the packet should be dropped. When the ABS alarm is
 'inactive', the Octeon drive will stop passing the
 'selective packet discard' flag to the application.
 [RECOVERY] Diagnose why high memory utilization and/or control
-signaling overload happen.""",,NONE,3d
+signaling overload happen.""",Selective packet discard' flag passed from Octeon drive,NONE,3d
 TIMETRA-MOBILE-GATEWAY-MIB,TIMETRA-MOBILE-GATEWAY-MIB,.1.3.6.1.4.1.6527.3.1.3.70.0.37,tmnxMobGwPoolCapacityAlarmMinor,Minor,,"""A tmnxMobGwPoolCapacityAlarmMinor notification is generated when either
 the IPv4 or IPv6 address pool usage reaches 85% of the pool size.
 [CAUSE] The IPv4 or IPv6 address pool usage reaches 85% of the pool
@@ -708,59 +711,59 @@ TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.1,tmnxVRtrMidRoute
 of routes contained in a VPRN exceeds the value specified by
 vRtrMidRouteThreshold.  No other notifications of this type
 are generated until after the soak period specified by
-vRtrRouteThresholdSoakTime has expired.""",,.1.3.6.1.4.1.6527.3.1.3.3.0.3,3d
+vRtrRouteThresholdSoakTime has expired.""",Number of routes contained in a VPRN exceeds the value specified by vRtrMidRouteThreshold,.1.3.6.1.4.1.6527.3.1.3.3.0.3,3d
 TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.2,tmnxVRtrHighRouteTCA,Major,,"""The tmnxVRtrHighRouteTCA notification is generated when the number
 of routes contained in a VPRN exceeds the value specified by
 vRtrHighRouteThreshold.  No other notifications of this type
 are generated until after the soak period specified by
-vRtrRouteThresholdSoakTime has expired.""",,.1.3.6.1.4.1.6527.3.1.3.3.0.3,3d
+vRtrRouteThresholdSoakTime has expired.""",Number of routes contained in a VPRN exceeds the value specified by vRtrHighRouteThreshold,.1.3.6.1.4.1.6527.3.1.3.3.0.3,3d
 TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.3,tmnxVRtrHighRouteCleared,Clear,,"""The tmnxVRtrHighRouteCleared notification is generated when the
 number of routes contained in a VPRN has dropped below the
 vRtrHighRouteThreshold value following the generation of a
-tmnxVRtrHighRouteTCA notification.""",,NONE,3d
+tmnxVRtrHighRouteTCA notification.""",Number of routes contained in a VPRN has dropped below the vRtrHighRouteThreshold value,NONE,3d
 TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.4,tmnxVRtrIllegalLabelTCA,Average,,"""The tmnxVRtrIllegalLabelTCA notification is generated when the
 number of illegal label violations on a VRF has exceeded the
-value specified by vRtrIllegalLabelThreshold.""",,NONE,3d
+value specified by vRtrIllegalLabelThreshold.""",Number of illegal label violations on a VRF has exceeded ,NONE,3d
 TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.5,tmnxVRtrMcastMidRouteTCA,Average,,"""The tmnxVRtrMcastMidRouteTCA notification is generated when the number
 of multicast routes contained in a VPRN exceeds the value specified by
 vRtrMcastMidRouteThreshold.  No other notifications of this type
 are generated until after the soak period specified by
-vRtrRouteThresholdSoakTime has expired.""",,.1.3.6.1.4.1.6527.3.1.3.3.0.7,3d
+vRtrRouteThresholdSoakTime has expired.""",Number of multicast routes contained in a VPRN exceeds,.1.3.6.1.4.1.6527.3.1.3.3.0.7,3d
 TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.6,tmnxVRtrMcastMaxRoutesTCA,Major,,"""The tmnxVRtrMcastMaxRoutesTCA notification is generated when the number
 of multicast routes contained in a VPRN exceeds the value specified by
 vRtrMaxMcastNumRoutes.  No other notifications of this type
 are generated until after the soak period specified by
-vRtrRouteThresholdSoakTime has expired.""",,.1.3.6.1.4.1.6527.3.1.3.3.0.7,3d
+vRtrRouteThresholdSoakTime has expired.""",Number of multicast routes contained in a VPRN exceeds the value specified by vRtrMaxMcastNumRoutes,.1.3.6.1.4.1.6527.3.1.3.3.0.7,3d
 TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.7,tmnxVRtrMcastMaxRoutesCleared,Clear,,"""The tmnxVRtrMcastMaxRoutesCleared notification is generated when the
 number of multicast routes contained in a VPRN has dropped below the
 vRtrMaxMcastNumRoutes value following the generation of a
-tmnxVRtrMcastMaxRoutesTCA notification.""",,NONE,3d
+tmnxVRtrMcastMaxRoutesTCA notification.""",Number of multicast routes contained in a VPRN has dropped below the vRtrMaxMcastNumRoutes value ,NONE,3d
 TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.8,tmnxVRtrMaxArpEntriesTCA,Average,,"""The tmnxVRtrMaxArpEntriesTCA notification is generated when the
-number of ARP entries in a VPRN exceeds the maximum supported.""",,.1.3.6.1.4.1.6527.3.1.3.3.0.9,3d
+number of ARP entries in a VPRN exceeds the maximum supported.""",Number of ARP entries in a VPRN exceeds the maximum supported,.1.3.6.1.4.1.6527.3.1.3.3.0.9,3d
 TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.9,tmnxVRtrMaxArpEntriesCleared,Clear,,"""The tmnxVRtrMaxArpEntriesCleared notification is generated when the
 number of ARP entries contained in a VPRN has dropped below the
 maximum value following the generation of a tmnxVRtrMaxArpEntriesTCA
-notification.""",,NONE,3d
+notification.""",Number of ARP entries contained in a VPRN has dropped below the maximum value,NONE,3d
 TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.10,tmnxVRtrDHCPAFEntriesExceeded,Major,,"""The tmnxVRtrDHCPAFEntriesExceeded notification is generated
 when the number of DHCP 'AutoFilter' entries on a given interface
-reaches a user configurable upper limit given by vRtrIfDHCPAutoFilter.""",,NONE,3d
+reaches a user configurable upper limit given by vRtrIfDHCPAutoFilter.""",Number of DHCP 'AutoFilter' entries on a given interface reaches a user configurable upper limit ,NONE,3d
 TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.11,tmnxVRtrMaxRoutes,Average,,"""The tmnxVRtrMaxRoutes notification is
 generated when the number of routes contained in a
-VPRN reaches the value specified by vRtrMaxNumRoutes.""",,NONE,3d
+VPRN reaches the value specified by vRtrMaxNumRoutes.""",Number of routes contained in a VPRN reaches the value specified by vRtrMaxNumRoutes,NONE,3d
 TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.12,tmnxVRtrDHCPLseStsExceeded,Average,,"""The tmnxVRtrDHCPLseStsExceeded notification is
 generated when the number  of  DHCP  lease states
 entries on a given interface reaches a user configurable
-upper limit.""",,NONE,3d
+upper limit.""",Number  of  DHCP  lease states entries on a given interface reaches a user configurable upper limit.,NONE,3d
 TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.13,tmnxVRtrDHCPLeaseStateOverride,Average,,"""The tmnxVRtrDHCPLeaseStateOverride notification is
 generated when an existing DHCP lease state is
 overridden by a new lease state which has the same
-IP address but a different MAC address.""",,NONE,3d
+IP address but a different MAC address.""", Existing DHCP lease state is overridden by a new lease state ,NONE,3d
 TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.14,tmnxVRtrDHCPSuspiciousPcktRcvd,Average,,"""The tmnxVRtrDHCPSuspiciousPcktRcvd notification is
 generated when a DHCP packet is received with suspicious
-content.""",,NONE,3d
+content.""",DHCP packet is received with suspicious content.,NONE,3d
 TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.15,tmnxVRtrDHCPLseStRestoreProblem,Major,,"""The tmnxVRtrDHCPLseStRestoreProblem notification is
 generated when an an error is detected while
-processing a persistency record.""",,NONE,3d
+processing a persistency record.""",Error is detected while processing a persistency record,NONE,3d
 TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.16,tmnxVRtrDHCPLseStatePopulateErr,Average,,"""The tmnxVRtrDHCPLseStatePopulateErr notification
 indicates that the system was unable to update the
 Lease State Table with the information contained in
@@ -793,18 +796,18 @@ overridden by a new lease state.
 This is allowed if the new lease state has the same IP
 address but a different client id or mac address.
 This is not allowed if the new lease state has the same IP
-address but a different prefix length.""",,NONE,3d
+address but a different prefix length.""",Existing DHCP6 lease state can be overridden by a new lease state,NONE,3d
 TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.24,tmnxVRtrDHCP6RelayReplyStripUni,Average,,"""The tmnxVRtrDHCP6RelayReplyStripUni notifications is
 generated when a unicast option is stripped from a message
 relayed from a server to a client
-in a relay reply message.""",,NONE,3d
+in a relay reply message.""",Unicast option is stripped from a message relayed from a server to a client,NONE,3d
 TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.25,tmnxVRtrDHCP6IllegalClientAddr,Average,,"""The tmnxVRtrDHCP6IllegalClientAddr notifications is
 generated when an incoming message is dropped
 because the client's source IP does not match the subnet
-of the incoming interface.""",,NONE,3d
+of the incoming interface.""","Incoming message is dropped,because the client's source IP does not match the subnet",NONE,3d
 TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.26,tmnxVRtrDHCP6AssignedIllegSubnet,Average,,"""The tmnxVRtrDHCP6AssignedIllegSubnet notifications is
 generated when an IP address assigned to the client
-does not match the subnet of the interface.""",,NONE,3d
+does not match the subnet of the interface.""",IP address assigned to the client does not match the subnet of the interface,NONE,3d
 TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.27,tmnxVRtrDHCP6ClientMacUnresolved,Average,,"""The tmnxVRtrDHCP6ClientMacUnresolved notifications is
 generated when we receive a relay reply for a client,
 and the client's MAC address has not been resolved yet.""","we receive a a relay reply for a client, and the client's MAC address has not been resolved yet.",NONE,3d
@@ -815,22 +818,22 @@ the number of IPv6 routes contained in a VPRN exceeds
 the value specified by vRtrIPv6MidRouteThreshold. No other
 notifications of this type are generated until after the
 soak period specified by vRtrIPv6RouteThresholdSoakTime
-has expired.""",,.1.3.6.1.4.1.6527.3.1.3.3.0.31,3d
+has expired.""",Number of IPv6 routes contained in a VPRN exceeds the value specified by vRtrIPv6MidRouteThreshold,.1.3.6.1.4.1.6527.3.1.3.3.0.31,3d
 TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.30,tmnxVRtrIPv6HighRouteTCA,Major,,"""The tmnxVRtrIPv6HighRouteTCA notification is generated when
 the number of IPv6 routes contained in a VPRN exceeds
 the value specified by vRtrIPv6HighRouteThreshold. No other
 notifications of this type are generated until after the
 soak period specified by vRtrIPv6RouteThresholdSoakTime
-has expired.""",,.1.3.6.1.4.1.6527.3.1.3.3.0.31,3d
+has expired.""",Number of IPv6 routes contained in a VPRN exceeds the value specified by vRtrIPv6HighRouteThreshold,.1.3.6.1.4.1.6527.3.1.3.3.0.31,3d
 TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.31,tmnxVRtrIPv6HighRouteCleared,Clear,,"""The tmnxVRtrIPv6HighRouteCleared notification is generated
 when the number of IPv6 routes contained in a VPRN has
 dropped below the vRtrIPv6HighRouteThreshold value
 following the generation of a tmnxVRtrIPv6HighRouteTCA
-notification.""",,NONE,3d
+notification.""",Number of IPv6 routes contained in a VPRN has dropped below the vRtrIPv6HighRouteThreshold value,NONE,3d
 TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.32,tmnxVRtrStaticRouteCPEStatus,Average,,"""The tmnxVRtrStaticRouteCPEStatus notification is generated
 when a CPE associated with a static route, as specified
 by the vRtrInetStatRteCpeNotifyAddr object, becomes
-reachable or unreachable.""",,NONE,3d
+reachable or unreachable.""","CPE associated with a static route, as specified by the vRtrInetStatRteCpeNotifyAddr object",NONE,3d
 TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.33,tmnxVRtrBfdSessionDeleted,Average,,"""The tmnxVRtrBfdSessionDeleted notification is generated when
 a BFD session is deleted.""",BFD session is deleted.,NONE,3d
 TIMETRA-VRTR-MIB,TIMETRA-VRTR-MIB,.1.3.6.1.4.1.6527.3.1.3.3.0.34,tmnxVRtrBfdSessionProtChange,Average,,"""The tmnxVRtrBfdSessionProtChange notification is generated when
