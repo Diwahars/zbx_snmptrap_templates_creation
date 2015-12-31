@@ -25,7 +25,7 @@ function zabbix_repo()
     rpm -ivh http://repo.zabbix.com/zabbix/2.4/rhel/6/x86_64/zabbix-release-2.4-1.el6.noarch.rpm
 }
 
-function mysql()
+function install_mysql()
 {
     echo -e "${RED_B}${BOLD}Installing MYSQL Server and Client. ${NORM}"
     yum install mysql-server mysql -y
@@ -122,7 +122,7 @@ function create_zabbix_schema()
     fi
 
     table_count=`echo "use zabbix; show tables;" | mysql -uroot | wc -l`
-    if [[ $table_count == '0' ]]
+    if [[ $table_count == 0 ]]
     then
         echo -e "${YELLOW_F}${BOLD}Adding zabbix DB with schema.sql ${NORM}"
         mysql -uroot zabbix < /usr/share/doc/zabbix-server-mysql-${version}/create/schema.sql
@@ -363,7 +363,7 @@ function create_logrotate_snmptraps()
 }
 
 zabbix_repo
-mysql
+install_mysql
 net_snmp
 zabbix_server_web
 zabbix_agent
