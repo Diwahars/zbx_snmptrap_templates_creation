@@ -16,6 +16,8 @@ MAGENTA_F="\033[35m"; MAGENTA_B="\033[45m"
 CYAN_F="\033[36m"; CYAN_B="\033[46m"
 WHITE_F="\033[37m"; WHITE_B="\033[47m"
 
+datetime=`date '+%Y%m%d_%H%M'`
+
 ###########
 
 
@@ -23,6 +25,16 @@ function zabbix_repo()
 {
     echo -e "${RED_B}${BOLD}Installing Repository. ${NORM}"
     rpm -ivh http://repo.zabbix.com/zabbix/2.4/rhel/6/x86_64/zabbix-release-2.4-1.el6.noarch.rpm
+}
+
+function setting_selinux_config()
+{
+    echo -e "${CYAN_F}${BOLD} Taking current configuration backup. ${NORM}"
+    cp /etc/selinux/config /etc/selinux/config.$datetime
+
+    echo -e "${CYAN_F}${BOLD} Disabling SELINUX. ${NORM}"
+    sed -i 's/=enforcing/=disabled/g' /etc/selinux/config
+
 }
 
 function install_mysql()
@@ -362,22 +374,65 @@ function create_logrotate_snmptraps()
 
 }
 
+echo -e "${YELLOW_B}${BOLD} ####### INSTALL ZABBIX REPO. ####### ${NORM}"
 zabbix_repo
+
+echo -e "${YELLOW_B}${BOLD} ###### INSTALL MYSQL. ###### ${NORM}"
 install_mysql
+
+echo -e "${YELLOW_B}${BOLD} ###### INSTALL NET_SNMP. ###### ${NORM}"
 net_snmp
+
+echo -e "${YELLOW_B}${BOLD} ###### INSTALL ZABBIX SERVER AND WEB. ###### ${NORM}"
 zabbix_server_web
+
+echo -e "${YELLOW_B}${BOLD} ###### INSTALL ZABBIX AGENT. ###### ${NORM}"
 zabbix_agent
+
+echo -e "${YELLOW_B}${BOLD} ###### STARTING MYSQL SERVER. ###### ${NORM}"
 start_mysql_server
+
+echo -e "${YELLOW_B}${BOLD} ###### CREATING ZABBIX DATABASE. ###### ${NORM}"
 create_zabbix_db
+
+echo -e "${YELLOW_B}${BOLD} ###### POPULATING DEFAULT SCHEMA. ###### ${NORM}"
 create_zabbix_schema
+
+echo -e "${YELLOW_B}${BOLD} ###### CONFIGURING ZABBIX SERVER. ###### ${NORM}"
 zabbix_server_config
+
+echo -e "${YELLOW_B}${BOLD} ###### STARTING ZABBIX SERVER. ###### ${NORM}"
 start_zabbix_server
+
+echo -e "${YELLOW_B}${BOLD} ###### UPDATING WEB SETTINGS. ###### ${NORM}"
 update_web_settings
+
+echo -e "${YELLOW_B}${BOLD} ###### CREATING PERL TRAPPER. ###### ${NORM}"
 create_perl_trap_recv
+
+echo -e "${YELLOW_B}${BOLD} ###### UPDATE SNMPTRAPD CONFIG. ###### ${NORM}"
 updating_snmptrapd_config
+
+echo -e "${YELLOW_B}${BOLD} ###### STARTING HTTPD ###### ${NORM}"
 start_httpd
+
+echo -e "${YELLOW_B}${BOLD} ###### INSTALL ZABBIX REPO ###### ${NORM}"
 create_directory_for_rollover
+
+echo -e "${YELLOW_B}${BOLD} ###### CREATING LOGROTATE FOR SNMPTRAPS. ###### ${NORM}"
 create_logrotate_snmptraps
+
+echo -e "${YELLOW_B}${BOLD} ###### SETTING START UP SERVICES. ###### ${NORM}"
 start_up_services
+
+echo -e "${YELLOW_B}${BOLD} ###### RESTART ZABBIX-SERVER ###### ${NORM}"
 service zabbix-server restart
+
+echo -e "${YELLOW_B}${BOLD} ###### RESTART SNMPTRAPD. ###### ${NORM}"
 service snmptrapd restart
+
+echo -e "${YELLOW_B}${BOLD} ###### DISABLE SELINUX. ###### ${NORM}"
+setting_selinux_config
+
+echo -e "${CYAN_F}${BOLD} ###### REBOOTING SERVER. ###### ${NORM}"
+reboot
