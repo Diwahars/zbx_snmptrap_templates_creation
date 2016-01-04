@@ -42,6 +42,7 @@ iana_smi_numbers = {
     '1.3.6.1.8': 'features'
 }
 
+alarm_list = []
 
 def get_smi_number_to_name(oid_string):
     # create a list and remove the empty value as we have `.`
@@ -81,7 +82,7 @@ def get_smi_number_to_name(oid_string):
 # --------------------------------------------------------
 # Generate Complete Export/Import XML Template File
 # --------------------------------------------------------
-def generate_template_items_xml_file_complete_fogg_hp(alarm_list, template_name, template_group_name):
+def generate_template_items_xml(alarm_list, template_name, template_group_name):
     zabbix_export = Element('zabbix_export')
     version = SubElement(zabbix_export, 'version')
     version.text = '2.0'
@@ -117,9 +118,12 @@ def generate_template_items_xml_file_complete_fogg_hp(alarm_list, template_name,
     triggers = SubElement(zabbix_export, 'triggers')
     SubElement(zabbix_export, 'graphs')
 
-    # Iterate through the unique list to create XML
+    #Iterate through the unique list to create XML
     for alarm_values in alarm_list:
-        item_creator_type_17_oid_fogg_hp(items, template_name, triggers, alarm_values)
+       item_creator_type_oid(items, template_name, triggers, alarm_values)
+
+    for alarm_values in alarm_list:
+        item_creator_type_trap_name(items, template_name, triggers, alarm_values)
 
     SubElement(template_under_templates, 'discovery_rules')
     SubElement(template_under_templates, 'macros')
@@ -129,7 +133,14 @@ def generate_template_items_xml_file_complete_fogg_hp(alarm_list, template_name,
     return zabbix_export
 
 
-def item_creator_type_17_oid_fogg_hp(items, template_name, triggers, alarm_values):
+def get_trap_name_from_oid(oid_to_search):
+    for alarm_dict in alarm_list:
+        if oid_to_search == alarm_dict['oid']:
+            return alarm_dict['name']
+
+    return oid_to_search
+
+def item_creator_type_oid(items, template_name, triggers, alarm_values):
     item = SubElement(items, 'item')
     name = SubElement(item, 'name')
     type = SubElement(item, 'type')
@@ -256,6 +267,132 @@ def item_creator_type_17_oid_fogg_hp(items, template_name, triggers, alarm_value
     trigger_type.text = '0'
 
 
+def item_creator_type_trap_name(items, template_name, triggers, alarm_values):
+    item = SubElement(items, 'item')
+    name = SubElement(item, 'name')
+    type = SubElement(item, 'type')
+    SubElement(item, 'snmp_community')
+    multiplier = SubElement(item, 'multiplier')
+    SubElement(item, 'snmp_oid')
+    key = SubElement(item, 'key')
+    delay = SubElement(item, 'delay')
+    history = SubElement(item, 'history')
+    trends = SubElement(item, 'trends')
+    status = SubElement(item, 'status')
+    value_type = SubElement(item, 'value_type')
+    SubElement(item, 'allowed_hosts')
+    SubElement(item, 'units')
+    delta = SubElement(item, 'delta')
+    SubElement(item, 'snmpv3_contextname')
+    SubElement(item, 'snmpv3_securityname')
+    snmpv3_securitylevel = SubElement(item, 'snmpv3_securitylevel')
+    snmpv3_authprotocol = SubElement(item, 'snmpv3_authprotocol')
+    SubElement(item, 'snmpv3_authpassphrase')
+    snmpv3_privprotocol = SubElement(item, 'snmpv3_privprotocol')
+    SubElement(item, 'snmpv3_privpassphrase')
+    formula = SubElement(item, 'formula')
+    SubElement(item, 'delay_flex')
+    SubElement(item, 'params')
+    SubElement(item, 'ipmi_sensor')
+    data_type = SubElement(item, 'data_type')
+    authtype = SubElement(item, 'authtype')
+    SubElement(item, 'username')
+    SubElement(item, 'password')
+    SubElement(item, 'publickey')
+    SubElement(item, 'privatekey')
+    SubElement(item, 'port')
+    description = SubElement(item, 'description')
+    inventory_link = SubElement(item, 'inventory_link')
+    SubElement(item, 'valuemap')
+    applications = SubElement(item, 'applications')
+    application = SubElement(applications, 'application')
+    application_name = SubElement(application, 'name')
+    SubElement(item, 'valuemap')
+    logtimefmt = SubElement(item, 'logtimefmt')
+
+
+
+    #
+    # Setting basic information for the item.
+    #
+    name.text = 'Alarm Notification For : ' + alarm_values['name']
+    type.text = '17'
+    multiplier.text = '0'
+    key.text = 'snmptrap["(' + alarm_values['name'] + '$)"]'
+    delay.text = '0'
+    history.text = '90'
+    trends.text = '365'
+    status.text = '0'
+    value_type.text = '2'
+    delta.text = '0'
+    snmpv3_securitylevel.text = '0'
+    snmpv3_authprotocol.text = '0'
+    snmpv3_privprotocol.text = '0'
+    formula.text = '1'
+    data_type.text = '0'
+    authtype.text = '0'
+    inventory_link.text = '0'
+    description.text = str(alarm_values['description'])
+
+    application_name.text = 'Alarms'
+    logtimefmt.text = 'hh:mm:ss yyyy/MM/dd'
+
+    trigger = SubElement(triggers, 'trigger')
+    trigger_expression = SubElement(trigger, 'expression')
+    trigger_name = SubElement(trigger, 'name')
+    SubElement(trigger, 'url')
+    trigger_status = SubElement(trigger, 'status')
+    trigger_priority = SubElement(trigger, 'priority')
+    trigger_description = SubElement(trigger, 'description')
+    trigger_type = SubElement(trigger, 'type')
+    SubElement(trigger, 'dependencies')
+
+    if (alarm_values['dependency'] == 'NONE' or alarm_values['dependency'] == '') and \
+                    alarm_values['priority'] == 'Clear':
+        trigger_expression.text = '{' + template_name + ':' + key.text + '.str("' + alarm_values['name'] + '")}=1 & {' \
+                                  + template_name + ':' + key.text + '.nodata(1d)}=0'
+
+    if (alarm_values['dependency'] == 'NONE' or alarm_values['dependency'] == '') and \
+                    alarm_values['priority'] != 'Clear':
+        trigger_expression.text = '{' + template_name + ':' + key.text + '.str("' + alarm_values['name'] + '")}=1 & {' \
+                                  + template_name + ':' + key.text + '.nodata(' + alarm_values[
+                                      'clear_time_in_days'] + ')}=0'
+
+    elif alarm_values['dependency'] != 'NONE':
+        dependency_trap_name = get_trap_name_from_oid(alarm_values['dependency'])
+        trigger_expression.text = '{' + template_name + ':' + key.text + '.str("' + alarm_values['name'] + '")}=1 & {' \
+                                  + template_name + ':' + key.text + '.nodata(' + alarm_values['clear_time_in_days'] \
+                                  + ')}=0 & {' \
+                                  + template_name + ':' + 'snmptrap["(' + dependency_trap_name + '$)"]' + \
+                                  '.str("' + dependency_trap_name + '")}=0'
+
+
+    if alarm_values['trigger_name_description'] == '':
+        trigger_name.text = 'ATTENTION : On {HOST.NAME}, An Alarm : ' + alarm_values['name'] + \
+                        ' - {#SNMPVALUE}, From Module : ' + alarm_values['mib_module']
+    else:
+        updated_name = alarm_values['trigger_name_description'].replace("\n", " ")
+        trigger_name.text = updated_name
+
+    trigger_status.text = '0'
+
+    if alarm_values['priority'] == 'Discard':
+        trigger_priority.text = '0'
+    elif alarm_values['priority'] in ['Threshold', 'Clear', 'Log', 'Information']:
+        trigger_priority.text = '1'
+    elif alarm_values['priority'] == 'Minor':
+        trigger_priority.text = '2'
+    elif alarm_values['priority'] == 'Average':
+        trigger_priority.text = '3'
+    elif alarm_values['priority'] == 'Major':
+        trigger_priority.text = '4'
+    elif alarm_values['priority'] == 'Critical':
+        trigger_priority.text = '5'
+
+    trigger_description.text = description.text
+    trigger_type.text = '0'
+
+
 def xml_pretty_me(file_name_for_prettify, string_to_prettify):
     #
     # Open a file and write to it and we are done.
@@ -279,9 +416,8 @@ def read_from_csv(csv_file_name):
         exit()
 
 
-def zabbix_snmptrap_template_import_from_fogg_csv(file_name, template_name, template_group_name):
+def zabbix_snmptrap_template_import(file_name, template_name, template_group_name):
     csv_reader = read_from_csv(file_name)
-    alarm_list = []
     for alarm_data in csv_reader:
 
         # Skipping First Line
@@ -314,8 +450,12 @@ def zabbix_snmptrap_template_import_from_fogg_csv(file_name, template_name, temp
         # Creating list of dictionary to hold the data.
         alarm_list.append(oid_dictionary)
 
+
     # pass on the listed dictionary to xml processor, this will return a XML.
-    xml_tree = generate_template_items_xml_file_complete_fogg_hp(alarm_list, template_name, template_group_name)
+    xml_tree = generate_template_items_xml(alarm_list, template_name, template_group_name)
+
+    # Cleaning list
+    del alarm_list[:]
 
     # Converting XML object to String.
     xml_tree_as_string = ElementTree.tostring(xml_tree)
@@ -349,8 +489,8 @@ if __name__ == '__main__':
         logging.basicConfig(level=logging.INFO)
 
     # Processing CSV to XML.
-    xml_tree_gen_as_string = zabbix_snmptrap_template_import_from_fogg_csv(csv_file_name, zabbix_template_name,
-                                                                           zabbix_template_group_name)
+    xml_tree_gen_as_string = zabbix_snmptrap_template_import(csv_file_name, zabbix_template_name,
+                                                             zabbix_template_group_name)
 
     # Lets make the XML pretty.
     xml_pretty_me('templates/' + zabbix_template_name.lower().replace(' ', '-') + '-item-template-trigger-import.xml',

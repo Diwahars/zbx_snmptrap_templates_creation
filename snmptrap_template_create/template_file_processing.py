@@ -41,7 +41,7 @@ file_processing_list_ggsn = [{'file_path': 'input_csv/ams_bru_hkg_ggsn.csv',
 
 for file_to_process in file_processing_list:
     print file_to_process
-    xml_tree_gen_as_string = zabbix_snmptrap_template_import_from_csv.zabbix_snmptrap_template_import_from_fogg_csv \
+    xml_tree_gen_as_string = zabbix_snmptrap_template_import_from_csv.zabbix_snmptrap_template_import \
         (file_to_process['file_path'], file_to_process['template_name'],
          file_to_process['template_group'])
     zabbix_snmptrap_template_import_from_csv.xml_pretty_me \
