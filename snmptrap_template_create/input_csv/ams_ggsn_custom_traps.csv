@@ -1,0 +1,32 @@
+MIB-MODULE,MIB File,OID,Name,Recommended Action,Comments,Description,Trigger Description,Dependency,cleartime In Days
+TRAPFILE,TRAPFILE,HLR2-PRO1,HLR2-PRO1,Minor,,Path Management - Check Peer State,Check Peer State For  :  HLR2-PRO1,NONE,600
+TRAPFILE,TRAPFILE,NLG1-HLR2,NLG1-HLR2,Minor,,Path Management - Check Peer State,Check Peer State For  :  NLG1-HLR2,NONE,600
+TRAPFILE,TRAPFILE,default,default,Minor,,Path Management - Check Peer State,Check Peer State For  :  default,NONE,600
+TRAPFILE,TRAPFILE,Hutch 3UK,Hutch 3UK,Minor,,Path Management - Check Peer State,Check Peer State For  :  Hutch 3UK,NONE,600
+TRAPFILE,TRAPFILE,Hutch 3AT,Hutch 3AT,Minor,,Path Management - Check Peer State,Check Peer State For  :  Hutch 3AT,NONE,600
+TRAPFILE,TRAPFILE,GT_Radius,GT_Radius,Minor,,Path Management - Check Peer State,Check Peer State For  :  GT_Radius,NONE,600
+TRAPFILE,TRAPFILE,SCTP_ABORT_RCVD,SCTP_ABORT_RCVD,Minor,,Path Management - Check Peer State,Check Peer State For  :  SCTP_ABORT_RCVD,NONE,600
+TRAPFILE,TRAPFILE,PCRF-AT-Primary,PCRF-AT-Primary,Minor,,Path Management - Check Peer State,Check Peer State For  :  PCRF-AT-Primary,NONE,600
+TRAPFILE,TRAPFILE,PCRF-DE-Primary,PCRF-DE-Primary,Minor,,Path Management - Check Peer State,Check Peer State For  :  PCRF-DE-Primary,NONE,600
+TRAPFILE,TRAPFILE,PCRF-DE-Testing,PCRF-DE-Testing,Minor,,Path Management - Check Peer State,Check Peer State For  :  PCRF-DE-Testing,NONE,600
+TRAPFILE,TRAPFILE,PCRF-IR-Primary,PCRF-IR-Primary,Minor,,Path Management - Check Peer State,Check Peer State For  :  PCRF-IR-Primary,NONE,600
+TRAPFILE,TRAPFILE,PCRF-IR-Testing,PCRF-IR-Testing,Minor,,Path Management - Check Peer State,Check Peer State For  :  PCRF-IR-Testing,NONE,600
+TRAPFILE,TRAPFILE,PCRF-IT-Primary,PCRF-IT-Primary,Minor,,Path Management - Check Peer State,Check Peer State For  :  PCRF-IT-Primary,NONE,600
+TRAPFILE,TRAPFILE,PCRF-IT-Testing,PCRF-IT-Testing,Minor,,Path Management - Check Peer State,Check Peer State For  :  PCRF-IT-Testing,NONE,600
+TRAPFILE,TRAPFILE,PCRF-SE-Primary,PCRF-SE-Primary,Minor,,Path Management - Check Peer State,Check Peer State For  :  PCRF-SE-Primary,NONE,600
+TRAPFILE,TRAPFILE,PCRF-AT-Secondary,PCRF-AT-Secondary,Minor,,Path Management - Check Peer State,Check Peer State For  :  PCRF-AT-Secondary,NONE,600
+TRAPFILE,TRAPFILE,PCRF-DE-Secondary,PCRF-DE-Secondary,Minor,,Path Management - Check Peer State,Check Peer State For  :  PCRF-DE-Secondary,NONE,600
+TRAPFILE,TRAPFILE,PCRF-IR-Secondary,PCRF-IR-Secondary,Minor,,Path Management - Check Peer State,Check Peer State For  :  PCRF-IR-Secondary,NONE,600
+TRAPFILE,TRAPFILE,PCRF-IT-Secondary,PCRF-IT-Secondary,Minor,,Path Management - Check Peer State,Check Peer State For  :  PCRF-IT-Secondary,NONE,600
+TRAPFILE,TRAPFILE,PCRF-SE-Secondary,PCRF-SE-Secondary,Minor,,Path Management - Check Peer State,Check Peer State For  :  PCRF-SE-Secondary,NONE,600
+TRAPFILE,TRAPFILE,OCS-Server-Hutch-DE-Primary,OCS-Server-Hutch-DE-Primary,Minor,,Path Management - Check Peer State,Check Peer State For  :  OCS-Server-Hutch-DE-Primary,NONE,600
+TRAPFILE,TRAPFILE,OCS-Server-Hutch-IT-Primary,OCS-Server-Hutch-IT-Primary,Minor,,Path Management - Check Peer State,Check Peer State For  :  OCS-Server-Hutch-IT-Primary,NONE,600
+TRAPFILE,TRAPFILE,OCS-Server-Hutch-SE-Primary,OCS-Server-Hutch-SE-Primary,Minor,,Path Management - Check Peer State,Check Peer State For  :  OCS-Server-Hutch-SE-Primary,NONE,600
+TRAPFILE,TRAPFILE,OCS-Server-Hutch-SE-Testing,OCS-Server-Hutch-SE-Testing,Minor,,Path Management - Check Peer State,Check Peer State For  :  OCS-Server-Hutch-SE-Testing,NONE,600
+TRAPFILE,TRAPFILE,OCS-Server-Hutch-DE-Secondary,OCS-Server-Hutch-DE-Secondary,Minor,,Path Management - Check Peer State,Check Peer State For  :  OCS-Server-Hutch-DE-Secondary,NONE,600
+TRAPFILE,TRAPFILE,OCS-Server-Hutch-IT-Secondary,OCS-Server-Hutch-IT-Secondary,Minor,,Path Management - Check Peer State,Check Peer State For  :  OCS-Server-Hutch-IT-Secondary,NONE,600
+TRAPFILE,TRAPFILE,OCS-Server-Hutch-SE-Secondary,OCS-Server-Hutch-SE-Secondary,Minor,,Path Management - Check Peer State,Check Peer State For  :  OCS-Server-Hutch-SE-Secondary,NONE,600
+TRAPFILE,TRAPFILE,OCS-Delcom-1,OCS-Delcom-1,Minor,,Path Management - Check Peer State,Check Peer State For  :  OCS-Delcom-1,NONE,600
+TRAPFILE,TRAPFILE,OCS-Delcom-2,OCS-Delcom-2,Minor,,Path Management - Check Peer State,Check Peer State For  :  OCS-Delcom-2,NONE,600
+TRAPFILE,TRAPFILE,VOD-APP1,VOD-APP1,Minor,,Path Management - Check Peer State,Check Peer State For  :  VOD-APP1,NONE,600
+TRAPFILE,TRAPFILE,Hutch 3DE,Hutch 3DE,Minor,,Path Management - Check Peer State,Check Peer State For  :  Hutch 3DE,NONE,600
