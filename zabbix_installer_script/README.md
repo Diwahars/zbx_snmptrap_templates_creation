@@ -5,6 +5,8 @@ Scripts does 2 Major installations.
 1. Setting up basic zabbix installation.
 2. Setup zabbix trapper using perl script.
 
+[Script Location here.](https://github.com/zubayr/zbx_snmptrap_templates_creation/tree/master/zabbix_installer_script)
+
 ### Here is what the script does at a lower level.
 
 1. Installing `zabbix` Repo.
@@ -594,3 +596,5 @@ Dashboard. Installation Complete.
 Checking backend `perl` trapper.
 
 ![Screen 8](http://zubayr.github.io/images/zabbix_install_9.jpg)
+
+Installation Complete.
