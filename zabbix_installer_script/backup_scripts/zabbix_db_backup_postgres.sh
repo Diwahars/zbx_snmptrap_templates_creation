@@ -21,9 +21,17 @@ USER='postgres'
 NMS_SERVER_NAME=`uname -n | cut -d'-' -f1`
 
 
+#  NOTE :
+#
+#   Changes this BACKUP_DIR to point to a correct backup location
+#   usually /tmp location are purged.
+#
+#   BACKUP_DIR=/zabbix_db_backup/postgres_complete_backup/
+#
+
 BACKUP_DIR=/tmp/backup_zabbix_db
 DATE=`date "+%Y_%m_%d_%H_%M"`
-PREV=`date -d '7 days ago' "+%Y_%m_%d"`
+PREV=`date -d '3 days ago' "+%Y_%m_%d"`
 
 FILE_NAME=${NMS_SERVER_NAME}_DBBACKUP_${DATE}.dump
 FILE_NAME_TGZ=${FILE_NAME}.tgz
@@ -74,13 +82,13 @@ create_archive()
     echo "Creating Archive."
     tar cvzf ${FILE_NAME_TGZ} ${FILE_NAME}
 
-    echo "Changing owner to user from root."
+    echo "Setting Owner."
     chown $USER:$USER ${FILE_NAME}.tgz
 
     echo "Removing Unarchived Backup."
     rm $BACKUP_DIR/${FILE_NAME}
 
-    echo "Removing Archives older than 7 days."
+    echo "Removing Archives older than 3 days."
     rm $BACKUP_DIR/${NMS_SERVER_NAME}_DBBACKUP_$PREV*
 
     cd -
