@@ -1,9 +1,9 @@
-## Scripts to take DB Dump for `postgres` and `mysql` specific to `zabbix` Database.
+## Backup Script for `postgres` and `mysql`.
 
 What does the script do.
 
 1. Take backup of the database `zabbix`, given by variable `BASE='zabbix'`
-2. Archive the backup and Remove old backups. 
+2. Archive the backup and Remove old backups (older than 3 days). 
 
 Here is the script flow.
 
@@ -36,13 +36,18 @@ Logon to the server and `su` to `postgres` user. `$HOME` for `postgres` user is 
 3. Create a directory for the backup. Similar as `/zabbix_db_backup/postgres_complete_backup/`.
 4. Set owner to `postgres` which will be running the script for `backup` location in step 3.
 5. Update script with new path `BACKUP_DIR=/zabbix_db_backup/postgres_complete_backup/`
-6. Update script with database username `USERDB='zabbix'`, database password `PASSWD='zabbix'`,database name `BASE='zabbix'`
+6. Update script with below information.
+	1. Database username : `USERDB='zabbix'`, 
+	2. Database password : `PASSWD='zabbix'`,
+	3. Database : `BASE='zabbix'`
 7. Create a file called `.pgpass`. To have the script run without the password, we need to have the `.pgpass` file in the $HOME of the `postgres` user. Format of the file is a below. (`:` seperated values)
+8. Set permission to `.pgpass` file as `600`
 
+Here is a template for the `.pgpass` file.
 
     <postgres_server_ip>:<postgres_port>:<db_name>:<db_user>:<db_user_password>
 
-Example: one database in one line. (Set file permissions to 0600)
+Example: one database in one line. **(Set file permissions to 0600)**
     
     localhost:5432:zabbix_db_name:zabbix_user_name:zabbix_password
 
@@ -78,7 +83,7 @@ Here is how the `.pgpass` file looks like.
 
 Updating the crontab with below command.
 
-    bash-4.1$ crontab -e
+    crontab -e
     
 Update the crontab with below contents.
     
@@ -98,13 +103,17 @@ Script will run everyday at 00:00 hrs, and keeps backup for 3days.
        
 ## Setting up the scripts in `mysql`.       
 
+Log on to the user which will be used for taking backups. 
 
 1. Create/Copy the postgres script to user home location `$HOME`.
 2. Change permission to execute `chmod 777 $HOME/zabbix_db_backup_postgres.sh`
 3. Create a directory for the backup. Similar as `/zabbix_db_backup/postgres_complete_backup/`.
 4. Set owner to the `user` which will be running the script for `backup` location in step 3.
 5. Update script with new path `BACKUP_DIR=/zabbix_db_backup/postgres_complete_backup/`
-6. Update script with database username `USERDB='zabbix'`, database password `PASSWD='zabbix'`,database name `BASE='zabbix'`
+6. Update script with 
+	1. Database username : `USERDB='zabbix'`, 
+	2. Database password : `PASSWD='zabbix'`,
+	3. Database : `BASE='zabbix'`
 
 ### Update crontab `mysql`
 
