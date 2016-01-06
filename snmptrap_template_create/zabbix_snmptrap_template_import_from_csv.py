@@ -495,3 +495,7 @@ if __name__ == '__main__':
     # Lets make the XML pretty.
     xml_pretty_me('templates/' + zabbix_template_name.lower().replace(' ', '-') + '-item-template-trigger-import.xml',
                   xml_tree_gen_as_string)
+
+    print '\n\nFILE PROCESSING COMPLETE.. \nFile is stored in : ' \
+                    + 'templates/' + zabbix_template_name.lower().replace(' ', '-') \
+                    + '-item-template-trigger-import.xml\n'
