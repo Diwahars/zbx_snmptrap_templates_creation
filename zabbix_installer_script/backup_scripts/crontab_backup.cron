@@ -8,7 +8,7 @@
 # *  *  *  *  *  command to be executed
 
 # Execute backuo of Zabbix Database Every Week.
-#0 0 * * 0 sh /var/lib/pgsql/zabbix_db_backup.sh >> /tmp/backup_zabbix_db/postgres_database_backup.log
+0 0 * * 0 /var/lib/pgsql/zabbix_db_backup.sh
 
 # Testing
 #* * * * * /usr/bin/psql -U zabbix -c '\l' >> /tmp/backup_zabbix_db/date_postgres.log

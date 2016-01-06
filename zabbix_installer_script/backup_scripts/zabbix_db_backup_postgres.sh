@@ -93,8 +93,14 @@ then
     mkdir -p $BACKUP_DIR
 fi
 
-# Take a DB backup
-backup_postgres_db
+# Check if directory exsists.
+if [ -d $BACKUP_DIR ];
+then
+    # Take a DB backup
+    backup_postgres_db
 
-# Creating Archives.
-create_archive
+    # Creating Archives.
+    create_archive
+fi
+
+

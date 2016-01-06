@@ -59,14 +59,14 @@ then
     mkdir -p $BACKUP_DIR
 fi
 
-# Stop all server services.
-service zabbix-server stop
+# Check if directory exsists.
+if [ -d $BACKUP_DIR ];
+then
+    # Take a DB backup
+    backup_db
 
-# Take a DB backup
-backup_db
+    # Creating Archives.
+    create_archive
+fi
 
-# Starting Server Services.
-start_service
 
-# Creating Archives.
-create_archive
