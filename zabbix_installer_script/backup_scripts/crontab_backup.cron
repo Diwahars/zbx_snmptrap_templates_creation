@@ -1,0 +1,14 @@
+# Crontab information on how it works.
+# +----------------> minute (0 - 59)
+# |  +-------------> hour (0 - 23)
+# |  |  +----------> day of month (1 - 31)
+# |  |  |  +-------> month (1 - 12)
+# |  |  |  |  +----> day of week (0 - 6) (Sunday=0 or 7)
+# |  |  |  |  |
+# *  *  *  *  *  command to be executed
+
+# Execute backuo of Zabbix Database Every Week.
+#0 0 * * 0 sh /var/lib/pgsql/zabbix_db_backup.sh >> /tmp/backup_zabbix_db/postgres_database_backup.log
+
+# Testing
+#* * * * * /usr/bin/psql -U zabbix -c '\l' >> /tmp/backup_zabbix_db/date_postgres.log
