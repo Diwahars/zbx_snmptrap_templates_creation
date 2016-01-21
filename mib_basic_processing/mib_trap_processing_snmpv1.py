@@ -650,5 +650,5 @@ if __name__ == '__main__':
     if path_to_mibs[-1:] != '/':
         path_to_mibs = path_to_mibs + '/'
 
-    creating_file(csv_file_name, path_to_mibs)
+    creating_file(csv_file_name, file_processing(path_to_mibs))
 
